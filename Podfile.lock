@@ -1,0 +1,24 @@
+PODS:
+  - Bartinter (0.0.5)
+  - QuickLayout (3.0.0)
+  - SwiftEntryKit (1.2.6):
+    - QuickLayout (= 3.0.0)
+
+DEPENDENCIES:
+  - Bartinter
+  - SwiftEntryKit
+
+SPEC REPOS:
+  trunk:
+    - Bartinter
+    - QuickLayout
+    - SwiftEntryKit
+
+SPEC CHECKSUMS:
+  Bartinter: 3c1fc3bcb631b066fdd78f7e01f1635fbafffdea
+  QuickLayout: 07b45a72b10083fee3f095990cfed1c1e7b27f0a
+  SwiftEntryKit: 96a2fa90b2631bbbfac50d18449e9ca3d0635f13
+
+PODFILE CHECKSUM: 090091f2456cfe608749ec16167d8c4694940af2
+
+COCOAPODS: 1.9.3
