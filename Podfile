@@ -17,4 +17,5 @@ target 'Udemy' do
   end
 pod 'Bartinter'
 pod 'SwiftEntryKit'
+pod 'SnapKit'
 end
