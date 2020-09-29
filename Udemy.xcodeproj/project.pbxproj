@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3E3B87AF2522DF70006CBC37 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B87AE2522DF70006CBC37 /* TokenManager.swift */; };
 		3EAD5D4C2521C8370093944F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD5D4B2521C8370093944F /* AppDelegate.swift */; };
-		3EAD5D4E2521C8370093944F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD5D4D2521C8370093944F /* SceneDelegate.swift */; };
 		3EAD5D502521C8380093944F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD5D4F2521C8380093944F /* ViewController.swift */; };
 		3EAD5D532521C8380093944F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EAD5D512521C8380093944F /* Main.storyboard */; };
 		3EAD5D562521C8380093944F /* Udemy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD5D542521C8380093944F /* Udemy.xcdatamodeld */; };
@@ -45,7 +44,6 @@
 		3E3B87AE2522DF70006CBC37 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		3EAD5D482521C8370093944F /* Udemy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udemy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAD5D4B2521C8370093944F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3EAD5D4D2521C8370093944F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3EAD5D4F2521C8380093944F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3EAD5D522521C8380093944F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3EAD5D552521C8380093944F /* Udemy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Udemy.xcdatamodel; sourceTree = "<group>"; };
@@ -99,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				3EAD5D4B2521C8370093944F /* AppDelegate.swift */,
-				3EAD5D4D2521C8370093944F /* SceneDelegate.swift */,
 				3EAD5D572521C8390093944F /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -449,7 +446,6 @@
 				3EAD5D4C2521C8370093944F /* AppDelegate.swift in Sources */,
 				3E3B87AF2522DF70006CBC37 /* TokenManager.swift in Sources */,
 				3EAD5D562521C8380093944F /* Udemy.xcdatamodeld in Sources */,
-				3EAD5D4E2521C8370093944F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
