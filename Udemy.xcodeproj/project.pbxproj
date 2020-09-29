@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E07EAFC2522E493002EBE7B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EAFB2522E493002EBE7B /* LoginView.swift */; };
+		3E07EAFE2522E72C002EBE7B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EAFD2522E72C002EBE7B /* RegisterViewController.swift */; };
+		3E07EB012522E7B3002EBE7B /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB002522E7B3002EBE7B /* RegisterView.swift */; };
+		3E07EB032522E7CC002EBE7B /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB022522E7CC002EBE7B /* Common.swift */; };
+		3E07EB062522E800002EBE7B /* UdemyLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB052522E800002EBE7B /* UdemyLoginManager.swift */; };
+		3E07EB082522E81C002EBE7B /* UdemyRegisterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB072522E81C002EBE7B /* UdemyRegisterManager.swift */; };
 		3E3B87AF2522DF70006CBC37 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B87AE2522DF70006CBC37 /* TokenManager.swift */; };
 		3EAD5D4C2521C8370093944F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD5D4B2521C8370093944F /* AppDelegate.swift */; };
-		3EAD5D502521C8380093944F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD5D4F2521C8380093944F /* LoginView.swift */; };
+		3EAD5D502521C8380093944F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD5D4F2521C8380093944F /* LoginViewController.swift */; };
 		3EAD5D532521C8380093944F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EAD5D512521C8380093944F /* Main.storyboard */; };
 		3EAD5D562521C8380093944F /* Udemy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD5D542521C8380093944F /* Udemy.xcdatamodeld */; };
 		3EAD5D582521C8390093944F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EAD5D572521C8390093944F /* Assets.xcassets */; };
@@ -41,10 +47,16 @@
 /* Begin PBXFileReference section */
 		14A2D4A458FDABD48BB4B190 /* Pods-Udemy-UdemyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udemy-UdemyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Udemy-UdemyUITests/Pods-Udemy-UdemyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1A6DD49030E4B5D8B2E75027 /* Pods_UdemyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UdemyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E07EAFB2522E493002EBE7B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3E07EAFD2522E72C002EBE7B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		3E07EB002522E7B3002EBE7B /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		3E07EB022522E7CC002EBE7B /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		3E07EB052522E800002EBE7B /* UdemyLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdemyLoginManager.swift; sourceTree = "<group>"; };
+		3E07EB072522E81C002EBE7B /* UdemyRegisterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdemyRegisterManager.swift; sourceTree = "<group>"; };
 		3E3B87AE2522DF70006CBC37 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		3EAD5D482521C8370093944F /* Udemy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udemy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAD5D4B2521C8370093944F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3EAD5D4F2521C8380093944F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3EAD5D4F2521C8380093944F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3EAD5D522521C8380093944F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3EAD5D552521C8380093944F /* Udemy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Udemy.xcdatamodel; sourceTree = "<group>"; };
 		3EAD5D572521C8390093944F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,6 +105,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E07EAF62522E27D002EBE7B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3E07EAFB2522E493002EBE7B /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3E07EAFF2522E7A6002EBE7B /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				3E07EB002522E7B3002EBE7B /* RegisterView.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		3E07EB042522E7E6002EBE7B /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3E07EB052522E800002EBE7B /* UdemyLoginManager.swift */,
+				3E07EB072522E81C002EBE7B /* UdemyRegisterManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		3E3B87AA2522DF19006CBC37 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,7 +142,8 @@
 		3E3B87AB2522DF2E006CBC37 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3EAD5D4F2521C8380093944F /* LoginView.swift */,
+				3EAD5D4F2521C8380093944F /* LoginViewController.swift */,
+				3E07EAFD2522E72C002EBE7B /* RegisterViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -113,6 +151,8 @@
 		3E3B87AC2522DF3C006CBC37 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3E07EAFF2522E7A6002EBE7B /* Register */,
+				3E07EAF62522E27D002EBE7B /* Login */,
 				3EAD5D512521C8380093944F /* Main.storyboard */,
 				3EAD5D592521C8390093944F /* LaunchScreen.storyboard */,
 			);
@@ -123,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				3E3B87AE2522DF70006CBC37 /* TokenManager.swift */,
+				3E07EB022522E7CC002EBE7B /* Common.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -152,6 +193,7 @@
 		3EAD5D4A2521C8370093944F /* Udemy */ = {
 			isa = PBXGroup;
 			children = (
+				3E07EB042522E7E6002EBE7B /* Networking */,
 				3E3B87AD2522DF61006CBC37 /* Models */,
 				3E3B87AC2522DF3C006CBC37 /* Views */,
 				3E3B87AB2522DF2E006CBC37 /* Controllers */,
@@ -442,9 +484,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EAD5D502521C8380093944F /* LoginView.swift in Sources */,
+				3E07EB032522E7CC002EBE7B /* Common.swift in Sources */,
+				3EAD5D502521C8380093944F /* LoginViewController.swift in Sources */,
 				3EAD5D4C2521C8370093944F /* AppDelegate.swift in Sources */,
 				3E3B87AF2522DF70006CBC37 /* TokenManager.swift in Sources */,
+				3E07EB012522E7B3002EBE7B /* RegisterView.swift in Sources */,
+				3E07EB062522E800002EBE7B /* UdemyLoginManager.swift in Sources */,
+				3E07EAFE2522E72C002EBE7B /* RegisterViewController.swift in Sources */,
+				3E07EB082522E81C002EBE7B /* UdemyRegisterManager.swift in Sources */,
+				3E07EAFC2522E493002EBE7B /* LoginView.swift in Sources */,
 				3EAD5D562521C8380093944F /* Udemy.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
