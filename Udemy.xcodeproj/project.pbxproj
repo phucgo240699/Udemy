@@ -13,6 +13,11 @@
 		3E07EB032522E7CC002EBE7B /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB022522E7CC002EBE7B /* Common.swift */; };
 		3E07EB062522E800002EBE7B /* UdemyLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB052522E800002EBE7B /* UdemyLoginManager.swift */; };
 		3E07EB082522E81C002EBE7B /* UdemyRegisterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB072522E81C002EBE7B /* UdemyRegisterManager.swift */; };
+		3E07EB0B2522E976002EBE7B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB0A2522E976002EBE7B /* Image.swift */; };
+		3E07EB0D2522E981002EBE7B /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB0C2522E981002EBE7B /* Label.swift */; };
+		3E07EB0F2522E993002EBE7B /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB0E2522E993002EBE7B /* TextField.swift */; };
+		3E07EB112522E99D002EBE7B /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB102522E99D002EBE7B /* TextView.swift */; };
+		3E07EB132522E9B0002EBE7B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB122522E9B0002EBE7B /* Button.swift */; };
 		3E3B87AF2522DF70006CBC37 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B87AE2522DF70006CBC37 /* TokenManager.swift */; };
 		3EAD5D4C2521C8370093944F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD5D4B2521C8370093944F /* AppDelegate.swift */; };
 		3EAD5D502521C8380093944F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD5D4F2521C8380093944F /* LoginViewController.swift */; };
@@ -53,6 +58,11 @@
 		3E07EB022522E7CC002EBE7B /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		3E07EB052522E800002EBE7B /* UdemyLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdemyLoginManager.swift; sourceTree = "<group>"; };
 		3E07EB072522E81C002EBE7B /* UdemyRegisterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdemyRegisterManager.swift; sourceTree = "<group>"; };
+		3E07EB0A2522E976002EBE7B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		3E07EB0C2522E981002EBE7B /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		3E07EB0E2522E993002EBE7B /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		3E07EB102522E99D002EBE7B /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		3E07EB122522E9B0002EBE7B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		3E3B87AE2522DF70006CBC37 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		3EAD5D482521C8370093944F /* Udemy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udemy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAD5D4B2521C8370093944F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +140,18 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		3E07EB092522E95F002EBE7B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3E07EB0A2522E976002EBE7B /* Image.swift */,
+				3E07EB0C2522E981002EBE7B /* Label.swift */,
+				3E07EB0E2522E993002EBE7B /* TextField.swift */,
+				3E07EB102522E99D002EBE7B /* TextView.swift */,
+				3E07EB122522E9B0002EBE7B /* Button.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		3E3B87AA2522DF19006CBC37 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +173,7 @@
 		3E3B87AC2522DF3C006CBC37 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3E07EB092522E95F002EBE7B /* Components */,
 				3E07EAFF2522E7A6002EBE7B /* Register */,
 				3E07EAF62522E27D002EBE7B /* Login */,
 				3EAD5D512521C8380093944F /* Main.storyboard */,
@@ -486,13 +509,18 @@
 			files = (
 				3E07EB032522E7CC002EBE7B /* Common.swift in Sources */,
 				3EAD5D502521C8380093944F /* LoginViewController.swift in Sources */,
+				3E07EB0D2522E981002EBE7B /* Label.swift in Sources */,
+				3E07EB112522E99D002EBE7B /* TextView.swift in Sources */,
 				3EAD5D4C2521C8370093944F /* AppDelegate.swift in Sources */,
 				3E3B87AF2522DF70006CBC37 /* TokenManager.swift in Sources */,
+				3E07EB0F2522E993002EBE7B /* TextField.swift in Sources */,
 				3E07EB012522E7B3002EBE7B /* RegisterView.swift in Sources */,
 				3E07EB062522E800002EBE7B /* UdemyLoginManager.swift in Sources */,
 				3E07EAFE2522E72C002EBE7B /* RegisterViewController.swift in Sources */,
+				3E07EB132522E9B0002EBE7B /* Button.swift in Sources */,
 				3E07EB082522E81C002EBE7B /* UdemyRegisterManager.swift in Sources */,
 				3E07EAFC2522E493002EBE7B /* LoginView.swift in Sources */,
+				3E07EB0B2522E976002EBE7B /* Image.swift in Sources */,
 				3EAD5D562521C8380093944F /* Udemy.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
