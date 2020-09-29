@@ -19,6 +19,9 @@
 		3E07EB112522E99D002EBE7B /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB102522E99D002EBE7B /* TextView.swift */; };
 		3E07EB132522E9B0002EBE7B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB122522E9B0002EBE7B /* Button.swift */; };
 		3E3B87AF2522DF70006CBC37 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B87AE2522DF70006CBC37 /* TokenManager.swift */; };
+		3E6E3FED25230452004DF50E /* YAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E3FEC25230452004DF50E /* YAnchor.swift */; };
+		3E6E3FEF252304A9004DF50E /* XAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E3FEE252304A9004DF50E /* XAnchor.swift */; };
+		3E6E3FF125230901004DF50E /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E3FF025230901004DF50E /* View.swift */; };
 		3EAD5D4C2521C8370093944F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD5D4B2521C8370093944F /* AppDelegate.swift */; };
 		3EAD5D502521C8380093944F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD5D4F2521C8380093944F /* LoginViewController.swift */; };
 		3EAD5D532521C8380093944F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EAD5D512521C8380093944F /* Main.storyboard */; };
@@ -64,6 +67,9 @@
 		3E07EB102522E99D002EBE7B /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		3E07EB122522E9B0002EBE7B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		3E3B87AE2522DF70006CBC37 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		3E6E3FEC25230452004DF50E /* YAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YAnchor.swift; sourceTree = "<group>"; };
+		3E6E3FEE252304A9004DF50E /* XAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XAnchor.swift; sourceTree = "<group>"; };
+		3E6E3FF025230901004DF50E /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		3EAD5D482521C8370093944F /* Udemy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udemy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAD5D4B2521C8370093944F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EAD5D4F2521C8380093944F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +154,9 @@
 				3E07EB0E2522E993002EBE7B /* TextField.swift */,
 				3E07EB102522E99D002EBE7B /* TextView.swift */,
 				3E07EB122522E9B0002EBE7B /* Button.swift */,
+				3E6E3FEC25230452004DF50E /* YAnchor.swift */,
+				3E6E3FEE252304A9004DF50E /* XAnchor.swift */,
+				3E6E3FF025230901004DF50E /* View.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -515,10 +524,13 @@
 				3E3B87AF2522DF70006CBC37 /* TokenManager.swift in Sources */,
 				3E07EB0F2522E993002EBE7B /* TextField.swift in Sources */,
 				3E07EB012522E7B3002EBE7B /* RegisterView.swift in Sources */,
+				3E6E3FEF252304A9004DF50E /* XAnchor.swift in Sources */,
 				3E07EB062522E800002EBE7B /* UdemyLoginManager.swift in Sources */,
 				3E07EAFE2522E72C002EBE7B /* RegisterViewController.swift in Sources */,
 				3E07EB132522E9B0002EBE7B /* Button.swift in Sources */,
 				3E07EB082522E81C002EBE7B /* UdemyRegisterManager.swift in Sources */,
+				3E6E3FED25230452004DF50E /* YAnchor.swift in Sources */,
+				3E6E3FF125230901004DF50E /* View.swift in Sources */,
 				3E07EAFC2522E493002EBE7B /* LoginView.swift in Sources */,
 				3E07EB0B2522E976002EBE7B /* Image.swift in Sources */,
 				3EAD5D562521C8380093944F /* Udemy.xcdatamodeld in Sources */,

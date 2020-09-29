@@ -18,4 +18,5 @@ target 'Udemy' do
 pod 'Bartinter'
 pod 'SwiftEntryKit'
 pod 'SnapKit'
+pod 'IQKeyboardManagerSwift'
 end

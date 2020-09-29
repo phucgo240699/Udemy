@@ -7,3 +7,19 @@
 //
 
 import Foundation
+import UIKit
+
+extension UIButton {
+    static func getButton(_ title: String, _ backColor: UIColor?, _ textColor: UIColor?) -> UIButton {
+        let button = UIButton()
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(textColor, for: .normal)
+        button.backgroundColor = backColor == nil ? .none : backColor!
+        return button
+    }
+    
+    func afterEffect(textSize: CGFloat, corner: CGFloat) {
+        self.titleLabel?.font = UIFont(name: Common.fontName, size: textSize)
+        self.layer.cornerRadius = corner
+    }
+}
