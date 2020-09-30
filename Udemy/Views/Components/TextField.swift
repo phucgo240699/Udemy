@@ -15,8 +15,8 @@ extension UITextField {
         let textField = UITextField()
         textField.placeholder = placeholder
         textField.textAlignment = .natural
-        textField.tintColor = Common.color.lightGray
-        textField.backgroundColor = .white
+        textField.tintColor = .systemGray
+        textField.backgroundColor = .systemBackground
         textField.textColor = .black
         textField.isSecureTextEntry = isHideText
         textField.clearButtonMode = .whileEditing
