@@ -11,6 +11,7 @@ import UIKit
 
 struct ImageName {
     var logo: String = "planet"
+    var xmark_circle = "xmark_circle"
 }
 
 struct CustomColor {

@@ -10,6 +10,18 @@ import Foundation
 import UIKit
 
 extension RegisterViewController {
+    func initializeCloseButton() {
+        closeBtn = UIButton()
+        closeBtn?.setBackgroundImage(UIImage(named: Common.imageName.xmark_circle), for: .normal)
+        closeBtn?.addTarget(self, action: #selector(RegisterViewController.closeBtnPressed(_:)), for: .touchUpInside)
+        guard let closeBtn = closeBtn else {
+            return
+        }
+        
+        UIView.addToViewByConstraints(parent: view, subView: closeBtn, top: YAnchor(direction: view.topAnchor, constant: 50), bottom: nil, leading: XAnchor(direction: view.leadingAnchor, constant: 20), trailing: nil, centerY: nil, centerX: nil, width: width * 0.08, height: width * 0.08)
+        
+    }
+    
     // Name
     func initializeNameTextField() {
         nameTxtField = UITextField.getInput(placeholder: "\tName")

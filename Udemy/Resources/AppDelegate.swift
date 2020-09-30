@@ -14,9 +14,12 @@ import IQKeyboardManagerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let loginController: UINavigationController = UINavigationController(rootViewController: LoginViewController())
-    let registerController: UINavigationController = UINavigationController(rootViewController: RegisterViewController())
     var currentController: CurrentController = .login
+    
+    let loginController: LoginViewController = LoginViewController()
+    let registerController: RegisterViewController = RegisterViewController()
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         

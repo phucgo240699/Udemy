@@ -12,6 +12,7 @@ import UIKit
 class RegisterViewController: UIViewController {
     
 //    let contentTextFields: [String] = ["Name", "Gender", "Phone numbers", "Address", "Description", "Password", "Re-password"]
+    var closeBtn: UIButton?
     var nameTxtField: UITextField?
     var genderTxtField: UITextField?
     var phoneNumbersTxtField: UITextField?
@@ -36,6 +37,7 @@ class RegisterViewController: UIViewController {
         height = view.bounds.height
         navBarHeight = navigationController?.navigationBar.bounds.height ?? 44
         
+        initializeCloseButton()
         initializeNameTextField()
         initializeGenderTextField()
         initializePhoneNumberTextField()
@@ -46,6 +48,14 @@ class RegisterViewController: UIViewController {
         initializeRegisterButton()
     }
     
+    @objc func closeBtnPressed(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.5,
+                       delay: 0.0,
+                       options: [.transitionFlipFromBottom ],
+                       animations: {
+                        (UIApplication.shared.delegate as! AppDelegate).window?.setController(.login)
+        }, completion: nil)
+    }
     
     @objc func registerBtnPressed(_ sender: UIButton) {
         
