@@ -13,8 +13,10 @@ extension UIWindow {
         let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
         switch value {
         case .login:
+            appDelegate.currentController = .login
             self.rootViewController = appDelegate.loginController
         default:
+            appDelegate.currentController = .register
             self.rootViewController = appDelegate.registerController
         }
     }

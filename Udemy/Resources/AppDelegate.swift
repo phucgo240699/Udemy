@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let loginController: UINavigationController = UINavigationController(rootViewController: LoginViewController())
     let registerController: UINavigationController = UINavigationController(rootViewController: RegisterViewController())
-    let current: CurrentController = .login
+    var currentController: CurrentController = .login
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        window?.setController(current)
+        window?.setController(currentController)
         window?.makeKeyAndVisible()
         return true
     }
