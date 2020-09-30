@@ -28,6 +28,7 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "Register"
         view.backgroundColor = .clear
         view.addGradient(colors: [Common.color.blue.cgColor, Common.color.purple.cgColor], start: CGPoint(x: 0.0, y: 0.0), end: CGPoint(x: 0.0, y: 1.0) )
         
@@ -45,11 +46,6 @@ class RegisterViewController: UIViewController {
         initializeRegisterButton()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        navigationItem.title = "Register"
-        navigationController?.navigationBar.isHidden = false
-    }
     
     @objc func registerBtnPressed(_ sender: UIButton) {
         

@@ -14,7 +14,9 @@ import IQKeyboardManagerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let loginController: UINavigationController = UINavigationController(rootViewController: LoginViewController())
+    let registerController: UINavigationController = UINavigationController(rootViewController: RegisterViewController())
+    let current: CurrentController = .login
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -22,12 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        let mainNav = UINavigationController(rootViewController: LoginViewController())
-
-        window?.rootViewController = mainNav
+        window?.setController(current)
         window?.makeKeyAndVisible()
         return true
     }
+    
 
 //    // MARK: UISceneSession Lifecycle
 //

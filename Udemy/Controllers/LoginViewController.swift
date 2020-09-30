@@ -43,8 +43,7 @@ class LoginViewController: UIViewController {
     }
     
     @objc func registerBtnPressed(_ sender: UIButton) {
-        let vc = RegisterViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        (UIApplication.shared.delegate as! AppDelegate).window?.setController(.register)
     }
     
 

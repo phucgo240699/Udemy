@@ -22,9 +22,10 @@
 		3E6E3FED25230452004DF50E /* YAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E3FEC25230452004DF50E /* YAnchor.swift */; };
 		3E6E3FEF252304A9004DF50E /* XAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E3FEE252304A9004DF50E /* XAnchor.swift */; };
 		3E6E3FF125230901004DF50E /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E3FF025230901004DF50E /* View.swift */; };
+		3E91FD9E252415C90086DA0A /* CurrentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E91FD9D252415C90086DA0A /* CurrentController.swift */; };
+		3E91FDA12524170C0086DA0A /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E91FDA02524170C0086DA0A /* Window.swift */; };
 		3EAD5D4C2521C8370093944F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD5D4B2521C8370093944F /* AppDelegate.swift */; };
 		3EAD5D502521C8380093944F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD5D4F2521C8380093944F /* LoginViewController.swift */; };
-		3EAD5D532521C8380093944F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EAD5D512521C8380093944F /* Main.storyboard */; };
 		3EAD5D562521C8380093944F /* Udemy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD5D542521C8380093944F /* Udemy.xcdatamodeld */; };
 		3EAD5D582521C8390093944F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EAD5D572521C8390093944F /* Assets.xcassets */; };
 		3EAD5D5B2521C8390093944F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EAD5D592521C8390093944F /* LaunchScreen.storyboard */; };
@@ -70,10 +71,11 @@
 		3E6E3FEC25230452004DF50E /* YAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YAnchor.swift; sourceTree = "<group>"; };
 		3E6E3FEE252304A9004DF50E /* XAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XAnchor.swift; sourceTree = "<group>"; };
 		3E6E3FF025230901004DF50E /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		3E91FD9D252415C90086DA0A /* CurrentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentController.swift; sourceTree = "<group>"; };
+		3E91FDA02524170C0086DA0A /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		3EAD5D482521C8370093944F /* Udemy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udemy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAD5D4B2521C8370093944F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EAD5D4F2521C8380093944F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		3EAD5D522521C8380093944F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3EAD5D552521C8380093944F /* Udemy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Udemy.xcdatamodel; sourceTree = "<group>"; };
 		3EAD5D572521C8390093944F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EAD5D5A2521C8390093944F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -185,7 +187,6 @@
 				3E07EB092522E95F002EBE7B /* Components */,
 				3E07EAFF2522E7A6002EBE7B /* Register */,
 				3E07EAF62522E27D002EBE7B /* Login */,
-				3EAD5D512521C8380093944F /* Main.storyboard */,
 				3EAD5D592521C8390093944F /* LaunchScreen.storyboard */,
 			);
 			path = Views;
@@ -196,8 +197,17 @@
 			children = (
 				3E3B87AE2522DF70006CBC37 /* TokenManager.swift */,
 				3E07EB022522E7CC002EBE7B /* Common.swift */,
+				3E91FD9D252415C90086DA0A /* CurrentController.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3E91FD9F252417010086DA0A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3E91FDA02524170C0086DA0A /* Window.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		3EAD5D3F2521C8370093944F = {
@@ -225,6 +235,7 @@
 		3EAD5D4A2521C8370093944F /* Udemy */ = {
 			isa = PBXGroup;
 			children = (
+				3E91FD9F252417010086DA0A /* Extensions */,
 				3E07EB042522E7E6002EBE7B /* Networking */,
 				3E3B87AD2522DF61006CBC37 /* Models */,
 				3E3B87AC2522DF3C006CBC37 /* Views */,
@@ -388,7 +399,6 @@
 			files = (
 				3EAD5D5B2521C8390093944F /* LaunchScreen.storyboard in Resources */,
 				3EAD5D582521C8390093944F /* Assets.xcassets in Resources */,
-				3EAD5D532521C8380093944F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,7 +537,9 @@
 				3E6E3FEF252304A9004DF50E /* XAnchor.swift in Sources */,
 				3E07EB062522E800002EBE7B /* UdemyLoginManager.swift in Sources */,
 				3E07EAFE2522E72C002EBE7B /* RegisterViewController.swift in Sources */,
+				3E91FDA12524170C0086DA0A /* Window.swift in Sources */,
 				3E07EB132522E9B0002EBE7B /* Button.swift in Sources */,
+				3E91FD9E252415C90086DA0A /* CurrentController.swift in Sources */,
 				3E07EB082522E81C002EBE7B /* UdemyRegisterManager.swift in Sources */,
 				3E6E3FED25230452004DF50E /* YAnchor.swift in Sources */,
 				3E6E3FF125230901004DF50E /* View.swift in Sources */,
@@ -569,14 +581,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3EAD5D512521C8380093944F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3EAD5D522521C8380093944F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3EAD5D592521C8390093944F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

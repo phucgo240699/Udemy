@@ -20,7 +20,7 @@ extension RegisterViewController {
         
         UIView.addToViewByConstraints(parent: view,
             subView: nameTxtField,
-            top: YAnchor(direction: view.topAnchor, constant: navBarHeight * 2.0),
+            top: YAnchor(direction: view.topAnchor, constant: navBarHeight * 3.0),
             bottom: nil,
             leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
             trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
