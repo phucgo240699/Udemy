@@ -18,37 +18,67 @@ extension RegisterViewController {
             return
         }
         
-        UIView.addToViewByConstraints(parent: view,
-            subView: closeBtn,
-            top: YAnchor(direction: view.topAnchor, constant: 44.0),
-            bottom: nil,
-            leading: XAnchor(direction: view.leadingAnchor, constant: 20),
-            trailing: nil,
-            centerY: nil,
-            centerX: nil,
-            width: width * 0.08,
-            height: width * 0.08)
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            UIView.addToViewByConstraints(parent: view,
+                subView: closeBtn,
+                top: YAnchor(direction: view.topAnchor, constant: 44.0),
+                bottom: nil,
+                leading: XAnchor(direction: view.leadingAnchor, constant: 20),
+                trailing: nil,
+                centerY: nil,
+                centerX: nil,
+                width: width * 0.08,
+                height: width * 0.08)
+        }
+        else if UIDevice.current.userInterfaceIdiom == .pad {
+            UIView.addToViewByConstraints(parent: view,
+                subView: closeBtn,
+                top: YAnchor(direction: view.topAnchor, constant: 44.0),
+                bottom: nil,
+                leading: XAnchor(direction: view.leadingAnchor, constant: 2 * marginSpace),
+                trailing: nil,
+                centerY: nil,
+                centerX: nil,
+                width: width * 0.05,
+                height: width * 0.05)
+        }
         
     }
     
     // Name
     func initializeNameTextField() {
         nameTxtField = UITextField.getInput(placeholder: "\tName")
-        let heightTextField = width * 0.12
+
         guard let nameTxtField = nameTxtField, let closeBtn = closeBtn else {
             return
         }
         
-        UIView.addToViewByConstraints(parent: view,
-            subView: nameTxtField,
-            top: YAnchor(direction: closeBtn.bottomAnchor, constant: 2 * marginSpace),
-            bottom: nil,
-            leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
-            trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
-            centerY: nil,
-            centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
-            width: nil,
-            height: heightTextField)
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            UIView.addToViewByConstraints(parent: view,
+                subView: nameTxtField,
+                top: YAnchor(direction: closeBtn.bottomAnchor, constant: 2 * marginSpace),
+                bottom: nil,
+                leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
+                trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
+                centerY: nil,
+                centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                width: nil,
+                height: heightTextField)
+        }
+        else if UIDevice.current.userInterfaceIdiom == .pad {
+            UIView.addToViewByConstraints(parent: view,
+                subView: nameTxtField,
+                top: YAnchor(direction: closeBtn.bottomAnchor, constant: 2 * marginSpace),
+                bottom: nil,
+                leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
+                trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
+                centerY: nil,
+                centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                width: nil,
+                height: heightTextField)
+        }
+        
+        
         
         nameTxtField.afterEffect(fontSize: heightTextField * 0.4, corner: heightTextField * 0.5)
     }
@@ -56,21 +86,33 @@ extension RegisterViewController {
     // Gender
     func initializeGenderTextField() {
         genderTxtField = UITextField.getInput(placeholder: "\tGender")
-        let heightTextField = width * 0.12
         guard let nameTxtField = nameTxtField, let genderTxtField = genderTxtField else {
             return
         }
-        
-        UIView.addToViewByConstraints(parent: view,
-            subView: genderTxtField,
-            top: YAnchor(direction: nameTxtField.bottomAnchor, constant: 2 * marginSpace),
-            bottom: nil,
-            leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
-            trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
-            centerY: nil,
-            centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
-            width: nil,
-            height: heightTextField)
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            UIView.addToViewByConstraints(parent: view,
+                subView: genderTxtField,
+                top: YAnchor(direction: nameTxtField.bottomAnchor, constant: 2 * marginSpace),
+                bottom: nil,
+                leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
+                trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
+                centerY: nil,
+                centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                width: nil,
+                height: heightTextField)
+        }
+        else if UIDevice.current.userInterfaceIdiom == .pad {
+            UIView.addToViewByConstraints(parent: view,
+                subView: genderTxtField,
+                top: YAnchor(direction: nameTxtField.bottomAnchor, constant: 2 * marginSpace),
+                bottom: nil,
+                leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
+                trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
+                centerY: nil,
+                centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                width: nil,
+                height: heightTextField)
+        }
         
         genderTxtField.afterEffect(fontSize: heightTextField * 0.4, corner: heightTextField * 0.5)
     }
@@ -78,21 +120,36 @@ extension RegisterViewController {
     // Phone number
     func initializePhoneNumberTextField() {
         phoneNumbersTxtField = UITextField.getInput(placeholder: "\tPhone numbers")
-        let heightTextField = width * 0.12
         guard let genderTxtField = genderTxtField, let phoneNumbersTxtField = phoneNumbersTxtField else {
             return
         }
         
-        UIView.addToViewByConstraints(parent: view,
-            subView: phoneNumbersTxtField,
-            top: YAnchor(direction: genderTxtField.bottomAnchor, constant: 2 * marginSpace),
-            bottom: nil,
-            leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
-            trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
-            centerY: nil,
-            centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
-            width: nil,
-            height: heightTextField)
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            UIView.addToViewByConstraints(parent: view,
+                subView: phoneNumbersTxtField,
+                top: YAnchor(direction: genderTxtField.bottomAnchor, constant: 2 * marginSpace),
+                bottom: nil,
+                leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
+                trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
+                centerY: nil,
+                centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                width: nil,
+                height: heightTextField)
+        }
+        else if UIDevice.current.userInterfaceIdiom == .pad {
+            UIView.addToViewByConstraints(parent: view,
+                subView: phoneNumbersTxtField,
+                top: YAnchor(direction: genderTxtField.bottomAnchor, constant: 2 * marginSpace),
+                bottom: nil,
+                leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
+                trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
+                centerY: nil,
+                centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                width: nil,
+                height: heightTextField)
+        }
+        
+
         
         phoneNumbersTxtField.afterEffect(fontSize: heightTextField * 0.4, corner: heightTextField * 0.5)
     }
@@ -100,21 +157,34 @@ extension RegisterViewController {
     // Address
     func initializeAddressTextField() {
         addressTxtField = UITextField.getInput(placeholder: "\tAddress")
-        let heightTextField = width * 0.12
         guard let phoneNumbersTxtField = phoneNumbersTxtField, let addressTxtField = addressTxtField else {
             return
         }
         
-        UIView.addToViewByConstraints(parent: view,
-            subView: addressTxtField,
-            top: YAnchor(direction: phoneNumbersTxtField.bottomAnchor, constant: 2 * marginSpace),
-            bottom: nil,
-            leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
-            trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
-            centerY: nil,
-            centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
-            width: nil,
-            height: heightTextField)
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            UIView.addToViewByConstraints(parent: view,
+                subView: addressTxtField,
+                top: YAnchor(direction: phoneNumbersTxtField.bottomAnchor, constant: 2 * marginSpace),
+                bottom: nil,
+                leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
+                trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
+                centerY: nil,
+                centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                width: nil,
+                height: heightTextField)
+        }
+        else if UIDevice.current.userInterfaceIdiom == .pad {
+            UIView.addToViewByConstraints(parent: view,
+                subView: addressTxtField,
+                top: YAnchor(direction: phoneNumbersTxtField.bottomAnchor, constant: 2 * marginSpace),
+                bottom: nil,
+                leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
+                trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
+                centerY: nil,
+                centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                width: nil,
+                height: heightTextField)
+        }
         
         addressTxtField.afterEffect(fontSize: heightTextField * 0.4, corner: heightTextField * 0.5)
     }
@@ -122,21 +192,35 @@ extension RegisterViewController {
     // Description
     func initializeDescriptionTextField() {
         descriptionTxtField = UITextField.getInput(placeholder: "\tDescription")
-        let heightTextField = width * 0.12
         guard let addressTxtField = addressTxtField, let descriptionTxtField = descriptionTxtField else {
             return
         }
-        
-        UIView.addToViewByConstraints(parent: view,
-            subView: descriptionTxtField,
-            top: YAnchor(direction: addressTxtField.bottomAnchor, constant: 2 * marginSpace),
-            bottom: nil,
-            leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
-            trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
-            centerY: nil,
-            centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
-            width: nil,
-            height: heightTextField)
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            UIView.addToViewByConstraints(parent: view,
+                subView: descriptionTxtField,
+                top: YAnchor(direction: addressTxtField.bottomAnchor, constant: 2 * marginSpace),
+                bottom: nil,
+                leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
+                trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
+                centerY: nil,
+                centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                width: nil,
+                height: heightTextField)
+
+        }
+        else if UIDevice.current.userInterfaceIdiom == .pad {
+            UIView.addToViewByConstraints(parent: view,
+                subView: descriptionTxtField,
+                top: YAnchor(direction: addressTxtField.bottomAnchor, constant: 2 * marginSpace),
+                bottom: nil,
+                leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
+                trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
+                centerY: nil,
+                centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                width: nil,
+                height: heightTextField)
+
+        }
         
         descriptionTxtField.afterEffect(fontSize: heightTextField * 0.4, corner: heightTextField * 0.5)
     }
@@ -144,21 +228,33 @@ extension RegisterViewController {
     // Password
     func initializePasswordTextField() {
         passwordTxtField = UITextField.getInput(placeholder: "\tPassword")
-        let heightTextField = width * 0.12
         guard let descriptionTxtField = descriptionTxtField, let passwordTxtField = passwordTxtField else {
             return
         }
-        
-        UIView.addToViewByConstraints(parent: view,
-            subView: passwordTxtField,
-            top: YAnchor(direction: descriptionTxtField.bottomAnchor, constant: 2 * marginSpace),
-            bottom: nil,
-            leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
-            trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
-            centerY: nil,
-            centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
-            width: nil,
-            height: heightTextField)
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            UIView.addToViewByConstraints(parent: view,
+                subView: passwordTxtField,
+                top: YAnchor(direction: descriptionTxtField.bottomAnchor, constant: 2 * marginSpace),
+                bottom: nil,
+                leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
+                trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
+                centerY: nil,
+                centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                width: nil,
+                height: heightTextField)
+        }
+        else if UIDevice.current.userInterfaceIdiom == .pad {
+            UIView.addToViewByConstraints(parent: view,
+                subView: passwordTxtField,
+                top: YAnchor(direction: descriptionTxtField.bottomAnchor, constant: 2 * marginSpace),
+                bottom: nil,
+                leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
+                trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
+                centerY: nil,
+                centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                width: nil,
+                height: heightTextField)
+        }
         
         passwordTxtField.afterEffect(fontSize: heightTextField * 0.4, corner: heightTextField * 0.5)
     }
@@ -166,21 +262,35 @@ extension RegisterViewController {
     // RePassword
     func initializeRePasswordTextField() {
         rePasswordTxtField = UITextField.getInput(placeholder: "\tRe-password")
-        let heightTextField = width * 0.12
         guard let passwordTxtField = passwordTxtField, let rePasswordTxtField = rePasswordTxtField else {
             return
         }
         
-        UIView.addToViewByConstraints(parent: view,
-            subView: rePasswordTxtField,
-            top: YAnchor(direction: passwordTxtField.bottomAnchor, constant: 2 * marginSpace),
-            bottom: nil,
-            leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
-            trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
-            centerY: nil,
-            centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
-            width: nil,
-            height: heightTextField)
+        
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            UIView.addToViewByConstraints(parent: view,
+                subView: rePasswordTxtField,
+                top: YAnchor(direction: passwordTxtField.bottomAnchor, constant: 2 * marginSpace),
+                bottom: nil,
+                leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
+                trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
+                centerY: nil,
+                centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                width: nil,
+                height: heightTextField)
+        }
+        else if UIDevice.current.userInterfaceIdiom == .pad {
+            UIView.addToViewByConstraints(parent: view,
+                subView: rePasswordTxtField,
+                top: YAnchor(direction: passwordTxtField.bottomAnchor, constant: 2 * marginSpace),
+                bottom: nil,
+                leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
+                trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
+                centerY: nil,
+                centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                width: nil,
+                height: heightTextField)
+        }
         
         rePasswordTxtField.afterEffect(fontSize: heightTextField * 0.4, corner: heightTextField * 0.5)
     }
@@ -188,21 +298,37 @@ extension RegisterViewController {
     // Register Button
     func initializeRegisterButton() {
         registerBtn = UIButton.getButton("Register", Common.color.blue, .white)
-        let heightButton = width * 0.12
         guard let registerBtn = registerBtn, let rePasswordTxtField = rePasswordTxtField else {
             return
         }
         
-        UIView.addToViewByConstraints(parent: view,
-            subView: registerBtn,
-            top: YAnchor(direction: rePasswordTxtField.bottomAnchor, constant: 4 * marginSpace),
-            bottom: nil,
-            leading: nil,
-            trailing: nil,
-            centerY: nil,
-            centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
-            width: width * 0.5,
-            height: heightButton)
+        
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            UIView.addToViewByConstraints(parent: view,
+                subView: registerBtn,
+                top: YAnchor(direction: rePasswordTxtField.bottomAnchor, constant: 4 * marginSpace),
+                bottom: nil,
+                leading: nil,
+                trailing: nil,
+                centerY: nil,
+                centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                width: width * 0.5,
+                height: heightButton)
+        }
+        else if UIDevice.current.userInterfaceIdiom == .pad {
+            UIView.addToViewByConstraints(parent: view,
+                subView: registerBtn,
+                top: YAnchor(direction: rePasswordTxtField.bottomAnchor, constant: 4 * marginSpace),
+                bottom: nil,
+                leading: nil,
+                trailing: nil,
+                centerY: nil,
+                centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                width: width * 0.3,
+                height: heightButton)
+        }
+        
+
         
         registerBtn.afterEffect(textSize: heightButton * 0.5, corner: heightButton * 0.2)
         

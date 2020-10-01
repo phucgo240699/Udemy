@@ -25,7 +25,10 @@ class RegisterViewController: UIViewController {
     var width:CGFloat = 0
     var height: CGFloat = 0
     var navBarHeight: CGFloat = 0
+    var heightTextField: CGFloat = 0
+    var heightButton: CGFloat = 0
     var marginSpace: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 20.0: 10.0
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +39,8 @@ class RegisterViewController: UIViewController {
         
         width = view.bounds.width
         height = view.bounds.height
+        heightTextField = UIDevice.current.userInterfaceIdiom == .phone ? width * 0.1 : width * 0.08
+        heightButton = UIDevice.current.userInterfaceIdiom == .phone ? width * 0.1 : width * 0.08
         navBarHeight = navigationController?.navigationBar.bounds.height ?? 44
         
         initializeCloseButton()
