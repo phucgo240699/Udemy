@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var currentController: CurrentController = .login
     
-    let loginController: LoginViewController = LoginViewController()
+    let loginController: UINavigationController = UINavigationController(rootViewController: LoginViewController())
     var registerController: RegisterViewController?
     var mainTabBarController: MainTabBarController?
     

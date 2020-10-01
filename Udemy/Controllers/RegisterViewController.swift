@@ -63,12 +63,7 @@ class RegisterViewController: UIViewController {
     }
     
     @objc func closeBtnPressed(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.5,
-                       delay: 0.0,
-                       options: [.transitionFlipFromBottom ],
-                       animations: {
-                        (UIApplication.shared.delegate as! AppDelegate).window?.setController(.login)
-        }, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc func registerBtnPressed(_ sender: UIButton) {

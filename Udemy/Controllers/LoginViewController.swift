@@ -55,10 +55,9 @@ class LoginViewController: UIViewController {
     
     @objc func registerBtnPressed(_ sender: UIButton) {
         UIView.animate(withDuration: 0.5,
-                       delay: 0.0,
-                       options: [.transitionFlipFromTop],
-                       animations: {
-                        (UIApplication.shared.delegate as! AppDelegate).window?.setController(.register)
+            animations: {
+//                (UIApplication.shared.delegate as! AppDelegate).window?.setController(.register)
+                self.navigationController?.pushViewController(RegisterViewController(), animated: true)
         }, completion: nil)
     }
 }

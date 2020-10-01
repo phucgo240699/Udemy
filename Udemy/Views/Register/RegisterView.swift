@@ -11,12 +11,11 @@ import UIKit
 
 extension RegisterViewController {
     func initializeCloseButton() {
-        closeBtn = UIButton()
-        closeBtn?.setBackgroundImage(UIImage(named: Common.imageName.xmark_circle), for: .normal)
-        closeBtn?.addTarget(self, action: #selector(RegisterViewController.closeBtnPressed(_:)), for: .touchUpInside)
+        closeBtn = UIButton.getBackButton()
         guard let closeBtn = closeBtn else {
             return
         }
+        closeBtn.addTarget(self, action: #selector(RegisterViewController.closeBtnPressed(_:)), for: .touchUpInside)
         
         if UIDevice.current.userInterfaceIdiom == .phone {
             UIView.addToViewByConstraints(parent: view,

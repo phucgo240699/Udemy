@@ -187,8 +187,8 @@
 		3E3B87AB2522DF2E006CBC37 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3EAD5D4F2521C8380093944F /* LoginViewController.swift */,
 				3E07EAFD2522E72C002EBE7B /* RegisterViewController.swift */,
+				3EAD5D4F2521C8380093944F /* LoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

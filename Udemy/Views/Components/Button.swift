@@ -18,6 +18,12 @@ extension UIButton {
         return button
     }
     
+    static func getBackButton() -> UIButton {
+        let back = UIButton()
+        back.setBackgroundImage(UIImage(systemName: "arrow.left"), for: .normal)
+        return back
+    }
+    
     func afterEffect(textSize: CGFloat, corner: CGFloat) {
         self.titleLabel?.font = UIFont(name: Common.fontName, size: textSize)
         self.layer.cornerRadius = corner
