@@ -25,6 +25,7 @@ class RegisterViewController: UIViewController {
     var width:CGFloat = 0
     var height: CGFloat = 0
     var navBarHeight: CGFloat = 0
+    var marginSpace: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 20.0: 10.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +47,14 @@ class RegisterViewController: UIViewController {
         initializePasswordTextField()
         initializeRePasswordTextField()
         initializeRegisterButton()
+        
+        nameTxtField?.delegate = self
+        genderTxtField?.delegate = self
+        phoneNumbersTxtField?.delegate = self
+        addressTxtField?.delegate = self
+        descriptionTxtField?.delegate = self
+        passwordTxtField?.delegate = self
+        rePasswordTxtField?.delegate = self
     }
     
     @objc func closeBtnPressed(_ sender: UIButton) {
@@ -59,5 +68,13 @@ class RegisterViewController: UIViewController {
     
     @objc func registerBtnPressed(_ sender: UIButton) {
         
+    }
+}
+
+// MARK: - Text Field Delegate
+
+extension RegisterViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
     }
 }

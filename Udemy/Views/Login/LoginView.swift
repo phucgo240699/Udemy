@@ -50,7 +50,7 @@ extension LoginViewController {
         // Password
         UIView.addToViewByConstraints(parent: view,
             subView: password,
-            top: YAnchor(direction: email.bottomAnchor, constant: 10),
+            top: YAnchor(direction: email.bottomAnchor, constant: marginSpace),
             bottom: nil,
             leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
             trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
@@ -71,7 +71,16 @@ extension LoginViewController {
             return
         }
         
-        UIView.addToViewByConstraints(parent: view, subView: loginBtn, top: YAnchor(direction: password.bottomAnchor, constant: 20), bottom: nil, leading: nil, trailing: nil, centerY: nil, centerX: XAnchor(direction: view.centerXAnchor, constant: 0), width: width * 0.5, height: heightButton)
+        UIView.addToViewByConstraints(parent: view,
+            subView: loginBtn,
+            top: YAnchor(direction: password.bottomAnchor, constant: 4 * marginSpace),
+            bottom: nil,
+            leading: nil,
+            trailing: nil,
+            centerY: nil,
+            centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+            width: width * 0.5,
+            height: heightButton)
         
         loginBtn.afterEffect(textSize: heightButton * 0.5, corner: heightButton * 0.2)
     }
@@ -87,7 +96,7 @@ extension LoginViewController {
         UIView.addToViewByConstraints(parent: view,
             subView: registerBtn,
             top: nil,
-            bottom: YAnchor(direction: view.bottomAnchor, constant: -20),
+            bottom: YAnchor(direction: view.bottomAnchor, constant: -3.0 * marginSpace),
             leading: nil,
             trailing: nil,
             centerY: nil,

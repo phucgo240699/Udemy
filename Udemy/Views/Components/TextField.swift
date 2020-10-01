@@ -14,17 +14,14 @@ extension UITextField {
     static func getInput(placeholder: String, isHideText: Bool = false) -> UITextField {
         let textField = UITextField()
         textField.placeholder = placeholder
-        textField.textAlignment = .natural
-        textField.tintColor = .systemGray
         textField.backgroundColor = .systemBackground
-        textField.textColor = .black
+        textField.returnKeyType = .default
         textField.isSecureTextEntry = isHideText
         textField.clearButtonMode = .whileEditing
+        textField.borderStyle = .roundedRect
         return textField
     }
     
     func afterEffect(fontSize: CGFloat, corner: CGFloat) {
-        self.font = UIFont(name: Common.fontName, size: fontSize)
-        self.layer.cornerRadius = corner
-    }
+        self.font = UIFont(name: Common.fontName, size: fontSize)    }
 }

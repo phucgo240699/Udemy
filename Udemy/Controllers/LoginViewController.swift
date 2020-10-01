@@ -19,6 +19,7 @@ class LoginViewController: UIViewController {
     var width:CGFloat = 0
     var height: CGFloat = 0
     var navBarHeight: CGFloat = 0
+    var marginSpace: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 20.0: 10.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,9 @@ class LoginViewController: UIViewController {
         initializeInputTextField()
         initializeLoginButton()
         initializeRegisterButton()
+        
+        emailTxtField?.delegate = self
+        passwordTxtField?.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,7 +54,13 @@ class LoginViewController: UIViewController {
                         (UIApplication.shared.delegate as! AppDelegate).window?.setController(.register)
         }, completion: nil)
     }
-    
+}
 
+// MARK: - Text Field Delegate
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
 }
 

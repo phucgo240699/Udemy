@@ -18,7 +18,16 @@ extension RegisterViewController {
             return
         }
         
-        UIView.addToViewByConstraints(parent: view, subView: closeBtn, top: YAnchor(direction: view.topAnchor, constant: 50), bottom: nil, leading: XAnchor(direction: view.leadingAnchor, constant: 20), trailing: nil, centerY: nil, centerX: nil, width: width * 0.08, height: width * 0.08)
+        UIView.addToViewByConstraints(parent: view,
+            subView: closeBtn,
+            top: YAnchor(direction: view.topAnchor, constant: 44.0),
+            bottom: nil,
+            leading: XAnchor(direction: view.leadingAnchor, constant: 20),
+            trailing: nil,
+            centerY: nil,
+            centerX: nil,
+            width: width * 0.08,
+            height: width * 0.08)
         
     }
     
@@ -26,13 +35,13 @@ extension RegisterViewController {
     func initializeNameTextField() {
         nameTxtField = UITextField.getInput(placeholder: "\tName")
         let heightTextField = width * 0.12
-        guard let nameTxtField = nameTxtField else {
+        guard let nameTxtField = nameTxtField, let closeBtn = closeBtn else {
             return
         }
         
         UIView.addToViewByConstraints(parent: view,
             subView: nameTxtField,
-            top: YAnchor(direction: view.topAnchor, constant: navBarHeight * 3.0),
+            top: YAnchor(direction: closeBtn.bottomAnchor, constant: 2 * marginSpace),
             bottom: nil,
             leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
             trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
@@ -54,7 +63,7 @@ extension RegisterViewController {
         
         UIView.addToViewByConstraints(parent: view,
             subView: genderTxtField,
-            top: YAnchor(direction: nameTxtField.bottomAnchor, constant: 20),
+            top: YAnchor(direction: nameTxtField.bottomAnchor, constant: 2 * marginSpace),
             bottom: nil,
             leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
             trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
@@ -76,7 +85,7 @@ extension RegisterViewController {
         
         UIView.addToViewByConstraints(parent: view,
             subView: phoneNumbersTxtField,
-            top: YAnchor(direction: genderTxtField.bottomAnchor, constant: 20),
+            top: YAnchor(direction: genderTxtField.bottomAnchor, constant: 2 * marginSpace),
             bottom: nil,
             leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
             trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
@@ -98,7 +107,7 @@ extension RegisterViewController {
         
         UIView.addToViewByConstraints(parent: view,
             subView: addressTxtField,
-            top: YAnchor(direction: phoneNumbersTxtField.bottomAnchor, constant: 20),
+            top: YAnchor(direction: phoneNumbersTxtField.bottomAnchor, constant: 2 * marginSpace),
             bottom: nil,
             leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
             trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
@@ -120,7 +129,7 @@ extension RegisterViewController {
         
         UIView.addToViewByConstraints(parent: view,
             subView: descriptionTxtField,
-            top: YAnchor(direction: addressTxtField.bottomAnchor, constant: 20),
+            top: YAnchor(direction: addressTxtField.bottomAnchor, constant: 2 * marginSpace),
             bottom: nil,
             leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
             trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
@@ -142,7 +151,7 @@ extension RegisterViewController {
         
         UIView.addToViewByConstraints(parent: view,
             subView: passwordTxtField,
-            top: YAnchor(direction: descriptionTxtField.bottomAnchor, constant: 20),
+            top: YAnchor(direction: descriptionTxtField.bottomAnchor, constant: 2 * marginSpace),
             bottom: nil,
             leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
             trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
@@ -164,7 +173,7 @@ extension RegisterViewController {
         
         UIView.addToViewByConstraints(parent: view,
             subView: rePasswordTxtField,
-            top: YAnchor(direction: passwordTxtField.bottomAnchor, constant: 20),
+            top: YAnchor(direction: passwordTxtField.bottomAnchor, constant: 2 * marginSpace),
             bottom: nil,
             leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
             trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
@@ -186,7 +195,7 @@ extension RegisterViewController {
         
         UIView.addToViewByConstraints(parent: view,
             subView: registerBtn,
-            top: YAnchor(direction: rePasswordTxtField.bottomAnchor, constant: 30),
+            top: YAnchor(direction: rePasswordTxtField.bottomAnchor, constant: 4 * marginSpace),
             bottom: nil,
             leading: nil,
             trailing: nil,
