@@ -134,6 +134,7 @@ extension LoginViewController {
         }
         
         loginBtn.afterEffect(textSize: heightButton * 0.5, corner: heightButton * 0.2)
+        loginBtn.addTarget(self, action: #selector(LoginViewController.loginBtnPressed(_:)), for: .touchUpInside)
     }
     
     func initializeRegisterButton() {

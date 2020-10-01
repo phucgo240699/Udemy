@@ -46,6 +46,13 @@ class LoginViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
     }
     
+    @objc func loginBtnPressed(_ sender: UIButton) {
+        // if login success
+        UIView.animate(withDuration: 1.0) {
+            (UIApplication.shared.delegate as! AppDelegate).window?.setController(.mainTab)
+        }
+    }
+    
     @objc func registerBtnPressed(_ sender: UIButton) {
         UIView.animate(withDuration: 0.5,
                        delay: 0.0,

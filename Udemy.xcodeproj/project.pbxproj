@@ -19,6 +19,12 @@
 		3E07EB112522E99D002EBE7B /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB102522E99D002EBE7B /* TextView.swift */; };
 		3E07EB132522E9B0002EBE7B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB122522E9B0002EBE7B /* Button.swift */; };
 		3E3B87AF2522DF70006CBC37 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B87AE2522DF70006CBC37 /* TokenManager.swift */; };
+		3E51760325261ECF0001D2AD /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760225261ECF0001D2AD /* MainTabBarController.swift */; };
+		3E51760A25261FBA0001D2AD /* FeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760925261FBA0001D2AD /* FeatureViewController.swift */; };
+		3E51760C25261FE70001D2AD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760B25261FE70001D2AD /* SearchViewController.swift */; };
+		3E51760E252620070001D2AD /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760D252620070001D2AD /* CourseViewController.swift */; };
+		3E5176102526202D0001D2AD /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760F2526202D0001D2AD /* CartViewController.swift */; };
+		3E5176122526204D0001D2AD /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5176112526204D0001D2AD /* AccountViewController.swift */; };
 		3E6E3FED25230452004DF50E /* YAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E3FEC25230452004DF50E /* YAnchor.swift */; };
 		3E6E3FEF252304A9004DF50E /* XAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E3FEE252304A9004DF50E /* XAnchor.swift */; };
 		3E6E3FF125230901004DF50E /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E3FF025230901004DF50E /* View.swift */; };
@@ -68,6 +74,12 @@
 		3E07EB102522E99D002EBE7B /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		3E07EB122522E9B0002EBE7B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		3E3B87AE2522DF70006CBC37 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		3E51760225261ECF0001D2AD /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		3E51760925261FBA0001D2AD /* FeatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureViewController.swift; sourceTree = "<group>"; };
+		3E51760B25261FE70001D2AD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		3E51760D252620070001D2AD /* CourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
+		3E51760F2526202D0001D2AD /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		3E5176112526204D0001D2AD /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		3E6E3FEC25230452004DF50E /* YAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YAnchor.swift; sourceTree = "<group>"; };
 		3E6E3FEE252304A9004DF50E /* XAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XAnchor.swift; sourceTree = "<group>"; };
 		3E6E3FF025230901004DF50E /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
@@ -184,10 +196,16 @@
 		3E3B87AC2522DF3C006CBC37 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3E51760825261FA20001D2AD /* Account */,
+				3E51760725261F9A0001D2AD /* Cart */,
+				3E51760625261F900001D2AD /* Courses */,
+				3E51760525261F850001D2AD /* Search */,
+				3E51760425261F460001D2AD /* Features */,
 				3E07EB092522E95F002EBE7B /* Components */,
 				3E07EAFF2522E7A6002EBE7B /* Register */,
 				3E07EAF62522E27D002EBE7B /* Login */,
 				3EAD5D592521C8390093944F /* LaunchScreen.storyboard */,
+				3E51760225261ECF0001D2AD /* MainTabBarController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,6 +218,46 @@
 				3E91FD9D252415C90086DA0A /* CurrentController.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3E51760425261F460001D2AD /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				3E51760925261FBA0001D2AD /* FeatureViewController.swift */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		3E51760525261F850001D2AD /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				3E51760B25261FE70001D2AD /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		3E51760625261F900001D2AD /* Courses */ = {
+			isa = PBXGroup;
+			children = (
+				3E51760D252620070001D2AD /* CourseViewController.swift */,
+			);
+			path = Courses;
+			sourceTree = "<group>";
+		};
+		3E51760725261F9A0001D2AD /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				3E51760F2526202D0001D2AD /* CartViewController.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		3E51760825261FA20001D2AD /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				3E5176112526204D0001D2AD /* AccountViewController.swift */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 		3E91FD9F252417010086DA0A /* Extensions */ = {
@@ -528,21 +586,27 @@
 			files = (
 				3E07EB032522E7CC002EBE7B /* Common.swift in Sources */,
 				3EAD5D502521C8380093944F /* LoginViewController.swift in Sources */,
+				3E5176122526204D0001D2AD /* AccountViewController.swift in Sources */,
 				3E07EB0D2522E981002EBE7B /* Label.swift in Sources */,
 				3E07EB112522E99D002EBE7B /* TextView.swift in Sources */,
 				3EAD5D4C2521C8370093944F /* AppDelegate.swift in Sources */,
+				3E51760E252620070001D2AD /* CourseViewController.swift in Sources */,
 				3E3B87AF2522DF70006CBC37 /* TokenManager.swift in Sources */,
+				3E5176102526202D0001D2AD /* CartViewController.swift in Sources */,
 				3E07EB0F2522E993002EBE7B /* TextField.swift in Sources */,
 				3E07EB012522E7B3002EBE7B /* RegisterView.swift in Sources */,
 				3E6E3FEF252304A9004DF50E /* XAnchor.swift in Sources */,
+				3E51760A25261FBA0001D2AD /* FeatureViewController.swift in Sources */,
 				3E07EB062522E800002EBE7B /* UdemyLoginManager.swift in Sources */,
 				3E07EAFE2522E72C002EBE7B /* RegisterViewController.swift in Sources */,
 				3E91FDA12524170C0086DA0A /* Window.swift in Sources */,
+				3E51760C25261FE70001D2AD /* SearchViewController.swift in Sources */,
 				3E07EB132522E9B0002EBE7B /* Button.swift in Sources */,
 				3E91FD9E252415C90086DA0A /* CurrentController.swift in Sources */,
 				3E07EB082522E81C002EBE7B /* UdemyRegisterManager.swift in Sources */,
 				3E6E3FED25230452004DF50E /* YAnchor.swift in Sources */,
 				3E6E3FF125230901004DF50E /* View.swift in Sources */,
+				3E51760325261ECF0001D2AD /* MainTabBarController.swift in Sources */,
 				3E07EAFC2522E493002EBE7B /* LoginView.swift in Sources */,
 				3E07EB0B2522E976002EBE7B /* Image.swift in Sources */,
 				3EAD5D562521C8380093944F /* Udemy.xcdatamodeld in Sources */,

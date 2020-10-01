@@ -15,9 +15,15 @@ extension UIWindow {
         case .login:
             appDelegate.currentController = .login
             self.rootViewController = appDelegate.loginController
-        default:
+        case .register:
             appDelegate.currentController = .register
             self.rootViewController = appDelegate.registerController
+        default:
+            appDelegate.currentController = .mainTab
+            if appDelegate.mainTabBarController == nil {
+                appDelegate.mainTabBarController = MainTabBarController()
+            }
+            self.rootViewController = appDelegate.mainTabBarController
         }
     }
 }

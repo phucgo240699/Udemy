@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let loginController: LoginViewController = LoginViewController()
     let registerController: RegisterViewController = RegisterViewController()
-    
+    var mainTabBarController: MainTabBarController?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
