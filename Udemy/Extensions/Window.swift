@@ -17,6 +17,9 @@ extension UIWindow {
             self.rootViewController = appDelegate.loginController
         case .register:
             appDelegate.currentController = .register
+            if appDelegate.registerController == nil {
+                appDelegate.registerController = RegisterViewController()
+            }
             self.rootViewController = appDelegate.registerController
         default:
             appDelegate.currentController = .mainTab
