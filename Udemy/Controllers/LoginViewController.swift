@@ -48,17 +48,13 @@ class LoginViewController: UIViewController {
     
     @objc func loginBtnPressed(_ sender: UIButton) {
         // if login success
-        UIView.animate(withDuration: 1.0) {
+        UIView.animate(withDuration: 0.5) {
             (UIApplication.shared.delegate as! AppDelegate).window?.setController(.mainTab)
         }
     }
     
     @objc func registerBtnPressed(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.5,
-            animations: {
-//                (UIApplication.shared.delegate as! AppDelegate).window?.setController(.register)
-                self.navigationController?.pushViewController(RegisterViewController(), animated: true)
-        }, completion: nil)
+        self.navigationController?.pushViewController(RegisterViewController(), animated: true)
     }
 }
 

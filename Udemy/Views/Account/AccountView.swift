@@ -7,7 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 extension AccountViewController {
-    
+    func initializeLogOutBarButton() {
+        logOutBarButton = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(AccountViewController.logOutBarButtonPressed(_:)))
+        logOutBarButton?.tintColor = .systemRed
+        navigationItem.rightBarButtonItem = logOutBarButton
+    }
 }

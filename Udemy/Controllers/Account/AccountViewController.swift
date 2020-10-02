@@ -11,9 +11,17 @@ import UIKit
 
 class AccountViewController: UIViewController {
     
+    var logOutBarButton: UIBarButtonItem?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .brown
         navigationItem.title = "Account"
+        
+        initializeLogOutBarButton()
+    }
+    
+    @objc func logOutBarButtonPressed(_ sender: UIBarButtonItem) {
+        (UIApplication.shared.delegate as! AppDelegate).window?.setController(.login)
     }
 }

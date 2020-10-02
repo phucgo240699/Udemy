@@ -27,9 +27,9 @@ extension LoginViewController {
     }
     
     func initializeInputTextField() {
-        emailTxtField = UITextField.getInput(placeholder: "\temail")
+        emailTxtField = UITextField.getInput(placeholder: "email")
         emailTxtField?.keyboardType = .emailAddress
-        passwordTxtField = UITextField.getInput(placeholder: "\tpassword", isHideText: true)
+        passwordTxtField = UITextField.getInput(placeholder: "password", isHideText: true)
         
         var heightTextField: CGFloat = 0
         guard let email = emailTxtField, let password = passwordTxtField else {
