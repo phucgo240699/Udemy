@@ -22,7 +22,7 @@
 		3E51760325261ECF0001D2AD /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760225261ECF0001D2AD /* MainTabBarController.swift */; };
 		3E51760A25261FBA0001D2AD /* FeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760925261FBA0001D2AD /* FeatureViewController.swift */; };
 		3E51760C25261FE70001D2AD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760B25261FE70001D2AD /* SearchViewController.swift */; };
-		3E51760E252620070001D2AD /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760D252620070001D2AD /* CourseViewController.swift */; };
+		3E51760E252620070001D2AD /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760D252620070001D2AD /* CoursesViewController.swift */; };
 		3E5176102526202D0001D2AD /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760F2526202D0001D2AD /* CartViewController.swift */; };
 		3E5176122526204D0001D2AD /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5176112526204D0001D2AD /* AccountViewController.swift */; };
 		3E6E3FED25230452004DF50E /* YAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E3FEC25230452004DF50E /* YAnchor.swift */; };
@@ -37,6 +37,11 @@
 		3EAD5D5B2521C8390093944F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EAD5D592521C8390093944F /* LaunchScreen.storyboard */; };
 		3EAD5D662521C8390093944F /* UdemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD5D652521C8390093944F /* UdemyTests.swift */; };
 		3EAD5D712521C8390093944F /* UdemyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD5D702521C8390093944F /* UdemyUITests.swift */; };
+		3EBC98E52526FE7100A273C5 /* FeaturedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC98E42526FE7100A273C5 /* FeaturedView.swift */; };
+		3EBC98E72526FE7B00A273C5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC98E62526FE7B00A273C5 /* SearchView.swift */; };
+		3EBC98E92526FE8D00A273C5 /* CoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC98E82526FE8D00A273C5 /* CoursesView.swift */; };
+		3EBC98EB2526FE9F00A273C5 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC98EA2526FE9F00A273C5 /* CartView.swift */; };
+		3EBC98ED2526FEB300A273C5 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC98EC2526FEB300A273C5 /* AccountView.swift */; };
 		6807317657D10394CCBB21C9 /* Pods_UdemyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6DD49030E4B5D8B2E75027 /* Pods_UdemyTests.framework */; };
 		C07F99A8F1E029B3BCB5FAAE /* Pods_Udemy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E194BB93A3EB1BD1C8095507 /* Pods_Udemy.framework */; };
 		F87393B63D5FE74308E25B5C /* Pods_Udemy_UdemyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D883D6A20B35FFACD09A07 /* Pods_Udemy_UdemyUITests.framework */; };
@@ -77,7 +82,7 @@
 		3E51760225261ECF0001D2AD /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		3E51760925261FBA0001D2AD /* FeatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureViewController.swift; sourceTree = "<group>"; };
 		3E51760B25261FE70001D2AD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		3E51760D252620070001D2AD /* CourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
+		3E51760D252620070001D2AD /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
 		3E51760F2526202D0001D2AD /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		3E5176112526204D0001D2AD /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		3E6E3FEC25230452004DF50E /* YAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YAnchor.swift; sourceTree = "<group>"; };
@@ -98,6 +103,11 @@
 		3EAD5D6C2521C8390093944F /* UdemyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UdemyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAD5D702521C8390093944F /* UdemyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdemyUITests.swift; sourceTree = "<group>"; };
 		3EAD5D722521C8390093944F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EBC98E42526FE7100A273C5 /* FeaturedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedView.swift; sourceTree = "<group>"; };
+		3EBC98E62526FE7B00A273C5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		3EBC98E82526FE8D00A273C5 /* CoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesView.swift; sourceTree = "<group>"; };
+		3EBC98EA2526FE9F00A273C5 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		3EBC98EC2526FEB300A273C5 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		48862322EEEAD0C13BDB2366 /* Pods-Udemy-UdemyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udemy-UdemyUITests.release.xcconfig"; path = "Target Support Files/Pods-Udemy-UdemyUITests/Pods-Udemy-UdemyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		533145924BB1CD942149CB01 /* Pods-Udemy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udemy.release.xcconfig"; path = "Target Support Files/Pods-Udemy/Pods-Udemy.release.xcconfig"; sourceTree = "<group>"; };
 		7F29FF9240CB074C89D98BF8 /* Pods-Udemy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udemy.debug.xcconfig"; path = "Target Support Files/Pods-Udemy/Pods-Udemy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -187,6 +197,11 @@
 		3E3B87AB2522DF2E006CBC37 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3EBC98E32526FDFD00A273C5 /* Featured */,
+				3EBC98E22526FDF300A273C5 /* Search */,
+				3EBC98E12526FDEA00A273C5 /* Courses */,
+				3EBC98DE2526FD9F00A273C5 /* Cart */,
+				3EBC98DB2526FCE100A273C5 /* Account */,
 				3E07EAFD2522E72C002EBE7B /* RegisterViewController.swift */,
 				3EAD5D4F2521C8380093944F /* LoginViewController.swift */,
 			);
@@ -196,11 +211,11 @@
 		3E3B87AC2522DF3C006CBC37 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3E51760825261FA20001D2AD /* Account */,
-				3E51760725261F9A0001D2AD /* Cart */,
-				3E51760625261F900001D2AD /* Courses */,
+				3E51760425261F460001D2AD /* Featured */,
 				3E51760525261F850001D2AD /* Search */,
-				3E51760425261F460001D2AD /* Features */,
+				3E51760625261F900001D2AD /* Courses */,
+				3E51760725261F9A0001D2AD /* Cart */,
+				3E51760825261FA20001D2AD /* Account */,
 				3E07EB092522E95F002EBE7B /* Components */,
 				3E07EAFF2522E7A6002EBE7B /* Register */,
 				3E07EAF62522E27D002EBE7B /* Login */,
@@ -220,18 +235,18 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		3E51760425261F460001D2AD /* Features */ = {
+		3E51760425261F460001D2AD /* Featured */ = {
 			isa = PBXGroup;
 			children = (
-				3E51760925261FBA0001D2AD /* FeatureViewController.swift */,
+				3EBC98E42526FE7100A273C5 /* FeaturedView.swift */,
 			);
-			path = Features;
+			path = Featured;
 			sourceTree = "<group>";
 		};
 		3E51760525261F850001D2AD /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				3E51760B25261FE70001D2AD /* SearchViewController.swift */,
+				3EBC98E62526FE7B00A273C5 /* SearchView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -239,7 +254,7 @@
 		3E51760625261F900001D2AD /* Courses */ = {
 			isa = PBXGroup;
 			children = (
-				3E51760D252620070001D2AD /* CourseViewController.swift */,
+				3EBC98E82526FE8D00A273C5 /* CoursesView.swift */,
 			);
 			path = Courses;
 			sourceTree = "<group>";
@@ -247,7 +262,7 @@
 		3E51760725261F9A0001D2AD /* Cart */ = {
 			isa = PBXGroup;
 			children = (
-				3E51760F2526202D0001D2AD /* CartViewController.swift */,
+				3EBC98EA2526FE9F00A273C5 /* CartView.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -255,7 +270,7 @@
 		3E51760825261FA20001D2AD /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				3E5176112526204D0001D2AD /* AccountViewController.swift */,
+				3EBC98EC2526FEB300A273C5 /* AccountView.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -321,6 +336,46 @@
 				3EAD5D722521C8390093944F /* Info.plist */,
 			);
 			path = UdemyUITests;
+			sourceTree = "<group>";
+		};
+		3EBC98DB2526FCE100A273C5 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				3E5176112526204D0001D2AD /* AccountViewController.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		3EBC98DE2526FD9F00A273C5 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				3E51760F2526202D0001D2AD /* CartViewController.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		3EBC98E12526FDEA00A273C5 /* Courses */ = {
+			isa = PBXGroup;
+			children = (
+				3E51760D252620070001D2AD /* CoursesViewController.swift */,
+			);
+			path = Courses;
+			sourceTree = "<group>";
+		};
+		3EBC98E22526FDF300A273C5 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				3E51760B25261FE70001D2AD /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		3EBC98E32526FDFD00A273C5 /* Featured */ = {
+			isa = PBXGroup;
+			children = (
+				3E51760925261FBA0001D2AD /* FeatureViewController.swift */,
+			);
+			path = Featured;
 			sourceTree = "<group>";
 		};
 		B58929E0601893CB6989395C /* Pods */ = {
@@ -587,11 +642,15 @@
 				3E07EB032522E7CC002EBE7B /* Common.swift in Sources */,
 				3EAD5D502521C8380093944F /* LoginViewController.swift in Sources */,
 				3E5176122526204D0001D2AD /* AccountViewController.swift in Sources */,
+				3EBC98E72526FE7B00A273C5 /* SearchView.swift in Sources */,
 				3E07EB0D2522E981002EBE7B /* Label.swift in Sources */,
+				3EBC98E52526FE7100A273C5 /* FeaturedView.swift in Sources */,
 				3E07EB112522E99D002EBE7B /* TextView.swift in Sources */,
+				3EBC98EB2526FE9F00A273C5 /* CartView.swift in Sources */,
 				3EAD5D4C2521C8370093944F /* AppDelegate.swift in Sources */,
-				3E51760E252620070001D2AD /* CourseViewController.swift in Sources */,
+				3E51760E252620070001D2AD /* CoursesViewController.swift in Sources */,
 				3E3B87AF2522DF70006CBC37 /* TokenManager.swift in Sources */,
+				3EBC98E92526FE8D00A273C5 /* CoursesView.swift in Sources */,
 				3E5176102526202D0001D2AD /* CartViewController.swift in Sources */,
 				3E07EB0F2522E993002EBE7B /* TextField.swift in Sources */,
 				3E07EB012522E7B3002EBE7B /* RegisterView.swift in Sources */,
@@ -609,6 +668,7 @@
 				3E51760325261ECF0001D2AD /* MainTabBarController.swift in Sources */,
 				3E07EAFC2522E493002EBE7B /* LoginView.swift in Sources */,
 				3E07EB0B2522E976002EBE7B /* Image.swift in Sources */,
+				3EBC98ED2526FEB300A273C5 /* AccountView.swift in Sources */,
 				3EAD5D562521C8380093944F /* Udemy.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
