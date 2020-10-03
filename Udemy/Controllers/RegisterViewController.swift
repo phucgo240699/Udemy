@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class RegisterViewController: UIViewController {
-    
 //    let contentTextFields: [String] = ["Name", "Gender", "Phone numbers", "Address", "Description", "Password", "Re-password"]
     var closeBtn: UIButton?
     var nameTxtField: UITextField?
@@ -22,11 +21,36 @@ class RegisterViewController: UIViewController {
     var rePasswordTxtField: UITextField?
     var registerBtn: UIButton?
     
-    var width:CGFloat = 0
-    var height: CGFloat = 0
-    var navBarHeight: CGFloat = 0
-    var heightTextField: CGFloat = 0
-    var heightButton: CGFloat = 0
+    var width:CGFloat {
+        get {
+            return self.view.bounds.width
+        }
+    }
+    var height: CGFloat {
+        get {
+            return self.view.bounds.height
+        }
+    }
+    var navBarHeight: CGFloat {
+        get {
+            return navigationController?.navigationBar.bounds.height ?? 4
+        }
+    }
+    var heightTextField: CGFloat {
+        get {
+            return width * (UIDevice.current.userInterfaceIdiom == .phone ? 0.12 : 0.08)
+        }
+    }
+    var heightRegisterButton: CGFloat {
+        get {
+            return width * (UIDevice.current.userInterfaceIdiom == .phone ? 0.12 : 0.08)
+        }
+    }
+    var widthRegisterButton: CGFloat {
+        get {
+            return width * (UIDevice.current.userInterfaceIdiom == .phone ? 0.4 : 0.3)
+        }
+    }
     var marginSpace: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 20.0: 10.0
 
     
@@ -37,29 +61,15 @@ class RegisterViewController: UIViewController {
         view.backgroundColor = .clear
         view.addGradient(colors: [Common.color.blue.cgColor, Common.color.purple.cgColor], start: CGPoint(x: 0.0, y: 0.0), end: CGPoint(x: 0.0, y: 1.0) )
         
-        width = view.bounds.width
-        height = view.bounds.height
-        heightTextField = UIDevice.current.userInterfaceIdiom == .phone ? width * 0.1 : width * 0.08
-        heightButton = UIDevice.current.userInterfaceIdiom == .phone ? width * 0.1 : width * 0.08
-        navBarHeight = navigationController?.navigationBar.bounds.height ?? 44
-        
         initializeCloseButton()
-        initializeNameTextField()
-        initializeGenderTextField()
-        initializePhoneNumberTextField()
-        initializeAddressTextField()
-        initializeDescriptionTextField()
-        initializePasswordTextField()
-        initializeRePasswordTextField()
+        initializeTextField(&nameTxtField, "Name", closeBtn)
+        initializeTextField(&genderTxtField, "Gender", nameTxtField)
+        initializeTextField(&phoneNumbersTxtField, "Phone number", genderTxtField)
+        initializeTextField(&addressTxtField, "Address", phoneNumbersTxtField)
+        initializeTextField(&descriptionTxtField, "Description", addressTxtField)
+        initializeTextField(&passwordTxtField, "Password", descriptionTxtField)
+        initializeTextField(&rePasswordTxtField, "Re-password", passwordTxtField)
         initializeRegisterButton()
-        
-        nameTxtField?.delegate = self
-        genderTxtField?.delegate = self
-        phoneNumbersTxtField?.delegate = self
-        addressTxtField?.delegate = self
-        descriptionTxtField?.delegate = self
-        passwordTxtField?.delegate = self
-        rePasswordTxtField?.delegate = self
     }
     
     @objc func closeBtnPressed(_ sender: UIButton) {

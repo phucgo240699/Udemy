@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension UIButton {
-    convenience init(_ title: String?, _ backColor: UIColor?, _ textColor: UIColor?, backImage: UIImage?) {
+    convenience init(_ title: String?, _ backColor: UIColor?, _ textColor: UIColor?, _ backImage: UIImage?) {
         self.init(frame: .zero)
         setTitle(title, for: .normal)
         setTitleColor(textColor, for: .normal)

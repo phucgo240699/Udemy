@@ -16,9 +16,36 @@ class LoginViewController: UIViewController {
     var loginBtn: UIButton?
     var registerBtn: UIButton?
     
-    var width:CGFloat = 0
-    var height: CGFloat = 0
-    var navBarHeight: CGFloat = 0
+    var width:CGFloat {
+        get {
+            return self.view.bounds.width
+        }
+    }
+    var height: CGFloat {
+        get {
+            return self.view.bounds.height
+        }
+    }
+    var navBarHeight: CGFloat {
+        get {
+            return navigationController?.navigationBar.bounds.height ?? 4
+        }
+    }
+    var heightTextField: CGFloat {
+        get {
+            return width * (UIDevice.current.userInterfaceIdiom == .phone ? 0.12 : 0.08)
+        }
+    }
+    var heightLoginButton: CGFloat {
+        get {
+            return width * (UIDevice.current.userInterfaceIdiom == .phone ? 0.12 : 0.08)
+        }
+    }
+    var widthLoginButton: CGFloat {
+        get {
+            return width * (UIDevice.current.userInterfaceIdiom == .phone ? 0.4 : 0.3)
+        }
+    }
     var marginSpace: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 20.0: 10.0
     
     override func viewDidLoad() {
@@ -27,12 +54,9 @@ class LoginViewController: UIViewController {
         view.backgroundColor = .clear
         view.addGradient(colors: [Common.color.blue.cgColor, Common.color.purple.cgColor], start: CGPoint(x: 0.0, y: 0.0), end: CGPoint(x: 0.0, y: 1.0) )
         
-        width = view.bounds.width
-        height = view.bounds.height
-        navBarHeight = navigationController?.navigationBar.bounds.height ?? 44
-        
         initializeImageView()
-        initializeInputTextField()
+        initializeTextField(&emailTxtField, "Email", YAnchor(direction: view.centerYAnchor , constant: 0))
+        initializeTextField(&passwordTxtField, "Password", YAnchor(direction: emailTxtField!.bottomAnchor, constant: height * 0.02))
         initializeLoginButton()
         initializeRegisterButton()
         

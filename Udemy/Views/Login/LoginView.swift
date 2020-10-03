@@ -16,129 +16,70 @@ extension LoginViewController {
             return
         }
         UIView.addToViewByConstraints(parent: view,
-            subView: imageView,
-            top: YAnchor(direction: view.topAnchor, constant: navBarHeight * 1.5),
-            bottom: nil, leading: nil,
-            trailing: nil,
-            centerY: nil,
-            centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
-            width: width * 0.5,
-            height: width * 0.5)
+                                      subView: imageView,
+                                      top: YAnchor(direction: view.topAnchor, constant: navBarHeight * 1.5),
+                                      bottom: nil, leading: nil,
+                                      trailing: nil,
+                                      centerY: nil,
+                                      centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                                      width: width * 0.4,
+                                      height: width * 0.4)
     }
     
-    func initializeInputTextField() {
-        emailTxtField = UITextField(placeholder: "email")
-        emailTxtField?.keyboardType = .emailAddress
-        passwordTxtField = UITextField(placeholder: "password", isHideText: true)
+    // TextFields
+    func initializeTextField(_ textField: inout UITextField?, _ placeholder: String, _ yAnchor: YAnchor) {
+        // Initialize
+        textField = UITextField(placeholder: placeholder)
         
-        var heightTextField: CGFloat = 0
-        guard let email = emailTxtField, let password = passwordTxtField else {
+        // Unwrap
+        guard let textField = textField else {
             return
         }
         
+        // Assign delegate property to self
+        textField.delegate = self
         
-            // iPhone
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            heightTextField = width * 0.12
-            
-            // Email
-            UIView.addToViewByConstraints(parent: view,
-                subView: email,
-                top: nil,
-                bottom: nil,
-                leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
-                trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
-                centerY: YAnchor(direction: view.centerYAnchor, constant: 0),
-                centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
-                width: nil,
-                height: heightTextField)
-            
-            // Password
-            UIView.addToViewByConstraints(parent: view,
-                subView: password,
-                top: YAnchor(direction: email.bottomAnchor, constant: marginSpace),
-                bottom: nil,
-                leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
-                trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
-                centerY: nil,
-                centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
-                width: nil,
-                height: heightTextField)
-        }
-            // iPad
-        else if UIDevice.current.userInterfaceIdiom == .pad  {
-            heightTextField = width * 0.08
-            
-            // Email
-            UIView.addToViewByConstraints(parent: view,
-                subView: email,
-                top: nil,
-                bottom: nil,
-                leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.2),
-                trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.2),
-                centerY: YAnchor(direction: view.centerYAnchor, constant: 0),
-                centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
-                width: nil,
-                height: heightTextField)
-            
-            // Password
-            UIView.addToViewByConstraints(parent: view,
-                subView: password,
-                top: YAnchor(direction: email.bottomAnchor, constant: marginSpace),
-                bottom: nil,
-                leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.2),
-                trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.2),
-                centerY: nil,
-                centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
-                width: nil,
-                height: heightTextField)
-        }
         
-        email.afterEffect(fontSize: heightTextField * 0.4, corner: heightTextField * 0.5)
-        password.afterEffect(fontSize: heightTextField * 0.4, corner: heightTextField * 0.5)
+        // Constraints
+        UIView.addToViewByConstraints(parent: view,
+                                      subView: textField,
+                                      top: yAnchor,
+                                      bottom: nil,
+                                      leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * (UIDevice.current.userInterfaceIdiom == .phone ? 0.05 : 0.2)),
+                                      trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * (UIDevice.current.userInterfaceIdiom == .phone ? 0.05 : 0.2)),
+                                      centerY: nil,
+                                      centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                                      width: nil,
+                                      height: heightTextField)
+        
+        
+        // Beauty
+        textField.afterEffect(fontSize: heightTextField * 0.4, corner: heightTextField * 0.5)
     }
     
     func initializeLoginButton() {
-        loginBtn = UIButton("Login", Common.color.lightRed, .white, backImage: nil)
+        loginBtn = UIButton("Login", Common.color.lightRed, .white, nil)
         
-        var heightButton: CGFloat = 0
         guard let loginBtn = loginBtn, let password = passwordTxtField else {
             return
         }
+        UIView.addToViewByConstraints(parent: view,
+                                      subView: loginBtn,
+                                      top: YAnchor(direction: password.bottomAnchor, constant: 4 * marginSpace),
+                                      bottom: nil,
+                                      leading: nil,
+                                      trailing: nil,
+                                      centerY: nil,
+                                      centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                                      width: widthLoginButton,
+                                      height: heightLoginButton)
         
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            heightButton = width * 0.12
-            UIView.addToViewByConstraints(parent: view,
-                subView: loginBtn,
-                top: YAnchor(direction: password.bottomAnchor, constant: 4 * marginSpace),
-                bottom: nil,
-                leading: nil,
-                trailing: nil,
-                centerY: nil,
-                centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
-                width: width * 0.5,
-                height: heightButton)
-        }
-        else if UIDevice.current.userInterfaceIdiom == .pad {
-            heightButton = width * 0.08
-            UIView.addToViewByConstraints(parent: view,
-                subView: loginBtn,
-                top: YAnchor(direction: password.bottomAnchor, constant: 4 * marginSpace),
-                bottom: nil,
-                leading: nil,
-                trailing: nil,
-                centerY: nil,
-                centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
-                width: width * 0.3,
-                height: heightButton)
-        }
-        
-        loginBtn.afterEffect(textSize: heightButton * 0.5, corner: heightButton * 0.2)
+        loginBtn.afterEffect(textSize: heightLoginButton * 0.5, corner: heightLoginButton * 0.2)
         loginBtn.addTarget(self, action: #selector(LoginViewController.loginBtnPressed(_:)), for: .touchUpInside)
     }
     
     func initializeRegisterButton() {
-        registerBtn = UIButton("Register", nil , UIColor.link, backImage: nil)
+        registerBtn = UIButton("Register", nil , UIColor.link, nil)
         
         let heightButton = height * 0.04
         guard let registerBtn = registerBtn else {
@@ -146,15 +87,15 @@ extension LoginViewController {
         }
         
         UIView.addToViewByConstraints(parent: view,
-            subView: registerBtn,
-            top: nil,
-            bottom: YAnchor(direction: view.bottomAnchor, constant: -3.0 * marginSpace),
-            leading: nil,
-            trailing: nil,
-            centerY: nil,
-            centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
-            width: width * 0.2,
-            height: heightButton)
+                                      subView: registerBtn,
+                                      top: nil,
+                                      bottom: YAnchor(direction: view.bottomAnchor, constant: -3.0 * marginSpace),
+                                      leading: nil,
+                                      trailing: nil,
+                                      centerY: nil,
+                                      centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                                      width: width * 0.2,
+                                      height: heightButton)
         
         registerBtn.afterEffect(textSize: heightButton * 0.5, corner: 0.0)
         registerBtn.addTarget(self, action: #selector(LoginViewController.registerBtnPressed(_:)), for: .touchUpInside)
