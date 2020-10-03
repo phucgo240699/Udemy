@@ -10,20 +10,13 @@ import Foundation
 import UIKit
 
 extension UIButton {
-    static func getButton(_ title: String, _ backColor: UIColor?, _ textColor: UIColor?) -> UIButton {
-        let button = UIButton()
-        button.setTitle(title, for: .normal)
-        button.setTitleColor(textColor, for: .normal)
-        button.backgroundColor = backColor == nil ? .none : backColor!
-        return button
+    convenience init(_ title: String?, _ backColor: UIColor?, _ textColor: UIColor?, backImage: UIImage?) {
+        self.init(frame: .zero)
+        setTitle(title, for: .normal)
+        setTitleColor(textColor, for: .normal)
+        backgroundColor = backColor == nil ? .none : backColor!
+        setBackgroundImage(backImage, for: .normal)
     }
-    
-    static func getBackButton() -> UIButton {
-        let back = UIButton()
-        back.setBackgroundImage(UIImage(systemName: "arrow.left"), for: .normal)
-        return back
-    }
-    
     func afterEffect(textSize: CGFloat, corner: CGFloat) {
         self.titleLabel?.font = UIFont(name: Common.fontName, size: textSize)
         self.layer.cornerRadius = corner

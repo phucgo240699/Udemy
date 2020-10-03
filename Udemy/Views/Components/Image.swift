@@ -10,20 +10,16 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-    static func getSquareImageView(name: String, lengthOfEdge: CGFloat) -> UIImageView {
-        let imgView = UIImageView(image: UIImage(named: name))
-        
-        imgView.frame.size = CGSize(width: lengthOfEdge, height: lengthOfEdge)
-        
-        return imgView
+    convenience init(name: String, lengthOfEdge: CGFloat){
+        self.init(frame: .zero)
+        image = UIImage(named: name)
+        frame.size = CGSize(width: lengthOfEdge, height: lengthOfEdge)
     }
     
-    static func getRectImageView(name: String, width: CGFloat, height: CGFloat) -> UIImageView {
-        let imgView = UIImageView(image: UIImage(named: name))
-        
-        imgView.frame.size = CGSize(width: width, height: height)
-        
-        return imgView
+    convenience init(name: String, width: CGFloat, height: CGFloat) {
+        self.init(frame: .zero)
+        image = UIImage(named: name)
+        frame.size = CGSize(width: width, height: height)
     }
     
 }

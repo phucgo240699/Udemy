@@ -11,7 +11,7 @@ import UIKit
 
 extension RegisterViewController {
     func initializeCloseButton() {
-        closeBtn = UIButton.getBackButton()
+        closeBtn = UIButton(nil, nil, nil, backImage: UIImage(systemName: "arrow.left"))
         guard let closeBtn = closeBtn else {
             return
         }
@@ -46,7 +46,7 @@ extension RegisterViewController {
     
     // Name
     func initializeNameTextField() {
-        nameTxtField = UITextField.getInput(placeholder: "\tName")
+        nameTxtField = UITextField(placeholder: "\tName")
 
         guard let nameTxtField = nameTxtField, let closeBtn = closeBtn else {
             return
@@ -84,7 +84,7 @@ extension RegisterViewController {
     
     // Gender
     func initializeGenderTextField() {
-        genderTxtField = UITextField.getInput(placeholder: "\tGender")
+        genderTxtField = UITextField(placeholder: "\tGender")
         guard let nameTxtField = nameTxtField, let genderTxtField = genderTxtField else {
             return
         }
@@ -118,7 +118,7 @@ extension RegisterViewController {
     
     // Phone number
     func initializePhoneNumberTextField() {
-        phoneNumbersTxtField = UITextField.getInput(placeholder: "\tPhone numbers")
+        phoneNumbersTxtField = UITextField(placeholder: "\tPhone numbers")
         guard let genderTxtField = genderTxtField, let phoneNumbersTxtField = phoneNumbersTxtField else {
             return
         }
@@ -155,7 +155,7 @@ extension RegisterViewController {
     
     // Address
     func initializeAddressTextField() {
-        addressTxtField = UITextField.getInput(placeholder: "\tAddress")
+        addressTxtField = UITextField(placeholder: "\tAddress")
         guard let phoneNumbersTxtField = phoneNumbersTxtField, let addressTxtField = addressTxtField else {
             return
         }
@@ -190,7 +190,7 @@ extension RegisterViewController {
     
     // Description
     func initializeDescriptionTextField() {
-        descriptionTxtField = UITextField.getInput(placeholder: "\tDescription")
+        descriptionTxtField = UITextField(placeholder: "\tDescription")
         guard let addressTxtField = addressTxtField, let descriptionTxtField = descriptionTxtField else {
             return
         }
@@ -226,7 +226,7 @@ extension RegisterViewController {
     
     // Password
     func initializePasswordTextField() {
-        passwordTxtField = UITextField.getInput(placeholder: "\tPassword")
+        passwordTxtField = UITextField(placeholder: "\tPassword")
         guard let descriptionTxtField = descriptionTxtField, let passwordTxtField = passwordTxtField else {
             return
         }
@@ -260,7 +260,7 @@ extension RegisterViewController {
     
     // RePassword
     func initializeRePasswordTextField() {
-        rePasswordTxtField = UITextField.getInput(placeholder: "\tRe-password")
+        rePasswordTxtField = UITextField(placeholder: "\tRe-password")
         guard let passwordTxtField = passwordTxtField, let rePasswordTxtField = rePasswordTxtField else {
             return
         }
@@ -296,7 +296,7 @@ extension RegisterViewController {
     
     // Register Button
     func initializeRegisterButton() {
-        registerBtn = UIButton.getButton("Register", Common.color.blue, .white)
+        registerBtn = UIButton("Register", Common.color.blue, .white, backImage: nil)
         guard let registerBtn = registerBtn, let rePasswordTxtField = rePasswordTxtField else {
             return
         }

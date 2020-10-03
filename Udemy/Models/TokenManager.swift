@@ -9,5 +9,5 @@
 import Foundation
 
 class TokenManager {
-    static let shared = TokenManager()
+    
 }

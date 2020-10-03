@@ -27,9 +27,9 @@ extension LoginViewController {
     }
     
     func initializeInputTextField() {
-        emailTxtField = UITextField.getInput(placeholder: "email")
+        emailTxtField = UITextField(placeholder: "email")
         emailTxtField?.keyboardType = .emailAddress
-        passwordTxtField = UITextField.getInput(placeholder: "password", isHideText: true)
+        passwordTxtField = UITextField(placeholder: "password", isHideText: true)
         
         var heightTextField: CGFloat = 0
         guard let email = emailTxtField, let password = passwordTxtField else {
@@ -99,7 +99,7 @@ extension LoginViewController {
     }
     
     func initializeLoginButton() {
-        loginBtn = UIButton.getButton("Login", Common.color.lightRed, .white)
+        loginBtn = UIButton("Login", Common.color.lightRed, .white, backImage: nil)
         
         var heightButton: CGFloat = 0
         guard let loginBtn = loginBtn, let password = passwordTxtField else {
@@ -138,7 +138,7 @@ extension LoginViewController {
     }
     
     func initializeRegisterButton() {
-        registerBtn = UIButton.getButton("Register", nil , UIColor.link)
+        registerBtn = UIButton("Register", nil , UIColor.link, backImage: nil)
         
         let heightButton = height * 0.04
         guard let registerBtn = registerBtn else {

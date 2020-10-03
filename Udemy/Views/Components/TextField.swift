@@ -11,15 +11,14 @@ import UIKit
 
 
 extension UITextField {
-    static func getInput(placeholder: String, isHideText: Bool = false) -> UITextField {
-        let textField = UITextField()
-        textField.placeholder = placeholder
-        textField.backgroundColor = .systemBackground
-        textField.returnKeyType = .default
-        textField.isSecureTextEntry = isHideText
-        textField.clearButtonMode = .whileEditing
-        textField.borderStyle = .roundedRect
-        return textField
+    convenience init(placeholder: String, isHideText: Bool = false) {
+        self.init(frame: .zero)
+        self.placeholder = placeholder
+        backgroundColor = .systemBackground
+        returnKeyType = .default
+        isSecureTextEntry = isHideText
+        clearButtonMode = .whileEditing
+        borderStyle = .roundedRect
     }
     
     func afterEffect(fontSize: CGFloat, corner: CGFloat) {
