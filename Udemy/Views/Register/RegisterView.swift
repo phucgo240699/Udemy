@@ -88,5 +88,6 @@ extension RegisterViewController {
                                       height: heightRegisterButton)
         
         registerBtn.afterEffect(textSize: heightRegisterButton * 0.5, corner: heightRegisterButton * 0.2)
+        registerBtn.addTarget(self, action: #selector(RegisterViewController.registerBtnPressed(_:)), for: .touchUpInside)
     }
 }

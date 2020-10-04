@@ -19,4 +19,5 @@ pod 'Bartinter'
 pod 'SwiftEntryKit'
 pod 'SnapKit'
 pod 'IQKeyboardManagerSwift'
+pod 'Cosmos', '~> 23.0'
 end

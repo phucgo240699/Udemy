@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var currentController: CurrentController = .login
     
     let loginController: UINavigationController = UINavigationController(rootViewController: LoginViewController())
-    var registerController: RegisterViewController?
+    var registerController: RegisterViewController? // loginVC will push registerVC, not change rootVC of window
     var mainTabBarController: MainTabBarController?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

@@ -173,6 +173,7 @@
 		3E07EB092522E95F002EBE7B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3E9D6BEB252A14F1003DFA4E /* PopupWindow */,
 				3E07EB0A2522E976002EBE7B /* Image.swift */,
 				3E07EB0C2522E981002EBE7B /* Label.swift */,
 				3E07EB0E2522E993002EBE7B /* TextField.swift */,
@@ -297,6 +298,13 @@
 				3E91FDA02524170C0086DA0A /* Window.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3E9D6BEB252A14F1003DFA4E /* PopupWindow */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PopupWindow;
 			sourceTree = "<group>";
 		};
 		3EAD5D3F2521C8370093944F = {
