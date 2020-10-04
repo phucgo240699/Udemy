@@ -9,6 +9,6 @@
 import Foundation
 enum CurrentController {
     case login
-    case register
+//    case register
     case mainTab
 }

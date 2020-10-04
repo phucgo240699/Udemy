@@ -17,8 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var currentController: CurrentController = .login
     
     let loginController: UINavigationController = UINavigationController(rootViewController: LoginViewController())
-    var registerController: RegisterViewController? // loginVC will push registerVC, not change rootVC of window
-    var mainTabBarController: MainTabBarController?
+    let mainTabBarController: MainTabBarController = MainTabBarController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
