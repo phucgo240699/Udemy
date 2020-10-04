@@ -22,6 +22,17 @@ class AccountViewController: UIViewController {
     }
     
     @objc func logOutBarButtonPressed(_ sender: UIBarButtonItem) {
-        (UIApplication.shared.delegate as! AppDelegate).window?.setController(.login)
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
+            return
+        }
+        guard let fromView = appDelegate.mainTabBarController?.view else {
+            return
+        }
+        
+        UIView.transition(from: fromView, to: appDelegate.loginController.view, duration: 0.5, options: .transitionFlipFromRight) { (isSuccess) in
+            if isSuccess {
+                appDelegate.window?.setController(.login)
+            }
+        }
     }
 }

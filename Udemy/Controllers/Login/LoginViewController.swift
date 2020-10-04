@@ -71,10 +71,15 @@ class LoginViewController: UIViewController {
     }
     
     @objc func loginBtnPressed(_ sender: UIButton) {
+        // TODO - Call API Login
         // if login success
-        UIView.animate(withDuration: 0.5) {
-            (UIApplication.shared.delegate as! AppDelegate).window?.setController(.mainTab)
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
+            return
         }
+        UIView.animate(withDuration: 0.5) {
+            appDelegate.window?.setController(.mainTab)
+        }
+        // if failed, show error
     }
     
     @objc func registerBtnPressed(_ sender: UIButton) {

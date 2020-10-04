@@ -197,13 +197,14 @@
 		3E3B87AB2522DF2E006CBC37 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3E51760225261ECF0001D2AD /* MainTabBarController.swift */,
+				3E6A781F2529C03D00D2D4B1 /* Register */,
+				3E6A781E2529C03200D2D4B1 /* Login */,
 				3EBC98E32526FDFD00A273C5 /* Featured */,
 				3EBC98E22526FDF300A273C5 /* Search */,
 				3EBC98E12526FDEA00A273C5 /* Courses */,
 				3EBC98DE2526FD9F00A273C5 /* Cart */,
 				3EBC98DB2526FCE100A273C5 /* Account */,
-				3E07EAFD2522E72C002EBE7B /* RegisterViewController.swift */,
-				3EAD5D4F2521C8380093944F /* LoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -220,7 +221,6 @@
 				3E07EAFF2522E7A6002EBE7B /* Register */,
 				3E07EAF62522E27D002EBE7B /* Login */,
 				3EAD5D592521C8390093944F /* LaunchScreen.storyboard */,
-				3E51760225261ECF0001D2AD /* MainTabBarController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -273,6 +273,22 @@
 				3EBC98EC2526FEB300A273C5 /* AccountView.swift */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		3E6A781E2529C03200D2D4B1 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3EAD5D4F2521C8380093944F /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3E6A781F2529C03D00D2D4B1 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				3E07EAFD2522E72C002EBE7B /* RegisterViewController.swift */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 		3E91FD9F252417010086DA0A /* Extensions */ = {

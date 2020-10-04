@@ -77,7 +77,9 @@ class RegisterViewController: UIViewController {
     }
     
     @objc func registerBtnPressed(_ sender: UIButton) {
-        
+        // TODO: - Call API Register & Block view by ProgressingView
+        // TODO: - success: goto MainTab
+        // TODO: - failed: Show error
     }
 }
 
