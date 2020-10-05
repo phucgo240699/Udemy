@@ -18,6 +18,8 @@
 		3E07EB0F2522E993002EBE7B /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB0E2522E993002EBE7B /* TextField.swift */; };
 		3E07EB112522E99D002EBE7B /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB102522E99D002EBE7B /* TextView.swift */; };
 		3E07EB132522E9B0002EBE7B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB122522E9B0002EBE7B /* Button.swift */; };
+		3E0EF955252ADFD800AFD584 /* Noti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0EF954252ADFD800AFD584 /* Noti.swift */; };
+		3E0EF96C252AE2B800AFD584 /* UIView+Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0EF96B252AE2B800AFD584 /* UIView+Message.swift */; };
 		3E3B87AF2522DF70006CBC37 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B87AE2522DF70006CBC37 /* TokenManager.swift */; };
 		3E51760325261ECF0001D2AD /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760225261ECF0001D2AD /* MainTabBarController.swift */; };
 		3E51760A25261FBA0001D2AD /* FeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760925261FBA0001D2AD /* FeatureViewController.swift */; };
@@ -78,6 +80,8 @@
 		3E07EB0E2522E993002EBE7B /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		3E07EB102522E99D002EBE7B /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		3E07EB122522E9B0002EBE7B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		3E0EF954252ADFD800AFD584 /* Noti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Noti.swift; sourceTree = "<group>"; };
+		3E0EF96B252AE2B800AFD584 /* UIView+Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Message.swift"; sourceTree = "<group>"; };
 		3E3B87AE2522DF70006CBC37 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		3E51760225261ECF0001D2AD /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		3E51760925261FBA0001D2AD /* FeatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureViewController.swift; sourceTree = "<group>"; };
@@ -173,7 +177,6 @@
 		3E07EB092522E95F002EBE7B /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				3E9D6BEB252A14F1003DFA4E /* PopupWindow */,
 				3E07EB0A2522E976002EBE7B /* Image.swift */,
 				3E07EB0C2522E981002EBE7B /* Label.swift */,
 				3E07EB0E2522E993002EBE7B /* TextField.swift */,
@@ -184,6 +187,14 @@
 				3E6E3FF025230901004DF50E /* View.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		3E0EF953252ADFAA00AFD584 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				3E0EF954252ADFD800AFD584 /* Noti.swift */,
+			);
+			path = Popup;
 			sourceTree = "<group>";
 		};
 		3E3B87AA2522DF19006CBC37 /* Resources */ = {
@@ -198,6 +209,7 @@
 		3E3B87AB2522DF2E006CBC37 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3E0EF953252ADFAA00AFD584 /* Popup */,
 				3E51760225261ECF0001D2AD /* MainTabBarController.swift */,
 				3E6A781F2529C03D00D2D4B1 /* Register */,
 				3E6A781E2529C03200D2D4B1 /* Login */,
@@ -296,15 +308,9 @@
 			isa = PBXGroup;
 			children = (
 				3E91FDA02524170C0086DA0A /* Window.swift */,
+				3E0EF96B252AE2B800AFD584 /* UIView+Message.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		3E9D6BEB252A14F1003DFA4E /* PopupWindow */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PopupWindow;
 			sourceTree = "<group>";
 		};
 		3EAD5D3F2521C8370093944F = {
@@ -681,6 +687,7 @@
 				3E6E3FEF252304A9004DF50E /* XAnchor.swift in Sources */,
 				3E51760A25261FBA0001D2AD /* FeatureViewController.swift in Sources */,
 				3E07EB062522E800002EBE7B /* UdemyLoginManager.swift in Sources */,
+				3E0EF96C252AE2B800AFD584 /* UIView+Message.swift in Sources */,
 				3E07EAFE2522E72C002EBE7B /* RegisterViewController.swift in Sources */,
 				3E91FDA12524170C0086DA0A /* Window.swift in Sources */,
 				3E51760C25261FE70001D2AD /* SearchViewController.swift in Sources */,
@@ -694,6 +701,7 @@
 				3E07EB0B2522E976002EBE7B /* Image.swift in Sources */,
 				3EBC98ED2526FEB300A273C5 /* AccountView.swift in Sources */,
 				3EAD5D562521C8380093944F /* Udemy.xcdatamodeld in Sources */,
+				3E0EF955252ADFD800AFD584 /* Noti.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
