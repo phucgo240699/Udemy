@@ -6,7 +6,12 @@
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
+// MARK: - Summary:
+// loginBtnPressed: Call API
+// registerBtnPressed: push RegisterViewController
+
 import UIKit
+
 
 class LoginViewController: UIViewController {
     
@@ -72,6 +77,7 @@ class LoginViewController: UIViewController {
     
     @objc func loginBtnPressed(_ sender: UIButton) {
         // TODO - Call API Login
+        
         // if login success
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return

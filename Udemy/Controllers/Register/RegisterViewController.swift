@@ -6,6 +6,10 @@
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
+// MARK: - Summary:
+// registerBtnPressed: Call API register
+// closeBarBtnPressed: pop this ViewController
+
 import Foundation
 import UIKit
 
