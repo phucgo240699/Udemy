@@ -18,7 +18,7 @@ class MainTabBarController: UITabBarController {
     
     func setUpTabBar() {
         
-        let forum = UINavigationController(rootViewController: FeatureViewController())
+        let forum = FeatureViewController()
         forum.tabBarItem = UITabBarItem(title: nil, image: nil, tag: 0)
         forum.tabBarItem.image = UIImage(systemName: "star")
         forum.tabBarItem.imageInsets = UIEdgeInsets(top: 7, left: 0, bottom: -7, right: 0)

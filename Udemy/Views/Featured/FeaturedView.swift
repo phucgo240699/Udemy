@@ -7,7 +7,22 @@
 //
 
 import Foundation
+import UIKit
 
 extension FeatureViewController {
-    
+    func initializeTableView() {
+        tableView = UITableView(frame: view.bounds, style: .grouped)
+        guard let tableView = tableView else {
+            return
+        }
+        
+        view.addSubview(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(FeatureTableViewCell.self, forCellReuseIdentifier: "featureCell")
+        
+        tableView.rowHeight = rowHeight
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .none
+    }
 }

@@ -15,8 +15,7 @@ extension LoginViewController {
         guard let imageView = imageView else {
             return
         }
-        UIView.addToViewByConstraints(parent: view,
-                                      subView: imageView,
+        imageView.addToViewByConstraints(parent: view,
                                       top: YAnchor(direction: view.topAnchor, constant: navBarHeight * 1.5),
                                       bottom: nil, leading: nil,
                                       trailing: nil,
@@ -41,8 +40,7 @@ extension LoginViewController {
         
         
         // Constraints
-        UIView.addToViewByConstraints(parent: view,
-                                      subView: textField,
+        textField.addToViewByConstraints(parent: view,
                                       top: yAnchor,
                                       bottom: nil,
                                       leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * (UIDevice.current.userInterfaceIdiom == .phone ? 0.05 : 0.2)),
@@ -63,8 +61,7 @@ extension LoginViewController {
         guard let loginBtn = loginBtn, let password = passwordTxtField else {
             return
         }
-        UIView.addToViewByConstraints(parent: view,
-                                      subView: loginBtn,
+        loginBtn.addToViewByConstraints(parent: view,
                                       top: YAnchor(direction: password.bottomAnchor, constant: 4 * marginSpace),
                                       bottom: nil,
                                       leading: nil,
@@ -86,8 +83,7 @@ extension LoginViewController {
             return
         }
         
-        UIView.addToViewByConstraints(parent: view,
-                                      subView: registerBtn,
+        registerBtn.addToViewByConstraints(parent: view,
                                       top: nil,
                                       bottom: YAnchor(direction: view.bottomAnchor, constant: -3.0 * marginSpace),
                                       leading: nil,

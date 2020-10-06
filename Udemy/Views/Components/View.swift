@@ -10,34 +10,37 @@ import Foundation
 import UIKit
 
 extension UIView {
-    static func addToViewByConstraints(parent: UIView, subView: UIView, top: YAnchor?, bottom: YAnchor?, leading: XAnchor?, trailing: XAnchor?, centerY: YAnchor?, centerX: XAnchor?, width: CGFloat?, height: CGFloat? ) {
+    func addToViewByConstraints(parent: UIView, top: YAnchor?, bottom: YAnchor?, leading: XAnchor?, trailing: XAnchor?, centerY: YAnchor?, centerX: XAnchor?, width: CGFloat?, height: CGFloat? ) {
         
-        subView.translatesAutoresizingMaskIntoConstraints = false
-        parent.addSubview(subView)
+        if self.isDescendant(of: parent) == false {
+            parent.addSubview(self)
+        }
+            
+        self.translatesAutoresizingMaskIntoConstraints = false
         
         if let width = width {
-            subView.widthAnchor.constraint(equalToConstant: width).isActive = true
+            self.widthAnchor.constraint(equalToConstant: width).isActive = true
         }
         if let height = height {
-            subView.heightAnchor.constraint(equalToConstant: height).isActive = true
+            self.heightAnchor.constraint(equalToConstant: height).isActive = true
         }
         if let leading = leading {
-            subView.leadingAnchor.constraint(equalTo: leading.direction, constant: leading.constant).isActive = true
+            self.leadingAnchor.constraint(equalTo: leading.direction, constant: leading.constant).isActive = true
         }
         if let trailing = trailing {
-            subView.trailingAnchor.constraint(equalTo: trailing.direction, constant: trailing.constant).isActive = true
+            self.trailingAnchor.constraint(equalTo: trailing.direction, constant: trailing.constant).isActive = true
         }
         if let top = top {
-            subView.topAnchor.constraint(equalTo: top.direction, constant: top.constant).isActive = true
+            self.topAnchor.constraint(equalTo: top.direction, constant: top.constant).isActive = true
         }
         if let bottom = bottom {
-            subView.bottomAnchor.constraint(equalTo: bottom.direction, constant: bottom.constant).isActive = true
+            self.bottomAnchor.constraint(equalTo: bottom.direction, constant: bottom.constant).isActive = true
         }
         if let centerY = centerY {
-            subView.centerYAnchor.constraint(equalTo: centerY.direction, constant: centerY.constant).isActive = true
+            self.centerYAnchor.constraint(equalTo: centerY.direction, constant: centerY.constant).isActive = true
         }
         if let centerX = centerX {
-            subView.centerXAnchor.constraint(equalTo: centerX.direction, constant: centerX.constant).isActive = true
+            self.centerXAnchor.constraint(equalTo: centerX.direction, constant: centerX.constant).isActive = true
         }
     }
     
@@ -49,5 +52,17 @@ extension UIView {
         gradient.endPoint = end
         gradient.locations = [0.0, 1.0]
         self.layer.addSublayer(gradient)
+    }
+    
+    func pin(to parentView: UIView) {
+        if self.isDescendant(of: parentView) == false {
+            parentView.addSubview(self)
+        }
+        translatesAutoresizingMaskIntoConstraints = false
+        
+        topAnchor.constraint(equalTo: parentView.topAnchor).isActive = true
+        bottomAnchor.constraint(equalTo: parentView.bottomAnchor).isActive = true
+        leadingAnchor.constraint(equalTo: parentView.leadingAnchor).isActive = true
+        trailingAnchor.constraint(equalTo: parentView.trailingAnchor).isActive = true
     }
 }

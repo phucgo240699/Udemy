@@ -25,8 +25,7 @@ extension RegisterViewController {
         
         // Constraints
         let edge = width * (UIDevice.current.userInterfaceIdiom == .phone ? 0.08 : 0.05)
-        UIView.addToViewByConstraints(parent: view,
-                                      subView: closeBtn,
+        closeBtn.addToViewByConstraints(parent: view,
                                       top: YAnchor(direction: view.topAnchor, constant: 44.0),
                                       bottom: nil,
                                       leading: XAnchor(direction: view.leadingAnchor, constant: 2 * marginSpace),
@@ -53,8 +52,7 @@ extension RegisterViewController {
         
         
         // Constraints
-        UIView.addToViewByConstraints(parent: view,
-                                      subView: textField,
+        textField.addToViewByConstraints(parent: view,
                                       top: YAnchor(direction: topView.bottomAnchor, constant: height * 0.02),
                                       bottom: nil,
                                       leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
@@ -76,8 +74,7 @@ extension RegisterViewController {
             return
         }
         
-        UIView.addToViewByConstraints(parent: view,
-                                      subView: registerBtn,
+        registerBtn.addToViewByConstraints(parent: view,
                                       top: YAnchor(direction: rePasswordTxtField.bottomAnchor, constant: 4 * marginSpace),
                                       bottom: nil,
                                       leading: nil,
