@@ -56,10 +56,12 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Setup view
         navigationController?.navigationBar.isHidden = true
         view.backgroundColor = .clear
         view.addGradient(colors: [Common.color.blue.cgColor, Common.color.purple.cgColor], start: CGPoint(x: 0.0, y: 0.0), end: CGPoint(x: 0.0, y: 1.0) )
         
+        // Setup components
         initializeImageView()
         initializeTextField(&emailTxtField, "Email", YAnchor(direction: view.centerYAnchor , constant: 0), keyType: .emailAddress)
         initializeTextField(&passwordTxtField, "Password", YAnchor(direction: emailTxtField!.bottomAnchor, constant: height * 0.02), isHideText: true)
@@ -69,6 +71,9 @@ class LoginViewController: UIViewController {
         
         emailTxtField?.delegate = self
         passwordTxtField?.delegate = self
+        
+        // Auto login
+        autoLogin()
     }
     
     override func viewWillAppear(_ animated: Bool) {

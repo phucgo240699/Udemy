@@ -11,6 +11,18 @@ import Alamofire
 import SVProgressHUD
 
 extension LoginViewController {
+    func autoLogin() {
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
+            return
+        }
+        
+        if let email = appDelegate.account.email, let password = appDelegate.account.password {
+            if email.isEmptyOrSpacing() == false || password.isEmptyOrSpacing() == false {
+                login(url: Common.link.login, email: email, password: password)
+            }
+        }
+    }
+    
     func login(url: String, email: String?, password: String?) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
@@ -58,7 +70,7 @@ extension LoginViewController {
             if statusCode == 200 { // Successful
                 
                 // parse result to check
-                self.parseLoginJSON(from: data, response.response?.headers)
+                self.parseLoginJSON(from: data, response.response?.headers, email, password)
             }
             else { // Failed
                 
@@ -71,7 +83,7 @@ extension LoginViewController {
         
     }
     
-    func parseLoginJSON(from data: Data, _ headers: HTTPHeaders?) {
+    func parseLoginJSON(from data: Data, _ headers: HTTPHeaders?, _ email: String, _ password: String) {
         
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
@@ -86,11 +98,14 @@ extension LoginViewController {
                     if let headers = headers {
                         if let token = headers["auth-token"] {
                             TokenManager.setAccessToken(token)
-                        }
-                    }
-                    DispatchQueue.main.async {
-                        UIView.animate(withDuration: 0.5) {
-                            window.setController(.mainTab)
+                            
+                            appDelegate.account.save(email, password)
+                            
+                            DispatchQueue.main.async {
+                                UIView.animate(withDuration: 0.5) {
+                                    window.setController(.mainTab)
+                                }
+                            }
                         }
                     }
                 }
@@ -110,7 +125,7 @@ extension LoginViewController {
         
         do {
             let errorMessageResponse = try JSONDecoder().decode(ErrorMessageResponse.self, from: data)
-            window.showError("Register failed", errorMessageResponse.message ?? "There is an error")
+            window.showError("Login failed", errorMessageResponse.message ?? "There is an error")
         } catch {
             window.showError("Error", error.localizedDescription)
         }

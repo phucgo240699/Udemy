@@ -31,6 +31,7 @@
 		3E6E3FED25230452004DF50E /* YAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E3FEC25230452004DF50E /* YAnchor.swift */; };
 		3E6E3FEF252304A9004DF50E /* XAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E3FEE252304A9004DF50E /* XAnchor.swift */; };
 		3E6E3FF125230901004DF50E /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E3FF025230901004DF50E /* View.swift */; };
+		3E77E79D252DFD32004F0340 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E77E79C252DFD32004F0340 /* Account.swift */; };
 		3E91FD9E252415C90086DA0A /* CurrentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E91FD9D252415C90086DA0A /* CurrentController.swift */; };
 		3E91FDA12524170C0086DA0A /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E91FDA02524170C0086DA0A /* Window.swift */; };
 		3E926E0D252CA812009589E3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E926E0C252CA812009589E3 /* String.swift */; };
@@ -104,6 +105,7 @@
 		3E6E3FEC25230452004DF50E /* YAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YAnchor.swift; sourceTree = "<group>"; };
 		3E6E3FEE252304A9004DF50E /* XAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XAnchor.swift; sourceTree = "<group>"; };
 		3E6E3FF025230901004DF50E /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		3E77E79C252DFD32004F0340 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		3E91FD9D252415C90086DA0A /* CurrentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentController.swift; sourceTree = "<group>"; };
 		3E91FDA02524170C0086DA0A /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		3E926E0C252CA812009589E3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				3E07EB022522E7CC002EBE7B /* Common.swift */,
 				3E91FD9D252415C90086DA0A /* CurrentController.swift */,
 				3EEF6D6D252C98A800FFD443 /* ErrorResponse.swift */,
+				3E77E79C252DFD32004F0340 /* Account.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -731,6 +734,7 @@
 				3E926E0D252CA812009589E3 /* String.swift in Sources */,
 				3E07EB032522E7CC002EBE7B /* Common.swift in Sources */,
 				3EAD5D502521C8380093944F /* LoginViewController.swift in Sources */,
+				3E77E79D252DFD32004F0340 /* Account.swift in Sources */,
 				3E5176122526204D0001D2AD /* AccountViewController.swift in Sources */,
 				3EBC98E72526FE7B00A273C5 /* SearchView.swift in Sources */,
 				3E07EB0D2522E981002EBE7B /* Label.swift in Sources */,

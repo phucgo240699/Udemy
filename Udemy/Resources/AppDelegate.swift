@@ -12,6 +12,8 @@ import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var account: Account = Account()
 
     var window: UIWindow?
     var currentController: CurrentController = .login
