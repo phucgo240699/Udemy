@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var currentController: CurrentController = .login
+    var wasNotifyActivationCode: Bool? = false
     
     let loginController: UINavigationController = UINavigationController(rootViewController: LoginViewController())
     let mainTabBarController: MainTabBarController = MainTabBarController()

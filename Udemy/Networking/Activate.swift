@@ -55,41 +55,42 @@ extension ActivationViewController {
     }
     
     func parseActivationJSON(from data: Data) {
-        guard let appDelegate = UIApplication.shared.delegate else {
+        
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
         guard let window = appDelegate.window else {
             return
         }
-        
         do {
             let activationResponse = try JSONDecoder().decode(ActivationResponse.self, from: data)
             if let active = activationResponse.active {
                 if active == 1 {
-                    window?.notificate(UIImage(named: Common.imageName.done), "Activate successfully", "You can log in now")
+                    window.notificate(UIImage(named: Common.imageName.done), "Activate successfully", "You can log in now")
                     UIView.animate(withDuration: 0.5) {
                         self.navigationController?.popToRootViewController(animated: true)
                     }
                 }
             }
         } catch {
-            print(error)
+            
+            window.showError("Error", error.localizedDescription)
         }
     }
     
     func parseErrorJSON(from data: Data) {
-        guard let appDelegate = UIApplication.shared.delegate else {
+        
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
         guard let window = appDelegate.window else {
             return
         }
-        
         do {
             let errorResponse = try JSONDecoder().decode(ErrorMessageResponse.self, from: data)
-            window?.showError("Register failed", errorResponse.message ?? "There is an error")
+            window.showError("Register failed", errorResponse.message ?? "There is an error")
         } catch {
-            window?.showError("Error", error.localizedDescription)
+            window.showError("Error", error.localizedDescription)
         }
     }
 }

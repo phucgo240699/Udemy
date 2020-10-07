@@ -13,7 +13,7 @@ import Alamofire
 
 extension RegisterViewController {
     func register(urlString: String, email: String?, password: String?, name: String?, phone: String?, gender: String? ) {
-        guard let appDelegate = UIApplication.shared.delegate else {
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
         guard let window = appDelegate.window else {
@@ -31,7 +31,7 @@ extension RegisterViewController {
             return
         }
         if email.isEmptyOrSpacing() || password.isEmptyOrSpacing() || name.isEmptyOrSpacing() || phone.isEmptyOrSpacing() || gender.isEmptyOrSpacing() || gender == "Gender" {
-            window?.showError("Register failed", "Not enough information")
+            window.showError("Register failed", "Not enough information")
             return
         }
         let params: [String: Any] = ["email": email, "password": password, "name": name, "phone": phone, "gender": gender]
@@ -74,13 +74,6 @@ extension RegisterViewController {
     
     
     func parseRegisterJSON(from data: Data) {
-        guard let appDelegate = UIApplication.shared.delegate else {
-            return
-        }
-        guard let window = appDelegate.window else {
-            return
-        }
-        
         do {
             let registerResponse = try JSONDecoder().decode(RegisterResponse.self, from: data)
             if let email = registerResponse.email {
@@ -89,12 +82,19 @@ extension RegisterViewController {
                 navigationController?.pushViewController(activationViewController, animated: true)
             }
         } catch {
-            window?.showError("Error", error.localizedDescription)
+            guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
+                return
+            }
+            guard let window = appDelegate.window else {
+                return
+            }
+            
+            window.showError("Error", error.localizedDescription)
         }
     }
     
     func parseErrorJSON(from data: Data) {
-        guard let appDelegate = UIApplication.shared.delegate else {
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
         guard let window = appDelegate.window else {
@@ -103,14 +103,14 @@ extension RegisterViewController {
         
         do {
             let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: data)
-            window?.showError("Register failed", errorResponse.errors[0].msg ?? "There is an error")
+            window.showError("Register failed", errorResponse.errors[0].msg ?? "There is an error")
         } catch {
-            window?.showError("Error", error.localizedDescription)
+            window.showError("Error", error.localizedDescription)
         }
     }
     
     func parseErrorMessageJSON(from data: Data) {
-        guard let appDelegate = UIApplication.shared.delegate else {
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
         guard let window = appDelegate.window else {
@@ -119,9 +119,9 @@ extension RegisterViewController {
         
         do {
             let errorMessageResponse = try JSONDecoder().decode(ErrorMessageResponse.self, from: data)
-            window?.showError("Register failed", errorMessageResponse.message ?? "There is an error")
+            window.showError("Register failed", errorMessageResponse.message ?? "There is an error")
         } catch {
-            window?.showError("Error", error.localizedDescription)
+            window.showError("Error", error.localizedDescription)
         }
     }
     

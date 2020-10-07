@@ -13,6 +13,7 @@ struct ImageName {
     var logo: String = "planet"
     var xmark_circle = "xmark_circle"
     var done = "done-icon"
+    var panda = "panda-icon"
 }
 
 struct CustomColor {

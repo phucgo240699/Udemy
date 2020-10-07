@@ -54,13 +54,29 @@ class ActivationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Background
         view.backgroundColor = .clear
         view.addGradient(colors: [Common.color.blue.cgColor, Common.color.purple.cgColor], start: CGPoint(x: 0.0, y: 0.0), end: CGPoint(x: 0.0, y: 1.0) )
         
+        // Components
         initializeCloseButton()
         initializeTextField(&emailTxtField, "Enter email", closeBtn, height * 0.05)
         initializeTextField(&activationTxtField, "Enter activation code", emailTxtField, height * 0.02)
         initializeActivationButton()
+        
+        
+        // Check email popup
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
+            return
+        }
+        guard let window = appDelegate.window else {
+            return
+        }
+        
+        if appDelegate.wasNotifyActivationCode == false {
+            appDelegate.wasNotifyActivationCode = true
+            window.notificate(UIImage(named: Common.imageName.panda), "Attention", "Check activation code in your email")
+        }
     }
     
     @objc func closeBtnPressed(_ sender: UIButton) {

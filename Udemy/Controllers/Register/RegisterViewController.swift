@@ -112,13 +112,14 @@ class RegisterViewController: UIViewController {
             return
         }
         if pass != rePass {
-            guard let appDelegate = UIApplication.shared.delegate else {
+            
+            guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
                 return
             }
             guard let window = appDelegate.window else {
                 return
             }
-            window?.showError("Problem", "Password and Re-password must be the same")
+            window.showError("Problem", "Password and Re-password must be the same")
             return
         }
         
