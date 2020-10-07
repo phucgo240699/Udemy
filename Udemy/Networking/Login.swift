@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SVProgressHUD
 
 extension LoginViewController {
     func login(url: String, email: String?, password: String?) {
@@ -37,10 +38,16 @@ extension LoginViewController {
         
         let params: [String: Any] = ["email": email, "password": password]
         
+        // show waiting progress
+        SVProgressHUD.show()
         
         // Call API
         AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).response{
             response in
+            
+            // off waiting progress
+            SVProgressHUD.dismiss()
+            
             guard let statusCode = response.response?.statusCode else {
                 return
             }
@@ -59,6 +66,7 @@ extension LoginViewController {
                 self.parseErrorMessageJSON(from: data)
                 
             }
+            
         }
         
     }

@@ -7,7 +7,7 @@
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
-import Foundation
+import SVProgressHUD
 import UIKit
 import Alamofire
 
@@ -37,10 +37,16 @@ extension RegisterViewController {
         }
         let params: [String: Any] = ["email": email, "password": password, "name": name, "phone": phone, "gender": gender]
         
+        // show waiting progress
+        SVProgressHUD.show()
         
         // Call API
         AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).response{
             response in
+            
+            // off waiting progress
+            SVProgressHUD.dismiss()
+            
             guard let statusCode = response.response?.statusCode else {
                 return
             }
