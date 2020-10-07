@@ -49,15 +49,9 @@ extension LoginViewController {
             }
             
             if statusCode == 200 { // Successful
-                // Save token
-                if let headers = response.response?.headers {
-                    if let token = headers["auth-token"] {
-                        TokenManager.setToken(token)
-                    }
-                }
                 
                 // parse result to check
-                self.parseLoginJSON(from: data)
+                self.parseLoginJSON(from: data, response.response?.headers)
             }
             else { // Failed
                 
@@ -69,7 +63,7 @@ extension LoginViewController {
         
     }
     
-    func parseLoginJSON(from data: Data) {
+    func parseLoginJSON(from data: Data, _ headers: HTTPHeaders?) {
         
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
@@ -81,6 +75,11 @@ extension LoginViewController {
             let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: data)
             if let active = loginResponse.active {
                 if active == 1 {
+                    if let headers = headers {
+                        if let token = headers["auth-token"] {
+                            TokenManager.setToken(token)
+                        }
+                    }
                     DispatchQueue.main.async {
                         UIView.animate(withDuration: 0.5) {
                             window.setController(.mainTab)

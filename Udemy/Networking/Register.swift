@@ -50,14 +50,6 @@ extension RegisterViewController {
             
             if statusCode == 200 { // Successful
                 self.parseRegisterJSON(from: data)
-                
-                // Save token
-                guard let headers = response.response?.headers else {
-                    return
-                }
-                if let accessToken = headers["auth-token"] {
-                    TokenManager.setToken(accessToken)
-                }
             }
             else if statusCode == 422 {
                 // parseError and show it
