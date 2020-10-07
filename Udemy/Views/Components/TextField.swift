@@ -11,11 +11,12 @@ import UIKit
 
 
 extension UITextField {
-    convenience init(placeholder: String, isHideText: Bool = false) {
+    convenience init(placeholder: String, keyType: UIKeyboardType, isHideText: Bool = false) {
         self.init(frame: .zero)
         self.placeholder = placeholder
         backgroundColor = .systemBackground
         returnKeyType = .default
+        keyboardType = keyType
         isSecureTextEntry = isHideText
         clearButtonMode = .whileEditing
         borderStyle = .roundedRect

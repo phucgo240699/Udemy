@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import DropDown
 
 extension RegisterViewController {
     func initializeCloseButton() {
@@ -38,9 +39,9 @@ extension RegisterViewController {
     }
     
     // TextFields
-    func initializeTextField(_ textField: inout UITextField?, _ placeholder: String, _ topView: UIView?) {
+    func initializeTextField(_ textField: inout UITextField?, _ placeholder: String, _ topView: UIView?, keyType: UIKeyboardType = UIKeyboardType.default, isHideText: Bool = false) {
         // Initialize
-        textField = UITextField(placeholder: placeholder)
+        textField = UITextField(placeholder: placeholder, keyType: keyType, isHideText: isHideText)
         
         // Unwrap
         guard let textField = textField, let topView = topView else {
@@ -62,9 +63,37 @@ extension RegisterViewController {
                                       width: nil,
                                       height: heightTextField)
         
+    }
+    
+    // Button Field
+    func initializeBtnField(_ button: inout UIButton?, _ title: String, _ topView: UIView?) {
+        // Initialize
+        button = UIButton()
+        button?.backgroundColor = .systemBackground
+        button?.titleLabel?.textAlignment = .left
+        button?.setTitle("\(title)", for: .normal)
+        button?.setTitleColor(.lightGray, for: .normal)
+        // Unwrap
+        guard let button = button, let topView = topView else {
+            return
+        }
+        
+        // Constraints
+        button.addToViewByConstraints(parent: view,
+                                      top: YAnchor(direction: topView.bottomAnchor, constant: height * 0.02),
+                                      bottom: nil,
+                                      leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
+                                      trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
+                                      centerY: nil,
+                                      centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                                      width: nil,
+                                      height: heightTextField)
+        
         
         // Beauty
-        textField.afterEffect(fontSize: heightTextField * 0.4, corner: heightTextField * 0.5)
+        button.afterEffect(textSize: heightTextField * 0.4, corner: heightTextField * 0.1)
+        button.addTarget(self, action: #selector(RegisterViewController.genderBtnPressed(_:)), for: .touchUpInside)
+        
     }
     
     // Register Button

@@ -32,18 +32,45 @@ extension UIWindow {
         self.rootViewController?.present(alert, animated: true, completion: nil)
     }
     
-    func notificate(_ image: UIImage, _ title: String, _ description: String) {
-        SwiftEntryKit.display(entry: NotificationPopup(with: getMessage(image, title, description)), using: getAttributes())
+    func notificate(_ image: UIImage? = UIImage(named: Common.imageName.done), _ title: String, _ description: String) {
+        if let img = image {
+            SwiftEntryKit.display(entry: NotificationPopup(with: getMessage(img, title, description)), using: getAttributes())
+        }
     }
     
+    func showTwoInputsAlert(_ title: String, _ description: String, _ callback: (String, String) -> Void, _ placeholder1: String, _ placeholder2: String ) {
+        
+        var textField1: UITextField? = UITextField()
+        var textField2: UITextField? = UITextField()
+        let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+            
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (action) in
+            self.rootViewController?.dismiss(animated: true, completion: nil)
+        }
+        
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = placeholder1
+            textField1 = alertTextField
+        }
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = placeholder2
+            textField2 = alertTextField
+        }
+        
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        self.rootViewController?.present(alert, animated: true, completion: nil)
+    }
     
     func getMessage(_ image: UIImage, _ title: String,_ description: String) -> EKPopUpMessage {
         
         let themeImage = EKPopUpMessage.ThemeImage(image: EKProperty.ImageContent(image: image, size: CGSize(width: 60, height: 60), tint: .black, contentMode: .scaleAspectFit))
         
         let titleLabel = EKProperty.LabelContent(text: title, style: .init(font: UIFont.systemFont(ofSize: 24),
-                                                                      color: .black,
-                                                                      alignment: .center))
+                                                                           color: .black,
+                                                                           alignment: .center))
         
         let descriptionLabel = EKProperty.LabelContent(
             text: description,

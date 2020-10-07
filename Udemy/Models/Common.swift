@@ -24,8 +24,16 @@ struct CustomColor {
     var quickSilver: UIColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1.0)
 }
 
+struct Link {
+    let register: String = "http://149.28.24.98:9000/register"
+    let activeAccount: String = "http://149.28.24.98:9000/active-account"
+    let login: String = "http://149.28.24.98:9000/login"
+    
+}
+
 class Common {
     static var imageName: ImageName = ImageName()
     static var color: CustomColor = CustomColor()
     static var fontName: String = "Futura"
+    static var link: Link = Link()
 }

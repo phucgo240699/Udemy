@@ -11,8 +11,8 @@
 		3E07EAFE2522E72C002EBE7B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EAFD2522E72C002EBE7B /* RegisterViewController.swift */; };
 		3E07EB012522E7B3002EBE7B /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB002522E7B3002EBE7B /* RegisterView.swift */; };
 		3E07EB032522E7CC002EBE7B /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB022522E7CC002EBE7B /* Common.swift */; };
-		3E07EB062522E800002EBE7B /* UdemyLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB052522E800002EBE7B /* UdemyLoginManager.swift */; };
-		3E07EB082522E81C002EBE7B /* UdemyRegisterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB072522E81C002EBE7B /* UdemyRegisterManager.swift */; };
+		3E07EB062522E800002EBE7B /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB052522E800002EBE7B /* Login.swift */; };
+		3E07EB082522E81C002EBE7B /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB072522E81C002EBE7B /* Register.swift */; };
 		3E07EB0B2522E976002EBE7B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB0A2522E976002EBE7B /* Image.swift */; };
 		3E07EB0D2522E981002EBE7B /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB0C2522E981002EBE7B /* Label.swift */; };
 		3E07EB0F2522E993002EBE7B /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB0E2522E993002EBE7B /* TextField.swift */; };
@@ -20,6 +20,7 @@
 		3E07EB132522E9B0002EBE7B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB122522E9B0002EBE7B /* Button.swift */; };
 		3E0EF955252ADFD800AFD584 /* Noti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0EF954252ADFD800AFD584 /* Noti.swift */; };
 		3E0EF96C252AE2B800AFD584 /* UIView+Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0EF96B252AE2B800AFD584 /* UIView+Message.swift */; };
+		3E13675D252C91BF00D06ECF /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E13675C252C91BF00D06ECF /* RegisterResponse.swift */; };
 		3E3B87AF2522DF70006CBC37 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B87AE2522DF70006CBC37 /* TokenManager.swift */; };
 		3E51760325261ECF0001D2AD /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760225261ECF0001D2AD /* MainTabBarController.swift */; };
 		3E51760A25261FBA0001D2AD /* FeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760925261FBA0001D2AD /* FeatureViewController.swift */; };
@@ -32,7 +33,11 @@
 		3E6E3FF125230901004DF50E /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E3FF025230901004DF50E /* View.swift */; };
 		3E91FD9E252415C90086DA0A /* CurrentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E91FD9D252415C90086DA0A /* CurrentController.swift */; };
 		3E91FDA12524170C0086DA0A /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E91FDA02524170C0086DA0A /* Window.swift */; };
+		3E926E0D252CA812009589E3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E926E0C252CA812009589E3 /* String.swift */; };
+		3E926E12252CA8CE009589E3 /* Activate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E926E11252CA8CE009589E3 /* Activate.swift */; };
+		3E926E17252CAA3E009589E3 /* ActiveResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E926E16252CAA3E009589E3 /* ActiveResponse.swift */; };
 		3EA33368252C41FD00EC3A2E /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA33367252C41FD00EC3A2E /* Course.swift */; };
+		3EA3FE6D252C8E2C00F55829 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA3FE6C252C8E2C00F55829 /* LoginResponse.swift */; };
 		3EAD5D4C2521C8370093944F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD5D4B2521C8370093944F /* AppDelegate.swift */; };
 		3EAD5D502521C8380093944F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD5D4F2521C8380093944F /* LoginViewController.swift */; };
 		3EAD5D562521C8380093944F /* Udemy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD5D542521C8380093944F /* Udemy.xcdatamodeld */; };
@@ -47,6 +52,9 @@
 		3EBC98ED2526FEB300A273C5 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC98EC2526FEB300A273C5 /* AccountView.swift */; };
 		3EC7575D252C3528004A528C /* FeatureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC7575C252C3528004A528C /* FeatureTableViewCell.swift */; };
 		3EC75762252C357E004A528C /* FeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC75761252C357E004A528C /* FeatureCell.swift */; };
+		3EEF6D6E252C98A800FFD443 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEF6D6D252C98A800FFD443 /* ErrorResponse.swift */; };
+		3EEF6D79252C9E6F00FFD443 /* ActivationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEF6D78252C9E6F00FFD443 /* ActivationViewController.swift */; };
+		3EEF6D7E252C9FFD00FFD443 /* ActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEF6D7D252C9FFD00FFD443 /* ActivationView.swift */; };
 		6807317657D10394CCBB21C9 /* Pods_UdemyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6DD49030E4B5D8B2E75027 /* Pods_UdemyTests.framework */; };
 		C07F99A8F1E029B3BCB5FAAE /* Pods_Udemy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E194BB93A3EB1BD1C8095507 /* Pods_Udemy.framework */; };
 		F87393B63D5FE74308E25B5C /* Pods_Udemy_UdemyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D883D6A20B35FFACD09A07 /* Pods_Udemy_UdemyUITests.framework */; };
@@ -76,8 +84,8 @@
 		3E07EAFD2522E72C002EBE7B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3E07EB002522E7B3002EBE7B /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		3E07EB022522E7CC002EBE7B /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
-		3E07EB052522E800002EBE7B /* UdemyLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdemyLoginManager.swift; sourceTree = "<group>"; };
-		3E07EB072522E81C002EBE7B /* UdemyRegisterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdemyRegisterManager.swift; sourceTree = "<group>"; };
+		3E07EB052522E800002EBE7B /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		3E07EB072522E81C002EBE7B /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		3E07EB0A2522E976002EBE7B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		3E07EB0C2522E981002EBE7B /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		3E07EB0E2522E993002EBE7B /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
@@ -85,6 +93,7 @@
 		3E07EB122522E9B0002EBE7B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		3E0EF954252ADFD800AFD584 /* Noti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Noti.swift; sourceTree = "<group>"; };
 		3E0EF96B252AE2B800AFD584 /* UIView+Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Message.swift"; sourceTree = "<group>"; };
+		3E13675C252C91BF00D06ECF /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
 		3E3B87AE2522DF70006CBC37 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		3E51760225261ECF0001D2AD /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		3E51760925261FBA0001D2AD /* FeatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureViewController.swift; sourceTree = "<group>"; };
@@ -97,7 +106,11 @@
 		3E6E3FF025230901004DF50E /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		3E91FD9D252415C90086DA0A /* CurrentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentController.swift; sourceTree = "<group>"; };
 		3E91FDA02524170C0086DA0A /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		3E926E0C252CA812009589E3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		3E926E11252CA8CE009589E3 /* Activate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activate.swift; sourceTree = "<group>"; };
+		3E926E16252CAA3E009589E3 /* ActiveResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveResponse.swift; sourceTree = "<group>"; };
 		3EA33367252C41FD00EC3A2E /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		3EA3FE6C252C8E2C00F55829 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		3EAD5D482521C8370093944F /* Udemy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udemy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAD5D4B2521C8370093944F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EAD5D4F2521C8380093944F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +131,9 @@
 		3EBC98EC2526FEB300A273C5 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		3EC7575C252C3528004A528C /* FeatureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTableViewCell.swift; sourceTree = "<group>"; };
 		3EC75761252C357E004A528C /* FeatureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCell.swift; sourceTree = "<group>"; };
+		3EEF6D6D252C98A800FFD443 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		3EEF6D78252C9E6F00FFD443 /* ActivationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationViewController.swift; sourceTree = "<group>"; };
+		3EEF6D7D252C9FFD00FFD443 /* ActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationView.swift; sourceTree = "<group>"; };
 		48862322EEEAD0C13BDB2366 /* Pods-Udemy-UdemyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udemy-UdemyUITests.release.xcconfig"; path = "Target Support Files/Pods-Udemy-UdemyUITests/Pods-Udemy-UdemyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		533145924BB1CD942149CB01 /* Pods-Udemy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udemy.release.xcconfig"; path = "Target Support Files/Pods-Udemy/Pods-Udemy.release.xcconfig"; sourceTree = "<group>"; };
 		7F29FF9240CB074C89D98BF8 /* Pods-Udemy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udemy.debug.xcconfig"; path = "Target Support Files/Pods-Udemy/Pods-Udemy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				3E07EB002522E7B3002EBE7B /* RegisterView.swift */,
+				3EEF6D7D252C9FFD00FFD443 /* ActivationView.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -174,8 +191,9 @@
 		3E07EB042522E7E6002EBE7B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				3E07EB052522E800002EBE7B /* UdemyLoginManager.swift */,
-				3E07EB072522E81C002EBE7B /* UdemyRegisterManager.swift */,
+				3E07EB052522E800002EBE7B /* Login.swift */,
+				3E07EB072522E81C002EBE7B /* Register.swift */,
+				3E926E11252CA8CE009589E3 /* Activate.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -215,8 +233,8 @@
 		3E3B87AB2522DF2E006CBC37 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3E0EF953252ADFAA00AFD584 /* Popup */,
 				3E51760225261ECF0001D2AD /* MainTabBarController.swift */,
+				3E0EF953252ADFAA00AFD584 /* Popup */,
 				3E6A781F2529C03D00D2D4B1 /* Register */,
 				3E6A781E2529C03200D2D4B1 /* Login */,
 				3EBC98E32526FDFD00A273C5 /* Featured */,
@@ -247,10 +265,12 @@
 		3E3B87AD2522DF61006CBC37 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3E3B87AE2522DF70006CBC37 /* TokenManager.swift */,
+				3EA3FE77252C8E5D00F55829 /* Featured */,
+				3EA3FE71252C8E3D00F55829 /* Register */,
+				3EA3FE6B252C8DE900F55829 /* Login */,
 				3E07EB022522E7CC002EBE7B /* Common.swift */,
 				3E91FD9D252415C90086DA0A /* CurrentController.swift */,
-				3EA33367252C41FD00EC3A2E /* Course.swift */,
+				3EEF6D6D252C98A800FFD443 /* ErrorResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -308,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				3E07EAFD2522E72C002EBE7B /* RegisterViewController.swift */,
+				3EEF6D78252C9E6F00FFD443 /* ActivationViewController.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -317,8 +338,35 @@
 			children = (
 				3E91FDA02524170C0086DA0A /* Window.swift */,
 				3E0EF96B252AE2B800AFD584 /* UIView+Message.swift */,
+				3E926E0C252CA812009589E3 /* String.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3EA3FE6B252C8DE900F55829 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3E3B87AE2522DF70006CBC37 /* TokenManager.swift */,
+				3EA3FE6C252C8E2C00F55829 /* LoginResponse.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3EA3FE71252C8E3D00F55829 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				3E13675C252C91BF00D06ECF /* RegisterResponse.swift */,
+				3E926E16252CAA3E009589E3 /* ActiveResponse.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		3EA3FE77252C8E5D00F55829 /* Featured */ = {
+			isa = PBXGroup;
+			children = (
+				3EA33367252C41FD00EC3A2E /* Course.swift */,
+			);
+			path = Featured;
 			sourceTree = "<group>";
 		};
 		3EAD5D3F2521C8370093944F = {
@@ -679,6 +727,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EA33368252C41FD00EC3A2E /* Course.swift in Sources */,
+				3EA3FE6D252C8E2C00F55829 /* LoginResponse.swift in Sources */,
+				3E926E0D252CA812009589E3 /* String.swift in Sources */,
 				3E07EB032522E7CC002EBE7B /* Common.swift in Sources */,
 				3EAD5D502521C8380093944F /* LoginViewController.swift in Sources */,
 				3E5176122526204D0001D2AD /* AccountViewController.swift in Sources */,
@@ -686,18 +736,22 @@
 				3E07EB0D2522E981002EBE7B /* Label.swift in Sources */,
 				3EBC98E52526FE7100A273C5 /* FeaturedView.swift in Sources */,
 				3E07EB112522E99D002EBE7B /* TextView.swift in Sources */,
+				3E13675D252C91BF00D06ECF /* RegisterResponse.swift in Sources */,
 				3EBC98EB2526FE9F00A273C5 /* CartView.swift in Sources */,
 				3EC75762252C357E004A528C /* FeatureCell.swift in Sources */,
+				3EEF6D7E252C9FFD00FFD443 /* ActivationView.swift in Sources */,
 				3EAD5D4C2521C8370093944F /* AppDelegate.swift in Sources */,
 				3E51760E252620070001D2AD /* CoursesViewController.swift in Sources */,
 				3E3B87AF2522DF70006CBC37 /* TokenManager.swift in Sources */,
+				3EEF6D6E252C98A800FFD443 /* ErrorResponse.swift in Sources */,
 				3EBC98E92526FE8D00A273C5 /* CoursesView.swift in Sources */,
+				3E926E17252CAA3E009589E3 /* ActiveResponse.swift in Sources */,
 				3E5176102526202D0001D2AD /* CartViewController.swift in Sources */,
 				3E07EB0F2522E993002EBE7B /* TextField.swift in Sources */,
 				3E07EB012522E7B3002EBE7B /* RegisterView.swift in Sources */,
 				3E6E3FEF252304A9004DF50E /* XAnchor.swift in Sources */,
 				3E51760A25261FBA0001D2AD /* FeatureViewController.swift in Sources */,
-				3E07EB062522E800002EBE7B /* UdemyLoginManager.swift in Sources */,
+				3E07EB062522E800002EBE7B /* Login.swift in Sources */,
 				3EC7575D252C3528004A528C /* FeatureTableViewCell.swift in Sources */,
 				3E0EF96C252AE2B800AFD584 /* UIView+Message.swift in Sources */,
 				3E07EAFE2522E72C002EBE7B /* RegisterViewController.swift in Sources */,
@@ -705,7 +759,7 @@
 				3E51760C25261FE70001D2AD /* SearchViewController.swift in Sources */,
 				3E07EB132522E9B0002EBE7B /* Button.swift in Sources */,
 				3E91FD9E252415C90086DA0A /* CurrentController.swift in Sources */,
-				3E07EB082522E81C002EBE7B /* UdemyRegisterManager.swift in Sources */,
+				3E07EB082522E81C002EBE7B /* Register.swift in Sources */,
 				3E6E3FED25230452004DF50E /* YAnchor.swift in Sources */,
 				3E6E3FF125230901004DF50E /* View.swift in Sources */,
 				3E51760325261ECF0001D2AD /* MainTabBarController.swift in Sources */,
@@ -713,7 +767,9 @@
 				3E07EB0B2522E976002EBE7B /* Image.swift in Sources */,
 				3EBC98ED2526FEB300A273C5 /* AccountView.swift in Sources */,
 				3EAD5D562521C8380093944F /* Udemy.xcdatamodeld in Sources */,
+				3EEF6D79252C9E6F00FFD443 /* ActivationViewController.swift in Sources */,
 				3E0EF955252ADFD800AFD584 /* Noti.swift in Sources */,
+				3E926E12252CA8CE009589E3 /* Activate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

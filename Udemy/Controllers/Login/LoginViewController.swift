@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
     var passwordTxtField: UITextField?
     var loginBtn: UIButton?
     var registerBtn: UIButton?
+    var activeBtn: UIButton?
     
     var width:CGFloat {
         get {
@@ -60,10 +61,11 @@ class LoginViewController: UIViewController {
         view.addGradient(colors: [Common.color.blue.cgColor, Common.color.purple.cgColor], start: CGPoint(x: 0.0, y: 0.0), end: CGPoint(x: 0.0, y: 1.0) )
         
         initializeImageView()
-        initializeTextField(&emailTxtField, "Email", YAnchor(direction: view.centerYAnchor , constant: 0))
-        initializeTextField(&passwordTxtField, "Password", YAnchor(direction: emailTxtField!.bottomAnchor, constant: height * 0.02))
+        initializeTextField(&emailTxtField, "Email", YAnchor(direction: view.centerYAnchor , constant: 0), keyType: .emailAddress)
+        initializeTextField(&passwordTxtField, "Password", YAnchor(direction: emailTxtField!.bottomAnchor, constant: height * 0.02), isHideText: true)
         initializeLoginButton()
         initializeRegisterButton()
+        initializeActiveButton()
         
         emailTxtField?.delegate = self
         passwordTxtField?.delegate = self
@@ -88,8 +90,12 @@ class LoginViewController: UIViewController {
         // if failed, show error
     }
     
+    @objc func activeBtnPressed(_ sender: UIButton) {
+        navigationController?.pushViewController(ActivationViewController(), animated: true)
+    }
+    
     @objc func registerBtnPressed(_ sender: UIButton) {
-        self.navigationController?.pushViewController(RegisterViewController(), animated: true)
+        navigationController?.pushViewController(RegisterViewController(), animated: true)
     }
 }
 

@@ -2,6 +2,7 @@ PODS:
   - Alamofire (5.2.2)
   - Bartinter (0.0.5)
   - Cosmos (23.0.0)
+  - DropDown (2.3.13)
   - IQKeyboardManagerSwift (6.5.6)
   - QuickLayout (3.0.0)
   - SnapKit (5.0.1)
@@ -12,6 +13,7 @@ DEPENDENCIES:
   - Alamofire
   - Bartinter
   - Cosmos (~> 23.0)
+  - DropDown
   - IQKeyboardManagerSwift
   - SnapKit
   - SwiftEntryKit
@@ -21,6 +23,7 @@ SPEC REPOS:
     - Alamofire
     - Bartinter
     - Cosmos
+    - DropDown
     - IQKeyboardManagerSwift
     - QuickLayout
     - SnapKit
@@ -30,11 +33,12 @@ SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   Bartinter: 3c1fc3bcb631b066fdd78f7e01f1635fbafffdea
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   QuickLayout: 07b45a72b10083fee3f095990cfed1c1e7b27f0a
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftEntryKit: 96a2fa90b2631bbbfac50d18449e9ca3d0635f13
 
-PODFILE CHECKSUM: 2e5b510fb9faf3b3ae29dee2e0c38822c884c025
+PODFILE CHECKSUM: b61dd5a3ada8c032196fb71203fd96aa7c6e5ec1
 
 COCOAPODS: 1.9.3
