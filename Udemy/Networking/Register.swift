@@ -28,6 +28,7 @@ extension RegisterViewController {
         
         // Params
         guard let email = email, let password = password, let name = name, let phone = phone, let gender = gender else {
+            window.showError("Register failed", "Not enough information")
             return
         }
         if email.isEmptyOrSpacing() || password.isEmptyOrSpacing() || name.isEmptyOrSpacing() || phone.isEmptyOrSpacing() || gender.isEmptyOrSpacing() || gender == "Gender" {
