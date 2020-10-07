@@ -60,7 +60,7 @@ class ActivationViewController: UIViewController {
         
         // Components
         initializeCloseButton()
-        initializeTextField(&emailTxtField, "Enter email", closeBtn, height * 0.05)
+        initializeTextField(&emailTxtField, "Enter email", closeBtn, height * 0.05, keyType: .emailAddress)
         initializeTextField(&activationTxtField, "Enter activation code", emailTxtField, height * 0.02)
         initializeActivationButton()
         
@@ -84,7 +84,7 @@ class ActivationViewController: UIViewController {
     }
     
     @objc func activationBtnPressed(_ sender: UIButton) {
-        guard let email = email, let activeToken = TokenManager.getToken() else {
+        guard let email = emailTxtField?.text, let activeToken = activationTxtField?.text else {
             return
         }
         
