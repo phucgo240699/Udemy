@@ -85,7 +85,7 @@ extension LoginViewController {
                 if active == 1 {
                     if let headers = headers {
                         if let token = headers["auth-token"] {
-                            TokenManager.setToken(token)
+                            TokenManager.setAccessToken(token)
                         }
                     }
                     DispatchQueue.main.async {

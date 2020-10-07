@@ -9,11 +9,11 @@
 import Foundation
 
 class TokenManager {
-    static func getToken() -> String? {
+    static func getAccessToken() -> String? {
         return UserDefaults.standard.string(forKey: "accessToken")
     }
     
-    static func setToken(_ accessToken: String) {
+    static func setAccessToken(_ accessToken: String) {
         UserDefaults.standard.setValue(accessToken, forKey: "accessToken")
     }
 }
