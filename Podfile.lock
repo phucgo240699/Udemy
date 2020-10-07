@@ -6,6 +6,7 @@ PODS:
   - IQKeyboardManagerSwift (6.5.6)
   - QuickLayout (3.0.0)
   - SnapKit (5.0.1)
+  - SVProgressHUD (2.2.5)
   - SwiftEntryKit (1.2.6):
     - QuickLayout (= 3.0.0)
 
@@ -16,6 +17,7 @@ DEPENDENCIES:
   - DropDown
   - IQKeyboardManagerSwift
   - SnapKit
+  - SVProgressHUD
   - SwiftEntryKit
 
 SPEC REPOS:
@@ -27,6 +29,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - QuickLayout
     - SnapKit
+    - SVProgressHUD
     - SwiftEntryKit
 
 SPEC CHECKSUMS:
@@ -37,8 +40,9 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   QuickLayout: 07b45a72b10083fee3f095990cfed1c1e7b27f0a
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftEntryKit: 96a2fa90b2631bbbfac50d18449e9ca3d0635f13
 
-PODFILE CHECKSUM: b61dd5a3ada8c032196fb71203fd96aa7c6e5ec1
+PODFILE CHECKSUM: c88145998cb1dd704cdb00b63dfdafcfc2404097
 
 COCOAPODS: 1.9.3
