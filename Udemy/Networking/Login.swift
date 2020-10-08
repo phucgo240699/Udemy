@@ -99,7 +99,7 @@ extension LoginViewController {
                         if let token = headers["auth-token"] {
                             TokenManager.setAccessToken(token)
                             
-                            appDelegate.account.save(email, password)
+                            appDelegate.account.save(email, password, loginResponse.name, loginResponse.phone, loginResponse.gender, loginResponse.role, loginResponse.image)
                             
                             DispatchQueue.main.async {
                                 UIView.animate(withDuration: 0.5) {

@@ -25,6 +25,7 @@ class AccountViewController: UIViewController {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
+        appDelegate.account.release()
         appDelegate.window?.setController(.login)
     }
 }
