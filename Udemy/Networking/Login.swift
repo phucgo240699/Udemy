@@ -60,6 +60,11 @@ extension LoginViewController {
             // off waiting progress
             SVProgressHUD.dismiss()
             
+            if let error = response.error?.errorDescription {
+                window.showError("Error", error)
+                return
+            }
+            
             guard let statusCode = response.response?.statusCode else {
                 return
             }

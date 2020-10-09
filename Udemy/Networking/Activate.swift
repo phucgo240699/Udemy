@@ -12,6 +12,12 @@ import Alamofire
 
 extension ActivationViewController {
     func active(url: String, email: String?, activeToken: String? ) {
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
+            return
+        }
+        guard let window = appDelegate.window else {
+            return
+        }
         
         // URL
         let rawUrl = URL(string: url)
@@ -21,10 +27,12 @@ extension ActivationViewController {
         
         // Params
         guard let email = email, let activeToken = activeToken else {
+            window.showError("Activation failed", "Not enough information")
             return
         }
         
         if email.isEmptyOrSpacing() || activeToken.isEmptyOrSpacing() {
+            window.showError("Activation failed", "Not enough information")
             return
         }
         
@@ -39,6 +47,11 @@ extension ActivationViewController {
             
             // off waiting progress
             SVProgressHUD.dismiss()
+            
+            if let error = response.error?.errorDescription {
+                window.showError("Error", error)
+                return
+            }
             
             guard let statusCode = response.response?.statusCode else {
                 return
