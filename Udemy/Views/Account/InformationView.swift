@@ -33,8 +33,40 @@ extension InformationViewController {
                                       centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
                                       width: nil,
                                       height: heightTextField)
+        
+        textField.font = UIFont(name: Common.fontName, size: heightTextField * 0.4)
     }
     
+    // Button Field
+    func initializeBtnField(_ button: inout UIButton?, _ title: String?, _ topAnchor: NSLayoutYAxisAnchor?, _ topConstant: CGFloat) {
+        // Initialize
+        button = UIButton()
+        button?.backgroundColor = .systemBackground
+        button?.titleLabel?.textAlignment = .left
+        button?.setTitle(title ?? "Example data", for: .normal)
+        button?.setTitleColor( Common.color.textColor, for: .normal)
+        // Unwrap
+        guard let button = button, let topAnchor = topAnchor else {
+            return
+        }
+        
+        // Constraints
+        button.addToViewByConstraints(parent: view,
+                                      top: YAnchor(direction: topAnchor, constant: topConstant),
+                                      bottom: nil,
+                                      leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
+                                      trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
+                                      centerY: nil,
+                                      centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                                      width: nil,
+                                      height: heightTextField)
+        
+        
+        // Beauty
+        button.afterEffect(textSize: heightTextField * 0.4, corner: heightTextField * 0.1)
+        button.addTarget(self, action: #selector(InformationViewController.genderBtnPressed(_:)), for: .touchUpInside)
+        
+    }
     
     
     // Update Button

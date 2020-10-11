@@ -24,6 +24,8 @@ struct CustomColor {
     var blue: UIColor = UIColor(red: 39/255, green: 93/255, blue: 173/255, alpha: 1.0)
     var purple: UIColor = UIColor(red: 106/255, green: 15/255, blue: 161/255, alpha: 1.0)
     var quickSilver: UIColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1.0)
+    
+    var textColor: UIColor = UIColor(named: "textColor") ?? .black
 }
 
 struct Link {

@@ -15,6 +15,10 @@ class SimpleTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        guard let label = label else {
+            return
+        }
+        label.font = UIFont(name: Common.fontName, size: label.bounds.height * 0.4)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

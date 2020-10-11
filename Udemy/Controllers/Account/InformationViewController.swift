@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DropDown
 
 class InformationViewController: UIViewController {
     
@@ -14,7 +15,8 @@ class InformationViewController: UIViewController {
     var passwordTxtField: UITextField?
     var nameTxtField: UITextField?
     var phoneTxtField: UITextField?
-    var genderTxtField: UITextField?
+    var genderBtn: UIButton?
+    var genderDropDown: DropDown?
     var roleTxtField: UITextField?
     var imageTxtField: UITextField?
     
@@ -51,6 +53,7 @@ class InformationViewController: UIViewController {
         }
     }
     var marginSpace: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 20.0: 10.0
+    var isDrop: Bool = false
     
     var account: Account? {
         get {
@@ -68,24 +71,48 @@ class InformationViewController: UIViewController {
         title = "Information"
         
         // Background
-        view.backgroundColor = Common.color.wildBlueYonder
+        view.backgroundColor = Common.color.quickSilver
         
         // Components
         initializeTextField(&emailTxtField, account?.email, view.topAnchor, navBarHeight * 2.2, keyType: .emailAddress)
-        initializeTextField(&passwordTxtField, account?.password, emailTxtField?.bottomAnchor, marginSpace, isHideText: true)
+        initializeTextField(&passwordTxtField, account?.password, emailTxtField?.bottomAnchor, marginSpace)
         initializeTextField(&nameTxtField, account?.name, passwordTxtField?.bottomAnchor, marginSpace)
         initializeTextField(&phoneTxtField, account?.phone, nameTxtField?.bottomAnchor, marginSpace, keyType: .numberPad)
-        initializeTextField(&genderTxtField, account?.gender, phoneTxtField?.bottomAnchor, marginSpace)
-        initializeTextField(&roleTxtField, account?.role, genderTxtField?.bottomAnchor, marginSpace)
+        initializeBtnField(&genderBtn, account?.gender, phoneTxtField?.bottomAnchor, marginSpace)
+        //        initializeTextField(&genderTxtField, account?.gender, phoneTxtField?.bottomAnchor, marginSpace)
+        initializeTextField(&roleTxtField, account?.role, genderBtn?.bottomAnchor, marginSpace)
         initializeTextField(&imageTxtField, account?.image, roleTxtField?.bottomAnchor, marginSpace)
         
         initializeUpdateButton()
         
         // Dis editting some fields
-        genderTxtField?.isEnabled = false
         roleTxtField?.isEnabled = false
         imageTxtField?.isEnabled = false
-        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        if isDrop {
+            genderDropDown?.hide()
+        }
+    }
+    
+    @objc func genderBtnPressed(_ sender: UIButton) {
+        genderDropDown = DropDown()
+        genderDropDown?.backgroundColor = .systemBackground
+        genderDropDown?.textColor = .lightGray
+        guard let genderDropDown = genderDropDown else {
+            return
+        }
+        isDrop = true
+        genderDropDown.anchorView = sender
+        genderDropDown.dataSource =  ["nam", "nu"]
+        genderDropDown.bottomOffset = CGPoint(x: 0, y: sender.frame.size.height)
+        genderDropDown.show()
+        genderDropDown.selectionAction = {(index: Int, item: String) in
+            self.genderBtn?.setTitle(item, for: .normal)
+            self.isDrop = false
+        }
     }
 }
 

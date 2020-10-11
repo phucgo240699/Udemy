@@ -26,13 +26,15 @@ extension UITextField {
         self.init(frame: .zero)
         self.text = text
         backgroundColor = .systemBackground
-        returnKeyType = .default
         keyboardType = keyType
         isSecureTextEntry = isHideText
         clearButtonMode = .whileEditing
+        textAlignment = .natural
         borderStyle = .roundedRect
     }
     
     func afterEffect(fontSize: CGFloat, corner: CGFloat) {
-        self.font = UIFont(name: Common.fontName, size: fontSize)    }
+        self.font = UIFont(name: Common.fontName, size: fontSize)
+        self.layer.cornerRadius = corner
+    }
 }
