@@ -34,13 +34,13 @@ class Account {
         self.gender = gender
         self.role = role
         self.image = image
-        UserDefaults.standard.setValue(self.email, forKey: "name")
-        UserDefaults.standard.setValue(self.email, forKey: "password")
-        UserDefaults.standard.setValue(self.email, forKey: "name")
-        UserDefaults.standard.setValue(self.email, forKey: "phone")
-        UserDefaults.standard.setValue(self.email, forKey: "gender")
-        UserDefaults.standard.setValue(self.email, forKey: "role")
-        UserDefaults.standard.setValue(self.password, forKey: "image")
+        UserDefaults.standard.set(self.email, forKey: "email")
+        UserDefaults.standard.set(self.password, forKey: "password")
+        UserDefaults.standard.set(self.name, forKey: "name")
+        UserDefaults.standard.set(self.phone, forKey: "phone")
+        UserDefaults.standard.set(self.gender, forKey: "gender")
+        UserDefaults.standard.set(self.role, forKey: "role")
+        UserDefaults.standard.set(self.image, forKey: "image")
     }
     
     func release() {
