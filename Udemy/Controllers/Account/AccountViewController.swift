@@ -59,6 +59,7 @@ class AccountViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "Account"
         navigationController?.navigationBar.barTintColor = Common.color.blue
+        navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [ .foregroundColor: UIColor.white ]
         view.backgroundColor = .systemBackground
         
