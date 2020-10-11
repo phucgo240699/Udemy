@@ -58,6 +58,8 @@ class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Account"
+        navigationController?.navigationBar.barTintColor = Common.color.blue
+        navigationController?.navigationBar.titleTextAttributes = [ .foregroundColor: UIColor.white ]
         view.backgroundColor = .systemBackground
         
         initializeBanner()
@@ -94,6 +96,7 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "accountCell", for: indexPath) as! SimpleTableViewCell
         cell.selectionStyle = .none
+        cell.accessoryType = .disclosureIndicator
         cell.imgView?.image = UIImage(systemName: icons[indexPath.row])
         cell.label?.text = titles[indexPath.row]
         
