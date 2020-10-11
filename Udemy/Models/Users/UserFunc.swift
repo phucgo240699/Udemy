@@ -1,14 +1,14 @@
 //
-//  LoginResponse.swift
+//  UserFunc.swift
 //  Udemy
 //
-//  Created by Phúc Lý on 10/6/20.
+//  Created by Phúc Lý on 10/11/20.
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-struct LoginResponse: Decodable {
+struct AccountResponse: Codable {
     var _id: String?
     var email: String?
     var password: String?
@@ -22,4 +22,9 @@ struct LoginResponse: Decodable {
     var created_at: String?
     var active: Int?
     var activeToken: String?
+}
+
+struct UserFunc: Codable {
+    var status: String?
+    var user: AccountResponse?
 }

@@ -42,6 +42,11 @@ extension InformationViewController {
     // TextView
     func initializeTextView(_ textView: inout UITextView?, _ text: String?, _ placeholder: String, _ topAnchor: NSLayoutYAxisAnchor?, _ topConstant: CGFloat) {
         // Initialize
+        let label = UILabel()
+        label.text = "Description:"
+        label.textAlignment = .natural
+        label.textColor = .placeholderText
+        
         textView = UITextView()
         // Unwrap
         guard let textView = textView, let topAnchor = topAnchor else {
@@ -50,17 +55,21 @@ extension InformationViewController {
         
         textView.backgroundColor = .systemBackground
         
-        if text != nil {
-            textView.text = text
-            textView.textColor = Common.color.textColor
-        }
-        else {
-            textView.text = placeholder
-            textView.textColor = .placeholderText
-        }
+        textView.text = text
+        textView.textColor = Common.color.textColor
+        
         // Constraints
+        label.addToViewByConstraints(parent: view,
+                                     top: YAnchor(direction: topAnchor, constant: topConstant),
+                                     bottom: nil,
+                                     leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
+                                     trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
+                                     centerY: nil,
+                                     centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                                     width: nil,
+                                     height: 1.5 * marginSpace)
         textView.addToViewByConstraints(parent: view,
-                                      top: YAnchor(direction: topAnchor, constant: topConstant),
+                                        top: YAnchor(direction: label.bottomAnchor, constant: marginSpace/2),
                                       bottom: nil,
                                       leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
                                       trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
@@ -68,7 +77,7 @@ extension InformationViewController {
                                       centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
                                       width: nil,
                                       height: heightTextView)
-        
+        label.font = UIFont(name: Common.fontName, size: 1.5 * marginSpace)
         textView.afterEffect(fontSize: heightTextField * 0.4, corner: heightTextField * 0.1)
     }
     

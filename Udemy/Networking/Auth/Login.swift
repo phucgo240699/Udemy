@@ -61,7 +61,7 @@ extension LoginViewController {
             SVProgressHUD.dismiss()
             
             if let error = response.error?.errorDescription {
-                window.showError("Error", error)
+                window.showError("Login failed", error)
                 return
             }
             
@@ -97,7 +97,7 @@ extension LoginViewController {
             return
         }
         do {
-            let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: data)
+            let loginResponse = try JSONDecoder().decode(AccountResponse.self, from: data)
             if let active = loginResponse.active {
                 if active == 1 {
                     if let headers = headers {
@@ -116,7 +116,7 @@ extension LoginViewController {
                 }
             }
         } catch {
-            window.showError("Error", error.localizedDescription)
+            window.showError("Login failed", error.localizedDescription)
         }
     }
     
@@ -132,7 +132,7 @@ extension LoginViewController {
             let errorMessageResponse = try JSONDecoder().decode(ErrorMessageResponse.self, from: data)
             window.showError("Login failed", errorMessageResponse.message ?? "There is an error")
         } catch {
-            window.showError("Error", error.localizedDescription)
+            window.showError("Login failed", error.localizedDescription)
         }
     }
 }

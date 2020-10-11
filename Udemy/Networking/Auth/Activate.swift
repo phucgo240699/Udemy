@@ -49,7 +49,7 @@ extension ActivationViewController {
             SVProgressHUD.dismiss()
             
             if let error = response.error?.errorDescription {
-                window.showError("Error", error)
+                window.showError("Activate failed", error)
                 return
             }
             
@@ -82,7 +82,7 @@ extension ActivationViewController {
             return
         }
         do {
-            let activationResponse = try JSONDecoder().decode(ActivationResponse.self, from: data)
+            let activationResponse = try JSONDecoder().decode(AccountResponse.self, from: data)
             if let active = activationResponse.active {
                 if active == 1 {
                     window.notificate(UIImage(named: Common.imageName.done), "Activate successfully", "You can log in now")
@@ -93,7 +93,7 @@ extension ActivationViewController {
             }
         } catch {
             
-            window.showError("Error", error.localizedDescription)
+            window.showError("Activate failed", error.localizedDescription)
         }
     }
     
@@ -107,9 +107,9 @@ extension ActivationViewController {
         }
         do {
             let errorResponse = try JSONDecoder().decode(ErrorMessageResponse.self, from: data)
-            window.showError("Register failed", errorResponse.message ?? "There is an error")
+            window.showError("Activate failed", errorResponse.message ?? "There is an error")
         } catch {
-            window.showError("Error", error.localizedDescription)
+            window.showError("Activate failed", error.localizedDescription)
         }
     }
 }

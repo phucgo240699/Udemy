@@ -48,7 +48,7 @@ extension RegisterViewController {
             SVProgressHUD.dismiss()
             
             if let error = response.error?.errorDescription {
-                window.showError("Error", error)
+                window.showError("Register failed", error)
                 return
             }
             
@@ -79,7 +79,7 @@ extension RegisterViewController {
     
     func parseRegisterJSON(from data: Data) {
         do {
-            let registerResponse = try JSONDecoder().decode(RegisterResponse.self, from: data)
+            let registerResponse = try JSONDecoder().decode(AccountResponse.self, from: data)
             if let email = registerResponse.email {
                 let activationViewController = ActivationViewController()
                 activationViewController.email = email
@@ -93,7 +93,7 @@ extension RegisterViewController {
                 return
             }
             
-            window.showError("Error", error.localizedDescription)
+            window.showError("Register failed", error.localizedDescription)
         }
     }
     
@@ -109,7 +109,7 @@ extension RegisterViewController {
             let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: data)
             window.showError("Register failed", errorResponse.errors[0].msg ?? "There is an error")
         } catch {
-            window.showError("Error", error.localizedDescription)
+            window.showError("Register failed", error.localizedDescription)
         }
     }
     
@@ -125,7 +125,7 @@ extension RegisterViewController {
             let errorMessageResponse = try JSONDecoder().decode(ErrorMessageResponse.self, from: data)
             window.showError("Register failed", errorMessageResponse.message ?? "There is an error")
         } catch {
-            window.showError("Error", error.localizedDescription)
+            window.showError("Register failed", error.localizedDescription)
         }
     }
     

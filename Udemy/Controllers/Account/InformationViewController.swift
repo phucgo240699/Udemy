@@ -10,9 +10,6 @@ import UIKit
 import DropDown
 
 class InformationViewController: UIViewController {
-    
-    var emailTxtField: UITextField?
-    var passwordTxtField: UITextField?
     var nameTxtField: UITextField?
     var phoneTxtField: UITextField?
     var genderBtn: UIButton?
@@ -76,12 +73,11 @@ class InformationViewController: UIViewController {
         title = "Information"
         
         // Background
-        view.backgroundColor = Common.color.quickSilver
+        view.backgroundColor = .clear
+        view.addGradient(colors: [Common.color.blue.cgColor, Common.color.purple.cgColor], start: CGPoint(x: 0.0, y: 0.0), end: CGPoint(x: 0.0, y: 1.0) )
         
         // Components
-        initializeTextField(&emailTxtField, account?.email, "Email", view.topAnchor, navBarHeight * 2.2, keyType: .emailAddress)
-        initializeTextField(&passwordTxtField, account?.password, "Password", emailTxtField?.bottomAnchor, marginSpace)
-        initializeTextField(&nameTxtField, account?.name, "Name", passwordTxtField?.bottomAnchor, marginSpace)
+        initializeTextField(&nameTxtField, account?.name, "Name", view.topAnchor, navBarHeight * 2.5)
         initializeTextField(&phoneTxtField, account?.phone, "Phone", nameTxtField?.bottomAnchor, marginSpace, keyType: .numberPad)
         initializeBtnField(&genderBtn, account?.gender, "Gender", phoneTxtField?.bottomAnchor, marginSpace)
         initializeTextField(&addressTxtField, account?.address, "Address", genderBtn?.bottomAnchor, marginSpace)
@@ -119,7 +115,8 @@ class InformationViewController: UIViewController {
     }
     
     @objc func updateBtnPressed(_ sender: UIButton) {
-        
+        let des = descriptionTxtView?.textColor == UIColor.placeholderText ? "" : descriptionTxtView?.text
+        updateAccount(Common.link.changeProfile, nameTxtField?.text, phoneTxtField?.text, addressTxtField?.text, des, genderBtn?.titleLabel?.text)
     }
 }
 
@@ -132,26 +129,3 @@ extension InformationViewController: UITextFieldDelegate {
 }
 
 
-// MARK: - Text View Delegate
-extension InformationViewController: UITextViewDelegate {
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "Description" {
-            textView.text = ""
-            textView.textColor = Common.color.textColor
-        }
-    }
-    
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if text == "\n" {
-            textView.resignFirstResponder()
-        }
-        return true
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text == "" {
-            textView.text = "Description"
-            textView.textColor = .placeholderText
-        }
-    }
-}
