@@ -40,7 +40,7 @@ class RegisterViewController: UIViewController {
     }
     var navBarHeight: CGFloat {
         get {
-            return navigationController?.navigationBar.bounds.height ?? 4
+            return navigationController?.navigationBar.bounds.height ?? 44
         }
     }
     var heightTextField: CGFloat {

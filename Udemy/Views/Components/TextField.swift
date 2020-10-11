@@ -22,6 +22,17 @@ extension UITextField {
         borderStyle = .roundedRect
     }
     
+    convenience init(text: String, keyType: UIKeyboardType, isHideText: Bool = false) {
+        self.init(frame: .zero)
+        self.text = text
+        backgroundColor = .systemBackground
+        returnKeyType = .default
+        keyboardType = keyType
+        isSecureTextEntry = isHideText
+        clearButtonMode = .whileEditing
+        borderStyle = .roundedRect
+    }
+    
     func afterEffect(fontSize: CGFloat, corner: CGFloat) {
         self.font = UIFont(name: Common.fontName, size: fontSize)    }
 }

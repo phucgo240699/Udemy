@@ -65,4 +65,12 @@ extension UIView {
         leadingAnchor.constraint(equalTo: parentView.leadingAnchor).isActive = true
         trailingAnchor.constraint(equalTo: parentView.trailingAnchor).isActive = true
     }
+    
+    func roundCorners(roundingCorners: UIRectCorner, cornerRadius: CGFloat) {
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: roundingCorners, cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = self.bounds
+        maskLayer.path = path.cgPath
+        self.layer.mask = maskLayer
+    }
 }
