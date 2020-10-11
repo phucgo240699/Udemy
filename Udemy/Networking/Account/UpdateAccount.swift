@@ -76,7 +76,13 @@ extension InformationViewController {
             let result = try JSONDecoder().decode(UserFunc.self, from: data)
             if result.status != "success" {
                 window.showError("Update failed", result.status ?? "")
+                return
             }
+            else {
+                appDelegate.account.update(appDelegate.account.email, appDelegate.account.password, result.user?.name, result.user?.phone, result.user?.gender, appDelegate.account.role, appDelegate.account.image, result.user?.address, result.user?.description)
+                window.notificate(UIImage(named: Common.imageName.done), "Updated Successfully", "")
+            }
+            
         } catch {
             window.showError("Update failed", error.localizedDescription)
         }

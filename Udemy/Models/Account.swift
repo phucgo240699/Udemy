@@ -30,6 +30,18 @@ class Account {
         self.description = UserDefaults.standard.string(forKey: "description")
     }
     
+    func update(_ email: String?, _ password: String?, _ name: String?, _ phone: String?, _ gender: String?, _ role: String?, _ image: String?, _ address: String?, _ description: String?) {
+        self.email = email
+        self.password = password
+        self.name = name
+        self.phone = phone
+        self.gender = gender
+        self.role = role
+        self.image = image
+        self.address = address
+        self.description = description
+    }
+    
     func save(_ email: String, _ password: String, _ name: String?, _ phone: String?, _ gender: String?, _ role: String?, _ image: String?, _ address: String?, _ description: String?) {
         self.email = email
         self.password = password

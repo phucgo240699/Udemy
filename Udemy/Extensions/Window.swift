@@ -69,14 +69,14 @@ extension UIWindow {
         let themeImage = EKPopUpMessage.ThemeImage(image: EKProperty.ImageContent(image: image, size: CGSize(width: 60, height: 60), tint: .black, contentMode: .scaleAspectFit))
         
         let titleLabel = EKProperty.LabelContent(text: title, style: .init(font: UIFont.systemFont(ofSize: 24),
-                                                                           color: .black,
+                                                                           color: .init(light: .black, dark: .white),
                                                                            alignment: .center))
         
         let descriptionLabel = EKProperty.LabelContent(
             text: description,
             style: .init(
                 font: UIFont.systemFont(ofSize: 16),
-                color: .black,
+                color: .init(light: .black, dark: .white),
                 alignment: .center
             )
         )
