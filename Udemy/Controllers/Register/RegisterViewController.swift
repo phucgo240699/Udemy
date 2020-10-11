@@ -23,6 +23,8 @@ class RegisterViewController: UIViewController {
     var genderBtn: UIButton?
     var genderDropDown: DropDown?
     var phoneNumbersTxtField: UITextField?
+    var addressTxtField: UITextField?
+    var descriptionTxtView: UITextView?
     var passwordTxtField: UITextField?
     var rePasswordTxtField: UITextField?
     
@@ -46,6 +48,11 @@ class RegisterViewController: UIViewController {
     var heightTextField: CGFloat {
         get {
             return width * (UIDevice.current.userInterfaceIdiom == .phone ? 0.12 : 0.08)
+        }
+    }
+    var heightTextView: CGFloat {
+        get {
+            return width * (UIDevice.current.userInterfaceIdiom == .phone ? 0.3 : 0.2)
         }
     }
     var heightRegisterButton: CGFloat {
@@ -72,7 +79,9 @@ class RegisterViewController: UIViewController {
         initializeTextField(&nameTxtField, "Name", emailTxtField)
         initializeBtnField(&genderBtn, "Gender", nameTxtField)
         initializeTextField(&phoneNumbersTxtField, "Phone number", genderBtn, keyType: .numberPad)
-        initializeTextField(&passwordTxtField, "Password", phoneNumbersTxtField, isHideText: true)
+        initializeTextField(&addressTxtField, "Address", phoneNumbersTxtField)
+        initializeTextView(&descriptionTxtView, "Description", addressTxtField)
+        initializeTextField(&passwordTxtField, "Password", descriptionTxtView, isHideText: true)
         initializeTextField(&rePasswordTxtField, "Re-password", passwordTxtField, isHideText: true)
         initializeRegisterButton()
     }
@@ -98,6 +107,7 @@ class RegisterViewController: UIViewController {
         genderDropDown.show()
         genderDropDown.selectionAction = {(index: Int, item: String) in
             self.genderBtn?.setTitle(item, for: .normal)
+            self.genderBtn?.setTitleColor(Common.color.textColor, for: .normal)
             self.isDrop = false
         }
     }
@@ -123,7 +133,7 @@ class RegisterViewController: UIViewController {
             return
         }
         
-        register(urlString: Common.link.register, email: emailTxtField?.text, password: passwordTxtField?.text, name: nameTxtField?.text, phone: phoneNumbersTxtField?.text, gender: genderBtn?.titleLabel?.text)
+        register(urlString: Common.link.register, email: emailTxtField?.text, password: passwordTxtField?.text, name: nameTxtField?.text, phone: phoneNumbersTxtField?.text, address: addressTxtField?.text, description: descriptionTxtView?.text, gender: genderBtn?.titleLabel?.text)
     }
 }
 
@@ -131,5 +141,30 @@ class RegisterViewController: UIViewController {
 extension RegisterViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+    }
+}
+
+
+// MARK: - Text View Delegate
+extension RegisterViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "Description" {
+            textView.text = ""
+            textView.textColor = Common.color.textColor
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+        }
+        return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            textView.text = "Description"
+            textView.textColor = .placeholderText
+        }
     }
 }

@@ -15,6 +15,8 @@ class Account {
     var gender: String?
     var role: String?
     var image: String?
+    var address: String?
+    var description: String?
     
     init() {
         self.email = UserDefaults.standard.string(forKey: "email")
@@ -24,9 +26,11 @@ class Account {
         self.gender = UserDefaults.standard.string(forKey: "gender")
         self.role = UserDefaults.standard.string(forKey: "role")
         self.image = UserDefaults.standard.string(forKey: "image")
+        self.address = UserDefaults.standard.string(forKey: "address")
+        self.description = UserDefaults.standard.string(forKey: "description")
     }
     
-    func save(_ email: String, _ password: String, _ name: String?, _ phone: String?, _ gender: String?, _ role: String?, _ image: String?) {
+    func save(_ email: String, _ password: String, _ name: String?, _ phone: String?, _ gender: String?, _ role: String?, _ image: String?, _ address: String?, _ description: String?) {
         self.email = email
         self.password = password
         self.name = name
@@ -34,6 +38,8 @@ class Account {
         self.gender = gender
         self.role = role
         self.image = image
+        self.address = address
+        self.description = description
         UserDefaults.standard.set(self.email, forKey: "email")
         UserDefaults.standard.set(self.password, forKey: "password")
         UserDefaults.standard.set(self.name, forKey: "name")
@@ -41,6 +47,8 @@ class Account {
         UserDefaults.standard.set(self.gender, forKey: "gender")
         UserDefaults.standard.set(self.role, forKey: "role")
         UserDefaults.standard.set(self.image, forKey: "image")
+        UserDefaults.standard.set(self.address, forKey: "address")
+        UserDefaults.standard.set(self.description, forKey: "description")
     }
     
     func release() {
@@ -51,6 +59,8 @@ class Account {
         UserDefaults.standard.removeObject(forKey: "gender")
         UserDefaults.standard.removeObject(forKey: "role")
         UserDefaults.standard.removeObject(forKey: "image")
+        UserDefaults.standard.removeObject(forKey: "address")
+        UserDefaults.standard.removeObject(forKey: "description")
         self.email = nil
         self.password = nil
         self.name = nil
@@ -58,6 +68,8 @@ class Account {
         self.gender = nil
         self.role = nil
         self.image = nil
+        self.address = nil
+        self.description = nil
         
     }
 }

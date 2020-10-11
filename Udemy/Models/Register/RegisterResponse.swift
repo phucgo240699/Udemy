@@ -17,6 +17,8 @@ struct RegisterResponse: Decodable {
     var email: String?
     var password: String?
     var phone: String?
+    var address: String?
+    var description: String?
     var role: String?
     var image: String?
     var gender: String?

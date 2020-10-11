@@ -14,6 +14,8 @@ struct LoginResponse: Decodable {
     var password: String?
     var name: String?
     var phone: String?
+    var address: String?
+    var description: String?
     var role: String?
     var image: String?
     var gender: String?

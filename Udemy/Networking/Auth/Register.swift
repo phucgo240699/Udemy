@@ -12,7 +12,7 @@ import UIKit
 import Alamofire
 
 extension RegisterViewController {
-    func register(urlString: String, email: String?, password: String?, name: String?, phone: String?, gender: String? ) {
+    func register(urlString: String, email: String?, password: String?, name: String?, phone: String?, address: String?, description: String?, gender: String? ) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
@@ -27,15 +27,15 @@ extension RegisterViewController {
         }
         
         // Params
-        guard let email = email, let password = password, let name = name, let phone = phone, let gender = gender else {
+        guard let email = email, let password = password, let name = name, let phone = phone, let address = address, let description = description, let gender = gender else {
             window.showError("Register failed", "Not enough information")
             return
         }
-        if email.isEmptyOrSpacing() || password.isEmptyOrSpacing() || name.isEmptyOrSpacing() || phone.isEmptyOrSpacing() || gender.isEmptyOrSpacing() || gender == "Gender" {
+        if email.isEmptyOrSpacing() || password.isEmptyOrSpacing() || name.isEmptyOrSpacing() || phone.isEmptyOrSpacing() || address.isEmptyOrSpacing() || description.isEmptyOrSpacing() ||  gender.isEmptyOrSpacing() || gender == "Gender" {
             window.showError("Register failed", "Not enough information")
             return
         }
-        let params: [String: Any] = ["email": email, "password": password, "name": name, "phone": phone, "gender": gender]
+        let params: [String: Any] = ["email": email, "password": password, "name": name, "phone": phone, "address": address, "description": description, "gender": gender]
         
         // show waiting progress
         SVProgressHUD.show()

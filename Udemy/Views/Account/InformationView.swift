@@ -10,14 +10,16 @@ import UIKit
 
 extension InformationViewController {
     // TextFields
-    func initializeTextField(_ textField: inout UITextField?, _ text: String?, _ topAnchor: NSLayoutYAxisAnchor?, _ topConstant: CGFloat, keyType: UIKeyboardType = UIKeyboardType.default, isHideText: Bool = false) {
+    func initializeTextField(_ textField: inout UITextField?, _ text: String?, _ placeholder: String, _ topAnchor: NSLayoutYAxisAnchor?, _ topConstant: CGFloat, keyType: UIKeyboardType = UIKeyboardType.default, isHideText: Bool = false) {
         // Initialize
-        textField = UITextField(text: text ?? "Example data", keyType: keyType, isHideText: isHideText)
-        
+        textField = UITextField(text: text ?? "", keyType: keyType, isHideText: isHideText)
+
         // Unwrap
         guard let textField = textField, let topAnchor = topAnchor else {
             return
         }
+        
+        textField.placeholder = placeholder
         
         // Assign delegate property to self
         textField.delegate = self
@@ -37,14 +39,52 @@ extension InformationViewController {
         textField.font = UIFont(name: Common.fontName, size: heightTextField * 0.4)
     }
     
+    // TextView
+    func initializeTextView(_ textView: inout UITextView?, _ text: String?, _ placeholder: String, _ topAnchor: NSLayoutYAxisAnchor?, _ topConstant: CGFloat) {
+        // Initialize
+        textView = UITextView()
+        // Unwrap
+        guard let textView = textView, let topAnchor = topAnchor else {
+            return
+        }
+        
+        textView.backgroundColor = .systemBackground
+        
+        if text != nil {
+            textView.text = text
+            textView.textColor = Common.color.textColor
+        }
+        else {
+            textView.text = placeholder
+            textView.textColor = .placeholderText
+        }
+        // Constraints
+        textView.addToViewByConstraints(parent: view,
+                                      top: YAnchor(direction: topAnchor, constant: topConstant),
+                                      bottom: nil,
+                                      leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
+                                      trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
+                                      centerY: nil,
+                                      centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                                      width: nil,
+                                      height: heightTextView)
+        
+        textView.afterEffect(fontSize: heightTextField * 0.4, corner: heightTextField * 0.1)
+    }
+    
     // Button Field
-    func initializeBtnField(_ button: inout UIButton?, _ title: String?, _ topAnchor: NSLayoutYAxisAnchor?, _ topConstant: CGFloat) {
+    func initializeBtnField(_ button: inout UIButton?, _ title: String?, _ placeholder: String, _ topAnchor: NSLayoutYAxisAnchor?, _ topConstant: CGFloat) {
         // Initialize
         button = UIButton()
         button?.backgroundColor = .systemBackground
         button?.titleLabel?.textAlignment = .left
-        button?.setTitle(title ?? "Example data", for: .normal)
-        button?.setTitleColor( Common.color.textColor, for: .normal)
+        button?.setTitle(title ?? "Gender", for: .normal)
+        if title != nil {
+            button?.setTitleColor( Common.color.textColor, for: .normal)
+        }
+        else {
+            button?.setTitleColor( .placeholderText, for: .normal)
+        }
         // Unwrap
         guard let button = button, let topAnchor = topAnchor else {
             return
@@ -72,12 +112,12 @@ extension InformationViewController {
     // Update Button
     func initializeUpdateButton() {
         updateBtn = UIButton("Update", Common.color.blue, .white, nil)
-        guard let updateBtn = updateBtn, let imageTxtField = imageTxtField else {
+        guard let updateBtn = updateBtn, let descriptionTxtView = descriptionTxtView else {
             return
         }
         
         updateBtn.addToViewByConstraints(parent: view,
-                                      top: YAnchor(direction: imageTxtField.bottomAnchor, constant: 4 * marginSpace),
+                                      top: YAnchor(direction: descriptionTxtView.bottomAnchor, constant: 4 * marginSpace),
                                       bottom: nil,
                                       leading: nil,
                                       trailing: nil,
@@ -87,6 +127,6 @@ extension InformationViewController {
                                       height: heightRegisterButton)
         
         updateBtn.afterEffect(textSize: heightRegisterButton * 0.5, corner: heightRegisterButton * 0.2)
-        updateBtn.addTarget(self, action: #selector(RegisterViewController.registerBtnPressed(_:)), for: .touchUpInside)
+        updateBtn.addTarget(self, action: #selector(InformationViewController.updateBtnPressed(_:)), for: .touchUpInside)
     }
 }

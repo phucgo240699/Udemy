@@ -17,8 +17,8 @@ class InformationViewController: UIViewController {
     var phoneTxtField: UITextField?
     var genderBtn: UIButton?
     var genderDropDown: DropDown?
-    var roleTxtField: UITextField?
-    var imageTxtField: UITextField?
+    var addressTxtField: UITextField?
+    var descriptionTxtView: UITextView?
     
     var updateBtn: UIButton?
     
@@ -40,6 +40,11 @@ class InformationViewController: UIViewController {
     var heightTextField: CGFloat {
         get {
             return width * (UIDevice.current.userInterfaceIdiom == .phone ? 0.12 : 0.08)
+        }
+    }
+    var heightTextView: CGFloat {
+        get {
+            return width * (UIDevice.current.userInterfaceIdiom == .phone ? 0.3 : 0.02)
         }
     }
     var heightRegisterButton: CGFloat {
@@ -74,20 +79,17 @@ class InformationViewController: UIViewController {
         view.backgroundColor = Common.color.quickSilver
         
         // Components
-        initializeTextField(&emailTxtField, account?.email, view.topAnchor, navBarHeight * 2.2, keyType: .emailAddress)
-        initializeTextField(&passwordTxtField, account?.password, emailTxtField?.bottomAnchor, marginSpace)
-        initializeTextField(&nameTxtField, account?.name, passwordTxtField?.bottomAnchor, marginSpace)
-        initializeTextField(&phoneTxtField, account?.phone, nameTxtField?.bottomAnchor, marginSpace, keyType: .numberPad)
-        initializeBtnField(&genderBtn, account?.gender, phoneTxtField?.bottomAnchor, marginSpace)
-        //        initializeTextField(&genderTxtField, account?.gender, phoneTxtField?.bottomAnchor, marginSpace)
-        initializeTextField(&roleTxtField, account?.role, genderBtn?.bottomAnchor, marginSpace)
-        initializeTextField(&imageTxtField, account?.image, roleTxtField?.bottomAnchor, marginSpace)
+        initializeTextField(&emailTxtField, account?.email, "Email", view.topAnchor, navBarHeight * 2.2, keyType: .emailAddress)
+        initializeTextField(&passwordTxtField, account?.password, "Password", emailTxtField?.bottomAnchor, marginSpace)
+        initializeTextField(&nameTxtField, account?.name, "Name", passwordTxtField?.bottomAnchor, marginSpace)
+        initializeTextField(&phoneTxtField, account?.phone, "Phone", nameTxtField?.bottomAnchor, marginSpace, keyType: .numberPad)
+        initializeBtnField(&genderBtn, account?.gender, "Gender", phoneTxtField?.bottomAnchor, marginSpace)
+        initializeTextField(&addressTxtField, account?.address, "Address", genderBtn?.bottomAnchor, marginSpace)
+        initializeTextView(&descriptionTxtView, account?.description, "Description", addressTxtField?.bottomAnchor, marginSpace)
+                           
         
         initializeUpdateButton()
         
-        // Dis editting some fields
-        roleTxtField?.isEnabled = false
-        imageTxtField?.isEnabled = false
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -111,8 +113,13 @@ class InformationViewController: UIViewController {
         genderDropDown.show()
         genderDropDown.selectionAction = {(index: Int, item: String) in
             self.genderBtn?.setTitle(item, for: .normal)
+            self.genderBtn?.setTitleColor(Common.color.textColor, for: .normal)
             self.isDrop = false
         }
+    }
+    
+    @objc func updateBtnPressed(_ sender: UIButton) {
+        
     }
 }
 
@@ -121,5 +128,30 @@ class InformationViewController: UIViewController {
 extension InformationViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+    }
+}
+
+
+// MARK: - Text View Delegate
+extension InformationViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "Description" {
+            textView.text = ""
+            textView.textColor = Common.color.textColor
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+        }
+        return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            textView.text = "Description"
+            textView.textColor = .placeholderText
+        }
     }
 }

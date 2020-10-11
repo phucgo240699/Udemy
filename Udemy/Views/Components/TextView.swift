@@ -6,4 +6,19 @@
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension UITextView {
+    
+    convenience init(_ placeholder: String) {
+        self.init(frame: .zero)
+        text = placeholder
+        backgroundColor = .systemBackground
+        textColor = .placeholderText
+    }
+    
+    func afterEffect(fontSize: CGFloat, corner: CGFloat) {
+        self.font = UIFont(name: Common.fontName, size: fontSize)
+        self.layer.cornerRadius = corner
+    }
+}
