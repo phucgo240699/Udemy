@@ -54,7 +54,7 @@ extension RegisterViewController {
         
         // Constraints
         textField.addToViewByConstraints(parent: view,
-                                      top: YAnchor(direction: topView.bottomAnchor, constant: height * 0.02),
+                                      top: YAnchor(direction: topView.bottomAnchor, constant: marginSpace),
                                       bottom: nil,
                                       leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
                                       trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
@@ -79,7 +79,7 @@ extension RegisterViewController {
         
         // Constraints
         textView.addToViewByConstraints(parent: view,
-                                      top: YAnchor(direction: topView.bottomAnchor, constant: height * 0.02),
+                                      top: YAnchor(direction: topView.bottomAnchor, constant: marginSpace),
                                       bottom: nil,
                                       leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
                                       trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
@@ -106,7 +106,7 @@ extension RegisterViewController {
         
         // Constraints
         button.addToViewByConstraints(parent: view,
-                                      top: YAnchor(direction: topView.bottomAnchor, constant: height * 0.02),
+                                      top: YAnchor(direction: topView.bottomAnchor, constant: marginSpace),
                                       bottom: nil,
                                       leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * 0.05),
                                       trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * 0.05),
@@ -130,7 +130,7 @@ extension RegisterViewController {
         }
         
         registerBtn.addToViewByConstraints(parent: view,
-                                      top: YAnchor(direction: rePasswordTxtField.bottomAnchor, constant: 4 * marginSpace),
+                                      top: YAnchor(direction: rePasswordTxtField.bottomAnchor, constant: 3 * marginSpace),
                                       bottom: nil,
                                       leading: nil,
                                       trailing: nil,
