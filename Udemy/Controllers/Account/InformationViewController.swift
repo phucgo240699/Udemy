@@ -44,12 +44,12 @@ class InformationViewController: UIViewController {
             return width * (UIDevice.current.userInterfaceIdiom == .phone ? 0.3 : 0.02)
         }
     }
-    var heightRegisterButton: CGFloat {
+    var heightUpdateButton: CGFloat {
         get {
             return width * (UIDevice.current.userInterfaceIdiom == .phone ? 0.12 : 0.08)
         }
     }
-    var widthRegisterButton: CGFloat {
+    var widthUpdateButton: CGFloat {
         get {
             return width * (UIDevice.current.userInterfaceIdiom == .phone ? 0.4 : 0.3)
         }
@@ -84,7 +84,7 @@ class InformationViewController: UIViewController {
         initializeTextView(&descriptionTxtView, account?.description, "Description", addressTxtField?.bottomAnchor, marginSpace)
                            
         
-        initializeUpdateButton()
+        initializeBottomButton(&updateBtn, "Update", descriptionTxtView?.bottomAnchor, 4 * marginSpace)
         
     }
     
@@ -127,5 +127,3 @@ extension InformationViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
     }
 }
-
-

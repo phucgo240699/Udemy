@@ -35,16 +35,7 @@ class Account {
         self.description = description
     }
     
-    func save(_ email: String, _ password: String, _ name: String?, _ phone: String?, _ gender: String?, _ role: String?, _ image: String?, _ address: String?, _ description: String?) {
-        self.email = email
-        self.password = password
-        self.name = name
-        self.phone = phone
-        self.gender = gender
-        self.role = role
-        self.image = image
-        self.address = address
-        self.description = description
+    func save() {
         UserDefaults.standard.set(self.email, forKey: "email")
         UserDefaults.standard.set(self.password, forKey: "password")
     }
@@ -52,13 +43,6 @@ class Account {
     func release() {
         UserDefaults.standard.removeObject(forKey: "email")
         UserDefaults.standard.removeObject(forKey: "password")
-        UserDefaults.standard.removeObject(forKey: "name")
-        UserDefaults.standard.removeObject(forKey: "phone")
-        UserDefaults.standard.removeObject(forKey: "gender")
-        UserDefaults.standard.removeObject(forKey: "role")
-        UserDefaults.standard.removeObject(forKey: "image")
-        UserDefaults.standard.removeObject(forKey: "address")
-        UserDefaults.standard.removeObject(forKey: "description")
         self.email = nil
         self.password = nil
         self.name = nil

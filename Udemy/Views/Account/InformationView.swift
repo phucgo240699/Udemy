@@ -117,25 +117,24 @@ extension InformationViewController {
         
     }
     
-    
-    // Update Button
-    func initializeUpdateButton() {
-        updateBtn = UIButton("Update", Common.color.blue, .white, nil)
-        guard let updateBtn = updateBtn, let descriptionTxtView = descriptionTxtView else {
+    // Bottom Button
+    func initializeBottomButton(_ button: inout UIButton?, _ title: String, _ topAnchor: NSLayoutYAxisAnchor?, _ topConstant: CGFloat) {
+        button = UIButton(title, Common.color.blue, .white, nil)
+        guard let button = button, let topAnchor = topAnchor else {
             return
         }
         
-        updateBtn.addToViewByConstraints(parent: view,
-                                      top: YAnchor(direction: descriptionTxtView.bottomAnchor, constant: 4 * marginSpace),
+        button.addToViewByConstraints(parent: view,
+                                      top: YAnchor(direction: topAnchor, constant: topConstant),
                                       bottom: nil,
                                       leading: nil,
                                       trailing: nil,
                                       centerY: nil,
                                       centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
-                                      width: widthRegisterButton,
-                                      height: heightRegisterButton)
+                                      width: widthUpdateButton,
+                                      height: heightUpdateButton)
         
-        updateBtn.afterEffect(textSize: heightRegisterButton * 0.5, corner: heightRegisterButton * 0.2)
-        updateBtn.addTarget(self, action: #selector(InformationViewController.updateBtnPressed(_:)), for: .touchUpInside)
+        button.afterEffect(textSize: heightUpdateButton * 0.5, corner: heightUpdateButton * 0.2)
+        button.addTarget(self, action: #selector(PasswordViewController.updateBtnPressed(_:)), for: .touchUpInside)
     }
 }

@@ -33,6 +33,7 @@ struct Link {
     let activeAccount: String = "http://149.28.24.98:9000/active-account"
     let login: String = "http://149.28.24.98:9000/login"
     let changeProfile: String = "http://149.28.24.98:9000/change-profile"
+    let changePassword: String = "http://149.28.24.98:9000/change-password"
     
 }
 

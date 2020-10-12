@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E0734052534780F00F6A277 /* UpdatePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0734042534780F00F6A277 /* UpdatePassword.swift */; };
 		3E07EAFC2522E493002EBE7B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EAFB2522E493002EBE7B /* LoginView.swift */; };
 		3E07EAFE2522E72C002EBE7B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EAFD2522E72C002EBE7B /* RegisterViewController.swift */; };
 		3E07EB012522E7B3002EBE7B /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB002522E7B3002EBE7B /* RegisterView.swift */; };
@@ -20,6 +21,8 @@
 		3E07EB132522E9B0002EBE7B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB122522E9B0002EBE7B /* Button.swift */; };
 		3E0EF955252ADFD800AFD584 /* Noti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0EF954252ADFD800AFD584 /* Noti.swift */; };
 		3E0EF96C252AE2B800AFD584 /* UIView+Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0EF96B252AE2B800AFD584 /* UIView+Message.swift */; };
+		3E1951E825342A0800AB9D06 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1951E725342A0800AB9D06 /* PasswordViewController.swift */; };
+		3E1951ED25342ACA00AB9D06 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1951EC25342ACA00AB9D06 /* PasswordView.swift */; };
 		3E3B87AF2522DF70006CBC37 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B87AE2522DF70006CBC37 /* TokenManager.swift */; };
 		3E51760325261ECF0001D2AD /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760225261ECF0001D2AD /* MainTabBarController.swift */; };
 		3E51760A25261FBA0001D2AD /* FeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760925261FBA0001D2AD /* FeatureViewController.swift */; };
@@ -84,6 +87,7 @@
 /* Begin PBXFileReference section */
 		14A2D4A458FDABD48BB4B190 /* Pods-Udemy-UdemyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udemy-UdemyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Udemy-UdemyUITests/Pods-Udemy-UdemyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1A6DD49030E4B5D8B2E75027 /* Pods_UdemyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UdemyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E0734042534780F00F6A277 /* UpdatePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePassword.swift; sourceTree = "<group>"; };
 		3E07EAFB2522E493002EBE7B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		3E07EAFD2522E72C002EBE7B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3E07EB002522E7B3002EBE7B /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 		3E07EB122522E9B0002EBE7B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		3E0EF954252ADFD800AFD584 /* Noti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Noti.swift; sourceTree = "<group>"; };
 		3E0EF96B252AE2B800AFD584 /* UIView+Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Message.swift"; sourceTree = "<group>"; };
+		3E1951E725342A0800AB9D06 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		3E1951EC25342ACA00AB9D06 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		3E3B87AE2522DF70006CBC37 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		3E51760225261ECF0001D2AD /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		3E51760925261FBA0001D2AD /* FeatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureViewController.swift; sourceTree = "<group>"; };
@@ -322,6 +328,7 @@
 			children = (
 				3EBC98EC2526FEB300A273C5 /* AccountView.swift */,
 				3E9F3A8E2532D8CA0086DA90 /* InformationView.swift */,
+				3E1951EC25342ACA00AB9D06 /* PasswordView.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -375,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				3E9E9A0E25332061008207A8 /* UpdateAccount.swift */,
+				3E0734042534780F00F6A277 /* UpdatePassword.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -456,6 +464,7 @@
 			children = (
 				3E5176112526204D0001D2AD /* AccountViewController.swift */,
 				3E9F3A892532D7A80086DA90 /* InformationViewController.swift */,
+				3E1951E725342A0800AB9D06 /* PasswordViewController.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -777,8 +786,10 @@
 				3EBC98E92526FE8D00A273C5 /* CoursesView.swift in Sources */,
 				3E5176102526202D0001D2AD /* CartViewController.swift in Sources */,
 				3E07EB0F2522E993002EBE7B /* TextField.swift in Sources */,
+				3E1951ED25342ACA00AB9D06 /* PasswordView.swift in Sources */,
 				3E07EB012522E7B3002EBE7B /* RegisterView.swift in Sources */,
 				3E6E3FEF252304A9004DF50E /* XAnchor.swift in Sources */,
+				3E0734052534780F00F6A277 /* UpdatePassword.swift in Sources */,
 				3E51760A25261FBA0001D2AD /* FeatureViewController.swift in Sources */,
 				3E07EB062522E800002EBE7B /* Login.swift in Sources */,
 				3EC7575D252C3528004A528C /* FeatureTableViewCell.swift in Sources */,
@@ -796,6 +807,7 @@
 				3E51760325261ECF0001D2AD /* MainTabBarController.swift in Sources */,
 				3E8742C125333479001E9D5E /* UserFunc.swift in Sources */,
 				3E07EAFC2522E493002EBE7B /* LoginView.swift in Sources */,
+				3E1951E825342A0800AB9D06 /* PasswordViewController.swift in Sources */,
 				3E07EB0B2522E976002EBE7B /* Image.swift in Sources */,
 				3EBC98ED2526FEB300A273C5 /* AccountView.swift in Sources */,
 				3EAD5D562521C8380093944F /* Udemy.xcdatamodeld in Sources */,

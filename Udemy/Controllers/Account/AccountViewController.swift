@@ -25,7 +25,7 @@ class AccountViewController: UIViewController {
 //    var paymentHistoryBtn: UIButton?
     var tableView: UITableView?
     var icons: [String] = ["person", "photo", "checkmark.shield", "creditcard"]
-    var titles: [String] = ["Account Info", "Avatar", "Security", "Payment history"]
+    var titles: [String] = ["Account Info", "Avatar", "Change Password", "Payment history"]
     
     var logOutBarButton: UIBarButtonItem?
     
@@ -108,6 +108,10 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 0 {
             navigationController?.pushViewController(InformationViewController(), animated: true)
         }
+        else if indexPath.row == 2 {
+            navigationController?.pushViewController(PasswordViewController(), animated: true)
+        }
+        
     }
     
 }
