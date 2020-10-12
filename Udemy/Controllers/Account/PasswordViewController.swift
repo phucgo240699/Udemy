@@ -66,8 +66,8 @@ class PasswordViewController: UIViewController {
         view.addGradient(colors: [Common.color.blue.cgColor, Common.color.purple.cgColor], start: CGPoint(x: 0.0, y: 0.0), end: CGPoint(x: 0.0, y: 1.0) )
 
         // Components
-        initializeTextField(&oldPasswordTxtField, account?.password, "Old password", view.topAnchor, navBarHeight * 2.5)
-        initializeTextField(&newPasswordTxtField, nil, "New password", oldPasswordTxtField?.bottomAnchor, marginSpace)
+        initializeTextField(&oldPasswordTxtField, account?.password, "Old password", view.topAnchor, navBarHeight * 2.5, isHideText: true)
+        initializeTextField(&newPasswordTxtField, nil, "New password", oldPasswordTxtField?.bottomAnchor, marginSpace, isHideText: true)
         
         initializeBottomButton(&updateBtn, "Update", newPasswordTxtField?.bottomAnchor, 4 * marginSpace)
     }
