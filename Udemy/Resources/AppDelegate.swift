@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var wasNotifyActivationCode: Bool? = false
     
     let loginController: UINavigationController = UINavigationController(rootViewController: LoginViewController())
-    let mainTabBarController: MainTabBarController = MainTabBarController()
+    var mainTabBarController: MainTabBarController?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

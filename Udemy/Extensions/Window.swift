@@ -19,6 +19,7 @@ extension UIWindow {
             self.rootViewController = appDelegate.loginController
         default:
             appDelegate.currentController = .mainTab
+            appDelegate.mainTabBarController = MainTabBarController()
             self.rootViewController = appDelegate.mainTabBarController
         }
     }
