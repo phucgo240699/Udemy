@@ -101,6 +101,13 @@ extension LoginViewController {
             }
             
             appDelegate.account.avatar = defaultImage
+            
+            // Move to mainTabVC
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.5) {
+                    appDelegate.window?.setController(.mainTab)
+                }
+            }
         }
         
         // Others
@@ -119,13 +126,13 @@ extension LoginViewController {
                 if let image = UIImage(data: data) {
                     appDelegate.account.avatar = image
                 }
-            }
-        }
-        
-        // Move to mainTabVC
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.5) {
-                appDelegate.window?.setController(.mainTab)
+                
+                // Move to mainTabVC
+                DispatchQueue.main.async {
+                    UIView.animate(withDuration: 0.5) {
+                        appDelegate.window?.setController(.mainTab)
+                    }
+                }
             }
         }
         
