@@ -45,8 +45,24 @@ extension AccountViewController {
             return
         }
         guard let avatar = account?.avatar else {
-            if let imageName = appDelegate.account.imageName {
-                self.fetchAvatarToAccount("\(Common.link.getAvatar)/\(imageName)")
+            // 2. Get image from Server - (fix slow response avatar when login)
+            guard let imageName = account?.imageName else {
+                return
+            }
+            guard let url = URL(string: "\(Common.link.getAvatar)/\(imageName)") else {
+                return
+            }
+            
+            AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).response {
+                    response in
+                
+                guard let data = response.data else {
+                    return
+                }
+                guard let image = UIImage(data: data) else {
+                    return
+                }
+                avatarImgView.image = image
             }
             
             return

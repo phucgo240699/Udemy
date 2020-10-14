@@ -26,32 +26,34 @@ extension AvatarViewController {
         //
         // Set image:
         //
-        
-        // 1. Default image
-        if imageName == "default.jpg" {
-            imgView.image = UIImage(named: Common.imageName.logo)
+        // Set image
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
-        
-        // 2. Get image from firebase
-        guard let urlString = account?.imageName else {
-            return
-        }
-        guard let url = URL(string: urlString) else {
-            return
-        }
-        SVProgressHUD.show()
-        AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).response {
-                response in
-            SVProgressHUD.dismiss()
-            guard let data = response.data else {
+        guard let avatar = account?.avatar else {
+            // 2. Get image from Server - (fix slow response avatar when login)
+            guard let imageName = account?.imageName else {
                 return
             }
-            guard let image = UIImage(data: data) else {
+            guard let url = URL(string: "\(Common.link.getAvatar)/\(imageName)") else {
                 return
             }
-            imgView.image = image
+            
+            AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).response {
+                    response in
+                
+                guard let data = response.data else {
+                    return
+                }
+                guard let image = UIImage(data: data) else {
+                    return
+                }
+                imgView.image = image
+            }
+            
+            return
         }
+        imgView.image = avatar
     }
     
     func initializePickImageBtn(_ button: inout UIButton?, _ title: String, _ topAnchor: NSLayoutYAxisAnchor?, _ topConstant: CGFloat) {
