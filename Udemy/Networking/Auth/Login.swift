@@ -57,9 +57,6 @@ extension LoginViewController {
         AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).response{
             response in
             
-            // off waiting progress
-            SVProgressHUD.dismiss()
-            
             if let error = response.error?.errorDescription {
                 window.showError("Login failed", error)
                 return
@@ -95,6 +92,10 @@ extension LoginViewController {
         
         // Default
         if appDelegate.account.imageName == "default.jpg" {
+            
+            // off waiting progress
+            SVProgressHUD.dismiss()
+            
             guard let defaultImage = UIImage(named: Common.imageName.logo) else {
                 return
             }
@@ -108,6 +109,9 @@ extension LoginViewController {
                 return
             }
             AF.request(url, method: .get).response { (response) in
+                
+                // off waiting progress
+                SVProgressHUD.dismiss()
                 
                 guard let data = response.data else {
                     return
