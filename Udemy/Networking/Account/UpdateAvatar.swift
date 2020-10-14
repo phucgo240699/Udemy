@@ -94,10 +94,10 @@ extension AvatarViewController {
                 // 1. Update account variable
                 appDelegate.account.imageName = result.user?.imageName
                 
-                // 2. Update avatar to account VC
+                // 2. Call closure, and update avatar for account variable in AppDelegate
                 if let updateAvatarSuccessfully = updateAvatarSuccessfully, let image = avatarImageView?.image {
-                    
                     updateAvatarSuccessfully(image)
+                    appDelegate.account.avatar = image
                 }
                 
                 // 3.Return

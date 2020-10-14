@@ -121,6 +121,14 @@ extension LoginViewController {
                 }
             }
         }
+        
+        // Move to mainTabVC
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.5) {
+                appDelegate.window?.setController(.mainTab)
+            }
+        }
+        
     }
     
     func parseLoginJSON(from data: Data, _ headers: HTTPHeaders?, _ email: String, _ password: String) {
@@ -151,12 +159,6 @@ extension LoginViewController {
                             // Fetch avatar to account (performance solution)
                             if let imageName = appDelegate.account.imageName {
                                 self.fetchAvatarToAccount("\(Common.link.getAvatar)/\(imageName)")
-                            }
-                            
-                            DispatchQueue.main.async {
-                                UIView.animate(withDuration: 0.5) {
-                                    window.setController(.mainTab)
-                                }
                             }
                         }
                     }

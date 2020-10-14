@@ -82,7 +82,7 @@ extension InformationViewController {
                 // 1. Update account variable
                 appDelegate.account.update(appDelegate.account._id, appDelegate.account.email, appDelegate.account.password, result.user?.name, result.user?.phone, result.user?.gender, appDelegate.account.role, appDelegate.account.imageName, result.user?.address, result.user?.description)
                 
-                // 2. Update name to account VC
+                // 2. Call Closure
                 if let updateInfoSuccessfully = updateInfoSuccessfully, let newName = result.user?.name {
                     updateInfoSuccessfully(newName)
                 }
