@@ -11,7 +11,7 @@ import SVProgressHUD
 import Alamofire
 
 extension InformationViewController {
-    func updateAccount(_ urlString: String, _ name: String?, _ phone: String?, _ address: String?, _ description: String?, _ gender: String?) {
+    func updateInfo(_ urlString: String, _ name: String?, _ phone: String?, _ address: String?, _ description: String?, _ gender: String?) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
@@ -30,16 +30,18 @@ extension InformationViewController {
             window.showError("Update failed", "Not enough information")
             return
         }
+        let params: [String: Any] = ["name": name, "phone": phone, "address": address, "description": description, "gender": gender]
         
+        // Access token
         guard let accessToken = TokenManager.getAccessToken() else {
             return
         }
         
+        // Headers
         let headers: HTTPHeaders = [
             "auth-token": accessToken,
             "Accept": "application/json"
         ]
-        let params: [String: Any] = ["name": name, "phone": phone, "address": address, "description": description, "gender": gender]
         
         // show waiting progress
         SVProgressHUD.show()
@@ -74,13 +76,26 @@ extension InformationViewController {
         
         do {
             let result = try JSONDecoder().decode(UserFunc.self, from: data)
-            if result.status != "success" {
-                window.showError("Update failed", result.status ?? "")
-                return
+            if result.status == "success" {
+                
+                // Success:
+                // 1. Update account variable
+                appDelegate.account.update(appDelegate.account._id, appDelegate.account.email, appDelegate.account.password, result.user?.name, result.user?.phone, result.user?.gender, appDelegate.account.role, appDelegate.account.imageName, result.user?.address, result.user?.description)
+                
+                // 2. Update name to account VC
+                if let updateInfoSuccessfully = updateInfoSuccessfully, let newName = result.user?.name {
+                    updateInfoSuccessfully(newName)
+                }
+                
+                // 3. Return
+                navigationController?.popViewController(animated: true)
+                
+                // 4. Notificate
+                window.notificate(UIImage(named: Common.imageName.done), "Updated Successfully", "")
             }
             else {
-                appDelegate.account.update(appDelegate.account.email, appDelegate.account.password, result.user?.name, result.user?.phone, result.user?.gender, appDelegate.account.role, appDelegate.account.image, result.user?.address, result.user?.description)
-                window.notificate(UIImage(named: Common.imageName.done), "Updated Successfully", "")
+                window.showError("Update failed", result.status ?? "")
+                return
             }
             
         } catch {

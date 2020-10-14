@@ -10,6 +10,10 @@ import UIKit
 import DropDown
 
 class InformationViewController: UIViewController {
+    // Closure
+    var updateInfoSuccessfully: ((String) -> Void)?
+    
+    // Components
     var nameTxtField: UITextField?
     var phoneTxtField: UITextField?
     var genderBtn: UIButton?
@@ -116,7 +120,7 @@ class InformationViewController: UIViewController {
     
     @objc func updateBtnPressed(_ sender: UIButton) {
         let des = descriptionTxtView?.textColor == UIColor.placeholderText ? "" : descriptionTxtView?.text
-        updateAccount(Common.link.changeProfile, nameTxtField?.text, phoneTxtField?.text, addressTxtField?.text, des, genderBtn?.titleLabel?.text)
+        updateInfo(Common.link.changeProfile, nameTxtField?.text, phoneTxtField?.text, addressTxtField?.text, des, genderBtn?.titleLabel?.text)
     }
 }
 

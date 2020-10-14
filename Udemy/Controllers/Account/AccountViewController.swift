@@ -6,7 +6,7 @@
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
-import Foundation
+import Alamofire
 import UIKit
 
 class AccountViewController: UIViewController {
@@ -105,13 +105,65 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Info
         if indexPath.row == 0 {
-            navigationController?.pushViewController(InformationViewController(), animated: true)
+            let infoVC = InformationViewController()
+            infoVC.updateInfoSuccessfully = { newName in
+                self.nameLbl?.text = newName
+            }
+            navigationController?.pushViewController(infoVC, animated: true)
         }
+        
+        // Avatar
+        else if indexPath.row == 1 {
+            let avatarVC = AvatarViewController()
+            avatarVC.updateAvatarSuccessfully = { image in
+                self.avatarImgView?.image = image
+            }
+            
+            navigationController?.pushViewController(avatarVC, animated: true)
+        }
+        
+        // Password
         else if indexPath.row == 2 {
             navigationController?.pushViewController(PasswordViewController(), animated: true)
         }
         
     }
     
+}
+
+
+// MARK: - Function Supports
+extension AccountViewController {
+    func fetchAvatarToAccount(_ urlString: String) {
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
+            return
+        }
+        
+        // Default
+        if appDelegate.account.imageName == "default.jpg" {
+            guard let defaultImage = UIImage(named: Common.imageName.logo) else {
+                return
+            }
+            
+            appDelegate.account.avatar = defaultImage
+        }
+        
+        // Others
+        else {
+            guard let url = URL(string: urlString) else {
+                return
+            }
+            AF.request(url, method: .get).response { (response) in
+                
+                guard let data = response.data else {
+                    return
+                }
+                if let image = UIImage(data: data) {
+                    appDelegate.account.avatar = image
+                }
+            }
+        }
+    }
 }

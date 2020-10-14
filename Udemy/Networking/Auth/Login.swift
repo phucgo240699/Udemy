@@ -88,6 +88,37 @@ extension LoginViewController {
         
     }
     
+    func fetchAvatarToAccount(_ urlString: String) {
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
+            return
+        }
+        
+        // Default
+        if appDelegate.account.imageName == "default.jpg" {
+            guard let defaultImage = UIImage(named: Common.imageName.logo) else {
+                return
+            }
+            
+            appDelegate.account.avatar = defaultImage
+        }
+        
+        // Others
+        else {
+            guard let url = URL(string: urlString) else {
+                return
+            }
+            AF.request(url, method: .get).response { (response) in
+                
+                guard let data = response.data else {
+                    return
+                }
+                if let image = UIImage(data: data) {
+                    appDelegate.account.avatar = image
+                }
+            }
+        }
+    }
+    
     func parseLoginJSON(from data: Data, _ headers: HTTPHeaders?, _ email: String, _ password: String) {
         
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
@@ -102,10 +133,21 @@ extension LoginViewController {
                 if active == 1 {
                     if let headers = headers {
                         if let token = headers["auth-token"] {
+                            // Success:
+                            
+                            // 1. Save access token
                             TokenManager.setAccessToken(token)
                             
-                            appDelegate.account.update(email, password, loginResponse.name, loginResponse.phone, loginResponse.gender, loginResponse.role, loginResponse.image, loginResponse.address, loginResponse.description)
+                            // Update account variable
+                            appDelegate.account.update(loginResponse._id, email, password, loginResponse.name, loginResponse.phone, loginResponse.gender, loginResponse.role, loginResponse.imageName, loginResponse.address, loginResponse.description)
+                            
+                            // Save email, password to local
                             appDelegate.account.save()
+                            
+                            // Fetch avatar to account (performance solution)
+                            if let imageName = appDelegate.account.imageName {
+                                self.fetchAvatarToAccount("\(Common.link.getAvatar)/\(imageName)")
+                            }
                             
                             DispatchQueue.main.async {
                                 UIView.animate(withDuration: 0.5) {

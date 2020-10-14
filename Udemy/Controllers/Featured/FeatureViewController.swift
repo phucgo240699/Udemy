@@ -32,7 +32,6 @@ class FeatureViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Common.color.purple
         
         initializeTableView()
     }
@@ -51,7 +50,10 @@ extension FeatureViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "featureCell", for: indexPath) as! FeatureTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "featureCell") as! FeatureTableViewCell
+        cell.selectionStyle = .none
+        
+        cell.titleLabel?.text = listSessions[indexPath.row]
         return cell
     }
     

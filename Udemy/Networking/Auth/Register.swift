@@ -31,7 +31,7 @@ extension RegisterViewController {
             window.showError("Register failed", "Not enough information")
             return
         }
-        if email.isEmptyOrSpacing() || password.isEmptyOrSpacing() || name.isEmptyOrSpacing() || phone.isEmptyOrSpacing() || address.isEmptyOrSpacing() || description.isEmptyOrSpacing() ||  gender.isEmptyOrSpacing() || gender == "Gender" {
+        if email.isEmptyOrSpacing() || password.isEmptyOrSpacing() || name.isEmptyOrSpacing() || phone.isEmptyOrSpacing() ||  gender.isEmptyOrSpacing() || gender == "Gender" {
             window.showError("Register failed", "Not enough information")
             return
         }

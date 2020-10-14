@@ -21,6 +21,9 @@
 		3E07EB132522E9B0002EBE7B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB122522E9B0002EBE7B /* Button.swift */; };
 		3E0EF955252ADFD800AFD584 /* Noti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0EF954252ADFD800AFD584 /* Noti.swift */; };
 		3E0EF96C252AE2B800AFD584 /* UIView+Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0EF96B252AE2B800AFD584 /* UIView+Message.swift */; };
+		3E1221362535A1DF005D954A /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1221352535A1DF005D954A /* AvatarViewController.swift */; };
+		3E12213B2535A201005D954A /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E12213A2535A201005D954A /* AvatarView.swift */; };
+		3E1221402535A225005D954A /* UpdateAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E12213F2535A225005D954A /* UpdateAvatar.swift */; };
 		3E1951E825342A0800AB9D06 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1951E725342A0800AB9D06 /* PasswordViewController.swift */; };
 		3E1951ED25342ACA00AB9D06 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1951EC25342ACA00AB9D06 /* PasswordView.swift */; };
 		3E3B87AF2522DF70006CBC37 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B87AE2522DF70006CBC37 /* TokenManager.swift */; };
@@ -39,7 +42,7 @@
 		3E91FDA12524170C0086DA0A /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E91FDA02524170C0086DA0A /* Window.swift */; };
 		3E926E0D252CA812009589E3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E926E0C252CA812009589E3 /* String.swift */; };
 		3E926E12252CA8CE009589E3 /* Activate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E926E11252CA8CE009589E3 /* Activate.swift */; };
-		3E9E9A0F25332061008207A8 /* UpdateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9E9A0E25332061008207A8 /* UpdateAccount.swift */; };
+		3E9E9A0F25332061008207A8 /* UpdateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9E9A0E25332061008207A8 /* UpdateInfo.swift */; };
 		3E9F3A842532CFEE0086DA90 /* SimpleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F3A822532CFEE0086DA90 /* SimpleTableViewCell.swift */; };
 		3E9F3A852532CFEE0086DA90 /* SimpleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E9F3A832532CFEE0086DA90 /* SimpleTableViewCell.xib */; };
 		3E9F3A8A2532D7A80086DA90 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F3A892532D7A80086DA90 /* InformationViewController.swift */; };
@@ -101,6 +104,9 @@
 		3E07EB122522E9B0002EBE7B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		3E0EF954252ADFD800AFD584 /* Noti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Noti.swift; sourceTree = "<group>"; };
 		3E0EF96B252AE2B800AFD584 /* UIView+Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Message.swift"; sourceTree = "<group>"; };
+		3E1221352535A1DF005D954A /* AvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewController.swift; sourceTree = "<group>"; };
+		3E12213A2535A201005D954A /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		3E12213F2535A225005D954A /* UpdateAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAvatar.swift; sourceTree = "<group>"; };
 		3E1951E725342A0800AB9D06 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		3E1951EC25342ACA00AB9D06 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		3E3B87AE2522DF70006CBC37 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
@@ -119,7 +125,7 @@
 		3E91FDA02524170C0086DA0A /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		3E926E0C252CA812009589E3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		3E926E11252CA8CE009589E3 /* Activate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activate.swift; sourceTree = "<group>"; };
-		3E9E9A0E25332061008207A8 /* UpdateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAccount.swift; sourceTree = "<group>"; };
+		3E9E9A0E25332061008207A8 /* UpdateInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInfo.swift; sourceTree = "<group>"; };
 		3E9F3A822532CFEE0086DA90 /* SimpleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableViewCell.swift; sourceTree = "<group>"; };
 		3E9F3A832532CFEE0086DA90 /* SimpleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleTableViewCell.xib; sourceTree = "<group>"; };
 		3E9F3A892532D7A80086DA90 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
@@ -281,11 +287,11 @@
 			children = (
 				3E8742BF2533344E001E9D5E /* Users */,
 				3EA3FE77252C8E5D00F55829 /* Featured */,
+				3EEF6D6D252C98A800FFD443 /* ErrorResponse.swift */,
+				3E77E79C252DFD32004F0340 /* Account.swift */,
 				3E3B87AE2522DF70006CBC37 /* TokenManager.swift */,
 				3E07EB022522E7CC002EBE7B /* Common.swift */,
 				3E91FD9D252415C90086DA0A /* CurrentController.swift */,
-				3EEF6D6D252C98A800FFD443 /* ErrorResponse.swift */,
-				3E77E79C252DFD32004F0340 /* Account.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -329,6 +335,7 @@
 				3EBC98EC2526FEB300A273C5 /* AccountView.swift */,
 				3E9F3A8E2532D8CA0086DA90 /* InformationView.swift */,
 				3E1951EC25342ACA00AB9D06 /* PasswordView.swift */,
+				3E12213A2535A201005D954A /* AvatarView.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -381,8 +388,9 @@
 		3E9E9A0D2533204D008207A8 /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				3E9E9A0E25332061008207A8 /* UpdateAccount.swift */,
+				3E9E9A0E25332061008207A8 /* UpdateInfo.swift */,
 				3E0734042534780F00F6A277 /* UpdatePassword.swift */,
+				3E12213F2535A225005D954A /* UpdateAvatar.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -465,6 +473,7 @@
 				3E5176112526204D0001D2AD /* AccountViewController.swift */,
 				3E9F3A892532D7A80086DA90 /* InformationViewController.swift */,
 				3E1951E725342A0800AB9D06 /* PasswordViewController.swift */,
+				3E1221352535A1DF005D954A /* AvatarViewController.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -765,7 +774,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EA33368252C41FD00EC3A2E /* Course.swift in Sources */,
-				3E9E9A0F25332061008207A8 /* UpdateAccount.swift in Sources */,
+				3E9E9A0F25332061008207A8 /* UpdateInfo.swift in Sources */,
 				3E926E0D252CA812009589E3 /* String.swift in Sources */,
 				3E07EB032522E7CC002EBE7B /* Common.swift in Sources */,
 				3EAD5D502521C8380093944F /* LoginViewController.swift in Sources */,
@@ -779,8 +788,10 @@
 				3EC75762252C357E004A528C /* FeatureCell.swift in Sources */,
 				3EEF6D7E252C9FFD00FFD443 /* ActivationView.swift in Sources */,
 				3EAD5D4C2521C8370093944F /* AppDelegate.swift in Sources */,
+				3E1221402535A225005D954A /* UpdateAvatar.swift in Sources */,
 				3E51760E252620070001D2AD /* CoursesViewController.swift in Sources */,
 				3E3B87AF2522DF70006CBC37 /* TokenManager.swift in Sources */,
+				3E12213B2535A201005D954A /* AvatarView.swift in Sources */,
 				3EEF6D6E252C98A800FFD443 /* ErrorResponse.swift in Sources */,
 				3E9F3A842532CFEE0086DA90 /* SimpleTableViewCell.swift in Sources */,
 				3EBC98E92526FE8D00A273C5 /* CoursesView.swift in Sources */,
@@ -793,6 +804,7 @@
 				3E51760A25261FBA0001D2AD /* FeatureViewController.swift in Sources */,
 				3E07EB062522E800002EBE7B /* Login.swift in Sources */,
 				3EC7575D252C3528004A528C /* FeatureTableViewCell.swift in Sources */,
+				3E1221362535A1DF005D954A /* AvatarViewController.swift in Sources */,
 				3E0EF96C252AE2B800AFD584 /* UIView+Message.swift in Sources */,
 				3E07EAFE2522E72C002EBE7B /* RegisterViewController.swift in Sources */,
 				3E9F3A8A2532D7A80086DA90 /* InformationViewController.swift in Sources */,

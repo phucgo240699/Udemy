@@ -1,8 +1,8 @@
 //
-//  UpdatePassword.swift
+//  UpdateAvatar.swift
 //  Udemy
 //
-//  Created by Phúc Lý on 10/12/20.
+//  Created by Phúc Lý on 10/13/20.
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
@@ -10,12 +10,22 @@ import UIKit
 import Alamofire
 import SVProgressHUD
 
-extension PasswordViewController {
-    func updatePassword(_ urlString: String, _ oldPassword: String?, _ newPassword: String?) {
+extension AvatarViewController {
+    func updateAvatarNameToServer(_ urlString: String, _ image: UIImage, _ imageName: String) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
         guard let window = appDelegate.window else {
+            return
+        }
+        
+        // imageData
+        guard let imageData = image.pngData() else {
+            return
+        }
+        
+        // Account Id
+        guard let accountId = appDelegate.account._id else {
             return
         }
         
@@ -24,13 +34,6 @@ extension PasswordViewController {
         guard let url = rawUrl else {
             return
         }
-        
-        // Params
-        guard let oldPassword = oldPassword, let newPassword = newPassword else {
-            window.showError("Update failed", "Not enough information")
-            return
-        }
-        let params: [String: Any] = ["oldpassword": oldPassword, "newpassword": newPassword]
         
         // Access token
         guard let accessToken = TokenManager.getAccessToken() else {
@@ -46,27 +49,36 @@ extension PasswordViewController {
         // show waiting progress
         SVProgressHUD.show()
         
+        // Request
+        var rawRequest: URLRequest?
+        do {
+            rawRequest = try URLRequest(url: url, method: .put, headers: headers)
+        } catch {
+            window.showError("Failed", error.localizedDescription)
+        }
+        
+        guard let request = rawRequest else {
+            return
+        }
+        
         // Call API
-        AF.request(url, method: .put, parameters: params, encoding: JSONEncoding.default, headers: headers).response{
-            response in
+        AF.upload(multipartFormData: { (multipartFormData) in
+            multipartFormData.append(imageData, withName: "image", fileName: "\(accountId).jpg", mimeType: "image/jpg")
             
-            // off waiting progress
+        }, with: request).response { (response) in
+            
             SVProgressHUD.dismiss()
-            
-            if let error = response.error?.errorDescription {
-                window.showError("Error", error)
-                return
-            }
             
             guard let data = response.data else {
                 return
             }
-            
-            self.parseJSON(data, newPassword)
+            self.parseJSON(data)
         }
+
+        
     }
     
-    func parseJSON(_ data: Data, _ newPassword: String) {
+    func parseJSON(_ data: Data) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
@@ -77,19 +89,23 @@ extension PasswordViewController {
         do {
             let result = try JSONDecoder().decode(UserFunc.self, from: data)
             if result.status == "success" {
-                
                 // Success:
+                
                 // 1. Update account variable
-                appDelegate.account.password = newPassword
+                appDelegate.account.imageName = result.user?.imageName
                 
-                // 2. Save email, pass to local
-                appDelegate.account.save()
+                // 2. Update avatar to account VC
+                if let updateAvatarSuccessfully = updateAvatarSuccessfully, let image = avatarImageView?.image {
+                    
+                    updateAvatarSuccessfully(image)
+                }
                 
-                // 3. Return
+                // 3.Return
                 navigationController?.popViewController(animated: true)
                 
                 // 4. Notificate
                 window.notificate(UIImage(named: Common.imageName.done), "Updated Successfully", "")
+                
             }
             else {
                 window.showError("Update failed", result.status ?? "")

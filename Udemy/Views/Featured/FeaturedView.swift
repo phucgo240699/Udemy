@@ -23,6 +23,6 @@ extension FeatureViewController {
         
         tableView.rowHeight = rowHeight
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .none
+        tableView.backgroundColor = Common.color.silverBackground
     }
 }

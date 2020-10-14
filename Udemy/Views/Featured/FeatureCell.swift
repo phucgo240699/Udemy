@@ -33,20 +33,43 @@ extension FeatureTableViewCell {
             return
         }
         
+        titleLabel = UILabel()
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        collectionView = UICollectionView(frame: container.bounds, collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
-        guard let collectionView = collectionView else {
+        guard let collectionView = collectionView, let titleLabel = titleLabel else {
             return
         }
-        collectionView.pin(to: container)
+        titleLabel.addToViewByConstraints(parent: container,
+                                          top: YAnchor(direction: container.topAnchor, constant: marginSpace),
+                                          bottom: nil,
+                                          leading: XAnchor(direction: container.leadingAnchor, constant: marginSpace),
+                                          trailing: XAnchor(direction: container.trailingAnchor, constant: -marginSpace),
+                                          centerY: nil,
+                                          centerX: nil,
+                                          width: nil,
+                                          height: headerHeight)
+        collectionView.addToViewByConstraints(parent: container,
+                                              top: YAnchor(direction: titleLabel.bottomAnchor, constant: 0),
+                                              bottom: YAnchor(direction: container.bottomAnchor, constant: 0),
+                                          leading: XAnchor(direction: container.leadingAnchor, constant: 0),
+                                          trailing: XAnchor(direction: container.trailingAnchor, constant: 0),
+                                          centerY: nil,
+                                          centerX: nil,
+                                          width: nil,
+                                          height: nil)
         
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "courseCell")
         
-        collectionView.backgroundColor = .none
+        collectionView.layer.cornerRadius = height * 0.2
+        collectionView.backgroundColor = .systemBackground
+        
+        titleLabel.textColor = Common.color.textColor
+        titleLabel.textAlignment = .natural
+        titleLabel.font = UIFont(name: Common.fontName, size: headerHeight * 0.6)
             
     }
     

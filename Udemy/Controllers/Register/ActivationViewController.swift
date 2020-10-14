@@ -16,13 +16,7 @@ class ActivationViewController: UIViewController {
     var activationTxtField: UITextField?
     var activationBtn: UIButton?
     
-    var email: String? {
-        didSet {
-            if let unwrap = email {
-                emailTxtField?.text = unwrap
-            }
-        }
-    }
+    var email: String?
     
     var width:CGFloat {
         get {
@@ -62,6 +56,10 @@ class ActivationViewController: UIViewController {
         initializeCloseButton()
         initializeTextField(&emailTxtField, "Enter email", closeBtn, height * 0.05, keyType: .emailAddress)
         initializeTextField(&activationTxtField, "Enter activation code", emailTxtField, height * 0.02)
+        
+        // take email from register to activation
+        emailTxtField?.text = email
+        
         initializeActivationButton()
         
         

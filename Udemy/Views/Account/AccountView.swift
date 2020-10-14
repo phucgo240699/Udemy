@@ -6,7 +6,7 @@
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
-import Foundation
+import Alamofire
 import UIKit
 
 extension AccountViewController {
@@ -27,19 +27,6 @@ extension AccountViewController {
             return
         }
         
-        // Set image
-        guard let defaultImage = UIImage(named: Common.imageName.logo) else {
-            return
-        }
-        if let imageName = account?.image, account?.image != "default.jpg" {
-            if let image = UIImage(named: imageName) {
-                avatarImgView.image = image
-            }
-        }
-        else {
-            avatarImgView.image = defaultImage
-        }
-        
         avatarImgView.addToViewByConstraints(parent: bannerView,
             top: nil,
             bottom: nil,
@@ -49,6 +36,24 @@ extension AccountViewController {
             centerX: XAnchor(direction: bannerView.centerXAnchor, constant: 0),
             width: bannerView.bounds.height * 0.5,
             height: bannerView.bounds.height * 0.5)
+        
+        avatarImgView.layer.cornerRadius = bannerView.bounds.height * 0.25
+        avatarImgView.layer.masksToBounds = true
+        
+        // Set image
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
+            return
+        }
+        guard let avatar = account?.avatar else {
+            if let imageName = appDelegate.account.imageName {
+                self.fetchAvatarToAccount("\(Common.link.getAvatar)/\(imageName)")
+            }
+            
+            return
+        }
+        avatarImgView.image = avatar
+        
+        
     }
     
     func initializeNameLabel() {

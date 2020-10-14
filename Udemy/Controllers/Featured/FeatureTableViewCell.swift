@@ -22,19 +22,21 @@ class FeatureTableViewCell: UITableViewCell {
     }
     var headerHeight: CGFloat {
         get {
-            return height * 0.2
+            return height * (UIDevice.current.userInterfaceIdiom == .phone ? 0.8 : 1.2)
         }
     }
     var marginSpace: CGFloat = UIDevice.current.userInterfaceIdiom == .phone ? 10.0 : 20.0
     
     
     var container: UIView?
+    var titleLabel: UILabel?
     var collectionView: UICollectionView?
+    
     var listCourses: [Course] = []
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .none
+        backgroundColor = Common.color.silverBackground
         
         initializeContainer()
         initializeCollectionView()
