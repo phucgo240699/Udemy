@@ -38,12 +38,10 @@ extension AccountViewController {
             height: bannerView.bounds.height * 0.5)
         
         avatarImgView.layer.cornerRadius = bannerView.bounds.height * 0.25
+        avatarImgView.contentMode = .scaleAspectFill
         avatarImgView.layer.masksToBounds = true
         
         // Set image
-        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
-            return
-        }
         guard let avatar = account?.avatar else {
             // 2. Get image from Server - (fix slow response avatar when login)
             guard let imageName = account?.imageName else {

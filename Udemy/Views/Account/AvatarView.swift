@@ -22,14 +22,12 @@ extension AvatarViewController {
         imgView.addToViewByConstraints(parent: view, top: nil, bottom: nil, leading: nil, trailing: nil, centerY: YAnchor(direction: view.centerYAnchor, constant: 0), centerX: XAnchor(direction: view.centerXAnchor, constant: 0), width: widthImage, height: widthImage)
         
         imgView.layer.cornerRadius = widthImage / 2
+        imgView.contentMode = .scaleAspectFill
         imgView.layer.masksToBounds = true
         //
         // Set image:
         //
         // Set image
-        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
-            return
-        }
         guard let avatar = account?.avatar else {
             // 2. Get image from Server - (fix slow response avatar when login)
             guard let imageName = account?.imageName else {
