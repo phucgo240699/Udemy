@@ -54,7 +54,7 @@ extension PasswordViewController {
             SVProgressHUD.dismiss()
             
             if let error = response.error?.errorDescription {
-                window.showError("Error", error)
+                window.showError("Error", String(error.description.split(separator: ":")[1]))
                 return
             }
             

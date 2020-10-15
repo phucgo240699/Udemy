@@ -69,6 +69,12 @@ extension AvatarViewController {
             
             SVProgressHUD.dismiss()
             
+            if let error = response.error?.errorDescription {
+                window.showError("Login failed", String(error.description.split(separator: ":")[1]))
+                SVProgressHUD.dismiss()
+                return
+            }
+            
             guard let data = response.data else {
                 return
             }

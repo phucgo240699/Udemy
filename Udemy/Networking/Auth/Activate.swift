@@ -49,7 +49,7 @@ extension ActivationViewController {
             SVProgressHUD.dismiss()
             
             if let error = response.error?.errorDescription {
-                window.showError("Activate failed", error)
+                window.showError("Activate failed", String(error.description.split(separator: ":")[1]))
                 return
             }
             

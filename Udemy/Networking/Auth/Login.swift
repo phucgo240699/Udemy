@@ -58,14 +58,17 @@ extension LoginViewController {
             response in
             
             if let error = response.error?.errorDescription {
-                window.showError("Login failed", error)
+                window.showError("Login failed", error.description)
+                SVProgressHUD.dismiss()
                 return
             }
             
             guard let statusCode = response.response?.statusCode else {
+                SVProgressHUD.dismiss()
                 return
             }
             guard let data = response.data else {
+                SVProgressHUD.dismiss()
                 return
             }
             
@@ -87,6 +90,7 @@ extension LoginViewController {
     
     func fetchAvatarToAccount(_ urlString: String) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
+            SVProgressHUD.dismiss()
             return
         }
         
@@ -113,6 +117,7 @@ extension LoginViewController {
         // Others
         else {
             guard let url = URL(string: urlString) else {
+                SVProgressHUD.dismiss()
                 return
             }
             AF.request(url, method: .get).response { (response) in
@@ -141,9 +146,11 @@ extension LoginViewController {
     func parseLoginJSON(from data: Data, _ headers: HTTPHeaders?, _ email: String, _ password: String) {
         
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
+            SVProgressHUD.dismiss()
             return
         }
         guard let window = appDelegate.window else {
+            SVProgressHUD.dismiss()
             return
         }
         do {
@@ -172,15 +179,18 @@ extension LoginViewController {
                 }
             }
         } catch {
+            SVProgressHUD.dismiss()
             window.showError("Login failed", error.localizedDescription)
         }
     }
     
     func parseErrorMessageJSON(from data: Data) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
+            SVProgressHUD.dismiss()
             return
         }
         guard let window = appDelegate.window else {
+            SVProgressHUD.dismiss()
             return
         }
         
@@ -188,6 +198,7 @@ extension LoginViewController {
             let errorMessageResponse = try JSONDecoder().decode(ErrorMessageResponse.self, from: data)
             window.showError("Login failed", errorMessageResponse.message ?? "There is an error")
         } catch {
+            SVProgressHUD.dismiss()
             window.showError("Login failed", error.localizedDescription)
         }
     }

@@ -48,7 +48,7 @@ extension RegisterViewController {
             SVProgressHUD.dismiss()
             
             if let error = response.error?.errorDescription {
-                window.showError("Register failed", error)
+                window.showError("Register failed", String(error.description.split(separator: ":")[1]))
                 return
             }
             

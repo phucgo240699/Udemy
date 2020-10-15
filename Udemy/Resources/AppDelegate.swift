@@ -8,14 +8,18 @@
 
 import UIKit
 import CoreData
+import Reachability
+import SVProgressHUD
 import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var account: Account = Account()
-
+    
     var window: UIWindow?
+    var reachability: Reachability?
+    
     var currentController: CurrentController = .login
     var wasNotifyActivationCode: Bool? = false
     
@@ -25,12 +29,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // Keyboard
         IQKeyboardManager.shared.enable = true
         
+        // Windows
         window = UIWindow(frame: UIScreen.main.bounds)
-
         window?.setController(currentController)
         window?.makeKeyAndVisible()
+        
+        
+        
+        // Networking
+        do {
+            reachability = try Reachability()
+        } catch {
+            self.window?.showError("Error", "Initialize reachability variable failed")
+        }
+        guard let reachability = reachability else {
+            self.window?.showError("Error", "Can not check network")
+            return true
+        }
+        
+        reachability.whenUnreachable = { reach in
+            self.window?.showError("Failed", "Can not connect to network")
+            SVProgressHUD.dismiss()
+        }
+        
+        do {
+            try reachability.startNotifier()
+        } catch {
+            window?.showError("Error", error.localizedDescription)
+        }
+        
         return true
     }
 
@@ -77,6 +107,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+    
+    
+    // MARK: - Deinitailizer
+    deinit {
+        reachability?.stopNotifier()
+    }
 }
 
