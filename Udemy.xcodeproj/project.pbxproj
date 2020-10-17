@@ -65,6 +65,8 @@
 		3EEF6D6E252C98A800FFD443 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEF6D6D252C98A800FFD443 /* ErrorResponse.swift */; };
 		3EEF6D79252C9E6F00FFD443 /* ActivationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEF6D78252C9E6F00FFD443 /* ActivationViewController.swift */; };
 		3EEF6D7E252C9FFD00FFD443 /* ActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEF6D7D252C9FFD00FFD443 /* ActivationView.swift */; };
+		3EF18070253BA0A3004432E8 /* Logout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF1806F253BA0A3004432E8 /* Logout.swift */; };
+		3EF18075253BA3A7004432E8 /* StatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF18074253BA3A7004432E8 /* StatusResponse.swift */; };
 		6807317657D10394CCBB21C9 /* Pods_UdemyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6DD49030E4B5D8B2E75027 /* Pods_UdemyTests.framework */; };
 		C07F99A8F1E029B3BCB5FAAE /* Pods_Udemy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E194BB93A3EB1BD1C8095507 /* Pods_Udemy.framework */; };
 		F87393B63D5FE74308E25B5C /* Pods_Udemy_UdemyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D883D6A20B35FFACD09A07 /* Pods_Udemy_UdemyUITests.framework */; };
@@ -154,6 +156,8 @@
 		3EEF6D6D252C98A800FFD443 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		3EEF6D78252C9E6F00FFD443 /* ActivationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationViewController.swift; sourceTree = "<group>"; };
 		3EEF6D7D252C9FFD00FFD443 /* ActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationView.swift; sourceTree = "<group>"; };
+		3EF1806F253BA0A3004432E8 /* Logout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logout.swift; sourceTree = "<group>"; };
+		3EF18074253BA3A7004432E8 /* StatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusResponse.swift; sourceTree = "<group>"; };
 		48862322EEEAD0C13BDB2366 /* Pods-Udemy-UdemyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udemy-UdemyUITests.release.xcconfig"; path = "Target Support Files/Pods-Udemy-UdemyUITests/Pods-Udemy-UdemyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		533145924BB1CD942149CB01 /* Pods-Udemy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udemy.release.xcconfig"; path = "Target Support Files/Pods-Udemy/Pods-Udemy.release.xcconfig"; sourceTree = "<group>"; };
 		7F29FF9240CB074C89D98BF8 /* Pods-Udemy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udemy.debug.xcconfig"; path = "Target Support Files/Pods-Udemy/Pods-Udemy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -287,6 +291,7 @@
 			children = (
 				3E8742BF2533344E001E9D5E /* Users */,
 				3EA3FE77252C8E5D00F55829 /* Featured */,
+				3EF18074253BA3A7004432E8 /* StatusResponse.swift */,
 				3EEF6D6D252C98A800FFD443 /* ErrorResponse.swift */,
 				3E77E79C252DFD32004F0340 /* Account.swift */,
 				3E3B87AE2522DF70006CBC37 /* TokenManager.swift */,
@@ -391,6 +396,7 @@
 				3E9E9A0E25332061008207A8 /* UpdateInfo.swift */,
 				3E0734042534780F00F6A277 /* UpdatePassword.swift */,
 				3E12213F2535A225005D954A /* UpdateAvatar.swift */,
+				3EF1806F253BA0A3004432E8 /* Logout.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -774,6 +780,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EA33368252C41FD00EC3A2E /* Course.swift in Sources */,
+				3EF18070253BA0A3004432E8 /* Logout.swift in Sources */,
 				3E9E9A0F25332061008207A8 /* UpdateInfo.swift in Sources */,
 				3E926E0D252CA812009589E3 /* String.swift in Sources */,
 				3E07EB032522E7CC002EBE7B /* Common.swift in Sources */,
@@ -805,6 +812,7 @@
 				3E07EB062522E800002EBE7B /* Login.swift in Sources */,
 				3EC7575D252C3528004A528C /* FeatureTableViewCell.swift in Sources */,
 				3E1221362535A1DF005D954A /* AvatarViewController.swift in Sources */,
+				3EF18075253BA3A7004432E8 /* StatusResponse.swift in Sources */,
 				3E0EF96C252AE2B800AFD584 /* UIView+Message.swift in Sources */,
 				3E07EAFE2522E72C002EBE7B /* RegisterViewController.swift in Sources */,
 				3E9F3A8A2532D7A80086DA90 /* InformationViewController.swift in Sources */,

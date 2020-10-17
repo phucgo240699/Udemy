@@ -73,12 +73,9 @@ class AccountViewController: UIViewController {
         initializeLogOutBarButton()
     }
     
+    // Actions
     @objc func logOutBarButtonPressed(_ sender: UIBarButtonItem) {
-        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
-            return
-        }
-        appDelegate.account.release()
-        appDelegate.window?.setController(.login)
+        logOut()
     }
 }
 
