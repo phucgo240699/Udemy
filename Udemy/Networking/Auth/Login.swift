@@ -78,7 +78,7 @@ extension LoginViewController {
                 self.parseLoginJSON(from: data, response.response?.headers, email, password)
             }
             else { // Failed
-                
+                SVProgressHUD.dismiss()
                 // parseError and show it
                 self.parseErrorMessageJSON(from: data)
                 
@@ -186,11 +186,9 @@ extension LoginViewController {
     
     func parseErrorMessageJSON(from data: Data) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
-            SVProgressHUD.dismiss()
             return
         }
         guard let window = appDelegate.window else {
-            SVProgressHUD.dismiss()
             return
         }
         
@@ -198,7 +196,6 @@ extension LoginViewController {
             let errorMessageResponse = try JSONDecoder().decode(ErrorMessageResponse.self, from: data)
             window.showError("Login failed", errorMessageResponse.message ?? "There is an error")
         } catch {
-            SVProgressHUD.dismiss()
             window.showError("Login failed", error.localizedDescription)
         }
     }
