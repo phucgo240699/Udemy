@@ -6,13 +6,17 @@
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
+
+// README:
+// tag ( 3, 0, 1, 2 ): category, newCourses, freeCourses, topCourses
+
 import Foundation
 import UIKit
 
 class FeatureViewController: UIViewController {
     
-    var tableView: UITableView?
-    var width:CGFloat {
+    // Variables
+    var width: CGFloat {
         get {
             return self.view.bounds.width
         }
@@ -22,40 +26,167 @@ class FeatureViewController: UIViewController {
             return self.view.bounds.height
         }
     }
-    var rowHeight: CGFloat  {
+    
+    var bannerHeight: CGFloat {
         get {
             return height * 0.3
         }
     }
-    var listSessions: [String] = ["Categories", "Newest", "Free"]
+    var categoryCollectionViewHeight: CGFloat {
+        get {
+            return height * 0.2
+        }
+    }
+    var courseCollectionViewHeight: CGFloat {
+        get {
+            return height * 0.4
+        }
+    }
+    var margin: CGFloat {
+        get {
+            return UIDevice.current.userInterfaceIdiom == .pad ? 20: 10
+        }
+    }
     
+    
+    // Compenents
+    var scrollView: UIScrollView = UIScrollView()
+    var bannerPageViewController: PageViewController = PageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    var categoriesCollectionView: UICollectionView?
+    var newCoursesCollectionView: UICollectionView?
+    var freeCoursesCollectionView: UICollectionView?
+    var topCoursesCollectionView: UICollectionView?
+    
+    // Datasources
+    var listCategories: [Category] = []
+    var listNewCourses: [Course] = []
+    var listFreeCourses: [Course] = []
+    var listTopCourses: [Course] = [
+        Course(vote: Vote(totalVote: 0, EVGVote: 0), discount: 10, ranking: 0, created_at: "2020-09-20T04:53:44.987Z", is_checked: 1, is_required: false, _id: "5f66f9d4877b74b5e133db8f", name: "Nhap mon lap trinh ghfjkhugyuftydrsdfhjhgkjgfdfjgh khugyuftydrsdfhjhg khugyuftydrsdfhjhg khugyuftydrsdfhjhg Nhap mon lap trinh ghfjkhugyuftydrsdfhjhgkjgfdfjgh khugyuftydrsdfhjhg khugyuftydrsdfhjhg khugyuftydrsdfhjhg Nhap mon lap trinh ghfjkhugyuftydrsdfhjhgkjgfdfjgh khugyuftydrsdfhjhg khugyuftydrsdfhjhg khugyuftydrsdfhjhg", idUser: UserCourse(_id: "5f66f94b877b74b5e133db8e", name: "Quang Thien"), image: "1600584148277-609346245-thumb-163988.jpg", goal: "Hoc gioi", description: "Qua Mon", category: Category(_id: "5f66f8e0877b74b5e133db8d", name: "Công nghệ thông tin") , price: 2000000),
+        Course(vote: Vote(totalVote: 0, EVGVote: 0), discount: 0, ranking: 0, created_at: "2020-09-20T04:53:44.987Z", is_checked: 1, is_required: false, _id: "5f66fa86877b74b5e133db96", name: "Nhập môn mạng máy tính", idUser: UserCourse(_id: "5f66f821877b74b5e133db8b", name: "Vũ Ngọc Tuấn"), image: "1600584325578-278112491-computer-networking-1.jpg", goal: "Môn Mạng máy tính cung cấp những khái niệm tổng quan về mạng máy tính, bao gồm mô hình tham chiếu OSI, TCP/IP và các chuẩn mạng; những khái niệm, nguyên lý cơ bản về tín hiệu, truyền tín hiệu. Sinh viên được tìm hiểu sâu về mô hình TCP/IP như các giao thức trong các tầng đặc biệt là tầng mạng và tầng vận chuyển. Ngoài ra sinh viên cũng được làm quen với các dịch vụ mạng cơ bản, kỹ thuật mạng không dây và bảo mật mạng.", description: "Môn Mạng máy tính cung cấp những khái niệm tổng quan về mạng máy tính, bao gồm mô hình tham chiếu OSI, TCP/IP và các chuẩn mạng; những khái niệm, nguyên lý cơ bản về tín hiệu, truyền tín hiệu. Sinh viên được tìm hiểu sâu về mô hình TCP/IP như các giao thức trong các tầng đặc biệt là tầng mạng và tầng vận chuyển. Ngoài ra sinh viên cũng được làm quen với các dịch vụ mạng cơ bản, kỹ thuật mạng không dây và bảo mật mạng.", category: Category(_id: "5f66f8e0877b74b5e133db8d", name: "Công nghệ thông tin") , price: 0)
+    ]
+    
+    var titleCollectionViews: [String] = ["New", "Free", "Top", "Category"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initializeTableView()
+        
+        view.backgroundColor = Common.color.silverBackground
+        
+        // Components
+        scrollView.frame = view.bounds
+        view.addSubview(scrollView)
+        scrollView.contentSize = CGSize(width: width, height: bannerHeight + 3 * courseCollectionViewHeight + categoryCollectionViewHeight + 8 * margin + 2 * margin)
+        
+        setUpBanner()
+        
+        // Category
+        initializeCollectionView(&categoriesCollectionView, YAnchor(direction: bannerPageViewController.view.bottomAnchor, constant: 2 * margin), categoryCollectionViewHeight, 3, "categoryCLVCell")
+        
+        // New Course
+        if let categoriesCollectionView = categoriesCollectionView {
+            initializeCollectionView(&newCoursesCollectionView, YAnchor(direction: categoriesCollectionView.bottomAnchor, constant: 2 * margin), courseCollectionViewHeight, 0, "newCourseCLVCell")
+        }
+        
+        // Free Course
+        if let newCoursesCollectionView = newCoursesCollectionView {
+            initializeCollectionView(&freeCoursesCollectionView, YAnchor(direction: newCoursesCollectionView.bottomAnchor, constant: 2 * margin), courseCollectionViewHeight, 1, "freeCourseCLVCell")
+        }
+        
+        // Top Course
+        if let freeCoursesCollectionView = freeCoursesCollectionView {
+            initializeCollectionView(&topCoursesCollectionView, YAnchor(direction: freeCoursesCollectionView.bottomAnchor, constant: 2 * margin), courseCollectionViewHeight, 2, "topCourseCLVCell")
+        }
+        
+        
+        // Fetch data
+        fetchCategories()
+        fetchNewCourses()
+        fetchFreeCourses()
+        fetchTopCourses()
     }
 }
 
-
-// MARK: - UITableViewDelegates
-extension FeatureViewController: UITableViewDelegate, UITableViewDataSource {
+// MARK: - UICollectionView Delegates
+extension FeatureViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return rowHeight
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listSessions.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "featureCell") as! FeatureTableViewCell
-        cell.selectionStyle = .none
+    // Size for Item
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // Category
+        if collectionView.tag == 3 {
+            return CGSize(width: categoryCollectionViewHeight * 1.2, height: categoryCollectionViewHeight * 0.9)
+        }
         
-        cell.titleLabel?.text = listSessions[indexPath.row]
+        // Courses
+        return CGSize(width: courseCollectionViewHeight * 0.9, height: courseCollectionViewHeight * 0.9)
+    }
+    
+    // Number of Items
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView.tag == 0 {
+            return  listNewCourses.count
+        }
+        else if collectionView.tag == 1 {
+            return listFreeCourses.count
+        }
+        else if collectionView.tag == 2 {
+            return listTopCourses.count
+        }
+        return listCategories.count
+    }
+    
+    // Detail Item
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        // New
+        if collectionView.tag == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "newCourseCLVCell", for: indexPath) as! CourseCollectionViewCell
+            
+            cell.fillData(listNewCourses[indexPath.row])
+            
+            return cell
+        }
+        
+        // Free
+        else if collectionView.tag == 1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "freeCourseCLVCell", for: indexPath) as! CourseCollectionViewCell
+            
+            cell.fillData(listFreeCourses[indexPath.row])
+            
+            return cell
+        }
+        
+        // Top
+        else if collectionView.tag == 2 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "topCourseCLVCell", for: indexPath) as! CourseCollectionViewCell
+            
+            cell.fillData(listTopCourses[indexPath.row])
+            
+            return cell
+        }
+        
+        // Category
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCLVCell", for: indexPath) as! CategoryCollectionViewCell
+        
+        cell.fillData(listCategories[indexPath.row])
+        
         return cell
     }
     
     
+}
+
+
+// MARK: - Functions support
+extension FeatureViewController {
+    func fillBanner(_ images: [UIImage]) {
+        for image in images {
+            let vc = UIViewController()
+            let imgView = UIImageView(image: image)
+            vc.view.insertSubview(imgView, at: 0)
+            
+            bannerPageViewController.subViewControllers.append(vc)
+        }
+    }
 }

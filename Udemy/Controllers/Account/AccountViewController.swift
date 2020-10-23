@@ -92,7 +92,7 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "accountCell", for: indexPath) as! SimpleTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "accountSettingTBVCell", for: indexPath) as! SimpleTableViewCell
         cell.selectionStyle = .none
         cell.accessoryType = .disclosureIndicator
         cell.imgView?.image = UIImage(systemName: icons[indexPath.row])

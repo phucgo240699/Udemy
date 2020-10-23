@@ -130,7 +130,7 @@ extension AccountViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "SimpleTableViewCell", bundle: nil), forCellReuseIdentifier: "accountCell")
+        tableView.register(UINib(nibName: "SimpleTableViewCell", bundle: nil), forCellReuseIdentifier: "accountSettingTBVCell")
     }
     
     func initializeLogOutBarButton() {

@@ -46,7 +46,7 @@ extension LoginViewController {
                                          leading: XAnchor(direction: view.leadingAnchor, constant: view.bounds.width * (UIDevice.current.userInterfaceIdiom == .phone ? 0.05 : 0.2)),
                                          trailing: XAnchor(direction: view.trailingAnchor, constant: -view.bounds.width * (UIDevice.current.userInterfaceIdiom == .phone ? 0.05 : 0.2)),
                                          centerY: nil,
-                                         centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                                         centerX: nil,
                                          width: nil,
                                          height: heightTextField)
         

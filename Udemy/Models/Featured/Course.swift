@@ -8,6 +8,24 @@
 
 import Foundation
 
-struct Course {
-    
+struct UserCourse: Codable {
+    var _id: String?
+    var name: String?
+}
+
+struct Course: Codable {
+    var vote: Vote?
+    var discount: Int?
+    var ranking: Int?
+    var created_at: String?
+    var is_checked: Int?
+    var is_required: Bool?
+    var _id: String?
+    var name: String?
+    var idUser: UserCourse?
+    var image: String?
+    var goal: String?
+    var description: String?
+    var category: Category?
+    var price: Int?
 }
