@@ -12,7 +12,7 @@ import UIKit
 extension ActivationViewController {
     func initializeCloseButton() {
         // Initialize
-        closeBtn = UIButton(nil, nil, nil, UIImage(systemName: "arrow.left"))
+        closeBtn = UIButton(nil, nil, nil, UIImage(named: "arrow.left"))
         
         // Unwrap
         guard let closeBtn = closeBtn else {

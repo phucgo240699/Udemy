@@ -36,15 +36,15 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         }
         self.addSubview(container)
         
-        let width = container.bounds.width
-        let height = container.bounds.height
+        let containerWidth = container.bounds.width
+        let containerHeight = container.bounds.height
         
         
         // Thumbnail
         thumbnailImgView = UIImageView(frame: container.bounds)
         
         // Title
-        titleLbl = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: height * 0.2))
+        titleLbl = UILabel(frame: CGRect(x: 0, y: 0, width: containerWidth, height: containerHeight * 0.2))
         
         guard let thumbnailImgView = thumbnailImgView, let titleLbl = titleLbl else {
             return
@@ -53,17 +53,21 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         // Font - Size - Color
         container.layer.cornerRadius = container.bounds.height * 0.05
         container.layer.masksToBounds = true
-        
         thumbnailImgView.contentMode = .scaleAspectFill
-        
-        titleLbl.center = container.center
-        titleLbl.font = UIFont(name: Common.fontName, size: height * 0.2)
-        titleLbl.font = UIFont.boldSystemFont(ofSize: height * 0.2)
+        titleLbl.font = UIFont(name: Common.fontName, size: containerHeight * 0.15)
+        titleLbl.font = UIFont.boldSystemFont(ofSize: containerHeight * 0.15)
         titleLbl.textColor = .white
         titleLbl.textAlignment = .center
+        titleLbl.numberOfLines = 0
         
         container.addSubview(thumbnailImgView)
         container.addSubview(titleLbl)
+        
+        
+        // Constraints
+        titleLbl.translatesAutoresizingMaskIntoConstraints = false
+        titleLbl.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
+        titleLbl.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
     }
     
     func fillData(_ category: Category) {

@@ -55,69 +55,6 @@ class CourseCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func initializeComponents(frame: CGRect) {
-        // Container
-        container = UIView(frame: CGRect(x: margin, y: margin, width: frame.width - 2 * margin, height: frame.height - 2 * margin))
-        guard let container = container else {
-            return
-        }
-        self.addSubview(container)
-        
-        let width = container.bounds.width
-        let height = container.bounds.height
-        
-        // Thumbnail: 0.4
-        thumbnailImgView = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height * 0.4))
-        
-        // Title: 0.25
-        titleLbl = UILabel(frame: CGRect(x: 0, y: height * 0.4, width: width, height: height * 0.25))
-        
-        // Rating Star: 0.05
-        // 1. setting rating
-        var setting = CosmosSettings()
-        setting.starSize = Double(height * 0.05)
-        setting.updateOnTouch = false
-        if let font = UIFont(name: Common.fontName, size: height * 0.05) {
-            setting.textFont = font
-        }
-        // 2. initialize
-        ratingStar = CosmosView(frame: CGRect(x: 0, y: height * 0.65, width: width, height: height * 0.05), settings: setting)
-        
-        
-        // Discount Price: 0.1
-        priceAfterDiscountLbl = UILabel(frame: CGRect(x: 0, y: height * 0.7, width: width, height: height * 0.1))
-        
-        // Original Price: 0.1
-        originalPriceLbl = UILabel(frame: CGRect(x: 0, y: height * 0.8, width: width, height: height * 0.1))
-        
-        
-        guard let thumbnailImgView = thumbnailImgView, let titleLbl = titleLbl, let ratingStar = ratingStar, let discountLbl = priceAfterDiscountLbl, let originalLbl = originalPriceLbl else {
-            return
-        }
-        
-        // Font - Size - Color
-        container.layer.cornerRadius = container.bounds.height * 0.05
-        container.layer.masksToBounds = true
-        
-        thumbnailImgView.contentMode = .scaleAspectFit
-        
-        titleLbl.font = UIFont(name: Common.fontName, size: height * 0.08)
-        discountLbl.font = UIFont(name: Common.fontName, size: height * 0.1)
-        originalLbl.font = UIFont(name: Common.fontName, size: height * 0.05)
-        
-        titleLbl.numberOfLines = 0
-        discountLbl.textColor = Common.color.lightRed
-        originalLbl.textColor = .systemGray
-        
-        container.addSubview(thumbnailImgView)
-        container.addSubview(titleLbl)
-        container.addSubview(ratingStar)
-        container.addSubview(discountLbl)
-        container.addSubview(originalLbl)
-        
-        
-    }
-    
     func fillData(_ course: Course) {
         
         // Thumbnail

@@ -115,7 +115,7 @@ extension FeatureViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // Category
         if collectionView.tag == 3 {
-            return CGSize(width: categoryCollectionViewHeight * 1.2, height: categoryCollectionViewHeight * 0.9)
+            return CGSize(width: categoryCollectionViewHeight * 1.6, height: categoryCollectionViewHeight * 0.9)
         }
         
         // Courses

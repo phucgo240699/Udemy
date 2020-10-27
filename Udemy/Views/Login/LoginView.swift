@@ -76,7 +76,7 @@ extension LoginViewController {
     }
     
     func initializeRegisterButton() {
-        registerBtn = UIButton("Register", nil , UIColor.link, nil)
+        registerBtn = UIButton("Register", nil , Common.color.blue, nil)
         
         let heightButton = height * 0.04
         guard let registerBtn = registerBtn else {
@@ -98,7 +98,7 @@ extension LoginViewController {
     }
     
     func initializeActiveButton() {
-        activeBtn = UIButton("Active Account", nil, .link, nil)
+        activeBtn = UIButton("Active Account", nil, Common.color.blue, nil)
         guard let activeBtn = activeBtn, let registerBtn = registerBtn else {
             return
         }

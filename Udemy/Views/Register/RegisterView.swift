@@ -14,7 +14,7 @@ extension RegisterViewController {
     func initializeCloseButton() {
         
         // Initialize
-        closeBtn = UIButton(nil, nil, nil, UIImage(systemName: "arrow.left"))
+        closeBtn = UIButton(nil, nil, nil, UIImage(named: "arrow.left"))
         
         // Unwrap
         guard let closeBtn = closeBtn else {
@@ -95,10 +95,20 @@ extension RegisterViewController {
     func initializeBtnField(_ button: inout UIButton?, _ title: String, _ topView: UIView?) {
         // Initialize
         button = UIButton()
-        button?.backgroundColor = .systemBackground
+        if #available(iOS 13.0, *) {
+            button?.backgroundColor = .systemBackground
+        } else {
+            // Fallback on earlier versions
+            button?.backgroundColor = .white
+        }
         button?.titleLabel?.textAlignment = .left
         button?.setTitle("\(title)", for: .normal)
-        button?.setTitleColor(.placeholderText, for: .normal)
+        if #available(iOS 13.0, *) {
+            button?.setTitleColor(.placeholderText, for: .normal)
+        } else {
+            // Fallback on earlier versions
+            button?.setTitleColor(UIColor.white, for: .normal)
+        }
         // Unwrap
         guard let button = button, let topView = topView else {
             return

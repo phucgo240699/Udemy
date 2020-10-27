@@ -101,7 +101,12 @@ class InformationViewController: UIViewController {
     
     @objc func genderBtnPressed(_ sender: UIButton) {
         genderDropDown = DropDown()
-        genderDropDown?.backgroundColor = .systemBackground
+        if #available(iOS 13.0, *) {
+            genderDropDown?.backgroundColor = .systemBackground
+        } else {
+            // Fallback on earlier versions
+            genderDropDown?.backgroundColor = .white
+        }
         genderDropDown?.textColor = .lightGray
         guard let genderDropDown = genderDropDown else {
             return
@@ -119,8 +124,14 @@ class InformationViewController: UIViewController {
     }
     
     @objc func updateBtnPressed(_ sender: UIButton) {
-        let des = descriptionTxtView?.textColor == UIColor.placeholderText ? "" : descriptionTxtView?.text
-        updateInfo(Common.link.changeProfile, nameTxtField?.text, phoneTxtField?.text, addressTxtField?.text, des, genderBtn?.titleLabel?.text)
+        if #available(iOS 13.0, *) {
+            let des = descriptionTxtView?.textColor == UIColor.placeholderText ? "" : descriptionTxtView?.text
+            updateInfo(Common.link.changeProfile, nameTxtField?.text, phoneTxtField?.text, addressTxtField?.text, des, genderBtn?.titleLabel?.text)
+        } else {
+            // Fallback on earlier versions
+            let des = descriptionTxtView?.textColor == UIColor.lightGray ? "" : descriptionTxtView?.text
+            updateInfo(Common.link.changeProfile, nameTxtField?.text, phoneTxtField?.text, addressTxtField?.text, des, genderBtn?.titleLabel?.text)
+        }
     }
 }
 

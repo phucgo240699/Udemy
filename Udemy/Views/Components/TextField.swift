@@ -14,7 +14,12 @@ extension UITextField {
     convenience init(placeholder: String, keyType: UIKeyboardType, isHideText: Bool = false) {
         self.init(frame: .zero)
         self.placeholder = placeholder
-        backgroundColor = .systemBackground
+        if #available(iOS 13.0, *) {
+            backgroundColor = .systemBackground
+        } else {
+            // Fallback on earlier versions
+            backgroundColor = .white
+        }
         returnKeyType = .default
         keyboardType = keyType
         isSecureTextEntry = isHideText
@@ -25,7 +30,12 @@ extension UITextField {
     convenience init(text: String, keyType: UIKeyboardType, isHideText: Bool = false) {
         self.init(frame: .zero)
         self.text = text
-        backgroundColor = .systemBackground
+        if #available(iOS 13.0, *) {
+            backgroundColor = .systemBackground
+        } else {
+            // Fallback on earlier versions
+            backgroundColor = .white
+        }
         keyboardType = keyType
         isSecureTextEntry = isHideText
         clearButtonMode = .whileEditing

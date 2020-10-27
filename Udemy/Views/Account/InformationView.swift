@@ -45,7 +45,12 @@ extension InformationViewController {
         let label = UILabel()
         label.text = "Description:"
         label.textAlignment = .natural
-        label.textColor = .placeholderText
+        if #available(iOS 13.0, *) {
+            label.textColor = .placeholderText
+        } else {
+            // Fallback on earlier versions
+            label.textColor = .lightGray
+        }
         
         textView = UITextView()
         // Unwrap
@@ -53,7 +58,12 @@ extension InformationViewController {
             return
         }
         
-        textView.backgroundColor = .systemBackground
+        if #available(iOS 13.0, *) {
+            textView.backgroundColor = .systemBackground
+        } else {
+            // Fallback on earlier versions
+            textView.backgroundColor = .white
+        }
         
         textView.text = text
         textView.textColor = Common.color.textColor
@@ -85,14 +95,24 @@ extension InformationViewController {
     func initializeBtnField(_ button: inout UIButton?, _ title: String?, _ placeholder: String, _ topAnchor: NSLayoutYAxisAnchor?, _ topConstant: CGFloat) {
         // Initialize
         button = UIButton()
-        button?.backgroundColor = .systemBackground
+        if #available(iOS 13.0, *) {
+            button?.backgroundColor = .systemBackground
+        } else {
+            // Fallback on earlier versions
+            button?.backgroundColor = .white
+        }
         button?.titleLabel?.textAlignment = .left
         button?.setTitle(title ?? "Gender", for: .normal)
         if title != nil {
             button?.setTitleColor( Common.color.textColor, for: .normal)
         }
         else {
-            button?.setTitleColor( .placeholderText, for: .normal)
+            if #available(iOS 13.0, *) {
+                button?.setTitleColor( .placeholderText, for: .normal)
+            } else {
+                // Fallback on earlier versions
+                button?.setTitleColor( .lightGray, for: .normal)
+            }
         }
         // Unwrap
         guard let button = button, let topAnchor = topAnchor else {

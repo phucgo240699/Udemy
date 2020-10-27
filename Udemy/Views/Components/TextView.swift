@@ -13,8 +13,19 @@ extension UITextView {
     convenience init(_ placeholder: String) {
         self.init(frame: .zero)
         text = placeholder
-        backgroundColor = .systemBackground
-        textColor = .placeholderText
+        if #available(iOS 13.0, *) {
+            backgroundColor = .systemBackground
+        } else {
+            // Fallback on earlier versions
+            backgroundColor = .white
+        }
+        
+        if #available(iOS 13.0, *) {
+            textColor = .placeholderText
+        } else {
+            // Fallback on earlier versions
+            textColor = .lightGray
+        }
     }
     
     func afterEffect(fontSize: CGFloat, corner: CGFloat) {

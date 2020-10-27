@@ -24,7 +24,7 @@ class AccountViewController: UIViewController {
 //    var secureBtn: UIButton?
 //    var paymentHistoryBtn: UIButton?
     var tableView: UITableView?
-    var icons: [String] = ["person", "photo", "checkmark.shield", "creditcard"]
+    var icons: [String] = ["person", "photo", "shield", "creditcard"]
     var titles: [String] = ["Account Info", "Avatar", "Change Password", "Payment history"]
     
     var logOutBarButton: UIBarButtonItem?
@@ -61,7 +61,12 @@ class AccountViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = Common.color.blue
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [ .foregroundColor: UIColor.white ]
-        view.backgroundColor = .systemBackground
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = .systemBackground
+        } else {
+            // Fallback on earlier versions
+            view.backgroundColor = .white
+        }
         
         initializeBanner()
         initializeAvatarImgView()
@@ -95,7 +100,7 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "accountSettingTBVCell", for: indexPath) as! SimpleTableViewCell
         cell.selectionStyle = .none
         cell.accessoryType = .disclosureIndicator
-        cell.imgView?.image = UIImage(systemName: icons[indexPath.row])
+        cell.imgView?.image = UIImage(named: icons[indexPath.row])
         cell.label?.text = titles[indexPath.row]
         
         return cell

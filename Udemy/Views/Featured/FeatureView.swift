@@ -52,6 +52,11 @@ extension FeatureViewController {
         }
         collectionView.tag = tag
         collectionView.layer.cornerRadius = collectionViewHeight * 0.05
-        collectionView.backgroundColor = .systemBackground
+        if #available(iOS 13.0, *) {
+            collectionView.backgroundColor = .systemBackground
+        } else {
+            // Fallback on earlier versions
+            collectionView.backgroundColor = .white
+        }
     }
 }
