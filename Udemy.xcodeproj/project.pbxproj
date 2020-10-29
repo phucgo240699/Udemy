@@ -307,11 +307,10 @@
 		3E3B87AD2522DF61006CBC37 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3E8742BF2533344E001E9D5E /* Users */,
+				3E8742BF2533344E001E9D5E /* Auth */,
 				3EA3FE77252C8E5D00F55829 /* Featured */,
-				3EF18074253BA3A7004432E8 /* StatusResponse.swift */,
 				3EEF6D6D252C98A800FFD443 /* ErrorResponse.swift */,
-				3E77E79C252DFD32004F0340 /* Account.swift */,
+				3EF18074253BA3A7004432E8 /* StatusResponse.swift */,
 				3E3B87AE2522DF70006CBC37 /* TokenManager.swift */,
 				3E07EB022522E7CC002EBE7B /* Common.swift */,
 				3E91FD9D252415C90086DA0A /* CurrentController.swift */,
@@ -380,12 +379,13 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
-		3E8742BF2533344E001E9D5E /* Users */ = {
+		3E8742BF2533344E001E9D5E /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				3E77E79C252DFD32004F0340 /* Account.swift */,
 				3E8742C025333479001E9D5E /* UserFunc.swift */,
 			);
-			path = Users;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		3E91FD9F252417010086DA0A /* Extensions */ = {
