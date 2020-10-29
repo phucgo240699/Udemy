@@ -95,12 +95,7 @@ extension RegisterViewController {
     func initializeBtnField(_ button: inout UIButton?, _ title: String, _ topView: UIView?) {
         // Initialize
         button = UIButton()
-        if #available(iOS 13.0, *) {
-            button?.backgroundColor = .systemBackground
-        } else {
-            // Fallback on earlier versions
-            button?.backgroundColor = .white
-        }
+        button?.backgroundColor = Common.color.backgroundColor
         button?.titleLabel?.textAlignment = .left
         button?.setTitle("\(title)", for: .normal)
         if #available(iOS 13.0, *) {

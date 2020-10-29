@@ -41,22 +41,15 @@ extension FeatureViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
-//        collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: "UICollectionElementKindSectionHeader", withReuseIdentifier: "headerFeatured")
-//
+        
         if tag == 3 {
             collectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier) // Category
         }
         else {
-//            collectionView.register(UINib(nibName: "CourseCLVCell", bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
             collectionView.register(CourseCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
         }
         collectionView.tag = tag
         collectionView.layer.cornerRadius = collectionViewHeight * 0.05
-        if #available(iOS 13.0, *) {
-            collectionView.backgroundColor = .systemBackground
-        } else {
-            // Fallback on earlier versions
-            collectionView.backgroundColor = .white
-        }
+        collectionView.backgroundColor = Common.color.backgroundColor
     }
 }

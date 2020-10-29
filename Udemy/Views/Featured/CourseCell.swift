@@ -55,16 +55,13 @@ extension CourseCollectionViewCell {
         guard let container = container, let thumbnailImgView = thumbnailImgView, let titleLbl = titleLbl else {
             return
         }
-//        titleLbl.frame.size.height = containerHeight * 0.1
         container.addSubview(titleLbl)
         
         titleLbl.translatesAutoresizingMaskIntoConstraints = false
         titleLbl.topAnchor.constraint(equalTo: thumbnailImgView.bottomAnchor, constant: containerHeight * 0.05).isActive = true
         titleLbl.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
         titleLbl.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
-        let heightConstraint = titleLbl.heightAnchor.constraint(lessThanOrEqualToConstant: containerHeight * 0.35)
-//        heightConstraint.priority = UILayoutPriority(rawValue: 900)
-        heightConstraint.isActive = true
+        titleLbl.heightAnchor.constraint(lessThanOrEqualToConstant: containerHeight * 0.35).isActive = true
         
         titleLbl.font = UIFont(name: Common.fontName, size: containerHeight * 0.06)
         titleLbl.numberOfLines = 0

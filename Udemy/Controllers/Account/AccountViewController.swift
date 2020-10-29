@@ -19,12 +19,13 @@ class AccountViewController: UIViewController {
     
     
     // Options Area
-//    var infoBtn: UIButton?
-//    var avatarBtn: UIButton?
-//    var secureBtn: UIButton?
-//    var paymentHistoryBtn: UIButton?
     var tableView: UITableView?
-    var icons: [String] = ["person", "photo", "shield", "creditcard"]
+    var icons: [String] = [
+        Common.imageName.person,
+        Common.imageName.photos,
+        Common.imageName.shield,
+        Common.imageName.credit_card
+    ]
     var titles: [String] = ["Account Info", "Avatar", "Change Password", "Payment history"]
     
     var logOutBarButton: UIBarButtonItem?

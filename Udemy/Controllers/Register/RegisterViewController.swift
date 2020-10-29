@@ -95,12 +95,7 @@ class RegisterViewController: UIViewController {
     
     @objc func genderBtnPressed(_ sender: UIButton) {
         genderDropDown = DropDown()
-        if #available(iOS 13.0, *) {
-            genderDropDown?.backgroundColor = .systemBackground
-        } else {
-            // Fallback on earlier versions
-            genderDropDown?.backgroundColor = .white
-        }
+        genderDropDown?.backgroundColor = Common.color.backgroundColor
         genderDropDown?.textColor = .lightGray
         guard let genderDropDown = genderDropDown else {
             return
@@ -169,12 +164,7 @@ extension RegisterViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text == "" {
             textView.text = "Description"
-            if #available(iOS 13.0, *) {
-                textView.textColor = .placeholderText
-            } else {
-                // Fallback on earlier versions
-                textView.textColor = .lightGray
-            }
+            textView.textColor = Common.color.placeholderColor
         }
     }
 }

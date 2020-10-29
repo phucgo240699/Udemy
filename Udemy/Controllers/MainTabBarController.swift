@@ -20,33 +20,33 @@ class MainTabBarController: UITabBarController {
         
         let forum = FeatureViewController()
         forum.tabBarItem = UITabBarItem(title: nil, image: nil, tag: 0)
-        forum.tabBarItem.image = UIImage(named: "star")
+        forum.tabBarItem.image = UIImage(named: Common.imageName.star)
         forum.tabBarItem.imageInsets = UIEdgeInsets(top: 7, left: 0, bottom: -7, right: 0)
-        forum.tabBarItem.selectedImage = UIImage(named: "star.fill")
+        forum.tabBarItem.selectedImage = UIImage(named: Common.imageName.star_fill)
         
         let feed = UINavigationController(rootViewController: SearchViewController())
         feed.tabBarItem = UITabBarItem(title: nil, image: nil, tag: 0)
-        feed.tabBarItem.image = UIImage(named: "magnifyingglass")
+        feed.tabBarItem.image = UIImage(named: Common.imageName.magnifying_glass)
         feed.tabBarItem.imageInsets = UIEdgeInsets(top: 7, left: 0, bottom: -7, right: 0)
-        feed.tabBarItem.selectedImage = UIImage(named: "magnifyingglass")
+        feed.tabBarItem.selectedImage = UIImage(named: Common.imageName.magnifying_glass)
         
         let event = UINavigationController(rootViewController: CourseViewController())
         event.tabBarItem = UITabBarItem(title: nil, image: nil, tag: 0)
-        event.tabBarItem.image = UIImage(named: "square.stack.3d.up")
+        event.tabBarItem.image = UIImage(named: Common.imageName.square_stack)
         event.tabBarItem.imageInsets = UIEdgeInsets(top: 7, left: 0, bottom: -7, right: 0)
-        event.tabBarItem.selectedImage = UIImage(named: "square.stack.3d.up.fill")
+        event.tabBarItem.selectedImage = UIImage(named: Common.imageName.square_stack_fill)
         
         let notification = UINavigationController(rootViewController: CartViewController())
         notification.tabBarItem = UITabBarItem(title: nil, image: nil, tag: 0)
-        notification.tabBarItem.image = UIImage(named: "cart")
+        notification.tabBarItem.image = UIImage(named: Common.imageName.cart)
         notification.tabBarItem.imageInsets = UIEdgeInsets(top: 7, left: 0, bottom: -7, right: 0)
-        notification.tabBarItem.selectedImage = UIImage(named: "cart.fill")
+        notification.tabBarItem.selectedImage = UIImage(named: Common.imageName.cart_fill)
         
         let setting = UINavigationController(rootViewController: AccountViewController())
         setting.tabBarItem = UITabBarItem(title: nil, image: nil, tag: 0)
-        setting.tabBarItem.image = UIImage(named: "account")
+        setting.tabBarItem.image = UIImage(named: Common.imageName.account)
         setting.tabBarItem.imageInsets = UIEdgeInsets(top: 7, left: 0, bottom: -7, right: 0)
-        setting.tabBarItem.selectedImage = UIImage(named: "account.fill")
+        setting.tabBarItem.selectedImage = UIImage(named: Common.imageName.account_fill)
         
         
         self.viewControllers = [forum, feed, event, notification, setting]

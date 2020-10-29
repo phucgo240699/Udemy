@@ -14,6 +14,21 @@ struct ImageName {
     var xmark_circle = "xmark_circle"
     var done = "done-icon"
     var panda = "panda-icon"
+    var star = "star"
+    var star_fill = "star.fill"
+    var magnifying_glass = "magnifyingglass"
+    var square_stack = "square.stack.3d.up"
+    var square_stack_fill = "square.stack.3d.up.fill"
+    var cart = "cart"
+    var cart_fill = "cart.fill"
+    var account = "account"
+    var account_fill = "account.fill"
+    var person = "person"
+    var photos = "photos"
+    var shield = "shield"
+    var credit_card = "credit-card"
+    
+    
 }
 
 struct CustomColor {
@@ -24,7 +39,8 @@ struct CustomColor {
     var blue: UIColor = UIColor(red: 39/255, green: 93/255, blue: 173/255, alpha: 1.0)
     var purple: UIColor = UIColor(red: 106/255, green: 15/255, blue: 161/255, alpha: 1.0)
     var silverBackground: UIColor = UIColor(named: "silverBackground") ?? .lightGray
-    
+    var backgroundColor: UIColor = UIColor(named: "backgroundColor") ?? .white
+    var placeholderColor: UIColor = UIColor(named: "placeholderColor") ?? .lightGray
     var textColor: UIColor = UIColor(named: "textColor") ?? .black
 }
 
