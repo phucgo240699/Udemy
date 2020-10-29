@@ -16,4 +16,8 @@ class TokenManager {
     static func setAccessToken(_ accessToken: String) {
         UserDefaults.standard.setValue(accessToken, forKey: "accessToken")
     }
+    
+    static func releaseAccessToken() {
+        UserDefaults.standard.removeObject(forKey: "accessToken")
+    }
 }

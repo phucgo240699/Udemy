@@ -18,12 +18,12 @@ extension LoginViewController {
         
         if let email = appDelegate.account.email, let password = appDelegate.account.password {
             if email.isEmptyOrSpacing() == false || password.isEmptyOrSpacing() == false {
-                login(url: Common.link.login, email: email, password: password)
+                login(url: Common.link.login, email: email, password: password, isAutoLogin: true)
             }
         }
     }
     
-    func login(url: String, email: String?, password: String?) {
+    func login(url: String, email: String?, password: String?, isAutoLogin: Bool = false) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
@@ -58,7 +58,7 @@ extension LoginViewController {
             response in
             
             if let error = response.error?.errorDescription {
-                window.showError("Login failed", error.description)
+                window.showError("Login failed", String(error.description.split(separator: ":")[1]))
                 SVProgressHUD.dismiss()
                 return
             }
@@ -80,8 +80,13 @@ extension LoginViewController {
             else { // Failed
                 SVProgressHUD.dismiss()
                 // parseError and show it
-                self.parseErrorMessageJSON(from: data)
-                
+                if isAutoLogin == false {
+                    self.parseErrorMessageJSON(from: data)
+                }
+                if statusCode == 401 {
+                    TokenManager.releaseAccessToken()
+                    appDelegate.account.release()
+                }
             }
             
         }

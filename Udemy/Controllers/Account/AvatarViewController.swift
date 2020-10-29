@@ -145,11 +145,11 @@ extension AvatarViewController {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         var selectedImageFromPicker: UIImage?
-        if let originImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            selectedImageFromPicker = originImage
-        }
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             selectedImageFromPicker = editedImage
+        }
+        else if let originImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            selectedImageFromPicker = originImage
         }
         if let selectedImage = selectedImageFromPicker {
             // After select image successfully

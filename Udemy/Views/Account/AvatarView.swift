@@ -62,7 +62,7 @@ extension AvatarViewController {
         }
         
         button.setTitle(title, for: .normal)
-        button.setTitleColor(.blue, for: .normal)
+        button.setTitleColor(Common.color.blue, for: .normal)
         
         button.addToViewByConstraints(parent: view,
                                       top: YAnchor(direction: topAnchor, constant: topConstant),
