@@ -9,6 +9,7 @@
 import UIKit
 import Cosmos
 import Alamofire
+import SDWebImage
 
 class CourseCollectionViewCell: UICollectionViewCell {
     
@@ -60,17 +61,7 @@ class CourseCollectionViewCell: UICollectionViewCell {
         // Thumbnail
         if let imageName = course.image {
             if let url = URL(string: "\(Common.link.getCourseThumbnail)/\(imageName)") {
-                AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).response {
-                        response in
-                    
-                    guard let data = response.data else {
-                        return
-                    }
-                    guard let image = UIImage(data: data) else {
-                        return
-                    }
-                    self.thumbnailImgView?.image = image
-                }
+                self.thumbnailImgView?.sd_setImage(with: url)
             }
         }
         
