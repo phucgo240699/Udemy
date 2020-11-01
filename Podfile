@@ -24,5 +24,5 @@ pod 'Alamofire'
 pod 'DropDown'
 pod 'SVProgressHUD'
 pod 'ReachabilitySwift'
-
+pod 'SDWebImage'
 end

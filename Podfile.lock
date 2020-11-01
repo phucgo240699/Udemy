@@ -6,6 +6,9 @@ PODS:
   - IQKeyboardManagerSwift (6.5.6)
   - QuickLayout (3.0.0)
   - ReachabilitySwift (5.0.0)
+  - SDWebImage (5.9.0):
+    - SDWebImage/Core (= 5.9.0)
+  - SDWebImage/Core (5.9.0)
   - SnapKit (5.0.1)
   - SVProgressHUD (2.2.5)
   - SwiftEntryKit (1.2.6):
@@ -18,6 +21,7 @@ DEPENDENCIES:
   - DropDown
   - IQKeyboardManagerSwift
   - ReachabilitySwift
+  - SDWebImage
   - SnapKit
   - SVProgressHUD
   - SwiftEntryKit
@@ -31,6 +35,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - QuickLayout
     - ReachabilitySwift
+    - SDWebImage
     - SnapKit
     - SVProgressHUD
     - SwiftEntryKit
@@ -43,10 +48,11 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   QuickLayout: 07b45a72b10083fee3f095990cfed1c1e7b27f0a
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  SDWebImage: 62ae4a18473520c67b79e9724c31a63599cc9423
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftEntryKit: 96a2fa90b2631bbbfac50d18449e9ca3d0635f13
 
-PODFILE CHECKSUM: 713e21461b6466810f83c46661463134a106f5bf
+PODFILE CHECKSUM: 0dc9106a0a6b81639e49b0df8e1001b86e768094
 
 COCOAPODS: 1.9.3
