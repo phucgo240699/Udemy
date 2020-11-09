@@ -58,6 +58,8 @@ class CourseCollectionViewCell: UICollectionViewCell {
     
     func fillData(_ course: Course) {
         
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
         // Thumbnail
         if let imageName = course.image {
             if let url = URL(string: "\(Common.link.getCourseThumbnail)/\(imageName)") {
@@ -78,10 +80,10 @@ class CourseCollectionViewCell: UICollectionViewCell {
         
         // Price
         if let originalPrice = course.price {
-            originalPriceLbl?.text = String(originalPrice)
+            originalPriceLbl?.text = formatter.string(from: originalPrice as NSNumber)
             if let discount = course.discount {
                 let discountPercent = Double(discount) / 100.0
-                priceAfterDiscountLbl?.text = String(Int(Double(originalPrice) * (1.0 - discountPercent)))
+                priceAfterDiscountLbl?.text = formatter.string(from: Int(Double(originalPrice) * (1.0 - discountPercent)) as NSNumber)
             }
         }
     }

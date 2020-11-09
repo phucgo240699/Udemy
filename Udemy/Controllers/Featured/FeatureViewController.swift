@@ -26,20 +26,25 @@ class FeatureViewController: UIViewController {
             return self.view.bounds.height
         }
     }
+    var titleHeight: CGFloat {
+        get {
+            return 28.0
+        }
+    }
     
     var bannerHeight: CGFloat {
         get {
-            return height * 0.3
+            return 200// height * 0.3
         }
     }
     var categoryCollectionViewHeight: CGFloat {
         get {
-            return height * 0.2
+            return 150// height * 0.2
         }
     }
     var courseCollectionViewHeight: CGFloat {
         get {
-            return height * 0.4
+            return 300// height * 0.4
         }
     }
     var margin: CGFloat {
@@ -53,6 +58,12 @@ class FeatureViewController: UIViewController {
     var scrollView: UIScrollView = UIScrollView()
     var bannerPageViewController: PageViewController = PageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     var categoriesCollectionView: UICollectionView?
+    
+    var lbTitleCategory: UILabel?
+    var lbTitleNewCourses: UILabel?
+    var lbTitleFreeCourses: UILabel?
+    var lbTitleTopCourses: UILabel?
+    
     var newCoursesCollectionView: UICollectionView?
     var freeCoursesCollectionView: UICollectionView?
     var topCoursesCollectionView: UICollectionView?
@@ -63,7 +74,7 @@ class FeatureViewController: UIViewController {
     var listFreeCourses: [Course] = []
     var listTopCourses: [Course] = []
     
-    var titleCollectionViews: [String] = ["New", "Free", "Top", "Category"]
+    var titleCollectionViews: [String] = ["New Courses", "Free Courses", "Top Courses", "Category"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,26 +85,26 @@ class FeatureViewController: UIViewController {
         // Components
         scrollView.frame = view.bounds
         view.addSubview(scrollView)
-        scrollView.contentSize = CGSize(width: width, height: bannerHeight + 3 * courseCollectionViewHeight + categoryCollectionViewHeight + 8 * margin + 2 * margin)
+        scrollView.contentSize = CGSize(width: width, height: bannerHeight + 3 * courseCollectionViewHeight + 4 * titleHeight + 4 * margin + categoryCollectionViewHeight + 8 * margin + 2 * margin)
         
         setUpBanner()
         
         // Category
-        initializeCollectionView(&categoriesCollectionView, YAnchor(direction: bannerPageViewController.view.bottomAnchor, constant: 2 * margin), categoryCollectionViewHeight, 3, "categoryCLVCell")
+        initializeCollectionView(&categoriesCollectionView, &lbTitleCategory, YAnchor(direction: bannerPageViewController.view.bottomAnchor, constant: 2 * margin), categoryCollectionViewHeight, 3, "categoryCLVCell")
         
         // New Course
         if let categoriesCollectionView = categoriesCollectionView {
-            initializeCollectionView(&newCoursesCollectionView, YAnchor(direction: categoriesCollectionView.bottomAnchor, constant: 2 * margin), courseCollectionViewHeight, 0, "newCourseCLVCell")
+            initializeCollectionView(&newCoursesCollectionView, &lbTitleNewCourses, YAnchor(direction: categoriesCollectionView.bottomAnchor, constant: 2 * margin), courseCollectionViewHeight, 0, "newCourseCLVCell")
         }
         
         // Free Course
         if let newCoursesCollectionView = newCoursesCollectionView {
-            initializeCollectionView(&freeCoursesCollectionView, YAnchor(direction: newCoursesCollectionView.bottomAnchor, constant: 2 * margin), courseCollectionViewHeight, 1, "freeCourseCLVCell")
+            initializeCollectionView(&freeCoursesCollectionView, &lbTitleFreeCourses, YAnchor(direction: newCoursesCollectionView.bottomAnchor, constant: 2 * margin), courseCollectionViewHeight, 1, "freeCourseCLVCell")
         }
         
         // Top Course
         if let freeCoursesCollectionView = freeCoursesCollectionView {
-            initializeCollectionView(&topCoursesCollectionView, YAnchor(direction: freeCoursesCollectionView.bottomAnchor, constant: 2 * margin), courseCollectionViewHeight, 2, "topCourseCLVCell")
+            initializeCollectionView(&topCoursesCollectionView, &lbTitleTopCourses, YAnchor(direction: freeCoursesCollectionView.bottomAnchor, constant: 2 * margin), courseCollectionViewHeight, 2, "topCourseCLVCell")
         }
         
         

@@ -15,7 +15,7 @@ extension FeatureViewController {
         scrollView.addSubview(bannerPageViewController.view)
     }
     
-    func initializeCollectionView(_ collectionView: inout UICollectionView?, _ topAnchor: YAnchor, _ collectionViewHeight: CGFloat, _ tag: Int, _ cellIdentifier: String) {
+    func initializeCollectionView(_ collectionView: inout UICollectionView?,  _ lbTitle: inout UILabel?, _ topAnchor: YAnchor, _ collectionViewHeight: CGFloat, _ tag: Int, _ cellIdentifier: String) {
         
         // Layout for collection view
         let layout = UICollectionViewFlowLayout()
@@ -23,13 +23,13 @@ extension FeatureViewController {
         
         // initialize
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        
-        guard let collectionView = collectionView else {
+        lbTitle = UILabel()
+        guard let collectionView = collectionView, let lbTitle = lbTitle else {
             return
         }
         
         // Constraints
-        collectionView.addToViewByConstraints(parent: scrollView,
+        lbTitle.addToViewByConstraints(parent: scrollView,
                                                          top: topAnchor,
                                                          bottom: nil,
                                                          leading: nil,
@@ -37,8 +37,22 @@ extension FeatureViewController {
                                                          centerY: nil,
                                                          centerX: XAnchor(direction: scrollView.centerXAnchor, constant: 0),
                                                          width: width - 2 * margin,
-                                                         height: collectionViewHeight)
+                                                         height: titleHeight)
+        collectionView.addToViewByConstraints(parent: scrollView,
+                                              top: YAnchor(direction: lbTitle.bottomAnchor, constant: margin),
+                                              bottom: nil,
+                                              leading: nil,
+                                              trailing: nil,
+                                              centerY: nil,
+                                              centerX: XAnchor(direction: scrollView.centerXAnchor, constant: 0),
+                                              width: width - 2 * margin,
+                                              height: collectionViewHeight)
+        // Title
+        lbTitle.text = titleCollectionViews[tag]
+        lbTitle.textColor = Common.color.textColor
+        lbTitle.font = UIFont(name: Common.fontName, size: titleHeight * 0.8)
         
+        // Collection view
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -51,5 +65,6 @@ extension FeatureViewController {
         collectionView.tag = tag
         collectionView.layer.cornerRadius = collectionViewHeight * 0.05
         collectionView.backgroundColor = Common.color.backgroundColor
+        
     }
 }
