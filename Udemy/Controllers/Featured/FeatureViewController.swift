@@ -109,6 +109,11 @@ class FeatureViewController: UIViewController {
         
         
         // Fetch data
+        fetchBanners(imagesURLs: [
+            "https://img-a.udemycdn.com/course/240x135/2430492_5cdb_5.jpg?dYz1wwu1L-WX614tFAR1WyWrP3OIw6Qwq-Qozt9dUmaDIG04SpZO6VrAOeQl51qKqMPVgjQxOhXkY58ihs1CiJg8m-nC3ap6ZI4JOv5tuty5xn4lM35NMwKknHFhJBr4",
+            "https://img-a.udemycdn.com/course/240x135/2153774_bef0_4.jpg?QRwd_FQgq0IXEHmc0eVdpMUTPjks3S_Tc-vNruByBT6uOBocc4Vd0ZELkt30s0H1EeCjlksmtqkLJBJxB63Q535pK2IQhHgsmcCR9cvQ-iaLk3AOC3iru5DNE-RTSTOt",
+            "https://img-a.udemycdn.com/course/240x135/1906852_93c6.jpg?XMYkJsti--olwnx3BT1zW7-QtgiVb-gNwoxvaaG6615P3xmd0Wzl00AFWEnL-pWGAtuwBOkaoZ7QWplvHrYvRtD7F8IflMNNMkqnNHT8cRjrSYJcrSV5_K5ok74x9Q"
+        ])
         fetchCategories()
         fetchNewCourses()
         fetchFreeCourses()

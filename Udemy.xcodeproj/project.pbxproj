@@ -26,6 +26,7 @@
 		3E1221402535A225005D954A /* UpdateAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E12213F2535A225005D954A /* UpdateAvatar.swift */; };
 		3E1951E825342A0800AB9D06 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1951E725342A0800AB9D06 /* PasswordViewController.swift */; };
 		3E1951ED25342ACA00AB9D06 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1951EC25342ACA00AB9D06 /* PasswordView.swift */; };
+		3E350CB6255A7BEE006B325E /* FetchBanners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E350CB5255A7BEE006B325E /* FetchBanners.swift */; };
 		3E3B87AF2522DF70006CBC37 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B87AE2522DF70006CBC37 /* TokenManager.swift */; };
 		3E51760325261ECF0001D2AD /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760225261ECF0001D2AD /* MainTabBarController.swift */; };
 		3E51760A25261FBA0001D2AD /* FeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760925261FBA0001D2AD /* FeatureViewController.swift */; };
@@ -119,6 +120,7 @@
 		3E12213F2535A225005D954A /* UpdateAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAvatar.swift; sourceTree = "<group>"; };
 		3E1951E725342A0800AB9D06 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		3E1951EC25342ACA00AB9D06 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
+		3E350CB5255A7BEE006B325E /* FetchBanners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBanners.swift; sourceTree = "<group>"; };
 		3E3B87AE2522DF70006CBC37 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		3E51760225261ECF0001D2AD /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		3E51760925261FBA0001D2AD /* FeatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureViewController.swift; sourceTree = "<group>"; };
@@ -545,6 +547,7 @@
 				3EFC151625426FAC00464709 /* FetchNewCourses.swift */,
 				3EFC151B25426FC100464709 /* FetchFreeCourses.swift */,
 				3EFC152025426FD000464709 /* FetchTopCourses.swift */,
+				3E350CB5255A7BEE006B325E /* FetchBanners.swift */,
 			);
 			path = Featured;
 			sourceTree = "<group>";
@@ -843,6 +846,7 @@
 				3E1951ED25342ACA00AB9D06 /* PasswordView.swift in Sources */,
 				3E07EB012522E7B3002EBE7B /* RegisterView.swift in Sources */,
 				3EB9E921253EE62F0043BB9A /* PageViewController.swift in Sources */,
+				3E350CB6255A7BEE006B325E /* FetchBanners.swift in Sources */,
 				3E6E3FEF252304A9004DF50E /* XAnchor.swift in Sources */,
 				3E0734052534780F00F6A277 /* UpdatePassword.swift in Sources */,
 				3E51760A25261FBA0001D2AD /* FeatureViewController.swift in Sources */,

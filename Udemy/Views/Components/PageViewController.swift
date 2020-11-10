@@ -34,7 +34,11 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     }
     
     lazy var subViewControllers: [UIViewController] = {
-       return []
+       return [
+        UIViewController(),
+        UIViewController(),
+        UIViewController()
+       ]
     }()
     
     

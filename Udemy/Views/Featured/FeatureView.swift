@@ -11,7 +11,9 @@ import UIKit
 extension FeatureViewController {
     func setUpBanner() {
         bannerPageViewController.view.frame = CGRect(x: 0, y: 0, width: width, height: bannerHeight)
-        
+        for subVC in bannerPageViewController.subViewControllers {
+            subVC.view.frame = CGRect(x: 0, y: 0, width: width, height: bannerHeight)
+        }
         scrollView.addSubview(bannerPageViewController.view)
     }
     
