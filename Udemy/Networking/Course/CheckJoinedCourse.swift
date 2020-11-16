@@ -32,7 +32,7 @@ extension CourseDetailVC {
         }
         
         // Call API
-        AF.request(url, method: .put, parameters: nil, encoding: JSONEncoding.default, headers: nil).response{
+        AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).response{
             response in
             
             if let error = response.error?.errorDescription {
@@ -42,10 +42,31 @@ extension CourseDetailVC {
             guard let statusCode = response.response?.statusCode else {
                 return
             }
+            guard let data = response.data else {
+                return
+            }
             
             if statusCode == 200 {
+                self.parseCheckJoinedCourseJSON(data)
+            }
+        }
+    }
+    
+    func parseCheckJoinedCourseJSON(_ data: Data) {
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
+            return
+        }
+        guard let window = appDelegate.window else {
+            return
+        }
+        
+        do {
+            let result = try JSONDecoder().decode(IsJoinedCourse.self, from: data)
+            if result.isJoined == true {
                 self.isJoinedCourse = true
             }
+        } catch {
+            window.showError("Error", error.localizedDescription)
         }
     }
 }

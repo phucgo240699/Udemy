@@ -36,7 +36,7 @@ extension CourseDetailVC {
         SVProgressHUD.show()
         
         // Call API
-        AF.request(url, method: .put, parameters: params, encoding: JSONEncoding.default, headers: nil).response{
+        AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).response{
             response in
             
             // off waiting progress

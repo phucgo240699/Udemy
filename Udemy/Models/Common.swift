@@ -66,6 +66,8 @@ struct Link {
     let getCoursesByCategory: String = "http://149.28.24.98:9000/course/getby-category"
     let joinCourse: String = "http://149.28.24.98:9000/join/create-join"
     let checkJoinedCourse: String = "http://149.28.24.98:9000/join/check-is-join-course"
+    
+    let getJoinedCoursesByUser: String = "http://149.28.24.98:9000/join/get-courses-joined-by-user"
 }
 
 class Common {

@@ -1,5 +1,5 @@
 //
-//  CheckJoinedCourse.swift
+//  JoinedCourse.swift
 //  Udemy
 //
 //  Created by Phúc Lý on 16/11/2020.
@@ -8,10 +8,17 @@
 
 import Foundation
 
+struct SimpleCourse: Codable {
+    var _id: String?
+    var name: String?
+    var image: String?
+}
+
 struct JoinedCourse: Codable {
-    var isJoined: Bool
+    var percentCompleted: Int?
+    var created_at: String?
+    var _id: String?
+    var idUser: String?
+    var idCourse: SimpleCourse
     
-    enum CodingKeys: String, CodingKey {
-        case isJoined = "is-joined"
-    }
 }
