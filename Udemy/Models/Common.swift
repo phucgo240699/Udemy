@@ -62,6 +62,8 @@ struct Link {
     let getFreeCourses: String = "http://149.28.24.98:9000/course/get-free"
     let getTopCourses: String = "http://149.28.24.98:9000/course/get-top"
     let getCourseThumbnail: String = "http://149.28.24.98:9000/upload/course_image"
+    let getCourseById: String = "http://149.28.24.98:9000/course/getbyid"
+    let getCoursesByCategory = "http://149.28.24.98:9000/course/getby-category"
 }
 
 class Common {

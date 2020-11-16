@@ -73,4 +73,46 @@ extension UIView {
         maskLayer.path = path.cgPath
         self.layer.mask = maskLayer
     }
+    
+    func fillHorizontalSuperview(constant: CGFloat = 0) {
+        translatesAutoresizingMaskIntoConstraints = false
+        if let superview = superview {
+//                if #available(iOS 11, *) {
+//                    leftAnchor.constraint(equalTo: superview.leftAnchor, constant: constant).isActive = true
+//                    rightAnchor.constraint(equalTo: superview.rightAnchor, constant: -constant).isActive = true
+//                } else {
+                leftAnchor.constraint(equalTo: superview.leftAnchor, constant: constant).isActive = true
+                rightAnchor.constraint(equalTo: superview.rightAnchor, constant: -constant).isActive = true
+            //}
+        }
+    }
+    
+    func fillVerticalSuperview(constant: CGFloat = 0) {
+        translatesAutoresizingMaskIntoConstraints = false
+        if let superview = superview {
+//                if #available(iOS 11, *) {
+//                    topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor, constant: constant).isActive = true
+//                    bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor, constant: -constant).isActive = true
+//                } else {
+                topAnchor.constraint(equalTo: superview.topAnchor, constant: constant).isActive = true
+                bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -constant).isActive = true
+//                }
+            
+        }
+    }
+    
+    func dropShadow(color: UIColor, opacity: Float = 1.0, offSet: CGSize, radius: CGFloat = 1, scale: Bool = true) {
+        layer.masksToBounds = false
+        layer.shadowColor = color.cgColor
+        layer.shadowOpacity = opacity
+        layer.shadowOffset = offSet
+        layer.shadowRadius = radius
+
+      }
+    
+    func afterEffect(cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: UIColor) {
+        layer.cornerRadius = cornerRadius
+        layer.borderWidth = borderWidth
+        layer.borderColor = borderColor.cgColor
+    }
 }

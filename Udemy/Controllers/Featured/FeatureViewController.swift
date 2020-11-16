@@ -56,6 +56,7 @@ class FeatureViewController: UIViewController {
     
     // Compenents
     var scrollView: UIScrollView = UIScrollView()
+    var refreshControl: UIRefreshControl = UIRefreshControl()
     var bannerPageViewController: PageViewController = PageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     var categoriesCollectionView: UICollectionView?
     
@@ -79,36 +80,41 @@ class FeatureViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        //-- Navigation
+        navigationController?.navigationBar.isHidden = true
         view.backgroundColor = Common.color.silverBackground
         
-        // Components
+        //-- Scroll view
         scrollView.frame = view.bounds
         view.addSubview(scrollView)
         scrollView.contentSize = CGSize(width: width, height: bannerHeight + 3 * courseCollectionViewHeight + 4 * titleHeight + 4 * margin + categoryCollectionViewHeight + 8 * margin + 2 * margin)
         
+        //-- Refresh Control
+        refreshControl.addTarget(self, action: #selector(FeatureViewController.refresh(_:)), for: .valueChanged)
+        scrollView.addSubview(refreshControl)
+        
         setUpBanner()
         
-        // Category
+        //--  Category
         initializeCollectionView(&categoriesCollectionView, &lbTitleCategory, YAnchor(direction: bannerPageViewController.view.bottomAnchor, constant: 2 * margin), categoryCollectionViewHeight, 3, "categoryCLVCell")
         
-        // New Course
+        //-- New Course
         if let categoriesCollectionView = categoriesCollectionView {
             initializeCollectionView(&newCoursesCollectionView, &lbTitleNewCourses, YAnchor(direction: categoriesCollectionView.bottomAnchor, constant: 2 * margin), courseCollectionViewHeight, 0, "newCourseCLVCell")
         }
         
-        // Free Course
+        //-- Free Course
         if let newCoursesCollectionView = newCoursesCollectionView {
             initializeCollectionView(&freeCoursesCollectionView, &lbTitleFreeCourses, YAnchor(direction: newCoursesCollectionView.bottomAnchor, constant: 2 * margin), courseCollectionViewHeight, 1, "freeCourseCLVCell")
         }
         
-        // Top Course
+        //-- Top Course
         if let freeCoursesCollectionView = freeCoursesCollectionView {
             initializeCollectionView(&topCoursesCollectionView, &lbTitleTopCourses, YAnchor(direction: freeCoursesCollectionView.bottomAnchor, constant: 2 * margin), courseCollectionViewHeight, 2, "topCourseCLVCell")
         }
         
         
-        // Fetch data
+        //-- Fetch data
         fetchBanners(imagesURLs: [
             "https://img-a.udemycdn.com/course/240x135/2430492_5cdb_5.jpg?dYz1wwu1L-WX614tFAR1WyWrP3OIw6Qwq-Qozt9dUmaDIG04SpZO6VrAOeQl51qKqMPVgjQxOhXkY58ihs1CiJg8m-nC3ap6ZI4JOv5tuty5xn4lM35NMwKknHFhJBr4",
             "https://img-a.udemycdn.com/course/240x135/2153774_bef0_4.jpg?QRwd_FQgq0IXEHmc0eVdpMUTPjks3S_Tc-vNruByBT6uOBocc4Vd0ZELkt30s0H1EeCjlksmtqkLJBJxB63Q535pK2IQhHgsmcCR9cvQ-iaLk3AOC3iru5DNE-RTSTOt",
@@ -121,8 +127,8 @@ class FeatureViewController: UIViewController {
     }
 }
 
-// MARK: - UICollectionView Delegates
-extension FeatureViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+// MARK: - UICollectionViewDatasource, UITableviewDelegateFlowLayou
+extension FeatureViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // Size for Item
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -190,6 +196,38 @@ extension FeatureViewController: UICollectionViewDelegate, UICollectionViewDataS
     
 }
 
+// MARK: - UICollectionViewDelegate
+extension FeatureViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var courseDetailId: String?
+        var categoryId: String?
+        
+        switch collectionView.tag {
+            case 0:
+                courseDetailId = listNewCourses[indexPath.row]._id
+                categoryId = listNewCourses[indexPath.row].category?._id
+                break
+            case 1:
+                courseDetailId = listFreeCourses[indexPath.row]._id
+                categoryId = listFreeCourses[indexPath.row].category?._id
+                break
+            case 2:
+                courseDetailId = listTopCourses[indexPath.row]._id
+                categoryId = listTopCourses[indexPath.row].category?._id
+                break
+            default:
+                break
+        }
+        
+        if let courseDetailId = courseDetailId, let categoryId = categoryId {
+            let courseDetailVC = CourseDetailVC(nibName: "CourseDetailVC", bundle: nil)
+            courseDetailVC.courseId = courseDetailId
+            courseDetailVC.categoryId = categoryId
+            navigationController?.pushViewController(courseDetailVC, animated: true)
+        }
+    }
+    
+}
 
 // MARK: - Functions support
 extension FeatureViewController {
@@ -201,5 +239,14 @@ extension FeatureViewController {
             
             bannerPageViewController.subViewControllers.append(vc)
         }
+    }
+    
+    @objc func refresh(_ sender: UIRefreshControl) {
+        fetchCategories()
+        fetchNewCourses()
+        fetchFreeCourses()
+        fetchTopCourses()
+        
+        sender.endRefreshing()
     }
 }
