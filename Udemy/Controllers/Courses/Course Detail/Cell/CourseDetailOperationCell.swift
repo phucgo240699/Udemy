@@ -10,15 +10,25 @@ import UIKit
 import Cosmos
 
 class CourseDetailOperationCell: UITableViewCell {
-
+    
+    // Closure
+    var onTapJoinCourseBtn: (() -> Void)?
+    var onTapJoinAddCartBtn: (() -> Void)?
+    var onTapWriteReviewBtn: (() -> Void)?
+    
     // Components
     @IBOutlet weak var joinButton: UIButton!
     @IBOutlet weak var addCartButton: UIButton!
     @IBOutlet weak var ratingCosmos: CosmosView!
     
-    // Constraints
-//    @IBOutlet weak var widthConstraintJoinButton: NSLayoutConstraint!
-//    @IBOutlet weak var widthConstraintAddCartButton: NSLayoutConstraint!
+    var isJoinedCourse: Bool? {
+        didSet {
+            if isJoinedCourse == true {
+                joinButton.backgroundColor = Common.color.placeholderColor
+                joinButton.isEnabled = false
+            }
+        }
+    }
     
     
     override func awakeFromNib() {
@@ -54,13 +64,19 @@ class CourseDetailOperationCell: UITableViewCell {
     
     
     @IBAction func joinButtonPressed(_ sender: UIButton) {
-        print("Joined")
+        if let onTapJoinCourseBtn = onTapJoinCourseBtn {
+            onTapJoinCourseBtn()
+        }
     }
     @IBAction func addCartButtonPressed(_ sender: UIButton) {
-        print("Add to cart")
+        if let onTapJoinAddCartBtn = onTapJoinAddCartBtn {
+            onTapJoinAddCartBtn()
+        }
     }
     @IBAction func writeReviewButtonPressed(_ sender: UIButton) {
-        print("Write review...")
+        if let onTapWriteReviewBtn = onTapWriteReviewBtn {
+            onTapWriteReviewBtn()
+        }
     }
     
     

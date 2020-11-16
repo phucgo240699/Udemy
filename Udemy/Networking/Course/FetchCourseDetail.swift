@@ -53,13 +53,14 @@ extension CourseDetailVC {
         do {
             let result = try JSONDecoder().decode(CourseDetail.self, from: data)
             self.courseDetail = result
+            self.checkJoinedCourse(idUser: self.courseDetail?.idUser, idCourse: self.courseDetail?._id)
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
             
         } catch {
-            window.showError("Log out failed", error.localizedDescription)
+            window.showError("Fetch course failed", error.localizedDescription)
         }
     }
 }

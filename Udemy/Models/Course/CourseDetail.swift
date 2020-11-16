@@ -17,6 +17,7 @@ struct CourseDetail: Codable {
     var originalPrice: Int?
     var ranking: Int?
     var description: String?
+    var idUser: String?
     
     enum CodingKeys: String, CodingKey {
         case _id = "_id"
@@ -27,6 +28,7 @@ struct CourseDetail: Codable {
         case originalPrice = "price"
         case ranking = "ranking"
         case description = "description"
+        case idUser = "idUser"
     }
     
     var discountPrice: Int? {

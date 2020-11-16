@@ -28,6 +28,19 @@ class CourseDetailVC: UIViewController {
     
     var courseDetail: CourseDetail?
     var relatedCourses: [Course] = []
+    var isJoinedCourse: Bool? {
+        didSet {
+            if isJoinedCourse == true {
+                for index in 0 ..< cellTypes.count {
+                    if cellTypes[index] == .Operation {
+                        DispatchQueue.main.async {
+                            self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+                        }
+                    }
+                }
+            }
+        }
+    }
     var courseId: String?
     var categoryId: String?
     
@@ -79,6 +92,10 @@ extension CourseDetailVC: UITableViewDataSource {
             return cell
         case .Operation:
             let cell = self.tableView.dequeueReusableCell(withIdentifier: operationCellID, for: indexPath) as! CourseDetailOperationCell
+            cell.isJoinedCourse = isJoinedCourse
+            cell.onTapJoinCourseBtn = {
+                self.joinCourse(idUser: self.courseDetail?.idUser, idCourse: self.courseDetail?._id)
+            }
             cell.setData(courseDetail: courseDetail)
             return cell
         case .Description:
