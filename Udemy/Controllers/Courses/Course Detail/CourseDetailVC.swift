@@ -26,6 +26,8 @@ class CourseDetailVC: UIViewController {
     
     let cellTypes: [CourseDetailCellType] = [ .BannerInfo, .Operation, .Description, .RelatedCourses ]
     
+    var courseDetail: CourseDetail?
+    var relatedCourses: [Course] = []
     var courseId: String?
     var categoryId: String?
     
@@ -36,13 +38,14 @@ class CourseDetailVC: UIViewController {
         
         setupUI()
         
+        fetCourseDetail(by: courseId)
+        fetchRelatedCourses(by: categoryId)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        fetCourseDetail(by: courseId)
-        fetchRelatedCourses(by: categoryId)
+        
     }
     
 }
@@ -52,13 +55,13 @@ extension CourseDetailVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch cellTypes[indexPath.row] {
         case .BannerInfo:
-            return 400.0
+            return UITableView.automaticDimension
         case .Operation:
             return 300.0
         case.Description:
-            return 250.0
+            return UITableView.automaticDimension
         default:
-            return 300.0
+            return 368.0
         }
     }
     
@@ -72,15 +75,19 @@ extension CourseDetailVC: UITableViewDataSource {
         switch cellTypes[indexPath.row] {
         case .BannerInfo:
             let cell = self.tableView.dequeueReusableCell(withIdentifier: bannerInfoCellID, for: indexPath) as! CourseDetailBannerInfoCell
+            cell.setData(courseDetail: courseDetail)
             return cell
         case .Operation:
             let cell = self.tableView.dequeueReusableCell(withIdentifier: operationCellID, for: indexPath) as! CourseDetailOperationCell
+            cell.setData(courseDetail: courseDetail)
             return cell
         case .Description:
             let cell = self.tableView.dequeueReusableCell(withIdentifier: descriptionCellID, for: indexPath) as! CourseDetailDescriptionCell
+            cell.setData(courseDetail: courseDetail)
             return cell
         case .RelatedCourses:
             let cell = self.tableView.dequeueReusableCell(withIdentifier: relatedCoursesCellID, for: indexPath) as! CourseDetailRelatedCoursesCell
+            cell.courses = relatedCourses
             return cell
             
         }

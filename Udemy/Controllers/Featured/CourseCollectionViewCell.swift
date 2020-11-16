@@ -24,7 +24,7 @@ class CourseCollectionViewCell: UICollectionViewCell {
             return self.bounds.height
         }
     }
-    var margin: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 20.0 : 10.0
+    var margin: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 30.0 : 20.0
     var containerHeight: CGFloat {
         get {
             return height - 2 * margin

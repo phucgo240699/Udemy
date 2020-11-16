@@ -52,15 +52,12 @@ extension CourseDetailVC {
         
         do {
             let result = try JSONDecoder().decode([Course].self, from: data)
+            relatedCourses = result
+            
             for index in 0 ..< cellTypes.count {
                 if cellTypes[index] == .RelatedCourses {
-                    if let relatedCoursesCLV = (self.tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? CourseDetailRelatedCoursesCell) {
-                    
-                        relatedCoursesCLV.courses = result
-                        
-                        DispatchQueue.main.async {
-                            relatedCoursesCLV.collectionView.reloadData()
-                        }
+                    DispatchQueue.main.async {
+                        self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
                     }
                 }
             }

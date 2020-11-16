@@ -63,6 +63,7 @@
                         </constraints>
                     </stackView>
                 </subviews>
+                <color key="backgroundColor" name="backgroundColor"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="2I1-Ak-eDK" secondAttribute="trailing" constant="10" id="5Pa-tF-Vuj"/>
                     <constraint firstItem="2I1-Ak-eDK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="6qO-o3-bbl"/>
@@ -92,6 +93,9 @@
         </tableViewCell>
     </objects>
     <resources>
+        <namedColor name="backgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="placeholderColor">
             <color red="0.66399997472763062" green="0.66399997472763062" blue="0.66399997472763062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

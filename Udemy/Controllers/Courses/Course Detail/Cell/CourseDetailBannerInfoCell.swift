@@ -27,18 +27,20 @@ class CourseDetailBannerInfoCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setData(courseDetail: CourseDetail) {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        
-        if let imageName = courseDetail.imageName {
-            imgViewBanner.sd_setImage(with: URL(string: "\(Common.link.getCourseThumbnail)/\(imageName)"), completed: nil)
+    func setData(courseDetail: CourseDetail?) {
+        if let courseDetail = courseDetail {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+            
+            if let imageName = courseDetail.imageName {
+                imgViewBanner.sd_setImage(with: URL(string: "\(Common.link.getCourseThumbnail)/\(imageName)"), completed: nil)
+            }
+            lbName.text = courseDetail.name
+            lbGoal.text = courseDetail.goal
+            
+            lbDiscountPrice.text = formatter.string(from: NSNumber(value: (courseDetail.discountPrice ?? 0)))
+            lbOriginalPrice.text = formatter.string(from: NSNumber(value: (courseDetail.originalPrice ?? 0)))
         }
-        lbName.text = courseDetail.name
-        lbGoal.text = courseDetail.goal
-        
-        lbDiscountPrice.text = formatter.string(from: NSNumber(value: (courseDetail.discountPrice ?? 0)))
-        lbOriginalPrice.text = formatter.string(from: NSNumber(value: (courseDetail.originalPrice ?? 0)))
         
     }
     

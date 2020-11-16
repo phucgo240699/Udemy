@@ -135,9 +135,9 @@ extension CourseCollectionViewCell {
             centerY: nil,
             centerX: nil,
             width: nil,
-            height: containerHeight * 0.04)
+            height: containerHeight * 0.05)
         
-        originalPriceLbl.font = UIFont(name: Common.fontName, size: containerHeight * 0.04)
+        originalPriceLbl.font = UIFont(name: Common.fontName, size: containerHeight * 0.05)
         originalPriceLbl.textColor = .systemGray
     }
     

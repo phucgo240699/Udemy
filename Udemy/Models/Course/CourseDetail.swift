@@ -13,7 +13,7 @@ struct CourseDetail: Codable {
     var name: String?
     var imageName: String?
     var goal: String?
-    var discountPercent: Double?
+    var discountPercent: Int?
     var originalPrice: Int?
     var ranking: Int?
     var description: String?
@@ -31,7 +31,8 @@ struct CourseDetail: Codable {
     
     var discountPrice: Int? {
         get {
-            return Int(Double(originalPrice ?? 0) * (1 - (discountPercent ?? 0.0)))
+            let restPercent: Double = 1.0 - (Double(discountPercent ?? 0) / 100.0)
+            return Int(Double(originalPrice ?? 0) * restPercent)
         }
     }
 }

@@ -12,7 +12,13 @@ class CourseDetailRelatedCoursesCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var courses: [Course] = []
+    var courses: [Course] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,6 +37,8 @@ class CourseDetailRelatedCoursesCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(CourseCollectionViewCell.self, forCellWithReuseIdentifier: "relatedCourses")
+        
+        collectionView.afterEffect(cornerRadius: 10.0, borderWidth: 0.0, borderColor: .clear)
     }
     
 }
@@ -39,7 +47,7 @@ class CourseDetailRelatedCoursesCell: UITableViewCell {
 extension CourseDetailRelatedCoursesCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: 280)
+        return CGSize(width: self.bounds.width * 0.8, height: collectionView.bounds.height * 0.9)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -15,6 +15,8 @@ class CourseDetailDescriptionCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -23,8 +25,14 @@ class CourseDetailDescriptionCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setData(courseDetail: CourseDetail) {
-        txtViewDescription.text = courseDetail.description
+    func setupUI() {
+        txtViewDescription.afterEffect(cornerRadius: 10.0, borderWidth: 0.0, borderColor: .clear)
+    }
+    
+    func setData(courseDetail: CourseDetail?) {
+        if let courseDetail = courseDetail {
+            txtViewDescription.text = courseDetail.description
+        }
     }
     
 }

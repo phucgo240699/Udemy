@@ -52,24 +52,10 @@ extension CourseDetailVC {
         
         do {
             let result = try JSONDecoder().decode(CourseDetail.self, from: data)
+            self.courseDetail = result
             
             DispatchQueue.main.async {
-                // BannerInfo
-                for index in 0 ..< self.cellTypes.count {
-                    switch self.cellTypes[index] {
-                    case .BannerInfo:
-                        (self.tableView.cellForRow(at: IndexPath(row: index, section: 0)) as! CourseDetailBannerInfoCell).setData(courseDetail: result)
-                        break
-                    case .Operation:
-                        (self.tableView.cellForRow(at: IndexPath(row: index, section: 0)) as! CourseDetailOperationCell).setData(courseDetail: result)
-                        break
-                    case .Description:
-                        (self.tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? CourseDetailDescriptionCell)?.setData(courseDetail: result)
-                        break
-                    case .RelatedCourses:
-                        break
-                    }
-                }
+                self.tableView.reloadData()
             }
             
         } catch {

@@ -14,6 +14,9 @@ extension FeatureViewController {
         for subVC in bannerPageViewController.subViewControllers {
             subVC.view.frame = CGRect(x: 0, y: 0, width: width, height: bannerHeight)
         }
+        
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
         scrollView.addSubview(bannerPageViewController.view)
     }
     
