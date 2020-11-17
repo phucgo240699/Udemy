@@ -62,8 +62,8 @@ extension CourseDetailVC {
         
         do {
             let result = try JSONDecoder().decode(IsJoinedCourse.self, from: data)
-            if result.isJoined == true {
-                self.isJoinedCourse = true
+            if result.isJoined == false {
+                self.isJoinedCourse = false
             }
         } catch {
             window.showError("Error", error.localizedDescription)

@@ -30,11 +30,11 @@ class CourseDetailVC: UIViewController {
     var relatedCourses: [Course] = []
     var isJoinedCourse: Bool? {
         didSet {
-            if isJoinedCourse == true {
+            if isJoinedCourse == false {
                 for index in 0 ..< cellTypes.count {
                     if cellTypes[index] == .Operation {
                         DispatchQueue.main.async {
-                            self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+                            (self.tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? CourseDetailOperationCell)?.isJoinedCourse = false
                         }
                     }
                 }

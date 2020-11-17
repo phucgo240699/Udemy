@@ -24,9 +24,11 @@ class CourseDetailOperationCell: UITableViewCell {
     
     var isJoinedCourse: Bool? {
         didSet {
-            if isJoinedCourse == true {
-                joinButton.backgroundColor = Common.color.placeholderColor
-                joinButton.isEnabled = false
+            if isJoinedCourse == false {
+                UIView.animate(withDuration: 0.5) {
+                    self.joinButton.backgroundColor = Common.color.blue
+                    self.joinButton.isEnabled = true
+                }
             }
         }
     }
