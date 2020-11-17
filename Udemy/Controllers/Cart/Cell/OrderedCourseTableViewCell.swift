@@ -24,13 +24,23 @@ class OrderedCourseTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        setupUI()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setupUI() {
+        // Image View
+        imgViewThumbnail.afterEffect(cornerRadius: 5.0, borderWidth: 0.0, borderColor: .clear)
+        
+        // Payment Button
+        btnPayment.afterEffect(cornerRadius: 5.0, borderWidth: 0.0, borderColor: .clear)
+        btnPayment.dropShadow(color: Common.color.textColor, opacity: 0.5, offSet: CGSize(width: 2, height: 3), radius: 3.0, scale: false)
     }
     
     func setData(course: Course) {

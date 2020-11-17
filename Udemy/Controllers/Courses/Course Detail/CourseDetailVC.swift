@@ -97,6 +97,9 @@ extension CourseDetailVC: UITableViewDataSource {
             cell.onTapJoinCourseBtn = {
                 self.joinCourse(idUser: self.courseDetail?.idUser, idCourse: self.courseDetail?._id)
             }
+            cell.onTapAddToCartBtn = {
+                // TODO: Add cart
+            }
             cell.onTapSendRatingBtn = { numStar in
                 self.sendRating(numStar: numStar, idUser: self.courseDetail?.idUser, idCourse: self.courseDetail?._id)
             }

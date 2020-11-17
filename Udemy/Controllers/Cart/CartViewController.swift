@@ -9,14 +9,14 @@
 import UIKit
 
 fileprivate let cellID: String = "orderedCourseTBVCell"
-fileprivate let cellHeight: CGFloat = 120.0
+fileprivate let cellHeight: CGFloat = 200.0
 
 class CartViewController: UIViewController {
     
 
     @IBOutlet weak var tableView: UITableView!
     
-    var courses: [Course] = []
+    var courses: [Course] = [Course(vote: nil, discount: 10, ranking: nil, created_at: nil, is_checked: nil, is_required: nil, _id: nil, name: "ABC", idUser: nil, image: nil, goal: nil, description: nil, category: nil, price: nil)]
     
     override func viewDidLoad() {
         super.viewDidLoad()

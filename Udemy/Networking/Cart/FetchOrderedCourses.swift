@@ -68,7 +68,7 @@ extension CartViewController {
             }
             
         } catch {
-            window.showError("Fetch courses failed", error.localizedDescription)
+//            window.showError("Fetch courses failed", error.localizedDescription)
         }
     }
     

@@ -13,7 +13,7 @@ class CourseDetailOperationCell: UITableViewCell {
     
     // Closure
     var onTapJoinCourseBtn: (() -> Void)?
-    var onTapJoinAddCartBtn: (() -> Void)?
+    var onTapAddToCartBtn: (() -> Void)?
     var onTapWriteReviewBtn: (() -> Void)?
     var onTapSendRatingBtn: ((Int) -> Void)?
     
@@ -70,7 +70,7 @@ class CourseDetailOperationCell: UITableViewCell {
         }
     }
     @IBAction func addCartButtonPressed(_ sender: UIButton) {
-        if let onTapJoinAddCartBtn = onTapJoinAddCartBtn {
+        if let onTapJoinAddCartBtn = onTapAddToCartBtn {
             onTapJoinAddCartBtn()
         }
     }
