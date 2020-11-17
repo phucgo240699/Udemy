@@ -13,7 +13,7 @@ fileprivate let cellID: String = "courseTBVCell"
 class CourseViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
+    var refreshControl: UIRefreshControl = UIRefreshControl()
     var courses: [JoinedCourse] = []
     
     override func viewDidLoad() {
@@ -23,13 +23,24 @@ class CourseViewController: UIViewController {
         
         setupUI()
         
-        fetchCourses(by: (UIApplication.shared.delegate as? AppDelegate)?.account._id)
+        fetchJoinedCourses(by: (UIApplication.shared.delegate as? AppDelegate)?.account._id)
     }
     
     func setupUI() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CourseTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
+        
+        // refresh control
+        refreshControl.addTarget(self, action: #selector(CourseViewController.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    @objc func refresh(_ sender: UIRefreshControl) {
+        refreshControl.endRefreshing()
+        
+        self.fetchJoinedCourses(by: (UIApplication.shared.delegate as? AppDelegate)?.account._id)
+        
     }
 }
 

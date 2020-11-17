@@ -16,7 +16,7 @@ import IQKeyboardManagerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var account: Account = Account()
-    
+    var cart: Cart = Cart()
     var window: UIWindow?
     var reachability: Reachability?
     

@@ -1,19 +1,14 @@
 //
-//  Course.swift
+//  CoursesInCart.swift
 //  Udemy
 //
-//  Created by Phúc Lý on 10/6/20.
+//  Created by Phúc Lý on 17/11/2020.
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
 import Foundation
 
-//struct UserCourse: Codable {
-//    var _id: String?
-//    var name: String?
-//}
-
-struct Course: Codable {
+struct CoursesInCart: Codable {
     var vote: Vote?
     var discount: Int?
     var ranking: Int?
@@ -22,10 +17,10 @@ struct Course: Codable {
     var is_required: Bool?
     var _id: String?
     var name: String?
-//    var idUser: UserCourse?
+    var idUser: String?
     var image: String?
     var goal: String?
     var description: String?
-    var category: Category?
+    var category: String?
     var price: Int?
 }

@@ -16,7 +16,9 @@ class CartViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var courses: [Course] = [Course(vote: nil, discount: 10, ranking: nil, created_at: nil, is_checked: nil, is_required: nil, _id: nil, name: "ABC", idUser: nil, image: nil, goal: nil, description: nil, category: nil, price: nil)]
+    var refreshControl: UIRefreshControl = UIRefreshControl()
+    
+    var courses: [CoursesInCart] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +27,12 @@ class CartViewController: UIViewController {
         
         setupUI()
         
-        fetchOrderedCourses(by: (UIApplication.shared.delegate as? AppDelegate)?.account._id)
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
+            return
+        }
+        for courseId in appDelegate.cart.courseIds {
+            fetchCourseById(courseId)
+        }
     }
 
     func setupUI() {
@@ -33,8 +40,25 @@ class CartViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "OrderedCourseTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
         
+        // Refresh
+        refreshControl.addTarget(self, action: #selector(CartViewController.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+        
     }
     
+    @objc func refresh(_ sender: UIRefreshControl) {
+        refreshControl.endRefreshing()
+        
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
+            return
+        }
+        
+        courses = []
+        
+        for courseId in appDelegate.cart.courseIds {
+            fetchCourseById(courseId)
+        }
+    }
 }
 
 

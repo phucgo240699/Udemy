@@ -20,12 +20,13 @@
 		3E07EB0F2522E993002EBE7B /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB0E2522E993002EBE7B /* TextField.swift */; };
 		3E07EB112522E99D002EBE7B /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB102522E99D002EBE7B /* TextView.swift */; };
 		3E07EB132522E9B0002EBE7B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB122522E9B0002EBE7B /* Button.swift */; };
-		3E0C0DB92562DCBE00E7462D /* FetchCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0C0DB82562DCBE00E7462D /* FetchCourses.swift */; };
+		3E0C0DB92562DCBE00E7462D /* FetchJoinedCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0C0DB82562DCBE00E7462D /* FetchJoinedCourses.swift */; };
 		3E0EF955252ADFD800AFD584 /* Noti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0EF954252ADFD800AFD584 /* Noti.swift */; };
 		3E0EF96C252AE2B800AFD584 /* UIView+Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0EF96B252AE2B800AFD584 /* UIView+Message.swift */; };
 		3E1221362535A1DF005D954A /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1221352535A1DF005D954A /* AvatarViewController.swift */; };
 		3E12213B2535A201005D954A /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E12213A2535A201005D954A /* AvatarView.swift */; };
 		3E1221402535A225005D954A /* UpdateAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E12213F2535A225005D954A /* UpdateAvatar.swift */; };
+		3E15C93D2563A1B400C2DCE3 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E15C93C2563A1B400C2DCE3 /* Cart.swift */; };
 		3E1951E825342A0800AB9D06 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1951E725342A0800AB9D06 /* PasswordViewController.swift */; };
 		3E1951ED25342ACA00AB9D06 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1951EC25342ACA00AB9D06 /* PasswordView.swift */; };
 		3E1A07F22562CA0F00F94741 /* JoinCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1A07F12562CA0F00F94741 /* JoinCourse.swift */; };
@@ -61,6 +62,7 @@
 		3E91FDA12524170C0086DA0A /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E91FDA02524170C0086DA0A /* Window.swift */; };
 		3E926E0D252CA812009589E3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E926E0C252CA812009589E3 /* String.swift */; };
 		3E926E12252CA8CE009589E3 /* Activate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E926E11252CA8CE009589E3 /* Activate.swift */; };
+		3E9972062563ACCD0078088D /* CoursesInCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9972052563ACCD0078088D /* CoursesInCart.swift */; };
 		3E9E9A0F25332061008207A8 /* UpdateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9E9A0E25332061008207A8 /* UpdateInfo.swift */; };
 		3E9F3A842532CFEE0086DA90 /* SimpleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F3A822532CFEE0086DA90 /* SimpleTableViewCell.swift */; };
 		3E9F3A852532CFEE0086DA90 /* SimpleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E9F3A832532CFEE0086DA90 /* SimpleTableViewCell.xib */; };
@@ -140,12 +142,13 @@
 		3E07EB0E2522E993002EBE7B /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		3E07EB102522E99D002EBE7B /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		3E07EB122522E9B0002EBE7B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
-		3E0C0DB82562DCBE00E7462D /* FetchCourses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCourses.swift; sourceTree = "<group>"; };
+		3E0C0DB82562DCBE00E7462D /* FetchJoinedCourses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchJoinedCourses.swift; sourceTree = "<group>"; };
 		3E0EF954252ADFD800AFD584 /* Noti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Noti.swift; sourceTree = "<group>"; };
 		3E0EF96B252AE2B800AFD584 /* UIView+Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Message.swift"; sourceTree = "<group>"; };
 		3E1221352535A1DF005D954A /* AvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewController.swift; sourceTree = "<group>"; };
 		3E12213A2535A201005D954A /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		3E12213F2535A225005D954A /* UpdateAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAvatar.swift; sourceTree = "<group>"; };
+		3E15C93C2563A1B400C2DCE3 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		3E1951E725342A0800AB9D06 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		3E1951EC25342ACA00AB9D06 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		3E1A07F12562CA0F00F94741 /* JoinCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCourse.swift; sourceTree = "<group>"; };
@@ -181,6 +184,7 @@
 		3E91FDA02524170C0086DA0A /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		3E926E0C252CA812009589E3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		3E926E11252CA8CE009589E3 /* Activate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activate.swift; sourceTree = "<group>"; };
+		3E9972052563ACCD0078088D /* CoursesInCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesInCart.swift; sourceTree = "<group>"; };
 		3E9E9A0E25332061008207A8 /* UpdateInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInfo.swift; sourceTree = "<group>"; };
 		3E9F3A822532CFEE0086DA90 /* SimpleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableViewCell.swift; sourceTree = "<group>"; };
 		3E9F3A832532CFEE0086DA90 /* SimpleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleTableViewCell.xib; sourceTree = "<group>"; };
@@ -319,6 +323,15 @@
 			path = Popup;
 			sourceTree = "<group>";
 		};
+		3E15C93B2563A1A300C2DCE3 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				3E15C93C2563A1B400C2DCE3 /* Cart.swift */,
+				3E9972052563ACCD0078088D /* CoursesInCart.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
 		3E3B87AA2522DF19006CBC37 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +376,7 @@
 		3E3B87AD2522DF61006CBC37 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3E15C93B2563A1A300C2DCE3 /* Cart */,
 				3EBFE0952561243C00099F2B /* Course */,
 				3E8742BF2533344E001E9D5E /* Auth */,
 				3EA3FE77252C8E5D00F55829 /* Featured */,
@@ -615,7 +629,7 @@
 				3E04FF36256245E000C95DBA /* FetchRelatedCourses.swift */,
 				3E1A07F12562CA0F00F94741 /* JoinCourse.swift */,
 				3E1A07F62562CE5700F94741 /* CheckJoinedCourse.swift */,
-				3E0C0DB82562DCBE00E7462D /* FetchCourses.swift */,
+				3E0C0DB82562DCBE00E7462D /* FetchJoinedCourses.swift */,
 				3E5D709A256348B3004E6489 /* SendRating.swift */,
 			);
 			path = Course;
@@ -1042,12 +1056,13 @@
 				3E07EAFE2522E72C002EBE7B /* RegisterViewController.swift in Sources */,
 				3E9F3A8A2532D7A80086DA90 /* InformationViewController.swift in Sources */,
 				3E91FDA12524170C0086DA0A /* Window.swift in Sources */,
-				3E0C0DB92562DCBE00E7462D /* FetchCourses.swift in Sources */,
+				3E0C0DB92562DCBE00E7462D /* FetchJoinedCourses.swift in Sources */,
 				3E9F3A8F2532D8CA0086DA90 /* InformationView.swift in Sources */,
 				3E51760C25261FE70001D2AD /* SearchViewController.swift in Sources */,
 				3E07EB132522E9B0002EBE7B /* Button.swift in Sources */,
 				3EB1B3E1256169E1001E3468 /* FetchCourseDetail.swift in Sources */,
 				3EBFE0972561244900099F2B /* CourseDetail.swift in Sources */,
+				3E9972062563ACCD0078088D /* CoursesInCart.swift in Sources */,
 				3E91FD9E252415C90086DA0A /* CurrentController.swift in Sources */,
 				3E54C9EE25634D4C0025B618 /* CartViewController.swift in Sources */,
 				3E07EB082522E81C002EBE7B /* Register.swift in Sources */,
@@ -1058,6 +1073,7 @@
 				3E8742C125333479001E9D5E /* UserFunc.swift in Sources */,
 				3EC3952F25408719003D1478 /* FetchCategories.swift in Sources */,
 				3E07EAFC2522E493002EBE7B /* LoginView.swift in Sources */,
+				3E15C93D2563A1B400C2DCE3 /* Cart.swift in Sources */,
 				3E1951E825342A0800AB9D06 /* PasswordViewController.swift in Sources */,
 				3E1A07F22562CA0F00F94741 /* JoinCourse.swift in Sources */,
 				3E07EB0B2522E976002EBE7B /* Image.swift in Sources */,

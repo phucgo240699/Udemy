@@ -11,7 +11,7 @@ import Alamofire
 import SVProgressHUD
 
 extension CourseViewController {
-    func fetchCourses(by idUser: String?) {
+    func fetchJoinedCourses(by idUser: String?) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
