@@ -72,6 +72,14 @@ struct Link {
     
     //-- Rating
     let sendRating: String = "http://149.28.24.98:9000/rate/create-rate"
+    
+    
+    //-- Order
+    let getOrderedCourses: String = "http://149.28.24.98:9000/order/get-list-course-ordered-by-id-user"
+    
+    
+    //-- Payment
+    let payCourse: String = "http://149.28.24.98:9000/payment/pay"
 }
 
 class Common {

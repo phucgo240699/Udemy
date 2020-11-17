@@ -47,6 +47,7 @@ class CourseDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationItem.title = "Detail"
         navigationController?.navigationBar.isHidden = false
         
         setupUI()

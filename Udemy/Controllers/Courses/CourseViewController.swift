@@ -19,6 +19,8 @@ class CourseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationItem.title = "Courses"
+        
         setupUI()
         
         fetchCourses(by: (UIApplication.shared.delegate as? AppDelegate)?.account._id)
@@ -43,6 +45,7 @@ extension CourseViewController: UITableViewDataSource {
         }
         
         cell.setData(course: courses[indexPath.row])
+        cell.accessoryType = .none
         
         return cell
         
