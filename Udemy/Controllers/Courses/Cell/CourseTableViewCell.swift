@@ -13,6 +13,7 @@ class CourseTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imgViewThumbnail: UIImageView!
     @IBOutlet weak var lbName: UILabel!
+    @IBOutlet weak var progressView: UIProgressView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,5 +31,6 @@ class CourseTableViewCell: UITableViewCell {
             imgViewThumbnail.sd_setImage(with: URL(string: "\(Common.link.getCourseThumbnail)/\(imageName)"), completed: nil)
         }
         lbName.text = course.idCourse.name
+        progressView.progress = Float(course.percentCompleted ?? 0) / 100.0
     }
 }

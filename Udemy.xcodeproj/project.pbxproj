@@ -41,6 +41,7 @@
 		3E51760C25261FE70001D2AD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760B25261FE70001D2AD /* SearchViewController.swift */; };
 		3E5176102526202D0001D2AD /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760F2526202D0001D2AD /* CartViewController.swift */; };
 		3E5176122526204D0001D2AD /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5176112526204D0001D2AD /* AccountViewController.swift */; };
+		3E5D709B256348B3004E6489 /* SendRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5D709A256348B3004E6489 /* SendRating.swift */; };
 		3E6E3FED25230452004DF50E /* YAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E3FEC25230452004DF50E /* YAnchor.swift */; };
 		3E6E3FEF252304A9004DF50E /* XAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E3FEE252304A9004DF50E /* XAnchor.swift */; };
 		3E6E3FF125230901004DF50E /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E3FF025230901004DF50E /* View.swift */; };
@@ -156,6 +157,7 @@
 		3E51760B25261FE70001D2AD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		3E51760F2526202D0001D2AD /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		3E5176112526204D0001D2AD /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		3E5D709A256348B3004E6489 /* SendRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendRating.swift; sourceTree = "<group>"; };
 		3E6E3FEC25230452004DF50E /* YAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YAnchor.swift; sourceTree = "<group>"; };
 		3E6E3FEE252304A9004DF50E /* XAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XAnchor.swift; sourceTree = "<group>"; };
 		3E6E3FF025230901004DF50E /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
@@ -589,6 +591,7 @@
 				3E1A07F12562CA0F00F94741 /* JoinCourse.swift */,
 				3E1A07F62562CE5700F94741 /* CheckJoinedCourse.swift */,
 				3E0C0DB82562DCBE00E7462D /* FetchCourses.swift */,
+				3E5D709A256348B3004E6489 /* SendRating.swift */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -971,6 +974,7 @@
 				3E1221402535A225005D954A /* UpdateAvatar.swift in Sources */,
 				3EC3953D25409C31003D1478 /* CourseCollectionViewCell.swift in Sources */,
 				3E3B87AF2522DF70006CBC37 /* TokenManager.swift in Sources */,
+				3E5D709B256348B3004E6489 /* SendRating.swift in Sources */,
 				3E1A07F72562CE5700F94741 /* CheckJoinedCourse.swift in Sources */,
 				3EACC14E2562D897002E0BFF /* CourseViewController.swift in Sources */,
 				3E8D0ED82562E81000F1295C /* IsJoinedCourse.swift in Sources */,

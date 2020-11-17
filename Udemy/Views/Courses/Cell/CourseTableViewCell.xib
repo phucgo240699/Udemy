@@ -32,12 +32,21 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7fG-MZ-lzy">
+                        <rect key="frame" x="153.5" y="57.5" width="211.5" height="4"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="4" id="KXA-qt-ZuJ"/>
+                        </constraints>
+                    </progressView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="7fG-MZ-lzy" firstAttribute="leading" secondItem="QcI-j3-Y7w" secondAttribute="trailing" constant="10" id="KW8-SX-tc8"/>
                     <constraint firstItem="QcI-j3-Y7w" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="NaG-Dj-LMT"/>
                     <constraint firstAttribute="bottom" secondItem="QcI-j3-Y7w" secondAttribute="bottom" constant="10" id="SO5-2n-edj"/>
+                    <constraint firstItem="7fG-MZ-lzy" firstAttribute="top" secondItem="EHW-7t-fsY" secondAttribute="bottom" constant="25" id="Ua4-MK-vXG"/>
                     <constraint firstItem="EHW-7t-fsY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Zom-Sq-khO"/>
                     <constraint firstAttribute="trailing" secondItem="EHW-7t-fsY" secondAttribute="trailing" constant="10" id="aHq-uw-rsC"/>
+                    <constraint firstAttribute="trailing" secondItem="7fG-MZ-lzy" secondAttribute="trailing" constant="10" id="cND-dP-J5W"/>
                     <constraint firstItem="EHW-7t-fsY" firstAttribute="leading" secondItem="QcI-j3-Y7w" secondAttribute="trailing" constant="10" id="cck-Xa-jNV"/>
                     <constraint firstItem="QcI-j3-Y7w" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="xCs-du-H6G"/>
                 </constraints>
@@ -46,6 +55,7 @@
             <connections>
                 <outlet property="imgViewThumbnail" destination="QcI-j3-Y7w" id="icW-RK-8kW"/>
                 <outlet property="lbName" destination="EHW-7t-fsY" id="9i9-GU-OsM"/>
+                <outlet property="progressView" destination="7fG-MZ-lzy" id="OO2-6s-4cx"/>
             </connections>
             <point key="canvasLocation" x="34.782608695652179" y="127.90178571428571"/>
         </tableViewCell>
