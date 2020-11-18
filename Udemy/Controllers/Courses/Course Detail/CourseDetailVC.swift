@@ -41,8 +41,7 @@ class CourseDetailVC: UIViewController {
             }
         }
     }
-    var courseId: String?
-    var categoryId: String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +51,8 @@ class CourseDetailVC: UIViewController {
         
         setupUI()
         
-//        fetCourseDetail(by: courseId)
-        fetchRelatedCourses(by: categoryId)
+        checkJoinedCourse(idUser: course?.idUser?._id, idCourse: course?._id)
+        fetchRelatedCourses(by: course?.category?._id)
     }
     
     override func viewDidAppear(_ animated: Bool) {
