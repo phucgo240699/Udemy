@@ -19,6 +19,6 @@ struct JoinedCourse: Codable {
     var created_at: String?
     var _id: String?
     var idUser: String?
-    var idCourse: SimpleCourse
+    var idCourse: SimpleCourse?
     
 }

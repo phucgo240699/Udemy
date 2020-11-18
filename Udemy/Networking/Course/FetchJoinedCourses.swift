@@ -26,7 +26,7 @@ extension CourseViewController {
         guard let url = URL(string: "\(Common.link.getJoinedCoursesByUser)/\(idUser)") else {
             return
         }
-        
+        print(url)
         AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).response {
             response in
             

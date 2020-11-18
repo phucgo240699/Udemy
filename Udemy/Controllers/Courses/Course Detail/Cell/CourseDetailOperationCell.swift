@@ -57,9 +57,9 @@ class CourseDetailOperationCell: UITableViewCell {
         addCartButton.dropShadow(color: Common.color.textColor, opacity: 0.5, offSet: CGSize(width: 2, height: 3), radius: 3.0, scale: false)
     }
     
-    func setData(courseDetail: CourseDetail?) {
-        if let courseDetail = courseDetail {
-            if let ranking = courseDetail.ranking {
+    func setData(course: Course?) {
+        if let course = course {
+            if let ranking = course.ranking {
                 ratingCosmos.rating = Double(ranking)
             }
         }

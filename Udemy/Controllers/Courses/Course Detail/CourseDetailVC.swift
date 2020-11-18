@@ -26,7 +26,7 @@ class CourseDetailVC: UIViewController {
     
     let cellTypes: [CourseDetailCellType] = [ .BannerInfo, .Operation, .Description, .RelatedCourses ]
     
-    var courseDetail: CourseDetail?
+    var course: Course?
     var relatedCourses: [Course] = []
     var isJoinedCourse: Bool? {
         didSet {
@@ -52,7 +52,7 @@ class CourseDetailVC: UIViewController {
         
         setupUI()
         
-        fetCourseDetail(by: courseId)
+//        fetCourseDetail(by: courseId)
         fetchRelatedCourses(by: categoryId)
     }
     
@@ -89,29 +89,29 @@ extension CourseDetailVC: UITableViewDataSource {
         switch cellTypes[indexPath.row] {
         case .BannerInfo:
             let cell = self.tableView.dequeueReusableCell(withIdentifier: bannerInfoCellID, for: indexPath) as! CourseDetailBannerInfoCell
-            cell.setData(courseDetail: courseDetail)
+            cell.setData(course: course)
             return cell
         case .Operation:
             let cell = self.tableView.dequeueReusableCell(withIdentifier: operationCellID, for: indexPath) as! CourseDetailOperationCell
             cell.isJoinedCourse = isJoinedCourse
             cell.onTapJoinCourseBtn = {
-                self.joinCourse(idUser: self.courseDetail?.idUser, idCourse: self.courseDetail?._id)
+                self.joinCourse(idUser: self.course?.idUser?._id, idCourse: self.course?._id)
             }
             cell.onTapAddToCartBtn = {
-                if let courseId = self.courseId {
-                    (UIApplication.shared.delegate as? AppDelegate)?.cart.courseIds.append(courseId)
+                if let course = self.course {
+                    (UIApplication.shared.delegate as? AppDelegate)?.cart.courses.append(course)
                     (UIApplication.shared.delegate as? AppDelegate)?.window?.notificate(UIImage(named: Common.imageName.done), "Add to cart successfully", "")
                 }
             }
             cell.onTapSendRatingBtn = { numStar in
-                self.sendRating(numStar: numStar, idUser: self.courseDetail?.idUser, idCourse: self.courseDetail?._id)
+                self.sendRating(numStar: numStar, idUser: self.course?.idUser?._id, idCourse: self.course?._id)
             }
             
-            cell.setData(courseDetail: courseDetail)
+            cell.setData(course: course)
             return cell
         case .Description:
             let cell = self.tableView.dequeueReusableCell(withIdentifier: descriptionCellID, for: indexPath) as! CourseDetailDescriptionCell
-            cell.setData(courseDetail: courseDetail)
+            cell.setData(course: course)
             return cell
         case .RelatedCourses:
             let cell = self.tableView.dequeueReusableCell(withIdentifier: relatedCoursesCellID, for: indexPath) as! CourseDetailRelatedCoursesCell

@@ -27,10 +27,10 @@ class CourseTableViewCell: UITableViewCell {
     }
     
     func setData(course: JoinedCourse) {
-        if let imageName = course.idCourse.image {
+        if let imageName = course.idCourse?.image {
             imgViewThumbnail.sd_setImage(with: URL(string: "\(Common.link.getCourseThumbnail)/\(imageName)"), completed: nil)
         }
-        lbName.text = course.idCourse.name
+        lbName.text = course.idCourse?.name
         progressView.progress = Float(course.percentCompleted ?? 0) / 100.0
     }
 }

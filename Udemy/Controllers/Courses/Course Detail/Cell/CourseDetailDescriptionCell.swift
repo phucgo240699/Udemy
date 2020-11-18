@@ -29,9 +29,9 @@ class CourseDetailDescriptionCell: UITableViewCell {
         txtViewDescription.afterEffect(cornerRadius: 10.0, borderWidth: 0.0, borderColor: .clear)
     }
     
-    func setData(courseDetail: CourseDetail?) {
-        if let courseDetail = courseDetail {
-            txtViewDescription.text = courseDetail.description
+    func setData(course: Course?) {
+        if let course = course {
+            txtViewDescription.text = course.description
         }
     }
     

@@ -9,5 +9,5 @@
 import Foundation
 
 struct Cart {
-    var courseIds: [String] = []
+    var courses: [Course] = []
 }

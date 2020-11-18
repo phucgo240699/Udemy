@@ -127,7 +127,7 @@ class FeatureViewController: UIViewController {
     }
 }
 
-// MARK: - UICollectionViewDatasource, UITableviewDelegateFlowLayou
+// MARK: - UICollectionViewDatasource, UITableviewDelegateFlowLayout
 extension FeatureViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // Size for Item
@@ -199,30 +199,25 @@ extension FeatureViewController: UICollectionViewDataSource, UICollectionViewDel
 // MARK: - UICollectionViewDelegate
 extension FeatureViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var courseDetailId: String?
-        var categoryId: String?
+        var course: Course?
         
         switch collectionView.tag {
             case 0:
-                courseDetailId = listNewCourses[indexPath.row]._id
-                categoryId = listNewCourses[indexPath.row].category?._id
+                course = listNewCourses[indexPath.row]
                 break
             case 1:
-                courseDetailId = listFreeCourses[indexPath.row]._id
-                categoryId = listFreeCourses[indexPath.row].category?._id
+                course = listFreeCourses[indexPath.row]
                 break
             case 2:
-                courseDetailId = listTopCourses[indexPath.row]._id
-                categoryId = listTopCourses[indexPath.row].category?._id
+                course = listTopCourses[indexPath.row]
                 break
             default:
                 break
         }
         
-        if let courseDetailId = courseDetailId, let categoryId = categoryId {
+        if let course = course {
             let courseDetailVC = CourseDetailVC(nibName: "CourseDetailVC", bundle: nil)
-            courseDetailVC.courseId = courseDetailId
-            courseDetailVC.categoryId = categoryId
+            courseDetailVC.course = course
             navigationController?.pushViewController(courseDetailVC, animated: true)
         }
     }

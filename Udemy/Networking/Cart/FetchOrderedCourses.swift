@@ -11,136 +11,59 @@ import Alamofire
 
 extension CartViewController {
     
-    func fetchCourseById(_ id: String?) {
-        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
-            return
-        }
-        guard let window = appDelegate.window else {
-            return
-        }
-        guard let id = id else {
-            return
-        }
-        
-        // URL
-        guard let url = URL(string: "\(Common.link.getCourseById)/\(id)") else {
-            return
-        }
-        
-        AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).response {
-            response in
-            
-            if let error = response.error?.errorDescription {
-                window.showError("Error", String(error.description.split(separator: ":")[1]) )
-                return
-            }
-            
-            guard let data = response.data else {
-                return
-            }
-            
-            self.parseCourseJSON(data)
-        }
-    }
-    
-    func parseCourseJSON(_ data: Data) {
-        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
-            return
-        }
-        guard let window = appDelegate.window else {
-            return
-        }
-        
-        do {
-            let result = try JSONDecoder().decode(CoursesInCart.self, from: data)
-            self.courses.append(result)
-            
-            if self.courses.count ==  appDelegate.cart.courseIds.count {
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-            
-        } catch {
-            window.showError("Fetch course failed", error.localizedDescription)
-        }
-    }
-    
-//    func fetchOrderedCourses(by idUser: String?) {
+//    func fetchCourseById(_ id: String?) {
 //        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
 //            return
 //        }
 //        guard let window = appDelegate.window else {
 //            return
 //        }
-//        guard let idUser = idUser else {
+//        guard let id = id else {
 //            return
 //        }
-//
+//        
 //        // URL
-//        guard let url = URL(string: "\(Common.link.getOrderedCourses)/\(idUser)") else {
+//        guard let url = URL(string: "\(Common.link.getCourseById)/\(id)") else {
 //            return
 //        }
-//
+//        
 //        AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).response {
 //            response in
-//
+//            
 //            if let error = response.error?.errorDescription {
 //                window.showError("Error", String(error.description.split(separator: ":")[1]) )
 //                return
 //            }
-//
-//            guard let statusCode = response.response?.statusCode else {
-//                return
-//            }
-//
+//            
 //            guard let data = response.data else {
 //                return
 //            }
-//
-//            if statusCode == 200 {
-//                self.parseCoursesJSON(data)
-//            }
-//            else {
-//                self.parseErrorMessageJSON(from: data)
-//            }
+//            
+//            self.parseCourseJSON(data)
 //        }
 //    }
-//
-//    func parseCoursesJSON(_ data: Data) {
+//    
+//    func parseCourseJSON(_ data: Data) {
 //        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
 //            return
 //        }
 //        guard let window = appDelegate.window else {
 //            return
 //        }
-//
+//        
 //        do {
-//            let result = try JSONDecoder().decode([Course].self, from: data)
-//            self.courses = result
-//
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
+//            let result = try JSONDecoder().decode(CoursesInCart.self, from: data)
+//            self.courseDetails.append(result)
+//            
+//            if self.courses.count ==  appDelegate.cart.courseIds.count {
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                }
 //            }
-//
+//            
 //        } catch {
-////            window.showError("Fetch courses failed", error.localizedDescription)
+//            window.showError("Fetch course failed", error.localizedDescription)
 //        }
 //    }
-//
-//    func parseErrorMessageJSON(from data: Data) {
-//        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
-//            return
-//        }
-//        guard let window = appDelegate.window else {
-//            return
-//        }
-//
-//        do {
-//            let errorMessageResponse = try JSONDecoder().decode(ErrorMessageResponse.self, from: data)
-//            window.showError("Fetch courses failed", errorMessageResponse.message ?? "There is an error")
-//        } catch {
-//            window.showError("Fetch courses failed", error.localizedDescription)
-//        }
-//    }
+    
 }

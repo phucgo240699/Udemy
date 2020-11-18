@@ -9,7 +9,7 @@
 import UIKit
 
 fileprivate let cellID: String = "orderedCourseTBVCell"
-fileprivate let cellHeight: CGFloat = 200.0
+fileprivate let cellHeight: CGFloat = 220.0
 
 class CartViewController: UIViewController {
     
@@ -18,7 +18,7 @@ class CartViewController: UIViewController {
     
     var refreshControl: UIRefreshControl = UIRefreshControl()
     
-    var courses: [CoursesInCart] = []
+    var courses: [Course] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +30,8 @@ class CartViewController: UIViewController {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
-        for courseId in appDelegate.cart.courseIds {
-            fetchCourseById(courseId)
-        }
+        
+        courses = appDelegate.cart.courses
     }
 
     func setupUI() {
@@ -53,11 +52,7 @@ class CartViewController: UIViewController {
             return
         }
         
-        courses = []
-        
-        for courseId in appDelegate.cart.courseIds {
-            fetchCourseById(courseId)
-        }
+        courses = appDelegate.cart.courses
     }
 }
 

@@ -43,20 +43,17 @@ class OrderedCourseTableViewCell: UITableViewCell {
         btnPayment.dropShadow(color: Common.color.textColor, opacity: 0.5, offSet: CGSize(width: 2, height: 3), radius: 3.0, scale: false)
     }
     
-    func setData(course: CoursesInCart) {
+    func setData(course: Course) {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
-        
+    
         if let imageName = course.image {
             imgViewThumbnail.sd_setImage(with: URL(string: "\(Common.link.getCourseThumbnail)/\(imageName)"), completed: nil)
         }
         
         lbName.text = course.name
-        lbAuthor.text = course.idUser
-        
-        let restPercent:Double = 1 - Double(course.discount ?? 0)
-        let originalPrice: Double = Double(course.price ?? 0)
-        lbPrice.text = formatter.string(from: NSNumber(value: restPercent * originalPrice))
+        lbAuthor.text = course.idUser?.name
+        lbPrice.text = String(course.discountPrice ?? 0)
     }
     
     @IBAction func paymentBtnPressed(_ sender: UIButton) {
