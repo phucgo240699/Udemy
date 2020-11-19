@@ -55,9 +55,10 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         container.layer.cornerRadius = container.bounds.height * 0.05
         container.layer.masksToBounds = true
         thumbnailImgView.contentMode = .scaleAspectFill
+        thumbnailImgView.addBlur()
         titleLbl.font = UIFont(name: Common.fontName, size: containerHeight * 0.15)
         titleLbl.font = UIFont.boldSystemFont(ofSize: containerHeight * 0.15)
-        titleLbl.textColor = .white
+        titleLbl.textColor = Common.color.textColor
         titleLbl.textAlignment = .center
         titleLbl.numberOfLines = 0
         

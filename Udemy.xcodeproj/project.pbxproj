@@ -80,6 +80,7 @@
 		3E9271F0256569AF0091CD3C /* SearchSuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9271EE256569AF0091CD3C /* SearchSuggestionCell.swift */; };
 		3E9271F1256569AF0091CD3C /* SearchSuggestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E9271EF256569AF0091CD3C /* SearchSuggestionCell.xib */; };
 		3E9972062563ACCD0078088D /* CoursesInCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9972052563ACCD0078088D /* CoursesInCart.swift */; };
+		3E9DFE9F256691030008BFB2 /* UIImageView+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9DFE9E256691030008BFB2 /* UIImageView+Ex.swift */; };
 		3E9E9A0F25332061008207A8 /* UpdateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9E9A0E25332061008207A8 /* UpdateInfo.swift */; };
 		3E9F3A842532CFEE0086DA90 /* SimpleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F3A822532CFEE0086DA90 /* SimpleTableViewCell.swift */; };
 		3E9F3A852532CFEE0086DA90 /* SimpleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E9F3A832532CFEE0086DA90 /* SimpleTableViewCell.xib */; };
@@ -215,6 +216,7 @@
 		3E9271EE256569AF0091CD3C /* SearchSuggestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSuggestionCell.swift; sourceTree = "<group>"; };
 		3E9271EF256569AF0091CD3C /* SearchSuggestionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchSuggestionCell.xib; sourceTree = "<group>"; };
 		3E9972052563ACCD0078088D /* CoursesInCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesInCart.swift; sourceTree = "<group>"; };
+		3E9DFE9E256691030008BFB2 /* UIImageView+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ex.swift"; sourceTree = "<group>"; };
 		3E9E9A0E25332061008207A8 /* UpdateInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInfo.swift; sourceTree = "<group>"; };
 		3E9F3A822532CFEE0086DA90 /* SimpleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableViewCell.swift; sourceTree = "<group>"; };
 		3E9F3A832532CFEE0086DA90 /* SimpleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleTableViewCell.xib; sourceTree = "<group>"; };
@@ -637,6 +639,7 @@
 				3E91FDA02524170C0086DA0A /* Window.swift */,
 				3E0EF96B252AE2B800AFD584 /* UIView+Message.swift */,
 				3E926E0C252CA812009589E3 /* String.swift */,
+				3E9DFE9E256691030008BFB2 /* UIImageView+Ex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1152,6 +1155,7 @@
 				3E6327F025664B8900AE1967 /* APIFetchCoursesByCategory.swift in Sources */,
 				3E77E79D252DFD32004F0340 /* Account.swift in Sources */,
 				3E5176122526204D0001D2AD /* AccountViewController.swift in Sources */,
+				3E9DFE9F256691030008BFB2 /* UIImageView+Ex.swift in Sources */,
 				3E07EB0D2522E981002EBE7B /* Label.swift in Sources */,
 				3E07EB112522E99D002EBE7B /* TextView.swift in Sources */,
 				3EEF6D7E252C9FFD00FFD443 /* ActivationView.swift in Sources */,
