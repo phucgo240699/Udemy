@@ -2,15 +2,14 @@
 //  PayCourse.swift
 //  Udemy
 //
-//  Created by Phúc Lý on 17/11/2020.
+//  Created by Phúc Lý on 19/11/2020.
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
-import UIKit
 import Alamofire
 import SVProgressHUD
 
-extension CartViewController {
+extension RequestAPI {
     func payCourse(_ name: String?, _ email: String?, _ stripeToken: String?, _ amount: Int?, _ idCourse: String?, _ idUser: String?) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return

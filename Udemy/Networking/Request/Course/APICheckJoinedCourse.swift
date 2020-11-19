@@ -1,17 +1,16 @@
 //
-//  JoinCourse.swift
+//  APICheckJoinedCourse.swift
 //  Udemy
 //
-//  Created by Phúc Lý on 16/11/2020.
+//  Created by Phúc Lý on 19/11/2020.
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
-import UIKit
 import Alamofire
 import SVProgressHUD
 
-extension CourseDetailVC {
-    func joinCourse(idUser: String?, idCourse: String?) {
+extension RequestAPI {
+    func checkJoinedCourse(idUser: String?, idCourse: String?, onSucces: @escaping (Bool?) -> Void) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
@@ -21,26 +20,19 @@ extension CourseDetailVC {
         
         // Params
         guard let idUser = idUser, let idCourse = idCourse else {
-            window.showError("Join failed", "Not enough information")
+            window.showError("check join failed", "Not enough information")
             return
         }
-        let params: [String: Any] = ["idUser": idUser, "idCourse": idCourse]
         
         // URL
-        let rawUrl = URL(string: "\(Common.link.joinCourse)")
+        let rawUrl = URL(string: "\(Common.link.checkJoinedCourse)/\(idUser)/\(idCourse)")
         guard let url = rawUrl else {
             return
         }
         
-        // show waiting progress
-        SVProgressHUD.show()
-        
         // Call API
-        AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).response{
+        AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).response{
             response in
-            
-            // off waiting progress
-            SVProgressHUD.dismiss()
             
             if let error = response.error?.errorDescription {
                 window.showError("Error", String(error.description.split(separator: ":")[1]))
@@ -49,22 +41,17 @@ extension CourseDetailVC {
             guard let statusCode = response.response?.statusCode else {
                 return
             }
-            
             guard let data = response.data else {
                 return
             }
             
             if statusCode == 200 {
-                self.isJoinedCourse = true
-                window.notificate(UIImage(named: Common.imageName.done), "Joined Successfully", "")
-            }
-            else {
-                self.parseErrorJSON(from: data)
+                self.parseCheckJoinedCourseJSON(data, onSucces: onSucces)
             }
         }
     }
     
-    func parseErrorJSON(from data: Data) {
+    func parseCheckJoinedCourseJSON(_ data: Data, onSucces: @escaping (Bool?) -> Void) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
@@ -73,10 +60,10 @@ extension CourseDetailVC {
         }
         
         do {
-            let errorMessageResponse = try JSONDecoder().decode(ErrorMessageResponse.self, from: data)
-            window.showError("Join failed", errorMessageResponse.message ?? "There is an error")
+            let result = try JSONDecoder().decode(IsJoinedCourse.self, from: data)
+            onSucces(result.isJoined)
         } catch {
-            window.showError("Join failed", error.localizedDescription)
+            window.showError("Error", error.localizedDescription)
         }
     }
 }

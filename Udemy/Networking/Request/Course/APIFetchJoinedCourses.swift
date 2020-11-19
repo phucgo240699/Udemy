@@ -1,17 +1,16 @@
 //
-//  FetchCourses.swift
+//  APIFetchJoinedCourses.swift
 //  Udemy
 //
-//  Created by Phúc Lý on 16/11/2020.
+//  Created by Phúc Lý on 19/11/2020.
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
-import UIKit
 import Alamofire
 import SVProgressHUD
 
-extension CourseViewController {
-    func fetchJoinedCourses(by idUser: String?) {
+extension RequestAPI {
+    func fetchJoinedCourses(by idUser: String?, onSuccess: @escaping ([JoinedCourse]) -> Void) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
@@ -44,15 +43,15 @@ extension CourseViewController {
             }
             
             if statusCode == 200 {
-                self.parseCoursesJSON(data)
+                self.parseJoinedCoursesJSON(data, onSuccess: onSuccess)
             }
             else {
-                self.parseErrorMessageJSON(from: data)
+                self.parseErrorJSON(from: data)
             }
         }
     }
     
-    func parseCoursesJSON(_ data: Data) {
+    func parseJoinedCoursesJSON(_ data: Data, onSuccess: @escaping ([JoinedCourse]) -> Void) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
@@ -62,31 +61,10 @@ extension CourseViewController {
         
         do {
             let result = try JSONDecoder().decode([JoinedCourse].self, from: data)
-            self.courses = result
+            onSuccess(result)
             
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-            
-        } catch {
-            window.showError("Fetch courses failed", error.localizedDescription)
-        }
-    }
-    
-    func parseErrorMessageJSON(from data: Data) {
-        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
-            return
-        }
-        guard let window = appDelegate.window else {
-            return
-        }
-        
-        do {
-            let errorMessageResponse = try JSONDecoder().decode(ErrorMessageResponse.self, from: data)
-            window.showError("Fetch courses failed", errorMessageResponse.message ?? "There is an error")
         } catch {
             window.showError("Fetch courses failed", error.localizedDescription)
         }
     }
 }
-

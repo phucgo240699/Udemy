@@ -1,17 +1,16 @@
 //
-//  SearchCourses.swift
+//  APISearchCourses.swift
 //  Udemy
 //
-//  Created by Phúc Lý on 18/11/2020.
+//  Created by Phúc Lý on 19/11/2020.
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
-import UIKit
 import Alamofire
 import SVProgressHUD
 
-extension SearchViewController {
-    func searchCourses(by title: String?) {
+extension RequestAPI {
+    func searchCourses(by title: String?, onSuccess: @escaping ([RegularCourse]) -> Void) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
@@ -49,14 +48,14 @@ extension SearchViewController {
             }
             
             if statusCode == 200 {
-                self.parseSearchCoursesJSON(data)
+                self.parseSearchCoursesJSON(data, onSuccess: onSuccess)
             }
             
         }
     }
     
     
-    func parseSearchCoursesJSON(_ data: Data) {
+    func parseSearchCoursesJSON(_ data: Data, onSuccess: @escaping ([RegularCourse]) -> Void) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
@@ -66,9 +65,7 @@ extension SearchViewController {
         
         do {
             let result = try JSONDecoder().decode([RegularCourse].self, from: data)
-            let searchResultVC = SearchResultViewController()
-            searchResultVC.courses = result
-            self.navigationController?.pushViewController(searchResultVC, animated: true)
+            onSuccess(result)
             
         } catch {
             window.showError("Searcg courses failed", error.localizedDescription)

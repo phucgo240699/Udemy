@@ -51,8 +51,25 @@ class CourseDetailVC: UIViewController {
         
         setupUI()
         
-        checkJoinedCourse(idUser: course?.idUser?._id, idCourse: course?._id)
-        fetchRelatedCourses(by: course?.category?._id)
+        // Check is joined
+        RequestAPI.shared.checkJoinedCourse(idUser: course?.idUser?._id, idCourse: course?._id) { (isJoined) in
+            if isJoined == false {
+                self.isJoinedCourse = false
+            }
+        }
+        
+        // Fetch courses
+        RequestAPI.shared.fetchCourses(by: course?.category?._id) { (courses) in
+            self.relatedCourses = courses
+            
+            for index in 0 ..< self.cellTypes.count {
+                if self.cellTypes[index] == .RelatedCourses {
+                    DispatchQueue.main.async {
+                        self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+                    }
+                }
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -94,7 +111,10 @@ extension CourseDetailVC: UITableViewDataSource {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: operationCellID, for: indexPath) as! CourseDetailOperationCell
             cell.isJoinedCourse = isJoinedCourse
             cell.onTapJoinCourseBtn = {
-                self.joinCourse(idUser: self.course?.idUser?._id, idCourse: self.course?._id)
+                RequestAPI.shared.joinCourse(idUser: self.course?.idUser?._id, idCourse: self.course?._id) {
+                    self.isJoinedCourse = true
+                    self.notificate(UIImage(named: Common.imageName.done), "Joined Successfully", "")
+                }
             }
             cell.onTapAddToCartBtn = {
                 if let course = self.course {
@@ -103,7 +123,9 @@ extension CourseDetailVC: UITableViewDataSource {
                 }
             }
             cell.onTapSendRatingBtn = { numStar in
-                self.sendRating(numStar: numStar, idUser: self.course?.idUser?._id, idCourse: self.course?._id)
+                RequestAPI.shared.sendRating(numStar: numStar, idUser: self.course?.idUser?._id, idCourse: self.course?._id) {
+                    self.notificate(UIImage(named: Common.imageName.done), "Rate successfully", "")
+                }
             }
             
             cell.setData(course: course)

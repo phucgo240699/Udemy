@@ -1,32 +1,40 @@
 //
-//  FetchRelatedCourses.swift
+//  APIFetchFreeCourses.swift
 //  Udemy
 //
-//  Created by Phúc Lý on 16/11/2020.
+//  Created by Phúc Lý on 19/11/2020.
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
-import UIKit
 import Alamofire
+import SVProgressHUD
 
-extension CourseDetailVC {
-    func fetchRelatedCourses(by categoryId: String?) {
+extension RequestAPI {
+    func fetchFreeCourses (onSuccess: @escaping ([Course]) -> Void) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
         guard let window = appDelegate.window else {
             return
         }
-        guard let categoryId = categoryId else {
-            return
-        }
         
         // URL
-        guard let url = URL(string: "\(Common.link.getCoursesByCategory)/\(categoryId)") else {
+        guard let url = URL(string: Common.link.getFreeCourses) else {
             return
         }
         
-        AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).response {
+        // Access token
+        guard let accessToken = TokenManager.getAccessToken() else {
+            return
+        }
+        
+        // Headers
+        let headers: HTTPHeaders = [
+            "auth-token": accessToken,
+            "Accept": "application/json"
+        ]
+        
+        AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).response {
             response in
             
             if let error = response.error?.errorDescription {
@@ -38,11 +46,11 @@ extension CourseDetailVC {
                 return
             }
             
-            self.parseRelatedCoursesJSON(data)
+            self.parseFreeCoursesJSON(data, onSuccess: onSuccess)
         }
     }
     
-    func parseRelatedCoursesJSON(_ data: Data) {
+    func parseFreeCoursesJSON(_ data: Data, onSuccess: ([Course]) -> Void) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
@@ -52,18 +60,10 @@ extension CourseDetailVC {
         
         do {
             let result = try JSONDecoder().decode([Course].self, from: data)
-            relatedCourses = result
-            
-            for index in 0 ..< cellTypes.count {
-                if cellTypes[index] == .RelatedCourses {
-                    DispatchQueue.main.async {
-                        self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-                    }
-                }
-            }
+            onSuccess(result)
             
         } catch {
-            window.showError("Fetch course's detail failed", error.localizedDescription)
+            window.showError("Log out failed", error.localizedDescription)
         }
     }
 }

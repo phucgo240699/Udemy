@@ -129,7 +129,7 @@ extension RegisterViewController {
     
     // Register Button
     func initializeRegisterButton() {
-        registerBtn = UIButton("Register", Common.color.blue, .white, nil)
+        registerBtn = UIButton("Register", .white, .white, nil)
         guard let registerBtn = registerBtn, let rePasswordTxtField = rePasswordTxtField else {
             return
         }

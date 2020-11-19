@@ -12,15 +12,15 @@ import UIKit
 fileprivate let headerHeight: CGFloat = 80.0
 
 enum SearchCellType: String {
-    case Suggestion = "searchCell"
-    case Category = "categoryCell"
+    case Suggestion = "searchSuggestionCell"
+    case Category = "searchCategoryCell"
 }
 
 class SearchViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var header: SearchHeader?
-    let cellTypes: [SearchCellType] = [ .Suggestion ]
+    let cellTypes: [SearchCellType] = [ .Suggestion, .Category ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,13 +34,17 @@ class SearchViewController: UIViewController {
         
         header = SearchHeader(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: headerHeight))
         header?.onTapReturnKey = { text in
-            self.searchCourses(by: text)
+            RequestAPI.shared.searchCourses(by: text) { (regularCourses) in
+                let searchResultVC = SearchResultViewController()
+                searchResultVC.courses = regularCourses
+                self.navigationController?.pushViewController(searchResultVC, animated: true)
+            }
         }
         tableView.tableHeaderView = header
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "SearchSuggestionCell", bundle: nil), forCellReuseIdentifier: SearchCellType.Suggestion.rawValue)
-        
+        tableView.register(UINib(nibName: "SearchCategoriesCell", bundle: nil), forCellReuseIdentifier: SearchCellType.Category.rawValue)
     }
 }
 
@@ -51,8 +55,8 @@ extension SearchViewController: UITableViewDataSource {
         switch cellTypes[indexPath.row] {
         case .Suggestion:
             return 170.0
-        default:
-            return 300.0
+        case .Category:
+            return 200
         }
     }
     
@@ -74,8 +78,25 @@ extension SearchViewController: UITableViewDataSource {
             }
             
             return cell
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: type.rawValue , for: indexPath)
+        case .Category:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: type.rawValue , for: indexPath) as? SearchCategoriesCell else {
+                return UITableViewCell()
+            }
+            
+            cell.onTapCategory = { category in
+                RequestAPI.shared.fetchCourses(by: category._id) { (courses) in
+                    let searchResultVC = SearchResultViewController()
+                    
+                    for index in 0 ..< courses.count {
+                        searchResultVC.courses.append(courses[index].getRegularCourse())
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.navigationController?.pushViewController(searchResultVC, animated: true)
+                    }
+                }
+            }
+            
             return cell
         }
     }

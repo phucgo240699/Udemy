@@ -61,7 +61,7 @@ extension ActivationViewController {
         textField.afterEffect(fontSize: heightTextField * 0.4, corner: heightTextField * 0.5)
     }
     
-    // Register Button
+    // Activation Button
     func initializeActivationButton() {
         activationBtn = UIButton("Activate", Common.color.lightRed, .white, nil)
         guard let activationBtn = activationBtn, let activationTxtField = activationTxtField else {

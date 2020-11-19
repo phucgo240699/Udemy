@@ -120,10 +120,35 @@ class FeatureViewController: UIViewController {
             "https://img-a.udemycdn.com/course/240x135/2153774_bef0_4.jpg?QRwd_FQgq0IXEHmc0eVdpMUTPjks3S_Tc-vNruByBT6uOBocc4Vd0ZELkt30s0H1EeCjlksmtqkLJBJxB63Q535pK2IQhHgsmcCR9cvQ-iaLk3AOC3iru5DNE-RTSTOt",
             "https://img-a.udemycdn.com/course/240x135/1906852_93c6.jpg?XMYkJsti--olwnx3BT1zW7-QtgiVb-gNwoxvaaG6615P3xmd0Wzl00AFWEnL-pWGAtuwBOkaoZ7QWplvHrYvRtD7F8IflMNNMkqnNHT8cRjrSYJcrSV5_K5ok74x9Q"
         ])
-        fetchCategories()
-        fetchNewCourses()
-        fetchFreeCourses()
-        fetchTopCourses()
+        
+        RequestAPI.shared.fetchCategories { (categories) in
+            self.categories = categories
+            
+            DispatchQueue.main.async {
+                self.categoriesCollectionView?.reloadData()
+            }
+        }
+        RequestAPI.shared.fetchNewCourses { (courses) in
+            self.newCourses = courses
+            
+            DispatchQueue.main.async {
+                self.newCoursesCollectionView?.reloadData()
+            }
+        }
+        RequestAPI.shared.fetchFreeCourses { (courses) in
+            self.freeCourses = courses
+            
+            DispatchQueue.main.async {
+                self.freeCoursesCollectionView?.reloadData()
+            }
+        }
+        RequestAPI.shared.fetchTopCourses { (courses) in
+            self.topCourses = courses
+            
+            DispatchQueue.main.async {
+                self.topCoursesCollectionView?.reloadData()
+            }
+        }
     }
 }
 
@@ -213,7 +238,17 @@ extension FeatureViewController: UICollectionViewDelegate {
                 break
             default:
                 let categoryId = categories[indexPath.row]._id
-                fetchCourses(by: categoryId)
+                RequestAPI.shared.fetchCourses(by: categoryId) { (courses) in
+                    let searchResultVC = SearchResultViewController()
+                    
+                    for index in 0 ..< courses.count {
+                        searchResultVC.courses.append(courses[index].getRegularCourse())
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.navigationController?.pushViewController(searchResultVC, animated: true)
+                    }
+                }
                 break
         }
         
@@ -239,10 +274,35 @@ extension FeatureViewController {
     }
     
     @objc func refresh(_ sender: UIRefreshControl) {
-        fetchCategories()
-        fetchNewCourses()
-        fetchFreeCourses()
-        fetchTopCourses()
+        RequestAPI.shared.fetchCategories { (categories) in
+            self.categories = categories
+            
+            DispatchQueue.main.async {
+                self.categoriesCollectionView?.reloadData()
+            }
+        }
+        RequestAPI.shared.fetchNewCourses { (courses) in
+            self.newCourses = courses
+            
+            DispatchQueue.main.async {
+                self.newCoursesCollectionView?.reloadData()
+            }
+        }
+        RequestAPI.shared.fetchFreeCourses { (courses) in
+            self.freeCourses = courses
+            
+            DispatchQueue.main.async {
+                self.freeCoursesCollectionView?.reloadData()
+            }
+        }
+        RequestAPI.shared.fetchTopCourses { (courses) in
+            self.topCourses = courses
+            
+            DispatchQueue.main.async {
+                self.topCoursesCollectionView?.reloadData()
+            }
+        }
+        
         
         sender.endRefreshing()
     }

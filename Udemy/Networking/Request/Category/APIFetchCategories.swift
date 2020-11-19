@@ -1,16 +1,17 @@
 //
-//  FetchFreeCourses.swift
+//  FetchCategories.swift
 //  Udemy
 //
-//  Created by Phúc Lý on 10/23/20.
+//  Created by Phúc Lý on 19/11/2020.
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
 import UIKit
 import Alamofire
+import SVProgressHUD
 
-extension FeatureViewController {
-    func fetchFreeCourses() {
+extension RequestAPI {
+    func fetchCategories(onSuccess: @escaping ([Category]) -> Void) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
@@ -19,7 +20,7 @@ extension FeatureViewController {
         }
         
         // URL
-        guard let url = URL(string: Common.link.getFreeCourses) else {
+        guard let url = URL(string: Common.link.getAllCategories) else {
             return
         }
         
@@ -46,11 +47,11 @@ extension FeatureViewController {
                 return
             }
             
-            self.parseFreeCoursesJSON(data)
+            self.parseCategoriesJSON(data, onSuccess: onSuccess)
         }
     }
     
-    func parseFreeCoursesJSON(_ data: Data) {
+    func parseCategoriesJSON(_ data: Data, onSuccess: @escaping ([Category]) -> Void) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
@@ -59,12 +60,8 @@ extension FeatureViewController {
         }
         
         do {
-            let result = try JSONDecoder().decode([Course].self, from: data)
-            self.freeCourses = result
-            
-            DispatchQueue.main.async {
-                self.freeCoursesCollectionView?.reloadData()
-            }
+            let result = try JSONDecoder().decode([Category].self, from: data)
+            onSuccess(result)
             
         } catch {
             window.showError("Log out failed", error.localizedDescription)

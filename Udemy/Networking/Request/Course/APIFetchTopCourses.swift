@@ -1,16 +1,16 @@
 //
-//  FetchTopCourses.swift
+//  APIFetchTopCourses.swift
 //  Udemy
 //
-//  Created by Phúc Lý on 10/23/20.
+//  Created by Phúc Lý on 19/11/2020.
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
-import UIKit
 import Alamofire
+import SVProgressHUD
 
-extension FeatureViewController {
-    func fetchTopCourses() {
+extension RequestAPI {
+    func fetchTopCourses (onSuccess: @escaping ([Course]) -> Void) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
@@ -46,11 +46,11 @@ extension FeatureViewController {
                 return
             }
             
-            self.parseTopCoursesJSON(data)
+            self.parseTopCoursesJSON(data, onSuccess: onSuccess)
         }
     }
     
-    func parseTopCoursesJSON(_ data: Data) {
+    func parseTopCoursesJSON(_ data: Data, onSuccess: ([Course]) -> Void) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
@@ -60,11 +60,7 @@ extension FeatureViewController {
         
         do {
             let result = try JSONDecoder().decode([Course].self, from: data)
-            self.topCourses = result
-            
-            DispatchQueue.main.async {
-                self.topCoursesCollectionView?.reloadData()
-            }
+            onSuccess(result)
             
         } catch {
             window.showError("Log out failed", error.localizedDescription)

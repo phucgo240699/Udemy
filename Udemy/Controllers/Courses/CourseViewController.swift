@@ -23,7 +23,13 @@ class CourseViewController: UIViewController {
         
         setupUI()
         
-        fetchJoinedCourses(by: (UIApplication.shared.delegate as? AppDelegate)?.account._id)
+        RequestAPI.shared.fetchJoinedCourses(by: (UIApplication.shared.delegate as? AppDelegate)?.account._id) { (joinedCourses) in
+            self.courses = joinedCourses
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func setupUI() {
@@ -39,7 +45,13 @@ class CourseViewController: UIViewController {
     @objc func refresh(_ sender: UIRefreshControl) {
         refreshControl.endRefreshing()
         
-        self.fetchJoinedCourses(by: (UIApplication.shared.delegate as? AppDelegate)?.account._id)
+        RequestAPI.shared.fetchJoinedCourses(by: (UIApplication.shared.delegate as? AppDelegate)?.account._id) { (joinedCourses) in
+            self.courses = joinedCourses
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
         
     }
 }

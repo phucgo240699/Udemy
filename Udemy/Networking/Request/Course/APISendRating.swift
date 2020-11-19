@@ -1,17 +1,16 @@
 //
-//  SendRating.swift
+//  APISendRating.swift
 //  Udemy
 //
-//  Created by Phúc Lý on 17/11/2020.
+//  Created by Phúc Lý on 19/11/2020.
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
-import UIKit
 import Alamofire
 import SVProgressHUD
 
-extension CourseDetailVC {
-    func sendRating(numStar: Int?, idUser: String?, idCourse: String?) {
+extension RequestAPI {
+    func sendRating(numStar: Int?, idUser: String?, idCourse: String?, onSuccess: @escaping () -> Void) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
@@ -59,12 +58,11 @@ extension CourseDetailVC {
             }
             
             if statusCode == 200 {
-                window.notificate(UIImage(named: Common.imageName.done), "Rate successfully", "")
+                onSuccess()
             }
             else {
                 self.parseErrorJSON(from: data)
             }
         }
     }
-    
 }
