@@ -70,10 +70,10 @@ class FeatureViewController: UIViewController {
     var topCoursesCollectionView: UICollectionView?
     
     // Datasources
-    var listCategories: [Category] = []
-    var listNewCourses: [Course] = []
-    var listFreeCourses: [Course] = []
-    var listTopCourses: [Course] = []
+    var categories: [Category] = []
+    var newCourses: [Course] = []
+    var freeCourses: [Course] = []
+    var topCourses: [Course] = []
     
     var titleCollectionViews: [String] = ["New Courses", "Free Courses", "Top Courses", "Category"]
     
@@ -144,15 +144,15 @@ extension FeatureViewController: UICollectionViewDataSource, UICollectionViewDel
     // Number of Items
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView.tag == 0 {
-            return  listNewCourses.count
+            return  newCourses.count
         }
         else if collectionView.tag == 1 {
-            return listFreeCourses.count
+            return freeCourses.count
         }
         else if collectionView.tag == 2 {
-            return listTopCourses.count
+            return topCourses.count
         }
-        return listCategories.count
+        return categories.count
     }
     
     // Detail Item
@@ -162,7 +162,7 @@ extension FeatureViewController: UICollectionViewDataSource, UICollectionViewDel
         if collectionView.tag == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "newCourseCLVCell", for: indexPath) as! CourseCollectionViewCell
             
-            cell.fillData(listNewCourses[indexPath.row])
+            cell.fillData(newCourses[indexPath.row])
             
             return cell
         }
@@ -171,7 +171,7 @@ extension FeatureViewController: UICollectionViewDataSource, UICollectionViewDel
         else if collectionView.tag == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "freeCourseCLVCell", for: indexPath) as! CourseCollectionViewCell
             
-            cell.fillData(listFreeCourses[indexPath.row])
+            cell.fillData(freeCourses[indexPath.row])
             
             return cell
         }
@@ -180,7 +180,7 @@ extension FeatureViewController: UICollectionViewDataSource, UICollectionViewDel
         else if collectionView.tag == 2 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "topCourseCLVCell", for: indexPath) as! CourseCollectionViewCell
             
-            cell.fillData(listTopCourses[indexPath.row])
+            cell.fillData(topCourses[indexPath.row])
             
             return cell
         }
@@ -188,7 +188,7 @@ extension FeatureViewController: UICollectionViewDataSource, UICollectionViewDel
         // Category
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCLVCell", for: indexPath) as! CategoryCollectionViewCell
         
-        cell.fillData(listCategories[indexPath.row])
+        cell.fillData(categories[indexPath.row])
         
         return cell
     }
@@ -203,15 +203,17 @@ extension FeatureViewController: UICollectionViewDelegate {
         
         switch collectionView.tag {
             case 0:
-                course = listNewCourses[indexPath.row]
+                course = newCourses[indexPath.row]
                 break
             case 1:
-                course = listFreeCourses[indexPath.row]
+                course = freeCourses[indexPath.row]
                 break
             case 2:
-                course = listTopCourses[indexPath.row]
+                course = topCourses[indexPath.row]
                 break
             default:
+                let categoryId = categories[indexPath.row]._id
+                fetchCourses(by: categoryId)
                 break
         }
         

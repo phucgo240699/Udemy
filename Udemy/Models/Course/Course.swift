@@ -35,4 +35,8 @@ struct Course: Codable {
             return Int(Double(price ?? 0) * restPercent)
         }
     }
+    
+    func getRegularCourse() -> RegularCourse {
+        return RegularCourse(vote: vote, discount: discount, ranking: ranking, created_at: created_at, is_checked: is_checked, is_required: is_required, _id: _id, name: name, idUser: idUser?._id, image: image, goal: goal, description: description, category: category?._id, price: price)
+    }
 }

@@ -60,7 +60,7 @@ extension FeatureViewController {
         
         do {
             let result = try JSONDecoder().decode([Course].self, from: data)
-            self.listNewCourses = result
+            self.newCourses = result
             
             DispatchQueue.main.async {
                 self.newCoursesCollectionView?.reloadData()

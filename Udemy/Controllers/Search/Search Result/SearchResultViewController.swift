@@ -21,11 +21,15 @@ class SearchResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.isHidden = false
 
         setupUI()
     }
     
     func setupUI() {
+        tableView.separatorStyle = .none
+        
         if courses.count > 0 {
             tableView.isHidden = false
             lbNotFound.isHidden = true
