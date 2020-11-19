@@ -52,8 +52,7 @@ class OrderedCourseTableViewCell: UITableViewCell {
         }
         
         lbName.text = course.name
-        lbAuthor.text = course.idUser?.name
-        lbPrice.text = String(course.discountPrice ?? 0)
+        lbPrice.text = formatter.string(from: NSNumber(value: course.discountPrice ?? 0))
     }
     
     @IBAction func paymentBtnPressed(_ sender: UIButton) {

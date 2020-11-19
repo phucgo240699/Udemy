@@ -30,20 +30,14 @@
                         <rect key="frame" x="140" y="10" width="225" height="120"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqT-kO-Wgp" userLabel="Name Label">
-                                <rect key="frame" x="0.0" y="0.0" width="225" height="39.5"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3XK-rV-Nle" userLabel="Author Label">
-                                <rect key="frame" x="0.0" y="40.5" width="225" height="39.5"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
-                                <color key="textColor" name="placeholderColor"/>
+                                <rect key="frame" x="0.0" y="0.0" width="225" height="59.5"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="49P-eJ-ILS" userLabel="Price Label">
-                                <rect key="frame" x="0.0" y="81" width="225" height="39"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                <rect key="frame" x="0.0" y="60.5" width="225" height="59.5"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="18"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -80,7 +74,6 @@
             <connections>
                 <outlet property="btnPayment" destination="FYH-LK-JIx" id="T4M-4C-9rw"/>
                 <outlet property="imgViewThumbnail" destination="WTv-f3-T9J" id="cez-lb-S6N"/>
-                <outlet property="lbAuthor" destination="3XK-rV-Nle" id="2Yu-pw-933"/>
                 <outlet property="lbName" destination="DqT-kO-Wgp" id="E5Q-fb-vI3"/>
                 <outlet property="lbPrice" destination="49P-eJ-ILS" id="KIx-K9-j0B"/>
             </connections>
@@ -88,8 +81,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <namedColor name="placeholderColor">
-            <color red="0.66399997472763062" green="0.66399997472763062" blue="0.66399997472763062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="textColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
