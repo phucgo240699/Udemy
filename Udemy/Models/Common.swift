@@ -80,6 +80,9 @@ struct Link {
     
     //-- Payment
     let payCourse: String = "http://149.28.24.98:9000/payment/pay"
+    
+    //-- Search
+    let searchCoursesByTitle: String = "http://149.28.24.98:9000/course/search-course"
 }
 
 class Common {

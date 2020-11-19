@@ -12,7 +12,8 @@ class SearchHeader: BaseViewXib {
     
     // Closure
     var onTextChange: ((String) -> Void)?
-
+    var onTapReturnKey: ((String) -> Void)?
+    
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func setUpViews() {
@@ -22,7 +23,6 @@ class SearchHeader: BaseViewXib {
     func setupUI() {
         searchBar.delegate = self
     }
-
 }
 
 // MARK: UISearchBar Delegate
@@ -32,4 +32,11 @@ extension SearchHeader: UISearchBarDelegate {
             onTextChange(searchText)
         }
     }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let onTapReturnKey = onTapReturnKey, let text = searchBar.text {
+            onTapReturnKey(text)
+        }
+    }
+    
 }

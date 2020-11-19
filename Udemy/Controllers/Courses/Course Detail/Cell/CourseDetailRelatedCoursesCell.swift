@@ -10,6 +10,8 @@ import UIKit
 
 class CourseDetailRelatedCoursesCell: UITableViewCell {
     
+    var onTapRelatedCourse: ((Course) -> Void)?
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var courses: [Course] = [] {
@@ -67,5 +69,9 @@ extension CourseDetailRelatedCoursesCell: UICollectionViewDataSource, UICollecti
 
 // MARK: UICollectionView Delegate
 extension CourseDetailRelatedCoursesCell: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let onTapRelatedCourse = onTapRelatedCourse {
+            onTapRelatedCourse(courses[indexPath.row])
+        }
+    }
 }

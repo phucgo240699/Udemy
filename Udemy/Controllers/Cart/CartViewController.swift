@@ -53,6 +53,10 @@ class CartViewController: UIViewController {
         }
         
         courses = appDelegate.cart.courses
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
 

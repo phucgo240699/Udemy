@@ -2,22 +2,28 @@
 //  CourseTableViewCell.swift
 //  Udemy
 //
-//  Created by Phúc Lý on 16/11/2020.
+//  Created by Phúc Lý on 19/11/2020.
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
 import UIKit
-import SDWebImage
+import Cosmos
+
 
 class CourseTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var container: UIView!
     @IBOutlet weak var imgViewThumbnail: UIImageView!
     @IBOutlet weak var lbName: UILabel!
-    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var lbGoal: UILabel!
+    @IBOutlet weak var cosmosViewRating: CosmosView!
+    @IBOutlet weak var lbPrice: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        setupUI()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -26,11 +32,18 @@ class CourseTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setData(course: JoinedCourse) {
-        if let imageName = course.idCourse?.image {
+    func setupUI() {
+        container.afterEffect(cornerRadius: 5.0, borderWidth: 0.0, borderColor: .clear)
+    }
+    
+    func setData(course: RegularCourse) {
+        if let imageName = course.image {
             imgViewThumbnail.sd_setImage(with: URL(string: "\(Common.link.getCourseThumbnail)/\(imageName)"), completed: nil)
         }
-        lbName.text = course.idCourse?.name
-        progressView.progress = Float(course.percentCompleted ?? 0) / 100.0
+        
+        lbName.text = course.name
+        lbGoal.text = course.goal
+        cosmosViewRating.rating = Double(course.ranking ?? 0)
+        lbPrice.text = String(course.discountPrice ?? 0)
     }
 }

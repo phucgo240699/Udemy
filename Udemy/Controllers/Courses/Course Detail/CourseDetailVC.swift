@@ -114,6 +114,11 @@ extension CourseDetailVC: UITableViewDataSource {
             return cell
         case .RelatedCourses:
             let cell = self.tableView.dequeueReusableCell(withIdentifier: relatedCoursesCellID, for: indexPath) as! CourseDetailRelatedCoursesCell
+            cell.onTapRelatedCourse = { course in
+                let courseDetailVC = CourseDetailVC()
+                courseDetailVC.course = course
+                self.navigationController?.pushViewController(courseDetailVC, animated: true)
+            }
             cell.courses = relatedCourses
             return cell
             
