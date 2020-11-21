@@ -56,7 +56,7 @@ extension SearchViewController: UITableViewDataSource {
         case .Suggestion:
             return 170.0
         case .Category:
-            return 200
+            return 300
         }
     }
     

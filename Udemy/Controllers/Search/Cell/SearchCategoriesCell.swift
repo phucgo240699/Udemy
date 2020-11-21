@@ -50,7 +50,8 @@ class SearchCategoriesCell: UITableViewCell {
 extension SearchCategoriesCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.height * 1.6, height: collectionView.bounds.height * 0.9)
+        let edgeSize: CGFloat = collectionView.bounds.width * (UIDevice.current.userInterfaceIdiom == .pad ? 0.3 : 0.5)
+        return CGSize(width: edgeSize, height: edgeSize / 16 * 9)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

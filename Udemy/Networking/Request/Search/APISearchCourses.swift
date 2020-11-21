@@ -20,7 +20,7 @@ extension RequestAPI {
         guard let title = title else {
             return
         }
-        let validateTitle: String = title.split(separator: " ").joined()
+        let validateTitle: String = title.split(separator: " ").joined(separator: "%20")
         
         // URL
         guard let url = URL(string: "\(Common.link.searchCoursesByTitle)/\(validateTitle)") else {

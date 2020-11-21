@@ -29,16 +29,16 @@
                                     <constraint firstAttribute="height" constant="56" id="4RD-B5-be0"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b41-7H-uoY" userLabel="Name">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b41-7H-uoY" userLabel="Name">
                                 <rect key="frame" x="76" y="10" width="289" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="Rr1-wU-QCS"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Zh-Qw-N4U" userLabel="Goal">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Zh-Qw-N4U" userLabel="Goal">
                                 <rect key="frame" x="76" y="37" width="289" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="14" id="hPy-oo-gxZ"/>
@@ -62,9 +62,9 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCt-1I-W7g" userLabel="Price">
-                                <rect key="frame" x="76" y="91" width="289" height="17"/>
+                                <rect key="frame" x="76" y="91" width="289" height="16"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="gvz-ad-Yan"/>
+                                    <constraint firstAttribute="height" constant="16" id="gvz-ad-Yan"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="16"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
@@ -77,6 +77,7 @@
                             <constraint firstItem="5qX-Ty-tBp" firstAttribute="top" secondItem="c1I-te-oO8" secondAttribute="top" constant="10" id="PMB-77-p8F"/>
                             <constraint firstItem="6Zh-Qw-N4U" firstAttribute="leading" secondItem="5qX-Ty-tBp" secondAttribute="trailing" constant="10" id="Qen-Ca-khP"/>
                             <constraint firstAttribute="trailing" secondItem="6Zh-Qw-N4U" secondAttribute="trailing" constant="10" id="XMn-jq-qGY"/>
+                            <constraint firstAttribute="bottom" secondItem="LCt-1I-W7g" secondAttribute="bottom" constant="33" id="ash-eN-PQQ"/>
                             <constraint firstItem="LCt-1I-W7g" firstAttribute="top" secondItem="cmY-4j-C02" secondAttribute="bottom" constant="10" id="bcq-cI-8a2"/>
                             <constraint firstItem="cmY-4j-C02" firstAttribute="leading" secondItem="c1I-te-oO8" secondAttribute="leading" constant="76" id="hzj-jm-5sX"/>
                             <constraint firstItem="cmY-4j-C02" firstAttribute="top" secondItem="6Zh-Qw-N4U" secondAttribute="bottom" constant="10" id="j0l-du-61y"/>
@@ -87,7 +88,6 @@
                             <constraint firstItem="LCt-1I-W7g" firstAttribute="leading" secondItem="c1I-te-oO8" secondAttribute="leading" constant="76" id="wJ3-7E-OfV"/>
                             <constraint firstItem="5qX-Ty-tBp" firstAttribute="leading" secondItem="c1I-te-oO8" secondAttribute="leading" constant="10" id="wWE-cR-Boh"/>
                             <constraint firstAttribute="trailing" secondItem="cmY-4j-C02" secondAttribute="trailing" constant="10" id="xZt-cE-cwH"/>
-                            <constraint firstAttribute="bottom" secondItem="LCt-1I-W7g" secondAttribute="bottom" constant="32" id="yqH-Sb-D28"/>
                         </constraints>
                     </view>
                 </subviews>
