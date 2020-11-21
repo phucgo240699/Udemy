@@ -11,6 +11,7 @@ import Foundation
 struct UserCourse: Codable {
     var _id: String?
     var name: String?
+    var image: String?
 }
 
 struct Course: Codable {

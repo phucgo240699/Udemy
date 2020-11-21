@@ -71,6 +71,7 @@ struct Link {
     
     
     //-- Rating
+    let getRatingsByCourse: String = "http://149.28.24.98:9000/rate/get-rate-by-course"
     let sendRating: String = "http://149.28.24.98:9000/rate/create-rate"
     
     

@@ -22,4 +22,11 @@ extension String {
         
         return true
     }
+    
+    func toDate() -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
+        return dateFormatter.date(from: self)
+        
+    }
 }

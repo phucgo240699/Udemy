@@ -29,7 +29,7 @@
 		3E1951ED25342ACA00AB9D06 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1951EC25342ACA00AB9D06 /* PasswordView.swift */; };
 		3E332DEC25615FD800AFA6CE /* CourseDetailOperationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E332DEA25615FD800AFA6CE /* CourseDetailOperationCell.swift */; };
 		3E332DED25615FD800AFA6CE /* CourseDetailOperationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E332DEB25615FD800AFA6CE /* CourseDetailOperationCell.xib */; };
-		3E350CB6255A7BEE006B325E /* FetchBanners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E350CB5255A7BEE006B325E /* FetchBanners.swift */; };
+		3E350CB6255A7BEE006B325E /* APIFetchBanners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E350CB5255A7BEE006B325E /* APIFetchBanners.swift */; };
 		3E3B87AF2522DF70006CBC37 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B87AE2522DF70006CBC37 /* TokenManager.swift */; };
 		3E46874B256121F600696356 /* CourseDetailBannerInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E468749256121F600696356 /* CourseDetailBannerInfoCell.swift */; };
 		3E46874C256121F600696356 /* CourseDetailBannerInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E46874A256121F600696356 /* CourseDetailBannerInfoCell.xib */; };
@@ -57,6 +57,9 @@
 		3E63281F2566518400AE1967 /* APIPayCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63281E2566518400AE1967 /* APIPayCourse.swift */; };
 		3E632828256651BC00AE1967 /* APISearchCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E632827256651BC00AE1967 /* APISearchCourses.swift */; };
 		3E6371E1256647A20015F7FE /* APIFetchCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6371E0256647A20015F7FE /* APIFetchCategories.swift */; };
+		3E6910AF25694AC9006615B9 /* CourseRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6910AE25694AC9006615B9 /* CourseRating.swift */; };
+		3E6910B825694BB3006615B9 /* CourseDetailRatingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6910B625694BB3006615B9 /* CourseDetailRatingCell.swift */; };
+		3E6910B925694BB3006615B9 /* CourseDetailRatingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E6910B725694BB3006615B9 /* CourseDetailRatingCell.xib */; };
 		3E6E3FED25230452004DF50E /* YAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E3FEC25230452004DF50E /* YAnchor.swift */; };
 		3E6E3FEF252304A9004DF50E /* XAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E3FEE252304A9004DF50E /* XAnchor.swift */; };
 		3E6E3FF125230901004DF50E /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6E3FF025230901004DF50E /* View.swift */; };
@@ -117,6 +120,10 @@
 		3EF18070253BA0A3004432E8 /* Logout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF1806F253BA0A3004432E8 /* Logout.swift */; };
 		3EF18075253BA3A7004432E8 /* StatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF18074253BA3A7004432E8 /* StatusResponse.swift */; };
 		3EF296A12541D19100B99A41 /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF296A02541D19100B99A41 /* CourseCell.swift */; };
+		3EFD070C25694D6B00B0DE75 /* RatingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD070A25694D6B00B0DE75 /* RatingTableViewCell.swift */; };
+		3EFD070D25694D6B00B0DE75 /* RatingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFD070B25694D6B00B0DE75 /* RatingTableViewCell.xib */; };
+		3EFD0715256954A500B0DE75 /* Date+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD0714256954A500B0DE75 /* Date+Ex.swift */; };
+		3EFD071B2569573C00B0DE75 /* APIFetchCourseRatings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD071A2569573C00B0DE75 /* APIFetchCourseRatings.swift */; };
 		3EFFCB402563BAE800CEB97F /* UIViewController+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFFCB3F2563BAE800CEB97F /* UIViewController+Ex.swift */; };
 		6807317657D10394CCBB21C9 /* Pods_UdemyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6DD49030E4B5D8B2E75027 /* Pods_UdemyTests.framework */; };
 		C07F99A8F1E029B3BCB5FAAE /* Pods_Udemy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E194BB93A3EB1BD1C8095507 /* Pods_Udemy.framework */; };
@@ -165,7 +172,7 @@
 		3E1951EC25342ACA00AB9D06 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		3E332DEA25615FD800AFA6CE /* CourseDetailOperationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailOperationCell.swift; sourceTree = "<group>"; };
 		3E332DEB25615FD800AFA6CE /* CourseDetailOperationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseDetailOperationCell.xib; sourceTree = "<group>"; };
-		3E350CB5255A7BEE006B325E /* FetchBanners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBanners.swift; sourceTree = "<group>"; };
+		3E350CB5255A7BEE006B325E /* APIFetchBanners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFetchBanners.swift; sourceTree = "<group>"; };
 		3E3B87AE2522DF70006CBC37 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		3E468749256121F600696356 /* CourseDetailBannerInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailBannerInfoCell.swift; sourceTree = "<group>"; };
 		3E46874A256121F600696356 /* CourseDetailBannerInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseDetailBannerInfoCell.xib; sourceTree = "<group>"; };
@@ -193,6 +200,9 @@
 		3E63281E2566518400AE1967 /* APIPayCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPayCourse.swift; sourceTree = "<group>"; };
 		3E632827256651BC00AE1967 /* APISearchCourses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISearchCourses.swift; sourceTree = "<group>"; };
 		3E6371E0256647A20015F7FE /* APIFetchCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFetchCategories.swift; sourceTree = "<group>"; };
+		3E6910AE25694AC9006615B9 /* CourseRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseRating.swift; sourceTree = "<group>"; };
+		3E6910B625694BB3006615B9 /* CourseDetailRatingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailRatingCell.swift; sourceTree = "<group>"; };
+		3E6910B725694BB3006615B9 /* CourseDetailRatingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseDetailRatingCell.xib; sourceTree = "<group>"; };
 		3E6E3FEC25230452004DF50E /* YAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YAnchor.swift; sourceTree = "<group>"; };
 		3E6E3FEE252304A9004DF50E /* XAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XAnchor.swift; sourceTree = "<group>"; };
 		3E6E3FF025230901004DF50E /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
@@ -259,6 +269,10 @@
 		3EF1806F253BA0A3004432E8 /* Logout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logout.swift; sourceTree = "<group>"; };
 		3EF18074253BA3A7004432E8 /* StatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusResponse.swift; sourceTree = "<group>"; };
 		3EF296A02541D19100B99A41 /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
+		3EFD070A25694D6B00B0DE75 /* RatingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingTableViewCell.swift; sourceTree = "<group>"; };
+		3EFD070B25694D6B00B0DE75 /* RatingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingTableViewCell.xib; sourceTree = "<group>"; };
+		3EFD0714256954A500B0DE75 /* Date+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ex.swift"; sourceTree = "<group>"; };
+		3EFD071A2569573C00B0DE75 /* APIFetchCourseRatings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFetchCourseRatings.swift; sourceTree = "<group>"; };
 		3EFFCB3F2563BAE800CEB97F /* UIViewController+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ex.swift"; sourceTree = "<group>"; };
 		48862322EEEAD0C13BDB2366 /* Pods-Udemy-UdemyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udemy-UdemyUITests.release.xcconfig"; path = "Target Support Files/Pods-Udemy-UdemyUITests/Pods-Udemy-UdemyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		533145924BB1CD942149CB01 /* Pods-Udemy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udemy.release.xcconfig"; path = "Target Support Files/Pods-Udemy/Pods-Udemy.release.xcconfig"; sourceTree = "<group>"; };
@@ -318,7 +332,6 @@
 			isa = PBXGroup;
 			children = (
 				3E6371DF256647950015F7FE /* Request */,
-				3EC3952D254086F5003D1478 /* Featured */,
 				3E9E9A0D2533204D008207A8 /* Account */,
 				3E9E9A0C2533203E008207A8 /* Auth */,
 			);
@@ -404,6 +417,7 @@
 		3E3B87AD2522DF61006CBC37 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3E6910AD25694AAC006615B9 /* Rating */,
 				3E15C93B2563A1A300C2DCE3 /* Cart */,
 				3EBFE0952561243C00099F2B /* Course */,
 				3E8742BF2533344E001E9D5E /* Auth */,
@@ -422,6 +436,7 @@
 				3E46874A256121F600696356 /* CourseDetailBannerInfoCell.xib */,
 				3E332DEB25615FD800AFA6CE /* CourseDetailOperationCell.xib */,
 				3ED6F23025621F6F004DF2CA /* CourseDetailDescriptionCell.xib */,
+				3E6910B725694BB3006615B9 /* CourseDetailRatingCell.xib */,
 				3E7DD38425624356002AEBE6 /* CourseDetailRelatedCoursesCell.xib */,
 			);
 			path = Cell;
@@ -433,6 +448,7 @@
 				3E468749256121F600696356 /* CourseDetailBannerInfoCell.swift */,
 				3E332DEA25615FD800AFA6CE /* CourseDetailOperationCell.swift */,
 				3ED6F22F25621F6F004DF2CA /* CourseDetailDescriptionCell.swift */,
+				3E6910B625694BB3006615B9 /* CourseDetailRatingCell.swift */,
 				3E7DD38325624356002AEBE6 /* CourseDetailRelatedCoursesCell.swift */,
 			);
 			path = Cell;
@@ -470,6 +486,7 @@
 		3E51760625261F900001D2AD /* Courses */ = {
 			isa = PBXGroup;
 			children = (
+				3EFD070925694D1F00B0DE75 /* Ratings */,
 				3E8F11FE2562D989000A7BF8 /* Cell */,
 				3EE02CE125611E5D00F3BA45 /* Course Detail */,
 				3EACC14D2562D897002E0BFF /* CourseViewController.xib */,
@@ -562,6 +579,8 @@
 		3E6371DF256647950015F7FE /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				3EC3952D254086F5003D1478 /* Featured */,
+				3EFD07192569572200B0DE75 /* Rating */,
 				3E632826256651AD00AE1967 /* Search */,
 				3E63281D2566517800AE1967 /* Cart */,
 				3E6327EE25664B7000AE1967 /* Category_Course */,
@@ -570,6 +589,14 @@
 				3E6327D32566486100AE1967 /* Define.swift */,
 			);
 			path = Request;
+			sourceTree = "<group>";
+		};
+		3E6910AD25694AAC006615B9 /* Rating */ = {
+			isa = PBXGroup;
+			children = (
+				3E6910AE25694AC9006615B9 /* CourseRating.swift */,
+			);
+			path = Rating;
 			sourceTree = "<group>";
 		};
 		3E6A781E2529C03200D2D4B1 /* Login */ = {
@@ -587,6 +614,14 @@
 				3EEF6D78252C9E6F00FFD443 /* ActivationViewController.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		3E71433725695A5D0058FA93 /* Ratings */ = {
+			isa = PBXGroup;
+			children = (
+				3EFD070A25694D6B00B0DE75 /* RatingTableViewCell.swift */,
+			);
+			path = Ratings;
 			sourceTree = "<group>";
 		};
 		3E8742BF2533344E001E9D5E /* Auth */ = {
@@ -640,6 +675,7 @@
 				3E0EF96B252AE2B800AFD584 /* UIView+Message.swift */,
 				3E926E0C252CA812009589E3 /* String.swift */,
 				3E9DFE9E256691030008BFB2 /* UIImageView+Ex.swift */,
+				3EFD0714256954A500B0DE75 /* Date+Ex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -797,6 +833,7 @@
 		3EBC98E12526FDEA00A273C5 /* Courses */ = {
 			isa = PBXGroup;
 			children = (
+				3E71433725695A5D0058FA93 /* Ratings */,
 				3E8F11FD2562D984000A7BF8 /* Cell */,
 				3EE02CE225611E7000F3BA45 /* Course Detail */,
 				3EACC14C2562D897002E0BFF /* CourseViewController.swift */,
@@ -839,7 +876,7 @@
 		3EC3952D254086F5003D1478 /* Featured */ = {
 			isa = PBXGroup;
 			children = (
-				3E350CB5255A7BEE006B325E /* FetchBanners.swift */,
+				3E350CB5255A7BEE006B325E /* APIFetchBanners.swift */,
 			);
 			path = Featured;
 			sourceTree = "<group>";
@@ -860,6 +897,22 @@
 				3EE02CE325611E9000F3BA45 /* CourseDetailVC.swift */,
 			);
 			path = "Course Detail";
+			sourceTree = "<group>";
+		};
+		3EFD070925694D1F00B0DE75 /* Ratings */ = {
+			isa = PBXGroup;
+			children = (
+				3EFD070B25694D6B00B0DE75 /* RatingTableViewCell.xib */,
+			);
+			path = Ratings;
+			sourceTree = "<group>";
+		};
+		3EFD07192569572200B0DE75 /* Rating */ = {
+			isa = PBXGroup;
+			children = (
+				3EFD071A2569573C00B0DE75 /* APIFetchCourseRatings.swift */,
+			);
+			path = Rating;
 			sourceTree = "<group>";
 		};
 		B58929E0601893CB6989395C /* Pods */ = {
@@ -998,6 +1051,7 @@
 				3E54C9EF25634D4C0025B618 /* CartViewController.xib in Resources */,
 				3EB4ABDD2563B7EE00128D57 /* SearchHeader.xib in Resources */,
 				3EACC14F2562D897002E0BFF /* CourseViewController.xib in Resources */,
+				3E6910B925694BB3006615B9 /* CourseDetailRatingCell.xib in Resources */,
 				3EE02CE625611E9000F3BA45 /* CourseDetailVC.xib in Resources */,
 				3E8D2C6325634E6900691511 /* OrderedCourseTableViewCell.xib in Resources */,
 				3EA01D462565E02500F1D6D5 /* CourseTableViewCell.xib in Resources */,
@@ -1008,6 +1062,7 @@
 				3ED6F23225621F6F004DF2CA /* CourseDetailDescriptionCell.xib in Resources */,
 				3E9F3A852532CFEE0086DA90 /* SimpleTableViewCell.xib in Resources */,
 				3E82307C256644AD007F3C2E /* SearchCategoriesCell.xib in Resources */,
+				3EFD070D25694D6B00B0DE75 /* RatingTableViewCell.xib in Resources */,
 				3E8F12022562D9A6000A7BF8 /* MyCourseTableViewCell.xib in Resources */,
 				3E56B472256582DC00CF8BF6 /* SearchResultViewController.xib in Resources */,
 				3E50DB4525656F3300EBF567 /* TagCollectionViewCell.xib in Resources */,
@@ -1142,9 +1197,11 @@
 			files = (
 				3EC3954825412717003D1478 /* CategoryCollectionViewCell.swift in Sources */,
 				3E9271F0256569AF0091CD3C /* SearchSuggestionCell.swift in Sources */,
+				3EFD070C25694D6B00B0DE75 /* RatingTableViewCell.swift in Sources */,
 				3EA33368252C41FD00EC3A2E /* Course.swift in Sources */,
 				3EF18070253BA0A3004432E8 /* Logout.swift in Sources */,
 				3E9E9A0F25332061008207A8 /* UpdateInfo.swift in Sources */,
+				3E6910AF25694AC9006615B9 /* CourseRating.swift in Sources */,
 				3E632828256651BC00AE1967 /* APISearchCourses.swift in Sources */,
 				3E926E0D252CA812009589E3 /* String.swift in Sources */,
 				3E6327D42566486100AE1967 /* Define.swift in Sources */,
@@ -1166,6 +1223,7 @@
 				3EE02CE525611E9000F3BA45 /* CourseDetailVC.swift in Sources */,
 				3E50DB4425656F3300EBF567 /* TagCollectionViewCell.swift in Sources */,
 				3E1221402535A225005D954A /* UpdateAvatar.swift in Sources */,
+				3EFD0715256954A500B0DE75 /* Date+Ex.swift in Sources */,
 				3EC3953D25409C31003D1478 /* CourseCollectionViewCell.swift in Sources */,
 				3E3B87AF2522DF70006CBC37 /* TokenManager.swift in Sources */,
 				3E6327FE25664D3300AE1967 /* APIJoinCourse.swift in Sources */,
@@ -1184,7 +1242,7 @@
 				3E46874B256121F600696356 /* CourseDetailBannerInfoCell.swift in Sources */,
 				3E07EB012522E7B3002EBE7B /* RegisterView.swift in Sources */,
 				3EB9E921253EE62F0043BB9A /* PageViewController.swift in Sources */,
-				3E350CB6255A7BEE006B325E /* FetchBanners.swift in Sources */,
+				3E350CB6255A7BEE006B325E /* APIFetchBanners.swift in Sources */,
 				3E63280E25664F4100AE1967 /* APICheckJoinedCourse.swift in Sources */,
 				3E6E3FEF252304A9004DF50E /* XAnchor.swift in Sources */,
 				3E8D2C6225634E6900691511 /* OrderedCourseTableViewCell.swift in Sources */,
@@ -1227,6 +1285,8 @@
 				3EAD5D562521C8380093944F /* Udemy.xcdatamodeld in Sources */,
 				3EEF6D79252C9E6F00FFD443 /* ActivationViewController.swift in Sources */,
 				3EB9E926253EEB4F0043BB9A /* FeatureView.swift in Sources */,
+				3E6910B825694BB3006615B9 /* CourseDetailRatingCell.swift in Sources */,
+				3EFD071B2569573C00B0DE75 /* APIFetchCourseRatings.swift in Sources */,
 				3E0EF955252ADFD800AFD584 /* Noti.swift in Sources */,
 				3EFFCB402563BAE800CEB97F /* UIViewController+Ex.swift in Sources */,
 				3E926E12252CA8CE009589E3 /* Activate.swift in Sources */,

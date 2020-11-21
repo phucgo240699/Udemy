@@ -11,20 +11,22 @@ import UIKit
 fileprivate let bannerInfoCellID = "courseDetailBannerInfoCell"
 fileprivate let operationCellID = "courseDetailOperationCell"
 fileprivate let descriptionCellID = "courseDetailDescriptionCell"
+fileprivate let ratingsCellID = "courseDetailRatingsCell"
 fileprivate let relatedCoursesCellID = "courseDetailRelatedCourses"
 
 enum CourseDetailCellType: Int {
     case BannerInfo = 0
     case Operation = 1
     case Description = 2
-    case RelatedCourses = 3
+    case Rating = 3
+    case RelatedCourses = 4
 }
 
 class CourseDetailVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let cellTypes: [CourseDetailCellType] = [ .BannerInfo, .Operation, .Description, .RelatedCourses ]
+    let cellTypes: [CourseDetailCellType] = [ .BannerInfo, .Operation, .Description, .Rating, .RelatedCourses ]
     
     var course: Course?
     var relatedCourses: [Course] = []
@@ -88,9 +90,11 @@ extension CourseDetailVC: UITableViewDataSource {
             return UITableView.automaticDimension
         case .Operation:
             return 300.0
-        case.Description:
+        case .Description:
             return UITableView.automaticDimension
-        default:
+        case .Rating:
+            return 220
+        case .RelatedCourses:
             return 368.0
         }
     }
@@ -104,11 +108,15 @@ extension CourseDetailVC: UITableViewDataSource {
         
         switch cellTypes[indexPath.row] {
         case .BannerInfo:
-            let cell = self.tableView.dequeueReusableCell(withIdentifier: bannerInfoCellID, for: indexPath) as! CourseDetailBannerInfoCell
+            guard let cell = self.tableView.dequeueReusableCell(withIdentifier: bannerInfoCellID, for: indexPath) as? CourseDetailBannerInfoCell else {
+                return UITableViewCell()
+            }
             cell.setData(course: course)
             return cell
         case .Operation:
-            let cell = self.tableView.dequeueReusableCell(withIdentifier: operationCellID, for: indexPath) as! CourseDetailOperationCell
+            guard let cell = self.tableView.dequeueReusableCell(withIdentifier: operationCellID, for: indexPath) as? CourseDetailOperationCell else {
+                return UITableViewCell()
+            }
             cell.isJoinedCourse = isJoinedCourse
             cell.onTapJoinCourseBtn = {
                 RequestAPI.shared.joinCourse(idUser: self.course?.idUser?._id, idCourse: self.course?._id) {
@@ -131,11 +139,29 @@ extension CourseDetailVC: UITableViewDataSource {
             cell.setData(course: course)
             return cell
         case .Description:
-            let cell = self.tableView.dequeueReusableCell(withIdentifier: descriptionCellID, for: indexPath) as! CourseDetailDescriptionCell
+            guard let cell = self.tableView.dequeueReusableCell(withIdentifier: descriptionCellID, for: indexPath) as? CourseDetailDescriptionCell else {
+                return UITableViewCell()
+            }
             cell.setData(course: course)
             return cell
+            
+        case .Rating:
+            guard let cell = self.tableView.dequeueReusableCell(withIdentifier: ratingsCellID, for: indexPath) as? CourseDetailRatingCell else {
+                return UITableViewCell()
+            }
+            fetchRatings(by: course?._id) { (courseRatings) in
+                cell.ratings = courseRatings
+                
+                DispatchQueue.main.async {
+                    cell.tableView.reloadData()
+                }
+            }
+            return cell
+            
         case .RelatedCourses:
-            let cell = self.tableView.dequeueReusableCell(withIdentifier: relatedCoursesCellID, for: indexPath) as! CourseDetailRelatedCoursesCell
+            guard let cell = self.tableView.dequeueReusableCell(withIdentifier: relatedCoursesCellID, for: indexPath) as? CourseDetailRelatedCoursesCell else {
+                return UITableViewCell()
+            }
             cell.onTapRelatedCourse = { course in
                 let courseDetailVC = CourseDetailVC()
                 courseDetailVC.course = course
@@ -166,6 +192,7 @@ extension CourseDetailVC {
         tableView.register(UINib(nibName: "CourseDetailBannerInfoCell", bundle: nil), forCellReuseIdentifier: bannerInfoCellID)
         tableView.register(UINib(nibName: "CourseDetailOperationCell", bundle: nil), forCellReuseIdentifier: operationCellID)
         tableView.register(UINib(nibName: "CourseDetailDescriptionCell", bundle: nil), forCellReuseIdentifier: descriptionCellID)
+        tableView.register(UINib(nibName: "CourseDetailRatingCell", bundle: nil), forCellReuseIdentifier: ratingsCellID)
         tableView.register(UINib(nibName: "CourseDetailRelatedCoursesCell", bundle: nil), forCellReuseIdentifier: relatedCoursesCellID)
     }
 }
