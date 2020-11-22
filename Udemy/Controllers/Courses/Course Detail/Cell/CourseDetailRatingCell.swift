@@ -10,9 +10,15 @@ import UIKit
 
 fileprivate let cellID = "courseDetailRatingCell"
 fileprivate let cellHeight: CGFloat = 120.0
+fileprivate let footerHeight: CGFloat = 50.0
+
 class CourseDetailRatingCell: UITableViewCell {
+    
+    // Closure
+    var onTapShowMore: (([CourseRating]) -> Void)?
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var showMoreButton: UIButton!
     
     var ratings: [CourseRating] = []
     
@@ -35,6 +41,11 @@ class CourseDetailRatingCell: UITableViewCell {
         tableView.allowsSelection = false
         
         tableView.afterEffect(cornerRadius: 10.0, borderWidth: 0.0, borderColor: .clear)
+    }
+    @IBAction func showMoreBtnPressed(_ sender: UIButton) {
+        if let onTapShowMore = onTapShowMore {
+            onTapShowMore(ratings)
+        }
     }
 }
 

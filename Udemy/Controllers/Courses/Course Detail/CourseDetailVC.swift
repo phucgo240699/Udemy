@@ -93,7 +93,7 @@ extension CourseDetailVC: UITableViewDataSource {
         case .Description:
             return UITableView.automaticDimension
         case .Rating:
-            return 220
+            return 200
         case .RelatedCourses:
             return 368.0
         }
@@ -149,9 +149,18 @@ extension CourseDetailVC: UITableViewDataSource {
             guard let cell = self.tableView.dequeueReusableCell(withIdentifier: ratingsCellID, for: indexPath) as? CourseDetailRatingCell else {
                 return UITableViewCell()
             }
+            cell.onTapShowMore = { ratings in
+                let ratingsVC = RatingsViewController()
+                ratingsVC.ratings = ratings
+                self.navigationController?.pushViewController(ratingsVC, animated: true)
+            }
+            
             fetchRatings(by: course?._id) { (courseRatings) in
                 cell.ratings = courseRatings
-                
+                let numberOfRatings = courseRatings.count
+                if numberOfRatings < 3 {
+                    cell.showMoreButton.setTitle("", for: .normal)
+                }
                 DispatchQueue.main.async {
                     cell.tableView.reloadData()
                 }
