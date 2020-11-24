@@ -39,7 +39,7 @@ class CourseDetailRatingCell: UITableViewCell {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "RatingTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
         tableView.allowsSelection = false
-        
+        tableView.isScrollEnabled = false
         tableView.afterEffect(cornerRadius: 10.0, borderWidth: 0.0, borderColor: .clear)
     }
     @IBAction func showMoreBtnPressed(_ sender: UIButton) {

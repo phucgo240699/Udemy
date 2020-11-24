@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="IuQ-LE-YNv">
-                        <rect key="frame" x="10" y="58" width="300" height="300"/>
+                        <rect key="frame" x="10" y="48" width="300" height="310"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="f0b-MU-H5Q">
                             <size key="itemSize" width="128" height="128"/>
@@ -30,7 +30,7 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Related Courses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiV-kV-qtW">
-                        <rect key="frame" x="10" y="20" width="300" height="18"/>
+                        <rect key="frame" x="10" y="10" width="300" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="ic0-6v-goC"/>
                         </constraints>
@@ -44,7 +44,7 @@
                     <constraint firstAttribute="trailing" secondItem="KiV-kV-qtW" secondAttribute="trailing" constant="10" id="59g-qG-cM4"/>
                     <constraint firstAttribute="bottom" secondItem="IuQ-LE-YNv" secondAttribute="bottom" constant="10" id="C1S-Da-KfI"/>
                     <constraint firstItem="IuQ-LE-YNv" firstAttribute="top" secondItem="KiV-kV-qtW" secondAttribute="bottom" constant="20" id="F1p-vF-66L"/>
-                    <constraint firstItem="KiV-kV-qtW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="Ijq-my-DkY"/>
+                    <constraint firstItem="KiV-kV-qtW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Ijq-my-DkY"/>
                     <constraint firstItem="KiV-kV-qtW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="OpR-Gw-QWu"/>
                     <constraint firstItem="IuQ-LE-YNv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Pg0-x2-BGO"/>
                     <constraint firstAttribute="trailing" secondItem="IuQ-LE-YNv" secondAttribute="trailing" constant="10" id="uyd-pX-ybp"/>

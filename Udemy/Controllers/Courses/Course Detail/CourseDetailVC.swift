@@ -93,7 +93,7 @@ extension CourseDetailVC: UITableViewDataSource {
         case .Description:
             return UITableView.automaticDimension
         case .Rating:
-            return 200
+            return 225
         case .RelatedCourses:
             return 368.0
         }
@@ -158,7 +158,7 @@ extension CourseDetailVC: UITableViewDataSource {
             fetchRatings(by: course?._id) { (courseRatings) in
                 cell.ratings = courseRatings
                 let numberOfRatings = courseRatings.count
-                if numberOfRatings < 3 {
+                if numberOfRatings < 2 {
                     cell.showMoreButton.setTitle("", for: .normal)
                 }
                 DispatchQueue.main.async {
