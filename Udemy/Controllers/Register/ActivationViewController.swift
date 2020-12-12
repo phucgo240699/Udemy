@@ -48,6 +48,8 @@ class ActivationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.enableTapToDismiss()
+        
         // Background
         view.backgroundColor = .clear
         view.addGradient(colors: [Common.color.blue.cgColor, Common.color.purple.cgColor], start: CGPoint(x: 0.0, y: 0.0), end: CGPoint(x: 0.0, y: 1.0) )

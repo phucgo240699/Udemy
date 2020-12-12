@@ -57,6 +57,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.enableTapToDismiss()
+        
         // Setup view
         navigationController?.navigationBar.isHidden = true
         view.backgroundColor = .clear

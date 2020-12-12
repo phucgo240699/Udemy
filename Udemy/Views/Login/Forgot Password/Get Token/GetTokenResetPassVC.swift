@@ -17,6 +17,8 @@ class GetTokenResetPassVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.enableTapToDismiss()
+        
         setupUI()
     }
     

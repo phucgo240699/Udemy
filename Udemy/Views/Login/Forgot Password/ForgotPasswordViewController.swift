@@ -21,6 +21,8 @@ class ForgotPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.enableTapToDismiss()
+        
         setupUI()
     }
 
@@ -34,6 +36,7 @@ class ForgotPasswordViewController: UIViewController {
         // TextField
         newPasswordTf.delegate = self
         reNewPasswordTf.delegate = self
+        tokenTf.delegate = self
         
         // Button
         resetBtn.afterEffect(cornerRadius: 10, borderWidth: 0, borderColor: .clear)
@@ -70,19 +73,14 @@ extension ForgotPasswordViewController: UITextFieldDelegate{
         if let firstCount = newPasswordTf.text?.count, let secondCount = reNewPasswordTf.text?.count, let thirdCount = tokenTf.text?.count {
             if firstCount > 0 && secondCount > 0 && thirdCount > 0 && newPasswordTf.text == reNewPasswordTf.text {
                 
-                newPasswordTf.isEnabled = true
-                reNewPasswordTf.isEnabled = true
+                resetBtn.isEnabled = true
+                resetBtn.backgroundColor = Common.color.blue
                 
-                newPasswordTf.backgroundColor = Common.color.blue
-                reNewPasswordTf.backgroundColor = Common.color.blue
             }
         }
         else {
-            newPasswordTf.isEnabled = false
-            reNewPasswordTf.isEnabled = false
-            
-            newPasswordTf.backgroundColor = .lightGray
-            reNewPasswordTf.backgroundColor = .lightGray
+            resetBtn.isEnabled = false
+            resetBtn.backgroundColor = .lightGray
         }
     }
 }
