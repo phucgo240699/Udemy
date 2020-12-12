@@ -18,13 +18,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QcI-j3-Y7w">
-                        <rect key="frame" x="10" y="10" width="133.5" height="100"/>
+                        <rect key="frame" x="10" y="10" width="100" height="100"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="QcI-j3-Y7w" secondAttribute="height" multiplier="4:3" id="ih7-ea-Jwi"/>
+                            <constraint firstAttribute="width" secondItem="QcI-j3-Y7w" secondAttribute="height" multiplier="1:1" id="2Eg-Kk-3Sb"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHW-7t-fsY">
-                        <rect key="frame" x="153.5" y="10" width="211.5" height="22.5"/>
+                        <rect key="frame" x="120" y="10" width="245" height="22.5"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="hKn-7L-97T"/>
                         </constraints>
@@ -33,22 +33,24 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7fG-MZ-lzy">
-                        <rect key="frame" x="153.5" y="57.5" width="211.5" height="4"/>
+                        <rect key="frame" x="120" y="57.5" width="245" height="4"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="4" id="KXA-qt-ZuJ"/>
                         </constraints>
                     </progressView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="7fG-MZ-lzy" firstAttribute="leading" secondItem="QcI-j3-Y7w" secondAttribute="trailing" constant="10" id="KW8-SX-tc8"/>
-                    <constraint firstItem="QcI-j3-Y7w" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="NaG-Dj-LMT"/>
-                    <constraint firstAttribute="bottom" secondItem="QcI-j3-Y7w" secondAttribute="bottom" constant="10" id="SO5-2n-edj"/>
+                    <constraint firstAttribute="bottom" secondItem="QcI-j3-Y7w" secondAttribute="bottom" constant="10" id="3u8-hf-S2U"/>
+                    <constraint firstItem="QcI-j3-Y7w" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="BoG-mj-6Az"/>
+                    <constraint firstAttribute="bottom" secondItem="7fG-MZ-lzy" secondAttribute="bottom" constant="58.5" id="ShH-5L-fzY"/>
                     <constraint firstItem="7fG-MZ-lzy" firstAttribute="top" secondItem="EHW-7t-fsY" secondAttribute="bottom" constant="25" id="Ua4-MK-vXG"/>
                     <constraint firstItem="EHW-7t-fsY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Zom-Sq-khO"/>
                     <constraint firstAttribute="trailing" secondItem="EHW-7t-fsY" secondAttribute="trailing" constant="10" id="aHq-uw-rsC"/>
                     <constraint firstAttribute="trailing" secondItem="7fG-MZ-lzy" secondAttribute="trailing" constant="10" id="cND-dP-J5W"/>
-                    <constraint firstItem="EHW-7t-fsY" firstAttribute="leading" secondItem="QcI-j3-Y7w" secondAttribute="trailing" constant="10" id="cck-Xa-jNV"/>
-                    <constraint firstItem="QcI-j3-Y7w" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="xCs-du-H6G"/>
+                    <constraint firstItem="7fG-MZ-lzy" firstAttribute="leading" secondItem="QcI-j3-Y7w" secondAttribute="trailing" constant="10" id="dzV-kN-egM"/>
+                    <constraint firstItem="EHW-7t-fsY" firstAttribute="leading" secondItem="QcI-j3-Y7w" secondAttribute="trailing" constant="10" id="esg-6t-N2y"/>
+                    <constraint firstItem="QcI-j3-Y7w" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="kIh-hF-v97"/>
+                    <constraint firstItem="QcI-j3-Y7w" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xJC-EP-tgH"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -57,7 +59,7 @@
                 <outlet property="lbName" destination="EHW-7t-fsY" id="9i9-GU-OsM"/>
                 <outlet property="progressView" destination="7fG-MZ-lzy" id="OO2-6s-4cx"/>
             </connections>
-            <point key="canvasLocation" x="34.782608695652179" y="127.90178571428571"/>
+            <point key="canvasLocation" x="36.956521739130437" y="98.102678571428569"/>
         </tableViewCell>
     </objects>
 </document>

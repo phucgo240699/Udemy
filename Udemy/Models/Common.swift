@@ -27,7 +27,7 @@ struct ImageName {
     var photos = "photos"
     var shield = "shield"
     var credit_card = "credit-card"
-    
+    var stripe_logo = "stripelogo"
     
 }
 
@@ -80,6 +80,7 @@ struct Link {
     
     
     //-- Payment
+    let getPaymentKey: String = "http://149.28.24.98:9000/payment/get-payment-public-key"
     let payCourse: String = "http://149.28.24.98:9000/payment/pay"
     
     //-- Search

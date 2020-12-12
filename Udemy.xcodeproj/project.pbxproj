@@ -33,6 +33,12 @@
 		3E3AEC61256A1D88005BACF7 /* RatingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AEC5F256A1D88005BACF7 /* RatingsViewController.swift */; };
 		3E3AEC62256A1D88005BACF7 /* RatingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E3AEC60256A1D88005BACF7 /* RatingsViewController.xib */; };
 		3E3B87AF2522DF70006CBC37 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B87AE2522DF70006CBC37 /* TokenManager.swift */; };
+		3E465E4D257A43A000AFE5B2 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E465E4B257A43A000AFE5B2 /* PaymentViewController.swift */; };
+		3E465E4E257A43A000AFE5B2 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E465E4B257A43A000AFE5B2 /* PaymentViewController.swift */; };
+		3E465E4F257A43A000AFE5B2 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E465E4B257A43A000AFE5B2 /* PaymentViewController.swift */; };
+		3E465E50257A43A000AFE5B2 /* PaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E465E4C257A43A000AFE5B2 /* PaymentViewController.xib */; };
+		3E465E51257A43A000AFE5B2 /* PaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E465E4C257A43A000AFE5B2 /* PaymentViewController.xib */; };
+		3E465E52257A43A000AFE5B2 /* PaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E465E4C257A43A000AFE5B2 /* PaymentViewController.xib */; };
 		3E46874B256121F600696356 /* CourseDetailBannerInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E468749256121F600696356 /* CourseDetailBannerInfoCell.swift */; };
 		3E46874C256121F600696356 /* CourseDetailBannerInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E46874A256121F600696356 /* CourseDetailBannerInfoCell.xib */; };
 		3E50DB4425656F3300EBF567 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E50DB4225656F3300EBF567 /* TagCollectionViewCell.swift */; };
@@ -94,6 +100,10 @@
 		3EA01D452565E02500F1D6D5 /* CourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA01D432565E02500F1D6D5 /* CourseTableViewCell.swift */; };
 		3EA01D462565E02500F1D6D5 /* CourseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EA01D442565E02500F1D6D5 /* CourseTableViewCell.xib */; };
 		3EA33368252C41FD00EC3A2E /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA33367252C41FD00EC3A2E /* Course.swift */; };
+		3EA60144257A69DE003DF25F /* getPaymentKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA60143257A69DE003DF25F /* getPaymentKey.swift */; };
+		3EA6014D257A6DDC003DF25F /* PaymentKeyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6014C257A6DDC003DF25F /* PaymentKeyResponse.swift */; };
+		3EA60158257A6E73003DF25F /* PayCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA60157257A6E73003DF25F /* PayCourse.swift */; };
+		3EA6015D257A70AE003DF25F /* PayCourseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6015C257A70AE003DF25F /* PayCourseResponse.swift */; };
 		3EACC14E2562D897002E0BFF /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACC14C2562D897002E0BFF /* CourseViewController.swift */; };
 		3EACC14F2562D897002E0BFF /* CourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC14D2562D897002E0BFF /* CourseViewController.xib */; };
 		3EAD5D4C2521C8370093944F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD5D4B2521C8370093944F /* AppDelegate.swift */; };
@@ -178,6 +188,8 @@
 		3E3AEC5F256A1D88005BACF7 /* RatingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsViewController.swift; sourceTree = "<group>"; };
 		3E3AEC60256A1D88005BACF7 /* RatingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingsViewController.xib; sourceTree = "<group>"; };
 		3E3B87AE2522DF70006CBC37 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		3E465E4B257A43A000AFE5B2 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		3E465E4C257A43A000AFE5B2 /* PaymentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentViewController.xib; sourceTree = "<group>"; };
 		3E468749256121F600696356 /* CourseDetailBannerInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailBannerInfoCell.swift; sourceTree = "<group>"; };
 		3E46874A256121F600696356 /* CourseDetailBannerInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseDetailBannerInfoCell.xib; sourceTree = "<group>"; };
 		3E50DB4225656F3300EBF567 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -239,6 +251,10 @@
 		3EA01D432565E02500F1D6D5 /* CourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTableViewCell.swift; sourceTree = "<group>"; };
 		3EA01D442565E02500F1D6D5 /* CourseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseTableViewCell.xib; sourceTree = "<group>"; };
 		3EA33367252C41FD00EC3A2E /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		3EA60143257A69DE003DF25F /* getPaymentKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getPaymentKey.swift; sourceTree = "<group>"; };
+		3EA6014C257A6DDC003DF25F /* PaymentKeyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentKeyResponse.swift; sourceTree = "<group>"; };
+		3EA60157257A6E73003DF25F /* PayCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCourse.swift; sourceTree = "<group>"; };
+		3EA6015C257A70AE003DF25F /* PayCourseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCourseResponse.swift; sourceTree = "<group>"; };
 		3EACC14C2562D897002E0BFF /* CourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
 		3EACC14D2562D897002E0BFF /* CourseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseViewController.xib; sourceTree = "<group>"; };
 		3EAD5D482521C8370093944F /* Udemy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udemy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -421,6 +437,7 @@
 		3E3B87AD2522DF61006CBC37 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3EA6014B257A6DAF003DF25F /* Payment */,
 				3E6910AD25694AAC006615B9 /* Rating */,
 				3E15C93B2563A1A300C2DCE3 /* Cart */,
 				3EBFE0952561243C00099F2B /* Course */,
@@ -432,6 +449,22 @@
 				3E91FD9D252415C90086DA0A /* CurrentController.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3E465E49257A437100AFE5B2 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				3E465E4C257A43A000AFE5B2 /* PaymentViewController.xib */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		3E465E4A257A437A00AFE5B2 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				3E465E4B257A43A000AFE5B2 /* PaymentViewController.swift */,
+			);
+			path = Payment;
 			sourceTree = "<group>";
 		};
 		3E468747256121CC00696356 /* Cell */ = {
@@ -501,6 +534,7 @@
 		3E51760725261F9A0001D2AD /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				3E465E49257A437100AFE5B2 /* Payment */,
 				3E8D2C5E25634E4100691511 /* Cell */,
 				3E54C9ED25634D4C0025B618 /* CartViewController.xib */,
 			);
@@ -583,6 +617,7 @@
 		3E6371DF256647950015F7FE /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				3EA60142257A69C8003DF25F /* Payment */,
 				3EC3952D254086F5003D1478 /* Featured */,
 				3EFD07192569572200B0DE75 /* Rating */,
 				3E632826256651AD00AE1967 /* Search */,
@@ -744,6 +779,24 @@
 			path = Featured;
 			sourceTree = "<group>";
 		};
+		3EA60142257A69C8003DF25F /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				3EA60143257A69DE003DF25F /* getPaymentKey.swift */,
+				3EA60157257A6E73003DF25F /* PayCourse.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		3EA6014B257A6DAF003DF25F /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				3EA6014C257A6DDC003DF25F /* PaymentKeyResponse.swift */,
+				3EA6015C257A70AE003DF25F /* PayCourseResponse.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
 		3EAD5D3F2521C8370093944F = {
 			isa = PBXGroup;
 			children = (
@@ -829,6 +882,7 @@
 		3EBC98DE2526FD9F00A273C5 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				3E465E4A257A437A00AFE5B2 /* Payment */,
 				3E8D2C5F25634E4600691511 /* Cell */,
 				3E54C9EC25634D4C0025B618 /* CartViewController.swift */,
 			);
@@ -1075,6 +1129,7 @@
 				3E50DB4525656F3300EBF567 /* TagCollectionViewCell.xib in Resources */,
 				3E46874C256121F600696356 /* CourseDetailBannerInfoCell.xib in Resources */,
 				3E5EA6D12563B57400248552 /* SearchViewController.xib in Resources */,
+				3E465E50257A43A000AFE5B2 /* PaymentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1082,6 +1137,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E465E51257A43A000AFE5B2 /* PaymentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1089,6 +1145,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E465E52257A43A000AFE5B2 /* PaymentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1214,6 +1271,7 @@
 				3E6327D42566486100AE1967 /* Define.swift in Sources */,
 				3EE02CDD25611E4900F3BA45 /* BaseXibView.swift in Sources */,
 				3E07EB032522E7CC002EBE7B /* Common.swift in Sources */,
+				3EA6015D257A70AE003DF25F /* PayCourseResponse.swift in Sources */,
 				3EAD5D502521C8380093944F /* LoginViewController.swift in Sources */,
 				3E8D0ED32562E03500F1295C /* JoinedCourse.swift in Sources */,
 				3E6327F025664B8900AE1967 /* APIFetchCoursesByCategory.swift in Sources */,
@@ -1227,6 +1285,7 @@
 				3E6327DC256649EE00AE1967 /* APIFetchNewCourses.swift in Sources */,
 				3E7DE41225406F2E002DC3DE /* Vote.swift in Sources */,
 				3E6328162566507500AE1967 /* APIFetchJoinedCourses.swift in Sources */,
+				3EA60158257A6E73003DF25F /* PayCourse.swift in Sources */,
 				3EE02CE525611E9000F3BA45 /* CourseDetailVC.swift in Sources */,
 				3E50DB4425656F3300EBF567 /* TagCollectionViewCell.swift in Sources */,
 				3E1221402535A225005D954A /* UpdateAvatar.swift in Sources */,
@@ -1245,6 +1304,7 @@
 				3EF296A12541D19100B99A41 /* CourseCell.swift in Sources */,
 				3EB9E92B253EF1150043BB9A /* Category.swift in Sources */,
 				3E07EB0F2522E993002EBE7B /* TextField.swift in Sources */,
+				3E465E4D257A43A000AFE5B2 /* PaymentViewController.swift in Sources */,
 				3E1951ED25342ACA00AB9D06 /* PasswordView.swift in Sources */,
 				3E46874B256121F600696356 /* CourseDetailBannerInfoCell.swift in Sources */,
 				3E07EB012522E7B3002EBE7B /* RegisterView.swift in Sources */,
@@ -1285,6 +1345,7 @@
 				3E15C93D2563A1B400C2DCE3 /* Cart.swift in Sources */,
 				3E1951E825342A0800AB9D06 /* PasswordViewController.swift in Sources */,
 				3E5EA6D02563B57400248552 /* SearchViewController.swift in Sources */,
+				3EA6014D257A6DDC003DF25F /* PaymentKeyResponse.swift in Sources */,
 				3E07EB0B2522E976002EBE7B /* Image.swift in Sources */,
 				3E6327E125664A9700AE1967 /* APIFetchFreeCourses.swift in Sources */,
 				3ED6F23125621F6F004DF2CA /* CourseDetailDescriptionCell.swift in Sources */,
@@ -1296,6 +1357,7 @@
 				3E6910B825694BB3006615B9 /* CourseDetailRatingCell.swift in Sources */,
 				3EFD071B2569573C00B0DE75 /* APIFetchCourseRatings.swift in Sources */,
 				3E0EF955252ADFD800AFD584 /* Noti.swift in Sources */,
+				3EA60144257A69DE003DF25F /* getPaymentKey.swift in Sources */,
 				3EFFCB402563BAE800CEB97F /* UIViewController+Ex.swift in Sources */,
 				3E926E12252CA8CE009589E3 /* Activate.swift in Sources */,
 			);
@@ -1306,6 +1368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EAD5D662521C8390093944F /* UdemyTests.swift in Sources */,
+				3E465E4E257A43A000AFE5B2 /* PaymentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1314,6 +1377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EAD5D712521C8390093944F /* UdemyUITests.swift in Sources */,
+				3E465E4F257A43A000AFE5B2 /* PaymentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

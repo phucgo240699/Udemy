@@ -35,7 +35,7 @@ class CourseViewController: UIViewController {
     func setupUI() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "CourseTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
+        tableView.register(UINib(nibName: "MyCourseTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
         
         // refresh control
         refreshControl.addTarget(self, action: #selector(CourseViewController.refresh(_:)), for: .valueChanged)
@@ -58,6 +58,12 @@ class CourseViewController: UIViewController {
 
 // MARK: - UITableViewDatasource
 extension CourseViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120.0//UITableView.automaticDimension
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return courses.count
     }
