@@ -54,6 +54,16 @@ extension UIView {
         self.layer.addSublayer(gradient)
     }
     
+    func insertGradient(index: UInt32, colors: [CGColor], start: CGPoint, end: CGPoint) {
+        let gradient = CAGradientLayer()
+        gradient.frame = self.frame
+        gradient.colors = colors
+        gradient.startPoint = start
+        gradient.endPoint = end
+        gradient.locations = [0.0, 1.0]
+        self.layer.insertSublayer(gradient, at: index)
+    }
+    
     func pin(to parentView: UIView) {
         if self.isDescendant(of: parentView) == false {
             parentView.addSubview(self)

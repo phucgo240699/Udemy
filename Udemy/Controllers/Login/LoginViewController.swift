@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
     var loginBtn: UIButton?
     var registerBtn: UIButton?
     var activeBtn: UIButton?
+    var forgotPasswordBtn: UIButton?
     
     var width:CGFloat {
         get {
@@ -39,17 +40,17 @@ class LoginViewController: UIViewController {
     }
     var heightTextField: CGFloat {
         get {
-            return width * (UIDevice.current.userInterfaceIdiom == .phone ? 0.12 : 0.08)
+            return 44.0
         }
     }
     var heightLoginButton: CGFloat {
         get {
-            return width * (UIDevice.current.userInterfaceIdiom == .phone ? 0.12 : 0.08)
+            return 60.0
         }
     }
     var widthLoginButton: CGFloat {
         get {
-            return width * (UIDevice.current.userInterfaceIdiom == .phone ? 0.4 : 0.3)
+            return 180.0
         }
     }
     var marginSpace: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 20.0: 10.0
@@ -63,10 +64,16 @@ class LoginViewController: UIViewController {
         
         // Setup components
         initializeImageView()
-        initializeTextField(&emailTxtField, "Email", YAnchor(direction: view.centerYAnchor , constant: 0), keyType: .emailAddress)
-        initializeTextField(&passwordTxtField, "Password", YAnchor(direction: emailTxtField!.bottomAnchor, constant: height * 0.02), isHideText: true)
+        
+        guard let imageView = imageView else {
+            return
+        }
+        
+        initializeTextField(&emailTxtField, "Email", YAnchor(direction: imageView.bottomAnchor , constant: 2 * marginSpace), keyType: .emailAddress)
+        initializeTextField(&passwordTxtField, "Password", YAnchor(direction: emailTxtField!.bottomAnchor, constant: marginSpace), isHideText: true)
         initializeLoginButton()
         initializeRegisterButton()
+        initializeForgotPassBtn()
         initializeActiveButton()
         
         emailTxtField?.delegate = self
@@ -94,6 +101,10 @@ class LoginViewController: UIViewController {
     
     @objc func registerBtnPressed(_ sender: UIButton) {
         navigationController?.pushViewController(RegisterViewController(), animated: true)
+    }
+    
+    @objc func forgotPasswordBtnPressed(_ sender: UIButton) {
+        navigationController?.pushViewController(GetTokenResetPassVC(), animated: true)
     }
 }
 

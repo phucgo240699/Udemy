@@ -21,6 +21,12 @@
 		3E07EB132522E9B0002EBE7B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EB122522E9B0002EBE7B /* Button.swift */; };
 		3E0EF955252ADFD800AFD584 /* Noti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0EF954252ADFD800AFD584 /* Noti.swift */; };
 		3E0EF96C252AE2B800AFD584 /* UIView+Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0EF96B252AE2B800AFD584 /* UIView+Message.swift */; };
+		3E1098B2258456A700F7396E /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1098B0258456A700F7396E /* ForgotPasswordViewController.swift */; };
+		3E1098B3258456A700F7396E /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1098B0258456A700F7396E /* ForgotPasswordViewController.swift */; };
+		3E1098B4258456A700F7396E /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1098B0258456A700F7396E /* ForgotPasswordViewController.swift */; };
+		3E1098B5258456A700F7396E /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E1098B1258456A700F7396E /* ForgotPasswordViewController.xib */; };
+		3E1098B6258456A700F7396E /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E1098B1258456A700F7396E /* ForgotPasswordViewController.xib */; };
+		3E1098B7258456A700F7396E /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E1098B1258456A700F7396E /* ForgotPasswordViewController.xib */; };
 		3E1221362535A1DF005D954A /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1221352535A1DF005D954A /* AvatarViewController.swift */; };
 		3E12213B2535A201005D954A /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E12213A2535A201005D954A /* AvatarView.swift */; };
 		3E1221402535A225005D954A /* UpdateAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E12213F2535A225005D954A /* UpdateAvatar.swift */; };
@@ -47,6 +53,12 @@
 		3E51760325261ECF0001D2AD /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760225261ECF0001D2AD /* MainTabBarController.swift */; };
 		3E51760A25261FBA0001D2AD /* FeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51760925261FBA0001D2AD /* FeatureViewController.swift */; };
 		3E5176122526204D0001D2AD /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5176112526204D0001D2AD /* AccountViewController.swift */; };
+		3E53DC6A25845F0F009F3F97 /* GetTokenResetPassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E53DC6825845F0F009F3F97 /* GetTokenResetPassVC.swift */; };
+		3E53DC6B25845F0F009F3F97 /* GetTokenResetPassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E53DC6825845F0F009F3F97 /* GetTokenResetPassVC.swift */; };
+		3E53DC6C25845F0F009F3F97 /* GetTokenResetPassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E53DC6825845F0F009F3F97 /* GetTokenResetPassVC.swift */; };
+		3E53DC6D25845F0F009F3F97 /* GetTokenResetPassVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E53DC6925845F0F009F3F97 /* GetTokenResetPassVC.xib */; };
+		3E53DC6E25845F0F009F3F97 /* GetTokenResetPassVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E53DC6925845F0F009F3F97 /* GetTokenResetPassVC.xib */; };
+		3E53DC6F25845F0F009F3F97 /* GetTokenResetPassVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E53DC6925845F0F009F3F97 /* GetTokenResetPassVC.xib */; };
 		3E54C9EE25634D4C0025B618 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E54C9EC25634D4C0025B618 /* CartViewController.swift */; };
 		3E54C9EF25634D4C0025B618 /* CartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E54C9ED25634D4C0025B618 /* CartViewController.xib */; };
 		3E56B471256582DC00CF8BF6 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E56B46F256582DC00CF8BF6 /* SearchResultViewController.swift */; };
@@ -75,6 +87,15 @@
 		3E7DD38525624356002AEBE6 /* CourseDetailRelatedCoursesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7DD38325624356002AEBE6 /* CourseDetailRelatedCoursesCell.swift */; };
 		3E7DD38625624356002AEBE6 /* CourseDetailRelatedCoursesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7DD38425624356002AEBE6 /* CourseDetailRelatedCoursesCell.xib */; };
 		3E7DE41225406F2E002DC3DE /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7DE41125406F2E002DC3DE /* Vote.swift */; };
+		3E7FDC48258464B80070CCE9 /* GetTokenResetPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDC47258464B80070CCE9 /* GetTokenResetPass.swift */; };
+		3E7FDC49258464B80070CCE9 /* GetTokenResetPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDC47258464B80070CCE9 /* GetTokenResetPass.swift */; };
+		3E7FDC4A258464B80070CCE9 /* GetTokenResetPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDC47258464B80070CCE9 /* GetTokenResetPass.swift */; };
+		3E7FDC4F2584683A0070CCE9 /* ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDC4E2584683A0070CCE9 /* ResetPassword.swift */; };
+		3E7FDC502584683A0070CCE9 /* ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDC4E2584683A0070CCE9 /* ResetPassword.swift */; };
+		3E7FDC512584683A0070CCE9 /* ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDC4E2584683A0070CCE9 /* ResetPassword.swift */; };
+		3E7FDC56258469360070CCE9 /* ResetPassRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDC55258469360070CCE9 /* ResetPassRes.swift */; };
+		3E7FDC57258469360070CCE9 /* ResetPassRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDC55258469360070CCE9 /* ResetPassRes.swift */; };
+		3E7FDC58258469360070CCE9 /* ResetPassRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDC55258469360070CCE9 /* ResetPassRes.swift */; };
 		3E82307B256644AD007F3C2E /* SearchCategoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E823079256644AD007F3C2E /* SearchCategoriesCell.swift */; };
 		3E82307C256644AD007F3C2E /* SearchCategoriesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E82307A256644AD007F3C2E /* SearchCategoriesCell.xib */; };
 		3E8742C125333479001E9D5E /* UserFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8742C025333479001E9D5E /* UserFunc.swift */; };
@@ -176,6 +197,8 @@
 		3E07EB122522E9B0002EBE7B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		3E0EF954252ADFD800AFD584 /* Noti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Noti.swift; sourceTree = "<group>"; };
 		3E0EF96B252AE2B800AFD584 /* UIView+Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Message.swift"; sourceTree = "<group>"; };
+		3E1098B0258456A700F7396E /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		3E1098B1258456A700F7396E /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		3E1221352535A1DF005D954A /* AvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewController.swift; sourceTree = "<group>"; };
 		3E12213A2535A201005D954A /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		3E12213F2535A225005D954A /* UpdateAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAvatar.swift; sourceTree = "<group>"; };
@@ -198,6 +221,8 @@
 		3E51760225261ECF0001D2AD /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		3E51760925261FBA0001D2AD /* FeatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureViewController.swift; sourceTree = "<group>"; };
 		3E5176112526204D0001D2AD /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		3E53DC6825845F0F009F3F97 /* GetTokenResetPassVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTokenResetPassVC.swift; sourceTree = "<group>"; };
+		3E53DC6925845F0F009F3F97 /* GetTokenResetPassVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GetTokenResetPassVC.xib; sourceTree = "<group>"; };
 		3E54C9EC25634D4C0025B618 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		3E54C9ED25634D4C0025B618 /* CartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartViewController.xib; sourceTree = "<group>"; };
 		3E56B46F256582DC00CF8BF6 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +251,9 @@
 		3E7DD38325624356002AEBE6 /* CourseDetailRelatedCoursesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailRelatedCoursesCell.swift; sourceTree = "<group>"; };
 		3E7DD38425624356002AEBE6 /* CourseDetailRelatedCoursesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseDetailRelatedCoursesCell.xib; sourceTree = "<group>"; };
 		3E7DE41125406F2E002DC3DE /* Vote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
+		3E7FDC47258464B80070CCE9 /* GetTokenResetPass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTokenResetPass.swift; sourceTree = "<group>"; };
+		3E7FDC4E2584683A0070CCE9 /* ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassword.swift; sourceTree = "<group>"; };
+		3E7FDC55258469360070CCE9 /* ResetPassRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassRes.swift; sourceTree = "<group>"; };
 		3E823079256644AD007F3C2E /* SearchCategoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategoriesCell.swift; sourceTree = "<group>"; };
 		3E82307A256644AD007F3C2E /* SearchCategoriesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCategoriesCell.xib; sourceTree = "<group>"; };
 		3E8742C025333479001E9D5E /* UserFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFunc.swift; sourceTree = "<group>"; };
@@ -334,6 +362,7 @@
 		3E07EAF62522E27D002EBE7B /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				3E1098AF258455D500F7396E /* Forgot Password */,
 				3E07EAFB2522E493002EBE7B /* LoginView.swift */,
 			);
 			path = Login;
@@ -382,6 +411,25 @@
 				3E0EF954252ADFD800AFD584 /* Noti.swift */,
 			);
 			path = Popup;
+			sourceTree = "<group>";
+		};
+		3E1098AF258455D500F7396E /* Forgot Password */ = {
+			isa = PBXGroup;
+			children = (
+				3E1098BE2584590900F7396E /* Get Token */,
+				3E1098B0258456A700F7396E /* ForgotPasswordViewController.swift */,
+				3E1098B1258456A700F7396E /* ForgotPasswordViewController.xib */,
+			);
+			path = "Forgot Password";
+			sourceTree = "<group>";
+		};
+		3E1098BE2584590900F7396E /* Get Token */ = {
+			isa = PBXGroup;
+			children = (
+				3E53DC6825845F0F009F3F97 /* GetTokenResetPassVC.swift */,
+				3E53DC6925845F0F009F3F97 /* GetTokenResetPassVC.xib */,
+			);
+			path = "Get Token";
 			sourceTree = "<group>";
 		};
 		3E15C93B2563A1A300C2DCE3 /* Cart */ = {
@@ -552,6 +600,15 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
+		3E53DC7325846448009F3F97 /* Forget Password */ = {
+			isa = PBXGroup;
+			children = (
+				3E7FDC47258464B80070CCE9 /* GetTokenResetPass.swift */,
+				3E7FDC4E2584683A0070CCE9 /* ResetPassword.swift */,
+			);
+			path = "Forget Password";
+			sourceTree = "<group>";
+		};
 		3E56B46D256582B200CF8BF6 /* Search Result */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,6 +674,7 @@
 		3E6371DF256647950015F7FE /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				3E53DC7325846448009F3F97 /* Forget Password */,
 				3EA60142257A69C8003DF25F /* Payment */,
 				3EC3952D254086F5003D1478 /* Featured */,
 				3EFD07192569572200B0DE75 /* Rating */,
@@ -670,6 +728,7 @@
 				3EF18074253BA3A7004432E8 /* StatusResponse.swift */,
 				3E77E79C252DFD32004F0340 /* Account.swift */,
 				3E8742C025333479001E9D5E /* UserFunc.swift */,
+				3E7FDC55258469360070CCE9 /* ResetPassRes.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -1107,11 +1166,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E1098B5258456A700F7396E /* ForgotPasswordViewController.xib in Resources */,
 				3E7DD38625624356002AEBE6 /* CourseDetailRelatedCoursesCell.xib in Resources */,
 				3E54C9EF25634D4C0025B618 /* CartViewController.xib in Resources */,
 				3EB4ABDD2563B7EE00128D57 /* SearchHeader.xib in Resources */,
 				3EACC14F2562D897002E0BFF /* CourseViewController.xib in Resources */,
 				3E6910B925694BB3006615B9 /* CourseDetailRatingCell.xib in Resources */,
+				3E53DC6D25845F0F009F3F97 /* GetTokenResetPassVC.xib in Resources */,
 				3EE02CE625611E9000F3BA45 /* CourseDetailVC.xib in Resources */,
 				3E8D2C6325634E6900691511 /* OrderedCourseTableViewCell.xib in Resources */,
 				3EA01D462565E02500F1D6D5 /* CourseTableViewCell.xib in Resources */,
@@ -1137,6 +1198,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E1098B6258456A700F7396E /* ForgotPasswordViewController.xib in Resources */,
+				3E53DC6E25845F0F009F3F97 /* GetTokenResetPassVC.xib in Resources */,
 				3E465E51257A43A000AFE5B2 /* PaymentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1145,6 +1208,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E1098B7258456A700F7396E /* ForgotPasswordViewController.xib in Resources */,
+				3E53DC6F25845F0F009F3F97 /* GetTokenResetPassVC.xib in Resources */,
 				3E465E52257A43A000AFE5B2 /* PaymentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1320,7 +1385,9 @@
 				3E8F12012562D9A6000A7BF8 /* MyCourseTableViewCell.swift in Sources */,
 				3EF18075253BA3A7004432E8 /* StatusResponse.swift in Sources */,
 				3E0EF96C252AE2B800AFD584 /* UIView+Message.swift in Sources */,
+				3E7FDC56258469360070CCE9 /* ResetPassRes.swift in Sources */,
 				3E07EAFE2522E72C002EBE7B /* RegisterViewController.swift in Sources */,
+				3E1098B2258456A700F7396E /* ForgotPasswordViewController.swift in Sources */,
 				3E9F3A8A2532D7A80086DA90 /* InformationViewController.swift in Sources */,
 				3E82307B256644AD007F3C2E /* SearchCategoriesCell.swift in Sources */,
 				3E91FDA12524170C0086DA0A /* Window.swift in Sources */,
@@ -1330,6 +1397,7 @@
 				3E91FD9E252415C90086DA0A /* CurrentController.swift in Sources */,
 				3E54C9EE25634D4C0025B618 /* CartViewController.swift in Sources */,
 				3E07EB082522E81C002EBE7B /* Register.swift in Sources */,
+				3E7FDC4F2584683A0070CCE9 /* ResetPassword.swift in Sources */,
 				3EB4ABDC2563B7EE00128D57 /* SearchHeader.swift in Sources */,
 				3E6E3FED25230452004DF50E /* YAnchor.swift in Sources */,
 				3E6371E1256647A20015F7FE /* APIFetchCategories.swift in Sources */,
@@ -1339,6 +1407,7 @@
 				3E6327E625664ADD00AE1967 /* APIFetchTopCourses.swift in Sources */,
 				3EA01D452565E02500F1D6D5 /* CourseTableViewCell.swift in Sources */,
 				3E07EAFC2522E493002EBE7B /* LoginView.swift in Sources */,
+				3E53DC6A25845F0F009F3F97 /* GetTokenResetPassVC.swift in Sources */,
 				3E3AEC61256A1D88005BACF7 /* RatingsViewController.swift in Sources */,
 				3E56B471256582DC00CF8BF6 /* SearchResultViewController.swift in Sources */,
 				3E63280625664E3500AE1967 /* APISendRating.swift in Sources */,
@@ -1358,6 +1427,7 @@
 				3EFD071B2569573C00B0DE75 /* APIFetchCourseRatings.swift in Sources */,
 				3E0EF955252ADFD800AFD584 /* Noti.swift in Sources */,
 				3EA60144257A69DE003DF25F /* getPaymentKey.swift in Sources */,
+				3E7FDC48258464B80070CCE9 /* GetTokenResetPass.swift in Sources */,
 				3EFFCB402563BAE800CEB97F /* UIViewController+Ex.swift in Sources */,
 				3E926E12252CA8CE009589E3 /* Activate.swift in Sources */,
 			);
@@ -1367,8 +1437,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E7FDC502584683A0070CCE9 /* ResetPassword.swift in Sources */,
+				3E53DC6B25845F0F009F3F97 /* GetTokenResetPassVC.swift in Sources */,
 				3EAD5D662521C8390093944F /* UdemyTests.swift in Sources */,
+				3E7FDC49258464B80070CCE9 /* GetTokenResetPass.swift in Sources */,
+				3E7FDC57258469360070CCE9 /* ResetPassRes.swift in Sources */,
 				3E465E4E257A43A000AFE5B2 /* PaymentViewController.swift in Sources */,
+				3E1098B3258456A700F7396E /* ForgotPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1376,8 +1451,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E7FDC512584683A0070CCE9 /* ResetPassword.swift in Sources */,
+				3E53DC6C25845F0F009F3F97 /* GetTokenResetPassVC.swift in Sources */,
 				3EAD5D712521C8390093944F /* UdemyUITests.swift in Sources */,
+				3E7FDC4A258464B80070CCE9 /* GetTokenResetPass.swift in Sources */,
+				3E7FDC58258469360070CCE9 /* ResetPassRes.swift in Sources */,
 				3E465E4F257A43A000AFE5B2 /* PaymentViewController.swift in Sources */,
+				3E1098B4258456A700F7396E /* ForgotPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

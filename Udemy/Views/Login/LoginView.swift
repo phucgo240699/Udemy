@@ -75,10 +75,53 @@ extension LoginViewController {
         loginBtn.addTarget(self, action: #selector(LoginViewController.loginBtnPressed(_:)), for: .touchUpInside)
     }
     
+    func initializeActiveButton() {
+        activeBtn = UIButton("Active Account", nil, .white, nil)
+        guard let activeBtn = activeBtn, let forgotPasswordBtn = forgotPasswordBtn else {
+            return
+        }
+        
+        let heightButton: CGFloat = 36.0
+        activeBtn.addToViewByConstraints(parent: view,
+                                         top: nil,
+                                         bottom: YAnchor(direction: forgotPasswordBtn.topAnchor, constant: -marginSpace/2),
+                                         leading: nil,
+                                         trailing: nil,
+                                         centerY: nil,
+                                         centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                                         width: 150.0,
+                                         height: heightButton)
+        
+        activeBtn.afterEffect(textSize: heightButton * 0.5, corner: 0.0)
+        activeBtn.addTarget(self, action: #selector(LoginViewController.activeBtnPressed(_:)), for: .touchUpInside)
+    }
+    
+    func initializeForgotPassBtn() {
+        forgotPasswordBtn = UIButton("Forgot password", nil, .white, nil)
+        
+        guard let forgotPasswordBtn = forgotPasswordBtn, let registerBtn = registerBtn else {
+            return
+        }
+        
+        let heightButton: CGFloat = 36.0
+        forgotPasswordBtn.addToViewByConstraints(parent: view,
+                                                 top: nil,
+                                                 bottom: YAnchor(direction: registerBtn.topAnchor, constant: -marginSpace/2),
+                                                 leading: nil,
+                                                 trailing: nil,
+                                                 centerY: nil,
+                                                 centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
+                                                 width: 150,
+                                                 height: heightButton)
+        
+        forgotPasswordBtn.afterEffect(textSize: heightButton * 0.5, corner: 0.0)
+        forgotPasswordBtn.addTarget(self, action: #selector(LoginViewController.forgotPasswordBtnPressed(_:)), for: .touchUpInside)
+    }
+    
     func initializeRegisterButton() {
         registerBtn = UIButton("Register", nil , .white, nil)
         
-        let heightButton = height * 0.04
+        let heightButton: CGFloat = 36.0
         guard let registerBtn = registerBtn else {
             return
         }
@@ -90,32 +133,11 @@ extension LoginViewController {
                                            trailing: nil,
                                            centerY: nil,
                                            centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
-                                           width: width * 0.4,
+                                           width: 100.0,
                                            height: heightButton)
         
         registerBtn.afterEffect(textSize: heightButton * 0.5, corner: 0.0)
         registerBtn.addTarget(self, action: #selector(LoginViewController.registerBtnPressed(_:)), for: .touchUpInside)
-    }
-    
-    func initializeActiveButton() {
-        activeBtn = UIButton("Active Account", nil, .white, nil)
-        guard let activeBtn = activeBtn, let registerBtn = registerBtn else {
-            return
-        }
-        
-        let heightButton = height * 0.04
-        activeBtn.addToViewByConstraints(parent: view,
-                                         top: nil,
-                                         bottom: YAnchor(direction: registerBtn.topAnchor, constant: -marginSpace),
-                                         leading: nil,
-                                         trailing: nil,
-                                         centerY: nil,
-                                         centerX: XAnchor(direction: view.centerXAnchor, constant: 0),
-                                         width: width * 0.4,
-                                         height: heightButton)
-        
-        activeBtn.afterEffect(textSize: heightButton * 0.5, corner: 0.0)
-        activeBtn.addTarget(self, action: #selector(LoginViewController.activeBtnPressed(_:)), for: .touchUpInside)
     }
 }
 
