@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 fileprivate let bannerInfoCellID = "courseDetailBannerInfoCell"
 fileprivate let operationCellID = "courseDetailOperationCell"
@@ -104,7 +105,9 @@ extension CourseDetailVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
+            return UITableViewCell()
+        }
         
         switch cellTypes[indexPath.row] {
         case .BannerInfo:
@@ -130,10 +133,18 @@ extension CourseDetailVC: UITableViewDataSource {
                     (UIApplication.shared.delegate as? AppDelegate)?.window?.notificate(UIImage(named: Common.imageName.done), "Add to cart successfully", "")
                 }
             }
-            cell.onTapSendRatingBtn = { numStar in
-                RequestAPI.shared.sendRating(numStar: numStar, idUser: self.course?.idUser?._id, idCourse: self.course?._id) {
-                    self.notificate(UIImage(named: Common.imageName.done), "Rate successfully", "")
+            cell.onTapWriteReviewBtn = {
+                let ratingPopup = RatingPopupVC()
+                
+                ratingPopup.onTapSendReview = { numStar, content in
+                    
+                    RequestAPI.shared.sendRating(numStar: numStar, content: content, idUser: appDelegate.account._id, idCourse: self.course?._id) {
+                        
+                        self.notificate(UIImage(named: Common.imageName.done), "Review successfully", "")
+                    }
                 }
+                
+                self.present(ratingPopup, animated: true, completion: nil)
             }
             
             cell.setData(course: course)

@@ -21,9 +21,9 @@ class RequestAPI {
         
         do {
             let errorMessageResponse = try JSONDecoder().decode(ErrorMessageResponse.self, from: data)
-            window.showError("Join failed", errorMessageResponse.message ?? "There is an error")
+            window.showError("Request failed", errorMessageResponse.message ?? "There is an error")
         } catch {
-            window.showError("Join failed", error.localizedDescription)
+            window.showError("Request failed", error.localizedDescription)
         }
     }
 }

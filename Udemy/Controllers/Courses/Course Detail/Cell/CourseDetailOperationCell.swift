@@ -15,7 +15,6 @@ class CourseDetailOperationCell: UITableViewCell {
     var onTapJoinCourseBtn: (() -> Void)?
     var onTapAddToCartBtn: (() -> Void)?
     var onTapWriteReviewBtn: (() -> Void)?
-    var onTapSendRatingBtn: ((Int) -> Void)?
     
     // Components
     @IBOutlet weak var joinButton: UIButton!
@@ -79,12 +78,6 @@ class CourseDetailOperationCell: UITableViewCell {
     @IBAction func writeReviewButtonPressed(_ sender: UIButton) {
         if let onTapWriteReviewBtn = onTapWriteReviewBtn {
             onTapWriteReviewBtn()
-        }
-    }
-    
-    @IBAction func btnSendRatingPressed(_ sender: UIButton) {
-        if let onTapSendRatingBtn = onTapSendRatingBtn {
-            onTapSendRatingBtn(Int(ratingCosmos.rating))
         }
     }
     

@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+fileprivate let baseUrl: String = "http://149.28.24.98:9000"
+
 struct ImageName {
     var logo: String = "planet"
     var xmark_circle = "xmark_circle"
@@ -28,7 +30,7 @@ struct ImageName {
     var shield = "shield"
     var credit_card = "credit-card"
     var stripe_logo = "stripelogo"
-    
+    var lesson = "lesson"
 }
 
 struct CustomColor {
@@ -45,49 +47,63 @@ struct CustomColor {
 }
 
 struct Link {
+    let getImage: String = "\(baseUrl)/upload"
+    
     // Auth
-    let register: String = "http://149.28.24.98:9000/register"
-    let activeAccount: String = "http://149.28.24.98:9000/active-account"
-    let login: String = "http://149.28.24.98:9000/login"
-    let logout: String = "http://149.28.24.98:9000/logout"
-    let getTokenResetPass = "http://149.28.24.98:9000/forgot-password"
-    let resetPass = "http://149.28.24.98:9000/reset-password"
+    let register: String = "\(baseUrl)/register"
+    let activeAccount: String = "\(baseUrl)/active-account"
+    let login: String = "\(baseUrl)/login"
+    let logout: String = "\(baseUrl)/logout"
+    let getTokenResetPass = "\(baseUrl)/forgot-password"
+    let resetPass = "\(baseUrl)/reset-password"
     
-    let changeProfile: String = "http://149.28.24.98:9000/change-profile"
-    let changePassword: String = "http://149.28.24.98:9000/change-password"
-    let changeAvatar: String = "http://149.28.24.98:9000/change-avatar"
-    let getAvatar: String = "http://149.28.24.98:9000/upload/user_image"
+    let changeProfile: String = "\(baseUrl)/change-profile"
+    let changePassword: String = "\(baseUrl)/change-password"
+    let changeAvatar: String = "\(baseUrl)/change-avatar"
+    let getAvatar: String = "\(baseUrl)/upload/user_image"
     
-    let getAllCategories: String = "http://149.28.24.98:9000/category/get-all-category"
-    let getCategoryThumbnail: String = "http://149.28.24.98:9000/upload/category"
     
-    let getNewCourses: String = "http://149.28.24.98:9000/course/get-all"
-    let getFreeCourses: String = "http://149.28.24.98:9000/course/get-free"
-    let getTopCourses: String = "http://149.28.24.98:9000/course/get-top"
-    let getCourseThumbnail: String = "http://149.28.24.98:9000/upload/course_image"
-    let getCourseById: String = "http://149.28.24.98:9000/course/getbyid"
-    let getCoursesByCategory: String = "http://149.28.24.98:9000/course/getby-category"
-    let joinCourse: String = "http://149.28.24.98:9000/join/create-join"
-    let checkJoinedCourse: String = "http://149.28.24.98:9000/join/check-is-join-course"
+    // Category
+    let getAllCategories: String = "\(baseUrl)/category/get-all-category"
+    let getCategoryThumbnail: String = "\(baseUrl)/upload/category"
     
-    let getJoinedCoursesByUser: String = "http://149.28.24.98:9000/join/get-courses-joined-by-user"
+    //-- Course
+    let getNewCourses: String = "\(baseUrl)/course/get-all"
+    let getFreeCourses: String = "\(baseUrl)/course/get-free"
+    let getTopCourses: String = "\(baseUrl)/course/get-top"
+    let getCourseThumbnail: String = "\(baseUrl)/upload/course_image"
+    let getCourseById: String = "\(baseUrl)/course/getbyid"
+    let getCoursesByCategory: String = "\(baseUrl)/course/getby-category"
+    let joinCourse: String = "\(baseUrl)/join/create-join"
+    let checkJoinedCourse: String = "\(baseUrl)/join/check-is-join-course"
+    
+    let getJoinedCoursesByUser: String = "\(baseUrl)/join/get-courses-joined-by-user"
+    
+    
+    //-- Lesson
+    let getLessonsByIdCourse: String = "\(baseUrl)/lesson/get-lesson-by-id-course"
+    let getLessonById: String = "\(baseUrl)/lesson/get-lesson-by-id"
     
     
     //-- Rating
-    let getRatingsByCourse: String = "http://149.28.24.98:9000/rate/get-rate-by-course"
-    let sendRating: String = "http://149.28.24.98:9000/rate/create-rate"
+    let getRatingsByCourse: String = "\(baseUrl)/rate/get-rate-by-course"
+    let sendRating: String = "\(baseUrl)/rate/create-rate"
     
     
     //-- Order
-    let getOrderedCourses: String = "http://149.28.24.98:9000/order/get-list-course-ordered-by-id-user"
+    let getOrderedCourses: String = "\(baseUrl)/order/get-list-course-ordered-by-id-user"
     
     
     //-- Payment
-    let getPaymentKey: String = "http://149.28.24.98:9000/payment/get-payment-public-key"
-    let payCourse: String = "http://149.28.24.98:9000/payment/pay"
+    let getPaymentKey: String = "\(baseUrl)/payment/get-payment-public-key"
+    let payCourse: String = "\(baseUrl)/payment/pay"
     
     //-- Search
-    let searchCoursesByTitle: String = "http://149.28.24.98:9000/course/search-course"
+    let searchCoursesByTitle: String = "\(baseUrl)/course/search-course"
+    
+    
+    //-- Lesson
+    let streamingVideo: String = "\(baseUrl)/lesson/stream-video"
 }
 
 class Common {

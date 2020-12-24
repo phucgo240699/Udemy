@@ -10,14 +10,11 @@ import Alamofire
 import SVProgressHUD
 
 extension RequestAPI {
-    func sendRating(numStar: Int?, idUser: String?, idCourse: String?, onSuccess: @escaping () -> Void) {
+    func sendRating(numStar: Int?, content: String?, idUser: String?, idCourse: String?, onSuccess: @escaping () -> Void) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
         guard let window = appDelegate.window else {
-            return
-        }
-        guard let numStar = numStar else {
             return
         }
         
@@ -28,11 +25,11 @@ extension RequestAPI {
         }
         
         // Params
-        guard let idUser = idUser, let idCourse = idCourse else {
+        guard let idUser = idUser, let idCourse = idCourse, let numStar = numStar, let content = content else {
             window.showError("Rating failed", "Not enough information")
             return
         }
-        let params: [String: Any] = ["idUser": idUser, "idCourse": idCourse, "content": "", "numStar": numStar]
+        let params: [String: Any] = ["idUser": idUser, "idCourse": idCourse, "content": content, "numStar": numStar]
         
         // show waiting progress
         SVProgressHUD.show()

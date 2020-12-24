@@ -33,6 +33,8 @@ class CourseViewController: UIViewController {
     }
     
     func setupUI() {
+        navigationItem.title = "Courses"
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "MyCourseTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
@@ -52,7 +54,6 @@ class CourseViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
-        
     }
 }
 
@@ -73,6 +74,7 @@ extension CourseViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
+        cell.backgroundColor = .clear
         cell.setData(course: courses[indexPath.row])
         cell.accessoryType = .none
         
@@ -84,6 +86,10 @@ extension CourseViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension CourseViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Did select")
+        RequestAPI.shared.fetchLessons(idCourse: courses[indexPath.row].idCourse?._id) { (lessons) in
+            let lessonVC = LessonViewController()
+            lessonVC.lessons = lessons
+            self.navigationController?.pushViewController(lessonVC, animated: true)
+        }
     }
 }
