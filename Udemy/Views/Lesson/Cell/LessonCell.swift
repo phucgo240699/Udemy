@@ -9,8 +9,7 @@
 import UIKit
 
 protocol LessonCellProtocol: class {
-    func onTapQuestion(indexPath: IndexPath?)
-    func onTapDocument()
+    func onTapOptionBtn(indexPath: IndexPath)
 }
 
 class LessonCell: UITableViewCell {
@@ -43,10 +42,10 @@ class LessonCell: UITableViewCell {
     func setData(lesson: Lesson) {
         lbTitle.text = lesson.title
     }
-    @IBAction func questionBtnPressed(_ sender: UIButton) {
-        delegate?.onTapQuestion(indexPath: indexPath)
-    }
-    @IBAction func documentBtnPressed(_ sender: UIButton) {
-        delegate?.onTapDocument()
+
+    @IBAction func optionBtnPressed(_ sender: UIButton) {
+        if let indexPath = indexPath {
+            delegate?.onTapOptionBtn(indexPath: indexPath)
+        }
     }
 }

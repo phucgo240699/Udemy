@@ -93,19 +93,46 @@ extension LessonViewController: UITableViewDelegate {
 
 // MARK: - Cell Delegate
 extension LessonViewController: LessonCellProtocol {
-    func onTapQuestion(indexPath: IndexPath?) {
-        if let indexPath = indexPath, let question = self.lessons[indexPath.row].popupQuestion?[0] {
-            let questionVC = QuestionVC()
-            questionVC.question = question
-            navigationController?.pushViewController(questionVC, animated: true)
-        }
-    }
-    
-    func onTapDocument() {
+    func onTapOptionBtn(indexPath: IndexPath) {
+        let alert = UIAlertController(title: "Choose your action", message: "", preferredStyle: .actionSheet)
+        
+        //-- Questions
+        alert.addAction(UIAlertAction(title: "Questions", style: .default, handler: { (action) in
+            if let questions = self.lessons[indexPath.row].popupQuestion {
+                if questions.count != 0 {
+                    let questionVC = QuestionVC()
+                    questionVC.questions = [questions[0],questions[0],questions[0]]
+                    self.navigationController?.pushViewController(questionVC, animated: true)
+                    return
+                }
+            }
+        }))
+        
+        //-- Documents
+        alert.addAction(UIAlertAction(title: "Documents", style: .default, handler: { (action) in
+            let documentsVC = DocumentsVC()
+            documentsVC.documents = self.lessons[indexPath.row].doc
+            self.navigationController?.pushViewController(documentsVC, animated: true)
+        }))
+        
+        
+        //-- Edit
+        alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { (action) in
+            
+        }))
+        
+        //-- Delete
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+            
+        }))
+        
+        // Cancel
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
         
     }
 }
-
 
 // MARK: - AVPlayerViewControllerDelegate
 extension LessonViewController: AVPlayerViewControllerDelegate {

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E00912D25943AF300C0ADCA /* DocumentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E00912B25943AF300C0ADCA /* DocumentsVC.swift */; };
+		3E00912E25943AF300C0ADCA /* DocumentsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E00912C25943AF300C0ADCA /* DocumentsVC.xib */; };
+		3E00913225943AF800C0ADCA /* DocumentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E00912B25943AF300C0ADCA /* DocumentsVC.swift */; };
+		3E00913625943AF900C0ADCA /* DocumentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E00912B25943AF300C0ADCA /* DocumentsVC.swift */; };
+		3E00913A25943AFE00C0ADCA /* DocumentsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E00912C25943AF300C0ADCA /* DocumentsVC.xib */; };
+		3E00913E25943AFF00C0ADCA /* DocumentsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E00912C25943AF300C0ADCA /* DocumentsVC.xib */; };
 		3E0734052534780F00F6A277 /* UpdatePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0734042534780F00F6A277 /* UpdatePassword.swift */; };
 		3E07EAFC2522E493002EBE7B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EAFB2522E493002EBE7B /* LoginView.swift */; };
 		3E07EAFE2522E72C002EBE7B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E07EAFD2522E72C002EBE7B /* RegisterViewController.swift */; };
@@ -222,6 +228,8 @@
 /* Begin PBXFileReference section */
 		14A2D4A458FDABD48BB4B190 /* Pods-Udemy-UdemyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udemy-UdemyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Udemy-UdemyUITests/Pods-Udemy-UdemyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1A6DD49030E4B5D8B2E75027 /* Pods_UdemyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UdemyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E00912B25943AF300C0ADCA /* DocumentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsVC.swift; sourceTree = "<group>"; };
+		3E00912C25943AF300C0ADCA /* DocumentsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentsVC.xib; sourceTree = "<group>"; };
 		3E0734042534780F00F6A277 /* UpdatePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePassword.swift; sourceTree = "<group>"; };
 		3E07EAFB2522E493002EBE7B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		3E07EAFD2522E72C002EBE7B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -411,6 +419,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E00912A25943AD700C0ADCA /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				3E00912B25943AF300C0ADCA /* DocumentsVC.swift */,
+				3E00912C25943AF300C0ADCA /* DocumentsVC.xib */,
+			);
+			path = Document;
+			sourceTree = "<group>";
+		};
 		3E07EAF62522E27D002EBE7B /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -798,6 +815,7 @@
 		3E73FC96258B786100317ACD /* Lesson */ = {
 			isa = PBXGroup;
 			children = (
+				3E00912A25943AD700C0ADCA /* Document */,
 				3EC377D2259409AE00744129 /* Question */,
 				3E4424B5258B7C68009B2D7D /* Cell */,
 				3E73FC9A258B7A0500317ACD /* LessonViewController.swift */,
@@ -1309,6 +1327,7 @@
 				3ED6F23225621F6F004DF2CA /* CourseDetailDescriptionCell.xib in Resources */,
 				3E9F3A852532CFEE0086DA90 /* SimpleTableViewCell.xib in Resources */,
 				3E82307C256644AD007F3C2E /* SearchCategoriesCell.xib in Resources */,
+				3E00912E25943AF300C0ADCA /* DocumentsVC.xib in Resources */,
 				3E3AEC62256A1D88005BACF7 /* RatingsViewController.xib in Resources */,
 				3EFD070D25694D6B00B0DE75 /* RatingTableViewCell.xib in Resources */,
 				3E8F12022562D9A6000A7BF8 /* MyCourseTableViewCell.xib in Resources */,
@@ -1324,6 +1343,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E00913A25943AFE00C0ADCA /* DocumentsVC.xib in Resources */,
 				3EC377D9259409C900744129 /* QuestionVC.xib in Resources */,
 				3E73FCA0258B7A0500317ACD /* LessonViewController.xib in Resources */,
 				3E1098B6258456A700F7396E /* ForgotPasswordViewController.xib in Resources */,
@@ -1339,6 +1359,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E00913E25943AFF00C0ADCA /* DocumentsVC.xib in Resources */,
 				3EC377DA259409C900744129 /* QuestionVC.xib in Resources */,
 				3E73FCA1258B7A0500317ACD /* LessonViewController.xib in Resources */,
 				3E1098B7258456A700F7396E /* ForgotPasswordViewController.xib in Resources */,
@@ -1533,6 +1554,7 @@
 				3E9F3A8F2532D8CA0086DA90 /* InformationView.swift in Sources */,
 				3E4424C6258B9932009B2D7D /* GetLessons.swift in Sources */,
 				3E07EB132522E9B0002EBE7B /* Button.swift in Sources */,
+				3E00912D25943AF300C0ADCA /* DocumentsVC.swift in Sources */,
 				3E9972062563ACCD0078088D /* CoursesInCart.swift in Sources */,
 				3E91FD9E252415C90086DA0A /* CurrentController.swift in Sources */,
 				3E54C9EE25634D4C0025B618 /* CartViewController.swift in Sources */,
@@ -1588,6 +1610,7 @@
 				3E4424B9258B7C88009B2D7D /* LessonCell.swift in Sources */,
 				3EC377C72594093C00744129 /* ImageCell.swift in Sources */,
 				3E4424C7258B9932009B2D7D /* GetLessons.swift in Sources */,
+				3E00913225943AF800C0ADCA /* DocumentsVC.swift in Sources */,
 				3E53DC6B25845F0F009F3F97 /* GetTokenResetPassVC.swift in Sources */,
 				3EAD5D662521C8390093944F /* UdemyTests.swift in Sources */,
 				3E7FDC49258464B80070CCE9 /* GetTokenResetPass.swift in Sources */,
@@ -1610,6 +1633,7 @@
 				3E4424BA258B7C88009B2D7D /* LessonCell.swift in Sources */,
 				3EC377C82594093C00744129 /* ImageCell.swift in Sources */,
 				3E4424C8258B9932009B2D7D /* GetLessons.swift in Sources */,
+				3E00913625943AF900C0ADCA /* DocumentsVC.swift in Sources */,
 				3E53DC6C25845F0F009F3F97 /* GetTokenResetPassVC.swift in Sources */,
 				3EAD5D712521C8390093944F /* UdemyUITests.swift in Sources */,
 				3E7FDC4A258464B80070CCE9 /* GetTokenResetPass.swift in Sources */,

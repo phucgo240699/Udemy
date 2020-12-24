@@ -26,6 +26,13 @@ extension UIViewController {
         }
     }
     
+    func showAlert(_ title: String, _ description: String) {
+        let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
     func getMessage(_ image: UIImage, _ title: String,_ description: String) -> EKPopUpMessage {
         
         let themeImage = EKPopUpMessage.ThemeImage(image: EKProperty.ImageContent(image: image, size: CGSize(width: 60, height: 60), tint: .black, contentMode: .scaleAspectFit))

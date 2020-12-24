@@ -16,7 +16,7 @@ class QuestionVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var currentSelectedIndex: IndexPath?
     
-    var question: LessonChoice?
+    var questions: [LessonChoice] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +41,10 @@ extension QuestionVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard let questionTitle = question?.question else {
-            return "Question: "
+        guard let questionTitle = questions[section].question else {
+            return "Question \(section): "
         }
-        return "Question: \(questionTitle)"
+        return "Question \(section): \(questionTitle)"
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -55,13 +55,17 @@ extension QuestionVC: UITableViewDataSource {
         return 20.0
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return questions.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: imageCellID, for: indexPath) as? ImageCell, let imageQuestion = question?.image else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: imageCellID, for: indexPath) as? ImageCell, let imageQuestion = questions[indexPath.section].image else {
                 return UITableViewCell()
             }
             cell.imgView.sd_setImage(with: URL(string: "\(Common.link.getImage)/\(imageQuestion)"), completed: nil)
@@ -72,21 +76,21 @@ extension QuestionVC: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: answerCellID, for: indexPath)
         cell.selectionStyle = .none
         
-        guard let answerA = question?.A,
-              let answerB = question?.B,
-              let answerC = question?.C,
-              let answerD = question?.D else {
+        guard let answerA = questions[indexPath.section].A,
+              let answerB = questions[indexPath.section].B,
+              let answerC = questions[indexPath.section].C,
+              let answerD = questions[indexPath.section].D else {
             return UITableViewCell()
         }
         switch indexPath.row {
         case 1:
-            cell.textLabel?.text = "A: \(answerA)"
+            cell.textLabel?.text = "A. \(answerA)"
         case 2:
-            cell.textLabel?.text = "B: \(answerB)"
+            cell.textLabel?.text = "B. \(answerB)"
         case 3:
-            cell.textLabel?.text = "C: \(answerC)"
+            cell.textLabel?.text = "C. \(answerC)"
         default:
-            cell.textLabel?.text = "D: \(answerD)"
+            cell.textLabel?.text = "D. \(answerD)"
         }
         
         return cell

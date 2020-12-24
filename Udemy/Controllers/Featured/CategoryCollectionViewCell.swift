@@ -37,17 +37,17 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         }
         self.addSubview(container)
         
-        let containerWidth = container.bounds.width
-        let containerHeight = container.bounds.height
+//        let containerWidth = container.bounds.width
+//        let containerHeight = container.bounds.height
         
         
         // Thumbnail
         thumbnailImgView = UIImageView(frame: container.bounds)
         
         // Title
-        titleLbl = UILabel(frame: CGRect(x: 0, y: 0, width: containerWidth, height: containerHeight * 0.2))
+//        titleLbl = UILabel(frame: CGRect(x: 0, y: 0, width: containerWidth, height: containerHeight * 0.2))
         
-        guard let thumbnailImgView = thumbnailImgView, let titleLbl = titleLbl else {
+        guard let thumbnailImgView = thumbnailImgView else { //, let titleLbl = titleLbl else {
             return
         }
         
@@ -55,21 +55,21 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         container.layer.cornerRadius = container.bounds.height * 0.05
         container.layer.masksToBounds = true
         thumbnailImgView.contentMode = .scaleAspectFill
-        thumbnailImgView.addBlur()
-        titleLbl.font = UIFont(name: Common.fontName, size: containerHeight * 0.15)
-        titleLbl.font = UIFont.boldSystemFont(ofSize: containerHeight * 0.15)
-        titleLbl.textColor = Common.color.textColor
-        titleLbl.textAlignment = .center
-        titleLbl.numberOfLines = 0
+//        thumbnailImgView.addBlur()
+//        titleLbl.font = UIFont(name: Common.fontName, size: containerHeight * 0.15)
+//        titleLbl.font = UIFont.boldSystemFont(ofSize: containerHeight * 0.15)
+//        titleLbl.textColor = Common.color.textColor
+//        titleLbl.textAlignment = .center
+//        titleLbl.numberOfLines = 0
         
         container.addSubview(thumbnailImgView)
-        container.addSubview(titleLbl)
+//        container.addSubview(titleLbl)
         
         
         // Constraints
-        titleLbl.translatesAutoresizingMaskIntoConstraints = false
-        titleLbl.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
-        titleLbl.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
+//        titleLbl.translatesAutoresizingMaskIntoConstraints = false
+//        titleLbl.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
+//        titleLbl.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
     }
     
     func fillData(_ category: Category) {

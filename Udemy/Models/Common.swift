@@ -12,25 +12,27 @@ import UIKit
 fileprivate let baseUrl: String = "http://149.28.24.98:9000"
 
 struct ImageName {
-    var logo: String = "planet"
-    var xmark_circle = "xmark_circle"
-    var done = "done-icon"
-    var panda = "panda-icon"
-    var star = "star"
-    var star_fill = "star.fill"
-    var magnifying_glass = "magnifyingglass"
-    var square_stack = "square.stack.3d.up"
-    var square_stack_fill = "square.stack.3d.up.fill"
-    var cart = "cart"
-    var cart_fill = "cart.fill"
-    var account = "account"
-    var account_fill = "account.fill"
-    var person = "person"
-    var photos = "photos"
-    var shield = "shield"
-    var credit_card = "credit-card"
-    var stripe_logo = "stripelogo"
-    var lesson = "lesson"
+    let logo: String = "planet"
+    let xmark_circle = "xmark_circle"
+    let done = "done-icon"
+    let panda = "panda-icon"
+    let star = "star"
+    let star_fill = "star.fill"
+    let magnifying_glass = "magnifyingglass"
+    let square_stack = "square.stack.3d.up"
+    let square_stack_fill = "square.stack.3d.up.fill"
+    let cart = "cart"
+    let cart_fill = "cart.fill"
+    let account = "account"
+    let account_fill = "account.fill"
+    let person = "person"
+    let photos = "photos"
+    let shield = "shield"
+    let credit_card = "credit-card"
+    let stripe_logo = "stripelogo"
+    let lesson = "lesson"
+    let document = "document"
+    let more = "more"
 }
 
 struct CustomColor {
@@ -104,6 +106,7 @@ struct Link {
     
     //-- Lesson
     let streamingVideo: String = "\(baseUrl)/lesson/stream-video"
+    let getDocument: String = "\(baseUrl)/upload/lesson"
 }
 
 class Common {
