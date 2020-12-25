@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuestionVC" customModule="Udemy" customModuleProvider="target">
             <connections>
+                <outlet property="lbEmpty" destination="VRF-VA-Qhs" id="ouW-oC-CtK"/>
                 <outlet property="tableView" destination="sXx-fj-yOh" id="fv2-Jg-DZ8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,6 +21,16 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empty Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRF-VA-Qhs">
+                    <rect key="frame" x="140.5" y="431.5" width="133" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="33" id="2OC-tc-AGy"/>
+                        <constraint firstAttribute="width" constant="133" id="sMz-8P-bZG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
+                    <color key="textColor" name="placeholderColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="sXx-fj-yOh">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -28,14 +40,19 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="sXx-fj-yOh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="J7a-MD-dl7"/>
+                <constraint firstItem="VRF-VA-Qhs" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="cK6-iD-9Jo"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="sXx-fj-yOh" secondAttribute="bottom" id="g7o-LT-bxD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sXx-fj-yOh" secondAttribute="trailing" id="gHr-yD-C5x"/>
+                <constraint firstItem="VRF-VA-Qhs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="mcZ-Zs-rTX"/>
                 <constraint firstItem="sXx-fj-yOh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="wKK-E9-oz4"/>
             </constraints>
             <point key="canvasLocation" x="28" y="134"/>
         </view>
     </objects>
     <resources>
+        <namedColor name="placeholderColor">
+            <color red="0.66399997472763062" green="0.66399997472763062" blue="0.66399997472763062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

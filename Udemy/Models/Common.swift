@@ -82,10 +82,6 @@ struct Link {
     let getJoinedCoursesByUser: String = "\(baseUrl)/join/get-courses-joined-by-user"
     
     
-    //-- Lesson
-    let getLessonsByIdCourse: String = "\(baseUrl)/lesson/get-lesson-by-id-course"
-    let getLessonById: String = "\(baseUrl)/lesson/get-lesson-by-id"
-    
     
     //-- Rating
     let getRatingsByCourse: String = "\(baseUrl)/rate/get-rate-by-course"
@@ -107,6 +103,11 @@ struct Link {
     //-- Lesson
     let streamingVideo: String = "\(baseUrl)/lesson/stream-video"
     let getDocument: String = "\(baseUrl)/upload/lesson"
+    
+    let getLessonsByIdCourse: String = "\(baseUrl)/lesson/get-lesson-by-id-course"
+    let getLessonById: String = "\(baseUrl)/lesson/get-lesson-by-id"
+    let createLesson: String = "\(baseUrl)/lesson/create-lesson"
+    let deleteLesson: String = "\(baseUrl)/lesson/delete-lesson"
 }
 
 class Common {

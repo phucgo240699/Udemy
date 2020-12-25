@@ -14,22 +14,75 @@ fileprivate let cellID = "lessonCell"
 class LessonViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var lbEmpty: UILabel!
+    var addBarButton: UIBarButtonItem?
+    var refreshControl: UIRefreshControl = UIRefreshControl()
+    
+    var idCourse: String?
     var lessons: [Lesson] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
+        
+        adaptData()
     }
     
     private func setupUI() {
-        title = "Lessons"
         
+        //-- Navigation
+        title = "Lessons"
+        addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(LessonViewController.addLessonBarBtnPressed(_:)))
+        navigationItem.rightBarButtonItem = addBarButton
+        
+        
+        //-- TableView
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "LessonCell", bundle: nil), forCellReuseIdentifier: cellID)
+        
+        // refresh control
+        refreshControl.addTarget(self, action: #selector(CourseViewController.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+        
     }
     
+    @objc func refresh(_ sender: UIRefreshControl) {
+        refreshControl.endRefreshing()
+        
+        adaptData()
+    }
+    
+    // MARK: Handle Event
+    @objc func addLessonBarBtnPressed(_ sender: UIBarButtonItem) {
+        let createLessonVC = CreateLessonVC()
+        createLessonVC.idCourse = idCourse
+        createLessonVC.order = 1
+        createLessonVC.delegate = self
+        navigationController?.pushViewController(createLessonVC, animated: true)
+    }
+    
+    func handleEmptyData() {
+        if self.lessons.count == 0 {
+            self.tableView.isHidden = true
+            self.lbEmpty.isHidden = false
+        }
+        else {
+            self.tableView.isHidden = false
+            self.lbEmpty.isHidden = true
+        }
+    }
+    
+    func adaptData() {
+        RequestAPI.shared.fetchLessons(idCourse: idCourse) { (lessons) in
+            self.lessons = lessons
+            
+            self.handleEmptyData()
+            
+            self.tableView.reloadData()
+        }
+    }
 }
 
 
@@ -82,7 +135,6 @@ extension LessonViewController: UITableViewDelegate {
         
         let playerViewController = AVPlayerViewController()
         playerViewController.player = player
-        playerViewController.delegate = self
         
         present(playerViewController, animated: true) {
             player.play()
@@ -99,20 +151,20 @@ extension LessonViewController: LessonCellProtocol {
         //-- Questions
         alert.addAction(UIAlertAction(title: "Questions", style: .default, handler: { (action) in
             if let questions = self.lessons[indexPath.row].popupQuestion {
-                if questions.count != 0 {
-                    let questionVC = QuestionVC()
-                    questionVC.questions = [questions[0],questions[0],questions[0]]
-                    self.navigationController?.pushViewController(questionVC, animated: true)
-                    return
-                }
+                let questionVC = QuestionVC()
+                questionVC.questions = questions
+                self.navigationController?.pushViewController(questionVC, animated: true)
             }
+            return
         }))
         
         //-- Documents
         alert.addAction(UIAlertAction(title: "Documents", style: .default, handler: { (action) in
-            let documentsVC = DocumentsVC()
-            documentsVC.documents = self.lessons[indexPath.row].doc
-            self.navigationController?.pushViewController(documentsVC, animated: true)
+            if let documents = self.lessons[indexPath.row].doc {
+                let documentsVC = DocumentsVC()
+                documentsVC.documents =  documents
+                self.navigationController?.pushViewController(documentsVC, animated: true)
+            }
         }))
         
         
@@ -134,8 +186,14 @@ extension LessonViewController: LessonCellProtocol {
     }
 }
 
-// MARK: - AVPlayerViewControllerDelegate
-extension LessonViewController: AVPlayerViewControllerDelegate {
-    
-}
 
+// MARK: Create Lesson Delegate
+extension LessonViewController: CreateLessonVCDelegate {
+    func didCreateLessonSuccess(lesson: Lesson) {
+        self.lessons.append(lesson)
+        
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
+        self.tableView.insertRows(at: [IndexPath(row: self.lessons.count - 2, section: 0)], with: .automatic)
+    }
+}

@@ -16,10 +16,9 @@ class CartViewController: UIViewController {
     
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var lbEmpty: UILabel!
     
     var refreshControl: UIRefreshControl = UIRefreshControl()
-    
-    var courses: [Course] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +26,23 @@ class CartViewController: UIViewController {
         navigationController?.navigationItem.title = "Cart"
         
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
         
-        courses = appDelegate.cart.courses
+        if appDelegate.cart.courses.count == 0 {
+            tableView.isHidden = true
+            lbEmpty.isHidden = false
+        }
+        else {
+            tableView.isHidden = false
+            lbEmpty.isHidden = true
+        }
     }
 
     func setupUI() {
@@ -49,15 +59,7 @@ class CartViewController: UIViewController {
     @objc func refresh(_ sender: UIRefreshControl) {
         refreshControl.endRefreshing()
         
-        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
-            return
-        }
-        
-        courses = appDelegate.cart.courses
-        
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+        self.tableView.reloadData()
     }
 }
 
@@ -69,7 +71,10 @@ extension CartViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return courses.count
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
+            return 0
+        }
+        return appDelegate.cart.courses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,7 +91,7 @@ extension CartViewController: UITableViewDataSource {
                 let paymentVC = PaymentViewController()
                 paymentVC.name = appDelegate.account.name
                 paymentVC.email = appDelegate.account.email
-                paymentVC.idCourse = self.courses[indexPath.row]._id
+                paymentVC.idCourse = appDelegate.cart.courses[indexPath.row]._id
                 paymentVC.idUser = appDelegate.account._id
                 paymentVC.stripeToken = key
                 paymentVC.onTapPayCourseSuccess = {
@@ -95,7 +100,7 @@ extension CartViewController: UITableViewDataSource {
                 self.navigationController?.pushViewController(paymentVC, animated: true)
             }
         }
-        cell.setData(course: courses[indexPath.row])
+        cell.setData(course: appDelegate.cart.courses[indexPath.row])
         
         return cell
     }

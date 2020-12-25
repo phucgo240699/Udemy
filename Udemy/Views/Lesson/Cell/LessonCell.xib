@@ -30,10 +30,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oN-ul-3R8" userLabel="Option">
-                                <rect key="frame" x="315" y="10" width="30" height="30"/>
+                                <rect key="frame" x="309" y="4" width="42" height="42"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="PNX-EX-Wl8"/>
-                                    <constraint firstAttribute="height" constant="30" id="egA-H5-Qv1"/>
+                                    <constraint firstAttribute="width" constant="42" id="PNX-EX-Wl8"/>
+                                    <constraint firstAttribute="height" constant="42" id="egA-H5-Qv1"/>
                                 </constraints>
                                 <state key="normal" image="more"/>
                                 <connections>
@@ -43,9 +43,9 @@
                         </subviews>
                         <color key="backgroundColor" name="mintGreen"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="3oN-ul-3R8" secondAttribute="trailing" constant="10" id="BVe-Jk-PiF"/>
+                            <constraint firstAttribute="trailing" secondItem="3oN-ul-3R8" secondAttribute="trailing" constant="4" id="BVe-Jk-PiF"/>
                             <constraint firstItem="fa4-Ga-hMv" firstAttribute="leading" secondItem="tlK-E0-S1a" secondAttribute="leading" constant="10" id="DXZ-aA-dmO"/>
-                            <constraint firstItem="3oN-ul-3R8" firstAttribute="top" secondItem="tlK-E0-S1a" secondAttribute="top" constant="10" id="GC4-0O-j9j"/>
+                            <constraint firstItem="3oN-ul-3R8" firstAttribute="top" secondItem="tlK-E0-S1a" secondAttribute="top" constant="4" id="GC4-0O-j9j"/>
                             <constraint firstItem="fa4-Ga-hMv" firstAttribute="top" secondItem="tlK-E0-S1a" secondAttribute="top" constant="5" id="JGs-8X-Ofo"/>
                             <constraint firstAttribute="bottom" secondItem="fa4-Ga-hMv" secondAttribute="bottom" constant="10" id="uuc-Fw-TMB"/>
                         </constraints>

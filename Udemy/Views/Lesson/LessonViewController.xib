@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LessonViewController" customModule="Udemy" customModuleProvider="target">
             <connections>
+                <outlet property="lbEmpty" destination="vaW-3k-aeW" id="8dQ-j6-1pa"/>
                 <outlet property="tableView" destination="RXD-3s-4NU" id="QCb-3u-bGD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,6 +21,16 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empty Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vaW-3k-aeW">
+                    <rect key="frame" x="140.5" y="431.5" width="133" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="33" id="BA3-Ex-Y5i"/>
+                        <constraint firstAttribute="width" constant="133" id="o0r-YA-abx"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
+                    <color key="textColor" name="placeholderColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="RXD-3s-4NU">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -28,6 +40,8 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="RXD-3s-4NU" secondAttribute="bottom" id="EQJ-4l-fCI"/>
+                <constraint firstItem="vaW-3k-aeW" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="R5H-Xa-FmK"/>
+                <constraint firstItem="vaW-3k-aeW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Wwc-w7-X7h"/>
                 <constraint firstItem="RXD-3s-4NU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="kiB-3a-5Rr"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="RXD-3s-4NU" secondAttribute="trailing" id="mOz-qo-3gi"/>
                 <constraint firstItem="RXD-3s-4NU" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="rHr-LF-l5D"/>
@@ -36,6 +50,9 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="placeholderColor">
+            <color red="0.66399997472763062" green="0.66399997472763062" blue="0.66399997472763062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

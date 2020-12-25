@@ -14,6 +14,8 @@ fileprivate let imageCellID = "image cell"
 class QuestionVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var lbEmpty: UILabel!
+    
     var currentSelectedIndex: IndexPath?
     
     var questions: [LessonChoice] = []
@@ -23,15 +25,30 @@ class QuestionVC: UIViewController {
 
         setupUI()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        handleEmptyData()
+    }
 
     private func setupUI() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: answerCellID)
         tableView.register(UINib(nibName: "ImageCell", bundle: nil), forCellReuseIdentifier: imageCellID)
-        
     }
-
+    
+    func handleEmptyData() {
+        if questions.count == 0 {
+            tableView.isHidden = true
+            lbEmpty.isHidden = false
+        }
+        else {
+            tableView.isHidden = false
+            lbEmpty.isHidden = true
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource

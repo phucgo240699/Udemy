@@ -2,8 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DocumentsVC" customModule="Udemy" customModuleProvider="target">
             <connections>
+                <outlet property="lbEmpty" destination="9D9-b2-mkI" id="dgG-RH-39h"/>
                 <outlet property="tableView" destination="n7U-0O-cWm" id="q3P-Vz-uyc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,6 +21,16 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empty Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9D9-b2-mkI">
+                    <rect key="frame" x="140.5" y="431.5" width="133" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="33" id="tXo-88-OrE"/>
+                        <constraint firstAttribute="width" constant="133" id="x9U-bf-URj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
+                    <color key="textColor" name="placeholderColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n7U-0O-cWm">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -28,7 +39,9 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="9D9-b2-mkI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7om-uB-IFe"/>
                 <constraint firstItem="n7U-0O-cWm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="I6H-N3-XI3"/>
+                <constraint firstItem="9D9-b2-mkI" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="TZM-YU-ZHs"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="n7U-0O-cWm" secondAttribute="bottom" id="Y2Z-8e-Kax"/>
                 <constraint firstItem="n7U-0O-cWm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ZcX-Io-fzN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="n7U-0O-cWm" secondAttribute="trailing" id="gcV-md-Rcr"/>
@@ -37,6 +50,9 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="placeholderColor">
+            <color red="0.66399997472763062" green="0.66399997472763062" blue="0.66399997472763062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

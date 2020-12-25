@@ -1,8 +1,8 @@
 //
-//  PayCourse.swift
+//  DeleteLesson.swift
 //  Udemy
 //
-//  Created by Phúc Lý on 04/12/2020.
+//  Created by Phúc Lý on 25/12/2020.
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
@@ -10,32 +10,26 @@ import Alamofire
 import SVProgressHUD
 
 extension RequestAPI {
-    func payCourse(name: String?, email: String?, stripeToken: String?, amount: Int?, idCourse: String?, idUser: String?, onSuccess: @escaping () -> Void) {
+    func deleteLesson(by id: String?, onSuccess: @escaping () -> Void) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
         guard let window = appDelegate.window else {
             return
         }
+        guard let id = id else {
+            return
+        }
         
         // URL
-        let rawUrl = URL(string: Common.link.payCourse)
-        guard let url = rawUrl else {
+        guard let url = URL(string: "\(Common.link.deleteLesson)/\(id)") else {
             return
         }
         
-        guard let name = name, let email = email, let stripeToken = stripeToken, let amount = amount, let idCourse = idCourse, let idUser = idUser else {
-            return
-        }
+        // Params
+        let params: [String: Any] = ["" : ""]
         
-        let params: [String: Any] = [
-            "name": name,
-            "email": email,
-            "stripeToken": stripeToken,
-            "amount": amount,
-            "idCourse": idCourse,
-            "idUser": idUser
-        ]
+        
         
         // Access token
         guard let accessToken = TokenManager.getAccessToken() else {
@@ -62,15 +56,24 @@ extension RequestAPI {
                 return
             }
             
-            guard let data = response.data else {
+            guard let data = response.data,
+                  let statusCode = response.response?.statusCode else {
                 return
             }
             
-            self.parsePayCourseJSON(data, onSuccess: onSuccess)
+            if statusCode == 200 {
+                self.parseDeleteLessonJSON(data, onSuccess: onSuccess)
+            }
+            else {
+                self.parseMessageErrorJSON(from: data)
+            }
         }
+        
     }
     
-    func parsePayCourseJSON(_ data: Data, onSuccess: @escaping () -> Void) {
+    
+    
+    func parseDeleteLessonJSON(_ data: Data, onSuccess: @escaping () -> Void) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
@@ -79,8 +82,11 @@ extension RequestAPI {
         }
         
         do {
-            let result = try JSONDecoder().decode(PayCourseResponse.self, from: data)
-            onSuccess()
+            let result = try JSONDecoder().decode(DeleteLessonResponse.self, from: data)
+            
+            if result.isSuccess() {
+                onSuccess()
+            }
             
         } catch {
             window.showError("Pay course failed", error.localizedDescription)

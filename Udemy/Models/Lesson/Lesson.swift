@@ -20,7 +20,7 @@ struct LessonChoice: Codable {
 
 struct Lesson: Codable {
     var _id: String?
-    var doc: [String]
+    var doc: [String]?
     var multipleChoices: [LessonChoice]?
     var popupQuestion: [LessonChoice]?
     var video: String?

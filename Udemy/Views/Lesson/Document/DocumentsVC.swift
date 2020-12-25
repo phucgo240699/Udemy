@@ -15,6 +15,7 @@ fileprivate let cellID: String = "documentCell"
 class DocumentsVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var lbEmpty: UILabel!
     
     var documents: [String] = []
     
@@ -23,11 +24,28 @@ class DocumentsVC: UIViewController {
         
         setupUI()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        handleEmptyData()
+    }
 
     private func setupUI() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "SimpleTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
+    }
+    
+    func handleEmptyData() {
+        if self.documents.count == 0 {
+            self.tableView.isHidden = true
+            self.lbEmpty.isHidden = false
+        }
+        else {
+            self.tableView.isHidden = false
+            self.lbEmpty.isHidden = true
+        }
     }
 }
 

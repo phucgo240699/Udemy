@@ -57,7 +57,7 @@ extension RequestAPI {
                 onSuccess()
             }
             else {
-                self.parseErrorJSON(from: data)
+                self.parseMessageErrorJSON(from: data)
             }
         }
     }

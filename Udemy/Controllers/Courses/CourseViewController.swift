@@ -12,24 +12,25 @@ fileprivate let cellID: String = "courseTBVCell"
 
 class CourseViewController: UIViewController {
 
+    // Components UI
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var lbEmpty: UILabel!
+    let addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(CourseViewController.addLessonBarBtnPressed(_:)))
     var refreshControl: UIRefreshControl = UIRefreshControl()
+    
+    
+    // Data
     var courses: [JoinedCourse] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.navigationItem.title = "Courses"
+        navigationItem.rightBarButtonItem = addBarButton
         
         setupUI()
         
-        RequestAPI.shared.fetchJoinedCourses(by: (UIApplication.shared.delegate as? AppDelegate)?.account._id) { (joinedCourses) in
-            self.courses = joinedCourses
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+        adaptData()
     }
     
     func setupUI() {
@@ -44,15 +45,34 @@ class CourseViewController: UIViewController {
         tableView.addSubview(refreshControl)
     }
     
+    @objc func addLessonBarBtnPressed(_ sender: UIBarButtonItem) {
+        
+    }
+    
     @objc func refresh(_ sender: UIRefreshControl) {
         refreshControl.endRefreshing()
         
+        adaptData()
+    }
+    
+    func adaptData() {
         RequestAPI.shared.fetchJoinedCourses(by: (UIApplication.shared.delegate as? AppDelegate)?.account._id) { (joinedCourses) in
             self.courses = joinedCourses
+
+            self.handleEmptyData()
             
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+            self.tableView.reloadData()
+        }
+    }
+    
+    func handleEmptyData() {
+        if self.courses.count == 0 {
+            self.tableView.isHidden = true
+            self.lbEmpty.isHidden = false
+        }
+        else {
+            self.tableView.isHidden = false
+            self.lbEmpty.isHidden = true
         }
     }
 }
@@ -86,10 +106,10 @@ extension CourseViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension CourseViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        RequestAPI.shared.fetchLessons(idCourse: courses[indexPath.row].idCourse?._id) { (lessons) in
-            let lessonVC = LessonViewController()
-            lessonVC.lessons = lessons
-            self.navigationController?.pushViewController(lessonVC, animated: true)
-        }
+        
+        let lessonVC = LessonViewController()
+        lessonVC.idCourse = self.courses[indexPath.row].idCourse?._id
+        self.navigationController?.pushViewController(lessonVC, animated: true)
+        
     }
 }
