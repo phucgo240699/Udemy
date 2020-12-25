@@ -15,7 +15,6 @@ class SearchResultViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var lbNotFound: UILabel!
-    var refreshControl: UIRefreshControl = UIRefreshControl()
     
     var courses: [RegularCourse] = []
     
@@ -42,17 +41,8 @@ class SearchResultViewController: UIViewController {
             lbNotFound.isHidden = false
         }
         
-        
-        // refresh control
-        refreshControl.addTarget(self, action: #selector(SearchResultViewController.refresh(_:)), for: .valueChanged)
-        tableView.addSubview(refreshControl)
     }
     
-    @objc func refresh(_ sender: UIRefreshControl) {
-        refreshControl.endRefreshing()
-        
-        
-    }
 }
 
 // MARK: - UITableViewDatasource

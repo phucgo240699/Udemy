@@ -77,9 +77,9 @@ class CreateLessonVC: UIViewController {
         if video == nil {
             return false
         }
-//        if document == nil {
-//            return false
-//        }
+        if document == nil {
+            return false
+        }
         
         return true
     }

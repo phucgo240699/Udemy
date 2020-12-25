@@ -175,7 +175,11 @@ extension LessonViewController: LessonCellProtocol {
         
         //-- Delete
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
-            
+            RequestAPI.shared.deleteLesson(by: self.lessons[indexPath.row]._id) {
+                self.lessons.remove(at: indexPath.row)
+                
+                self.tableView.reloadData()
+            }
         }))
         
         // Cancel

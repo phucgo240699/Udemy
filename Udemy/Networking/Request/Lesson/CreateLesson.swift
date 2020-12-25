@@ -27,6 +27,7 @@ extension RequestAPI {
         guard let title = title?.data(using: String.Encoding.utf8),
               let idCourse = idCourse?.data(using: String.Encoding.utf8),
               var order = order,
+              let document = document,
               let video = video else {
             return
         }
@@ -56,7 +57,7 @@ extension RequestAPI {
         AF.upload(multipartFormData: { (multipartFormData) in
             let timestamp = NSDate().timeIntervalSince1970
             multipartFormData.append(video, withName: "videos", fileName: "\(timestamp).mp4", mimeType: "\(timestamp)/mp4")
-//            multipartFormData.append(document, withName: "docs", fileName: "\(timestamp).pdf", mimeType: "application/pdf")
+            multipartFormData.append(document, withName: "docs", fileName: "\(timestamp).pdf", mimeType: "application/pdf")
             multipartFormData.append(title, withName: "title")
             multipartFormData.append(idCourse, withName: "idCourse")
             multipartFormData.append(Data(bytes: &order, count: MemoryLayout.size(ofValue: order)), withName: "order")

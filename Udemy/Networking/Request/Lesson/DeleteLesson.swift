@@ -26,10 +26,6 @@ extension RequestAPI {
             return
         }
         
-        // Params
-        let params: [String: Any] = ["" : ""]
-        
-        
         
         // Access token
         guard let accessToken = TokenManager.getAccessToken() else {
@@ -45,7 +41,7 @@ extension RequestAPI {
         SVProgressHUD.show()
         
         // Call API
-        AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).response{
+        AF.request(url, method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: headers).response{
             response in
             
             // off waiting progress
