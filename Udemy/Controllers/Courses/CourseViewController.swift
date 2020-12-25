@@ -15,7 +15,7 @@ class CourseViewController: UIViewController {
     // Components UI
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var lbEmpty: UILabel!
-    let addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(CourseViewController.addLessonBarBtnPressed(_:)))
+    var addBarButton: UIBarButtonItem?
     var refreshControl: UIRefreshControl = UIRefreshControl()
     
     
@@ -25,6 +25,7 @@ class CourseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(CourseViewController.addLessonBarBtnPressed(_:)))
         navigationController?.navigationItem.title = "Courses"
         navigationItem.rightBarButtonItem = addBarButton
         
@@ -46,7 +47,8 @@ class CourseViewController: UIViewController {
     }
     
     @objc func addLessonBarBtnPressed(_ sender: UIBarButtonItem) {
-        
+        let createCourseVC = CreateCourseVC()
+        navigationController?.pushViewController(createCourseVC, animated: true)
     }
     
     @objc func refresh(_ sender: UIRefreshControl) {

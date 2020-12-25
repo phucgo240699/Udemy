@@ -39,6 +39,12 @@
 		3E15C93D2563A1B400C2DCE3 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E15C93C2563A1B400C2DCE3 /* Cart.swift */; };
 		3E1951E825342A0800AB9D06 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1951E725342A0800AB9D06 /* PasswordViewController.swift */; };
 		3E1951ED25342ACA00AB9D06 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1951EC25342ACA00AB9D06 /* PasswordView.swift */; };
+		3E20759A25962EB5003FB93C /* CategoryNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E20759825962EB5003FB93C /* CategoryNameVC.swift */; };
+		3E20759B25962EB5003FB93C /* CategoryNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E20759825962EB5003FB93C /* CategoryNameVC.swift */; };
+		3E20759C25962EB5003FB93C /* CategoryNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E20759825962EB5003FB93C /* CategoryNameVC.swift */; };
+		3E20759D25962EB5003FB93C /* CategoryNameVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E20759925962EB5003FB93C /* CategoryNameVC.xib */; };
+		3E20759E25962EB5003FB93C /* CategoryNameVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E20759925962EB5003FB93C /* CategoryNameVC.xib */; };
+		3E20759F25962EB5003FB93C /* CategoryNameVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E20759925962EB5003FB93C /* CategoryNameVC.xib */; };
 		3E332DEC25615FD800AFA6CE /* CourseDetailOperationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E332DEA25615FD800AFA6CE /* CourseDetailOperationCell.swift */; };
 		3E332DED25615FD800AFA6CE /* CourseDetailOperationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E332DEB25615FD800AFA6CE /* CourseDetailOperationCell.xib */; };
 		3E350CB6255A7BEE006B325E /* APIFetchBanners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E350CB5255A7BEE006B325E /* APIFetchBanners.swift */; };
@@ -141,6 +147,15 @@
 		3E82307B256644AD007F3C2E /* SearchCategoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E823079256644AD007F3C2E /* SearchCategoriesCell.swift */; };
 		3E82307C256644AD007F3C2E /* SearchCategoriesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E82307A256644AD007F3C2E /* SearchCategoriesCell.xib */; };
 		3E8742C125333479001E9D5E /* UserFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8742C025333479001E9D5E /* UserFunc.swift */; };
+		3E8A7F692595E35E00395C0F /* CreateCourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8A7F672595E35E00395C0F /* CreateCourseVC.swift */; };
+		3E8A7F6A2595E35E00395C0F /* CreateCourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8A7F672595E35E00395C0F /* CreateCourseVC.swift */; };
+		3E8A7F6B2595E35E00395C0F /* CreateCourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8A7F672595E35E00395C0F /* CreateCourseVC.swift */; };
+		3E8A7F6C2595E35E00395C0F /* CreateCourseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8A7F682595E35E00395C0F /* CreateCourseVC.xib */; };
+		3E8A7F6D2595E35E00395C0F /* CreateCourseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8A7F682595E35E00395C0F /* CreateCourseVC.xib */; };
+		3E8A7F6E2595E35E00395C0F /* CreateCourseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8A7F682595E35E00395C0F /* CreateCourseVC.xib */; };
+		3E8A7F762595EC3800395C0F /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8A7F752595EC3700395C0F /* Document.swift */; };
+		3E8A7F772595EC3800395C0F /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8A7F752595EC3700395C0F /* Document.swift */; };
+		3E8A7F782595EC3800395C0F /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8A7F752595EC3700395C0F /* Document.swift */; };
 		3E8D0ED32562E03500F1295C /* JoinedCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8D0ED22562E03500F1295C /* JoinedCourse.swift */; };
 		3E8D0ED82562E81000F1295C /* IsJoinedCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8D0ED72562E81000F1295C /* IsJoinedCourse.swift */; };
 		3E8D2C6225634E6900691511 /* OrderedCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8D2C6025634E6900691511 /* OrderedCourseTableViewCell.swift */; };
@@ -269,6 +284,8 @@
 		3E15C93C2563A1B400C2DCE3 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		3E1951E725342A0800AB9D06 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		3E1951EC25342ACA00AB9D06 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
+		3E20759825962EB5003FB93C /* CategoryNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryNameVC.swift; sourceTree = "<group>"; };
+		3E20759925962EB5003FB93C /* CategoryNameVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryNameVC.xib; sourceTree = "<group>"; };
 		3E332DEA25615FD800AFA6CE /* CourseDetailOperationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailOperationCell.swift; sourceTree = "<group>"; };
 		3E332DEB25615FD800AFA6CE /* CourseDetailOperationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseDetailOperationCell.xib; sourceTree = "<group>"; };
 		3E350CB5255A7BEE006B325E /* APIFetchBanners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFetchBanners.swift; sourceTree = "<group>"; };
@@ -333,6 +350,9 @@
 		3E823079256644AD007F3C2E /* SearchCategoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategoriesCell.swift; sourceTree = "<group>"; };
 		3E82307A256644AD007F3C2E /* SearchCategoriesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCategoriesCell.xib; sourceTree = "<group>"; };
 		3E8742C025333479001E9D5E /* UserFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFunc.swift; sourceTree = "<group>"; };
+		3E8A7F672595E35E00395C0F /* CreateCourseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCourseVC.swift; sourceTree = "<group>"; };
+		3E8A7F682595E35E00395C0F /* CreateCourseVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateCourseVC.xib; sourceTree = "<group>"; };
+		3E8A7F752595EC3700395C0F /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		3E8D0ED22562E03500F1295C /* JoinedCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinedCourse.swift; sourceTree = "<group>"; };
 		3E8D0ED72562E81000F1295C /* IsJoinedCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsJoinedCourse.swift; sourceTree = "<group>"; };
 		3E8D2C6025634E6900691511 /* OrderedCourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedCourseTableViewCell.swift; sourceTree = "<group>"; };
@@ -446,6 +466,7 @@
 			children = (
 				3E00912B25943AF300C0ADCA /* DocumentsVC.swift */,
 				3E00912C25943AF300C0ADCA /* DocumentsVC.xib */,
+				3E8A7F752595EC3700395C0F /* Document.swift */,
 			);
 			path = Document;
 			sourceTree = "<group>";
@@ -530,6 +551,15 @@
 				3E9972052563ACCD0078088D /* CoursesInCart.swift */,
 			);
 			path = Cart;
+			sourceTree = "<group>";
+		};
+		3E20759725962E97003FB93C /* CategoryName */ = {
+			isa = PBXGroup;
+			children = (
+				3E20759825962EB5003FB93C /* CategoryNameVC.swift */,
+				3E20759925962EB5003FB93C /* CategoryNameVC.xib */,
+			);
+			path = CategoryName;
 			sourceTree = "<group>";
 		};
 		3E3B87AA2522DF19006CBC37 /* Resources */ = {
@@ -878,6 +908,16 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
+		3E8A7F662595E34300395C0F /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				3E20759725962E97003FB93C /* CategoryName */,
+				3E8A7F672595E35E00395C0F /* CreateCourseVC.swift */,
+				3E8A7F682595E35E00395C0F /* CreateCourseVC.xib */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
 		3E8D2C5E25634E4100691511 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1098,6 +1138,7 @@
 		3EBC98E12526FDEA00A273C5 /* Courses */ = {
 			isa = PBXGroup;
 			children = (
+				3E8A7F662595E34300395C0F /* Create */,
 				3E71433725695A5D0058FA93 /* Ratings */,
 				3E8F11FD2562D984000A7BF8 /* Cell */,
 				3EE02CE225611E7000F3BA45 /* Course Detail */,
@@ -1343,6 +1384,7 @@
 				3EC377D8259409C900744129 /* QuestionVC.xib in Resources */,
 				3ED662D325924CFE00991680 /* RatingPopupVC.xib in Resources */,
 				3E1098B5258456A700F7396E /* ForgotPasswordViewController.xib in Resources */,
+				3E8A7F6C2595E35E00395C0F /* CreateCourseVC.xib in Resources */,
 				3E7DD38625624356002AEBE6 /* CourseDetailRelatedCoursesCell.xib in Resources */,
 				3E4694EA259586E400AC7F66 /* CreateLessonVC.xib in Resources */,
 				3E54C9EF25634D4C0025B618 /* CartViewController.xib in Resources */,
@@ -1354,6 +1396,7 @@
 				3E4424BB258B7C88009B2D7D /* LessonCell.xib in Resources */,
 				3E53DC6D25845F0F009F3F97 /* GetTokenResetPassVC.xib in Resources */,
 				3EE02CE625611E9000F3BA45 /* CourseDetailVC.xib in Resources */,
+				3E20759D25962EB5003FB93C /* CategoryNameVC.xib in Resources */,
 				3E8D2C6325634E6900691511 /* OrderedCourseTableViewCell.xib in Resources */,
 				3EA01D462565E02500F1D6D5 /* CourseTableViewCell.xib in Resources */,
 				3E332DED25615FD800AFA6CE /* CourseDetailOperationCell.xib in Resources */,
@@ -1382,9 +1425,11 @@
 				3E00913A25943AFE00C0ADCA /* DocumentsVC.xib in Resources */,
 				3EC377D9259409C900744129 /* QuestionVC.xib in Resources */,
 				3E4694EB259586E400AC7F66 /* CreateLessonVC.xib in Resources */,
+				3E8A7F6D2595E35E00395C0F /* CreateCourseVC.xib in Resources */,
 				3E73FCA0258B7A0500317ACD /* LessonViewController.xib in Resources */,
 				3E1098B6258456A700F7396E /* ForgotPasswordViewController.xib in Resources */,
 				3EC377CA2594093C00744129 /* ImageCell.xib in Resources */,
+				3E20759E25962EB5003FB93C /* CategoryNameVC.xib in Resources */,
 				3E53DC6E25845F0F009F3F97 /* GetTokenResetPassVC.xib in Resources */,
 				3E4424BC258B7C88009B2D7D /* LessonCell.xib in Resources */,
 				3ED662D425924CFE00991680 /* RatingPopupVC.xib in Resources */,
@@ -1399,9 +1444,11 @@
 				3E00913E25943AFF00C0ADCA /* DocumentsVC.xib in Resources */,
 				3EC377DA259409C900744129 /* QuestionVC.xib in Resources */,
 				3E4694EC259586E400AC7F66 /* CreateLessonVC.xib in Resources */,
+				3E8A7F6E2595E35E00395C0F /* CreateCourseVC.xib in Resources */,
 				3E73FCA1258B7A0500317ACD /* LessonViewController.xib in Resources */,
 				3E1098B7258456A700F7396E /* ForgotPasswordViewController.xib in Resources */,
 				3EC377CB2594093C00744129 /* ImageCell.xib in Resources */,
+				3E20759F25962EB5003FB93C /* CategoryNameVC.xib in Resources */,
 				3E53DC6F25845F0F009F3F97 /* GetTokenResetPassVC.xib in Resources */,
 				3E4424BD258B7C88009B2D7D /* LessonCell.xib in Resources */,
 				3ED662D525924CFE00991680 /* RatingPopupVC.xib in Resources */,
@@ -1594,6 +1641,7 @@
 				3E91FDA12524170C0086DA0A /* Window.swift in Sources */,
 				3E9F3A8F2532D8CA0086DA90 /* InformationView.swift in Sources */,
 				3E4424C6258B9932009B2D7D /* GetLessons.swift in Sources */,
+				3E20759A25962EB5003FB93C /* CategoryNameVC.swift in Sources */,
 				3E07EB132522E9B0002EBE7B /* Button.swift in Sources */,
 				3E00912D25943AF300C0ADCA /* DocumentsVC.swift in Sources */,
 				3E9972062563ACCD0078088D /* CoursesInCart.swift in Sources */,
@@ -1620,6 +1668,7 @@
 				3E1951E825342A0800AB9D06 /* PasswordViewController.swift in Sources */,
 				3E5EA6D02563B57400248552 /* SearchViewController.swift in Sources */,
 				3EA6014D257A6DDC003DF25F /* PaymentKeyResponse.swift in Sources */,
+				3E8A7F692595E35E00395C0F /* CreateCourseVC.swift in Sources */,
 				3E07EB0B2522E976002EBE7B /* Image.swift in Sources */,
 				3E6327E125664A9700AE1967 /* APIFetchFreeCourses.swift in Sources */,
 				3ED6F23125621F6F004DF2CA /* CourseDetailDescriptionCell.swift in Sources */,
@@ -1632,6 +1681,7 @@
 				3EEF6D79252C9E6F00FFD443 /* ActivationViewController.swift in Sources */,
 				3EB9E926253EEB4F0043BB9A /* FeatureView.swift in Sources */,
 				3E6910B825694BB3006615B9 /* CourseDetailRatingCell.swift in Sources */,
+				3E8A7F762595EC3800395C0F /* Document.swift in Sources */,
 				3EFD071B2569573C00B0DE75 /* APIFetchCourseRatings.swift in Sources */,
 				3E0EF955252ADFD800AFD584 /* Noti.swift in Sources */,
 				3EA60144257A69DE003DF25F /* getPaymentKey.swift in Sources */,
@@ -1656,8 +1706,11 @@
 				3E4694D1259580AA00AC7F66 /* DeleteLesson.swift in Sources */,
 				3EC377C72594093C00744129 /* ImageCell.swift in Sources */,
 				3E4424C7258B9932009B2D7D /* GetLessons.swift in Sources */,
+				3E8A7F6A2595E35E00395C0F /* CreateCourseVC.swift in Sources */,
+				3E8A7F772595EC3800395C0F /* Document.swift in Sources */,
 				3EC04D6825959AE70060FF6C /* AvatarViewController.swift in Sources */,
 				3E00913225943AF800C0ADCA /* DocumentsVC.swift in Sources */,
+				3E20759B25962EB5003FB93C /* CategoryNameVC.swift in Sources */,
 				3E53DC6B25845F0F009F3F97 /* GetTokenResetPassVC.swift in Sources */,
 				3EAD5D662521C8390093944F /* UdemyTests.swift in Sources */,
 				3E7FDC49258464B80070CCE9 /* GetTokenResetPass.swift in Sources */,
@@ -1684,8 +1737,11 @@
 				3E4694D2259580AA00AC7F66 /* DeleteLesson.swift in Sources */,
 				3EC377C82594093C00744129 /* ImageCell.swift in Sources */,
 				3E4424C8258B9932009B2D7D /* GetLessons.swift in Sources */,
+				3E8A7F6B2595E35E00395C0F /* CreateCourseVC.swift in Sources */,
+				3E8A7F782595EC3800395C0F /* Document.swift in Sources */,
 				3EC04D6C25959AE70060FF6C /* AvatarViewController.swift in Sources */,
 				3E00913625943AF900C0ADCA /* DocumentsVC.swift in Sources */,
+				3E20759C25962EB5003FB93C /* CategoryNameVC.swift in Sources */,
 				3E53DC6C25845F0F009F3F97 /* GetTokenResetPassVC.swift in Sources */,
 				3EAD5D712521C8390093944F /* UdemyUITests.swift in Sources */,
 				3E7FDC4A258464B80070CCE9 /* GetTokenResetPass.swift in Sources */,

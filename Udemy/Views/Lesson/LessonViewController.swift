@@ -170,7 +170,7 @@ extension LessonViewController: LessonCellProtocol {
         
         //-- Edit
         alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { (action) in
-            
+            self.showAlert("Under development", "")
         }))
         
         //-- Delete
