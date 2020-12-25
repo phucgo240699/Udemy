@@ -25,7 +25,7 @@ class CreateCourseVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        setupUI()
     }
     
     func setupUI() {
@@ -43,6 +43,9 @@ class CreateCourseVC: UIViewController {
         tvDescription.delegate = self
         tfPrice.delegate = self
         tfDiscount.delegate = self
+        
+        tvDescription.clipsToBounds = true
+        tvDescription.layer.cornerRadius = 5.0
     }
     
     @IBAction func chooseCategoryBtnPressed(_ sender: UIButton) {

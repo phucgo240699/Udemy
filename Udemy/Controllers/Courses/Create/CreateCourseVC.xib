@@ -63,11 +63,11 @@
                 </textField>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7tw-p1-6lt" userLabel="Description">
                     <rect key="frame" x="10" y="218" width="394" height="80"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" name="silverBackground"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="4oP-CS-3iJ"/>
                     </constraints>
-                    <color key="textColor" name="silverBackground"/>
+                    <color key="textColor" name="textColor"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>

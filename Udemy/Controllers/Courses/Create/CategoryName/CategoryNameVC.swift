@@ -35,7 +35,7 @@ class CategoryNameVC: UIViewController {
     private func setupUI() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        tableView.register(UINib(nibName: "SimpleTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
         
         
         // refresh control
@@ -59,13 +59,23 @@ class CategoryNameVC: UIViewController {
 }
 
 extension CategoryNameVC: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
-        cell.textLabel?.text = categories[indexPath.row].name
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? SimpleTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.label?.text = categories[indexPath.row].name
+        if let image = categories[indexPath.row].image {
+            cell.imgView?.sd_setImage(with: URL(string: "\(Common.link.getCategoryThumbnail)/\(image)"), completed: nil)
+        }
         return cell
     }
     
