@@ -9,10 +9,14 @@
 import UIKit
 import DropDown
 
+protocol CreateCourseVCDelegate: class {
+    func didCreateSuccessfully()
+}
+
 class CreateCourseVC: UIViewController {
     
+    // Components UI
     var addBarButton: UIBarButtonItem?
-    
     @IBOutlet weak var tfName: UITextField!
     @IBOutlet weak var tfGoal: UITextField!
     @IBOutlet weak var tvDescription: UITextView!
@@ -20,7 +24,13 @@ class CreateCourseVC: UIViewController {
     @IBOutlet weak var tfPrice: UITextField!
     @IBOutlet weak var tfDiscount: UITextField!
     
+    
+    // Data
     var choseCategory: Category?
+    
+    
+    // Delegate
+    weak var delegate: CreateCourseVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,8 +66,24 @@ class CreateCourseVC: UIViewController {
     
     
     @objc func addCourseBarBtnPressed(_ sender: UIBarButtonItem) {
-        let createCourseVC = CreateCourseVC()
-        navigationController?.pushViewController(createCourseVC, animated: true)
+        guard let name = tfName.text,
+              let goal = tfGoal.text,
+              let description = tvDescription.text,
+              let categoryId = choseCategory?._id,
+              let priceString = tfPrice.text,
+              let discountString = tfDiscount.text else {
+            return
+        }
+        guard let discount = Int(discountString),
+              let price = Int(priceString) else {
+            return
+        }
+        
+        RequestAPI.shared.createCourse(name: name, goal: goal, description: description, categoryId: categoryId, price: price, discount: discount) {
+            self.navigationController?.popViewController(animated: true)
+            self.delegate?.didCreateSuccessfully()
+        }
+
     }
     
     func isValidForm() -> Bool {
@@ -73,9 +99,16 @@ class CreateCourseVC: UIViewController {
         if tfPrice.text?.isEmptyOrSpacing() == true {
             return false
         }
-        if tfDiscount.text?.isEmptyOrSpacing() == true {
+        guard let discountString = tfDiscount.text else {
             return false
         }
+        guard let discount = Int(discountString) else {
+            return false
+        }
+        if discount < 0 || discount > 100 {
+            return false
+        }
+        
         if choseCategory == nil {
             return false
         }

@@ -21,11 +21,12 @@ class CourseViewController: UIViewController {
     
     // Data
     var courses: [JoinedCourse] = []
+    var searchString: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(CourseViewController.addLessonBarBtnPressed(_:)))
+        addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(CourseViewController.addCourseBarBtnPressed(_:)))
         navigationController?.navigationItem.title = "Courses"
         navigationItem.rightBarButtonItem = addBarButton
         
@@ -46,8 +47,9 @@ class CourseViewController: UIViewController {
         tableView.addSubview(refreshControl)
     }
     
-    @objc func addLessonBarBtnPressed(_ sender: UIBarButtonItem) {
+    @objc func addCourseBarBtnPressed(_ sender: UIBarButtonItem) {
         let createCourseVC = CreateCourseVC()
+        createCourseVC.delegate = self
         navigationController?.pushViewController(createCourseVC, animated: true)
     }
     
@@ -81,6 +83,15 @@ class CourseViewController: UIViewController {
 
 // MARK: - UITableViewDatasource
 extension CourseViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44.0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let searchBar = UISearchBar()
+        searchBar.delegate = self
+        return searchBar
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120.0//UITableView.automaticDimension
@@ -88,6 +99,13 @@ extension CourseViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let searchString = searchString {
+            if searchString.isEmptyOrSpacing() == false {
+                return courses.filter { (course) -> Bool in
+                    return (course.idCourse?.name?.contains(searchString) ?? false)
+                }.count
+            }
+        }
         return courses.count
     }
     
@@ -113,5 +131,30 @@ extension CourseViewController: UITableViewDelegate {
         lessonVC.idCourse = self.courses[indexPath.row].idCourse?._id
         self.navigationController?.pushViewController(lessonVC, animated: true)
         
+    }
+}
+
+
+// MARK: - CreateCourseVCDelegate
+extension CourseViewController: CreateCourseVCDelegate {
+    func didCreateSuccessfully() {
+        
+        // Notify
+        self.notificate(UIImage(named: Common.imageName.done), "Created Successfully", "")
+        
+        adaptData()
+        
+    }
+}
+
+
+// MARK: - Search Delegate
+extension CourseViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchString = searchText
+        
+        UIView.animate(withDuration: 0.5) {
+            self.tableView.reloadData()
+        }
     }
 }

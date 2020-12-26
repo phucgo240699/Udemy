@@ -20,6 +20,7 @@ class LessonViewController: UIViewController {
     
     var idCourse: String?
     var lessons: [Lesson] = []
+    var searchString: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,6 +90,16 @@ class LessonViewController: UIViewController {
 // MARK: - UITableViewDataSource
 extension LessonViewController: UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44.0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let searchBar = UISearchBar()
+        searchBar.delegate = self
+        return searchBar
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -98,6 +109,13 @@ extension LessonViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let searchString = searchString {
+            if searchString.isEmptyOrSpacing() == false {
+                return lessons.filter { (lesson) -> Bool in
+                    return (lesson.title?.contains(searchString) ?? false)
+                }.count
+            }
+        }
         return lessons.count
     }
     
@@ -199,5 +217,17 @@ extension LessonViewController: CreateLessonVCDelegate {
         self.tableView.beginUpdates()
         self.tableView.endUpdates()
         self.tableView.insertRows(at: [IndexPath(row: self.lessons.count - 2, section: 0)], with: .automatic)
+    }
+}
+
+
+// MARK: Search Delegate
+extension LessonViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchString = searchText
+        
+        UIView.animate(withDuration: 0.5) {
+            self.tableView.reloadData()
+        }
     }
 }
