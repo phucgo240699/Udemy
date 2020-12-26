@@ -1,15 +1,16 @@
 //
-//  PayCourse.swift
+//  getTokenObject.swift
 //  Udemy
 //
-//  Created by Phúc Lý on 04/12/2020.
+//  Created by Phúc Lý on 26/12/2020.
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
 import Alamofire
+import SVProgressHUD
 
 extension RequestAPI {
-    func payCourse(params: PayCourseRequest, onSuccess: @escaping () -> Void) {
+    func getStripeTokenObject(params: CardStripeRequest, onSuccess: @escaping (StripeResponse) -> Void) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
@@ -17,46 +18,31 @@ extension RequestAPI {
             return
         }
         
-        // URL
-        let rawUrl = URL(string: Common.link.payCourse)
-        guard let url = rawUrl else {
+        guard let url = URL(string: Common.link.getStripeTokenObject) else {
             return
         }
         
-        
-        // Access token
-        guard let accessToken = TokenManager.getAccessToken() else {
-            return
-        }
-        
-        // Headers
         let headers: HTTPHeaders = [
-            "auth-token": accessToken,
+            "Authorization": "Bearer sk_test_51I1TlzABLqtAl4aBD4qzy8PQcrLD1eYzIgzeqzDUvqztrSp7QQvahiWlFQQiUwMc1yqsfuWsTUxK3svxnBhoT3XC00atVjZ0X8",
             "Accept": "application/json"
+            
         ]
         
-        // Call API
         AF.request(url, method: .post, parameters: params, encoder: JSONParameterEncoder.default, headers: headers).response { (response) in
-            
             if let error = response.error?.errorDescription {
                 window.showError("Error", String(error.description.split(separator: ":")[1]) )
                 return
             }
             
-            guard let data = response.data,
-                  let statusCode = response.response?.statusCode else {
-                return
-            }
-            if statusCode == 200 {
-                onSuccess()
+            guard let data = response.data else {
                 return
             }
             
-            self.parsePayCourseJSON(data, onSuccess: onSuccess)
+            self.parseGetStripeTokenObjectJSON(data, onSuccess: onSuccess)
         }
     }
     
-    func parsePayCourseJSON(_ data: Data, onSuccess: @escaping () -> Void) {
+    func parseGetStripeTokenObjectJSON(_ data: Data, onSuccess: @escaping (StripeResponse) -> Void) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
@@ -65,11 +51,11 @@ extension RequestAPI {
         }
         
         do {
-            let result = try JSONDecoder().decode(PayCourseResponse.self, from: data)
-            onSuccess()
+            let result = try JSONDecoder().decode(StripeResponse.self, from: data)
+            onSuccess(result)
             
         } catch {
-            window.showError("Pay course failed", error.localizedDescription)
+            window.showError("Log out failed", error.localizedDescription)
         }
     }
 }

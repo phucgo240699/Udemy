@@ -45,6 +45,9 @@
 		3E20759D25962EB5003FB93C /* CategoryNameVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E20759925962EB5003FB93C /* CategoryNameVC.xib */; };
 		3E20759E25962EB5003FB93C /* CategoryNameVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E20759925962EB5003FB93C /* CategoryNameVC.xib */; };
 		3E20759F25962EB5003FB93C /* CategoryNameVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E20759925962EB5003FB93C /* CategoryNameVC.xib */; };
+		3E311580259763DF00C35F38 /* PayCourseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E31157F259763DF00C35F38 /* PayCourseRequest.swift */; };
+		3E311581259763DF00C35F38 /* PayCourseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E31157F259763DF00C35F38 /* PayCourseRequest.swift */; };
+		3E311582259763DF00C35F38 /* PayCourseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E31157F259763DF00C35F38 /* PayCourseRequest.swift */; };
 		3E332DEC25615FD800AFA6CE /* CourseDetailOperationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E332DEA25615FD800AFA6CE /* CourseDetailOperationCell.swift */; };
 		3E332DED25615FD800AFA6CE /* CourseDetailOperationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E332DEB25615FD800AFA6CE /* CourseDetailOperationCell.xib */; };
 		3E350CB6255A7BEE006B325E /* APIFetchBanners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E350CB5255A7BEE006B325E /* APIFetchBanners.swift */; };
@@ -230,6 +233,12 @@
 		3EE02CDD25611E4900F3BA45 /* BaseXibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE02CDC25611E4900F3BA45 /* BaseXibView.swift */; };
 		3EE02CE525611E9000F3BA45 /* CourseDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE02CE325611E9000F3BA45 /* CourseDetailVC.swift */; };
 		3EE02CE625611E9000F3BA45 /* CourseDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EE02CE425611E9000F3BA45 /* CourseDetailVC.xib */; };
+		3EECB12925977009001B2532 /* getTokenObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EECB12825977009001B2532 /* getTokenObject.swift */; };
+		3EECB12A25977009001B2532 /* getTokenObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EECB12825977009001B2532 /* getTokenObject.swift */; };
+		3EECB12B25977009001B2532 /* getTokenObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EECB12825977009001B2532 /* getTokenObject.swift */; };
+		3EECB13025977075001B2532 /* Stripe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EECB12F25977075001B2532 /* Stripe.swift */; };
+		3EECB13125977075001B2532 /* Stripe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EECB12F25977075001B2532 /* Stripe.swift */; };
+		3EECB13225977075001B2532 /* Stripe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EECB12F25977075001B2532 /* Stripe.swift */; };
 		3EEF6D6E252C98A800FFD443 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEF6D6D252C98A800FFD443 /* ErrorResponse.swift */; };
 		3EEF6D79252C9E6F00FFD443 /* ActivationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEF6D78252C9E6F00FFD443 /* ActivationViewController.swift */; };
 		3EEF6D7E252C9FFD00FFD443 /* ActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEF6D7D252C9FFD00FFD443 /* ActivationView.swift */; };
@@ -292,6 +301,7 @@
 		3E1951EC25342ACA00AB9D06 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		3E20759825962EB5003FB93C /* CategoryNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryNameVC.swift; sourceTree = "<group>"; };
 		3E20759925962EB5003FB93C /* CategoryNameVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryNameVC.xib; sourceTree = "<group>"; };
+		3E31157F259763DF00C35F38 /* PayCourseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCourseRequest.swift; sourceTree = "<group>"; };
 		3E332DEA25615FD800AFA6CE /* CourseDetailOperationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailOperationCell.swift; sourceTree = "<group>"; };
 		3E332DEB25615FD800AFA6CE /* CourseDetailOperationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseDetailOperationCell.xib; sourceTree = "<group>"; };
 		3E350CB5255A7BEE006B325E /* APIFetchBanners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFetchBanners.swift; sourceTree = "<group>"; };
@@ -421,6 +431,8 @@
 		3EE02CDC25611E4900F3BA45 /* BaseXibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseXibView.swift; sourceTree = "<group>"; };
 		3EE02CE325611E9000F3BA45 /* CourseDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailVC.swift; sourceTree = "<group>"; };
 		3EE02CE425611E9000F3BA45 /* CourseDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseDetailVC.xib; sourceTree = "<group>"; };
+		3EECB12825977009001B2532 /* getTokenObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getTokenObject.swift; sourceTree = "<group>"; };
+		3EECB12F25977075001B2532 /* Stripe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stripe.swift; sourceTree = "<group>"; };
 		3EEF6D6D252C98A800FFD443 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		3EEF6D78252C9E6F00FFD443 /* ActivationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationViewController.swift; sourceTree = "<group>"; };
 		3EEF6D7D252C9FFD00FFD443 /* ActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationView.swift; sourceTree = "<group>"; };
@@ -1039,6 +1051,7 @@
 			children = (
 				3EA60143257A69DE003DF25F /* getPaymentKey.swift */,
 				3EA60157257A6E73003DF25F /* PayCourse.swift */,
+				3EECB12825977009001B2532 /* getTokenObject.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -1048,6 +1061,8 @@
 			children = (
 				3EA6014C257A6DDC003DF25F /* PaymentKeyResponse.swift */,
 				3EA6015C257A70AE003DF25F /* PayCourseResponse.swift */,
+				3E31157F259763DF00C35F38 /* PayCourseRequest.swift */,
+				3EECB12F25977075001B2532 /* Stripe.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -1601,6 +1616,7 @@
 				3E07EB0D2522E981002EBE7B /* Label.swift in Sources */,
 				3E07EB112522E99D002EBE7B /* TextView.swift in Sources */,
 				3EEF6D7E252C9FFD00FFD443 /* ActivationView.swift in Sources */,
+				3E311580259763DF00C35F38 /* PayCourseRequest.swift in Sources */,
 				3EAD5D4C2521C8370093944F /* AppDelegate.swift in Sources */,
 				3E6327DC256649EE00AE1967 /* APIFetchNewCourses.swift in Sources */,
 				3E7DE41225406F2E002DC3DE /* Vote.swift in Sources */,
@@ -1648,11 +1664,13 @@
 				3E07EAFE2522E72C002EBE7B /* RegisterViewController.swift in Sources */,
 				3E4694E7259586E400AC7F66 /* CreateLessonVC.swift in Sources */,
 				3E1098B2258456A700F7396E /* ForgotPasswordViewController.swift in Sources */,
+				3EECB12925977009001B2532 /* getTokenObject.swift in Sources */,
 				3E9F3A8A2532D7A80086DA90 /* InformationViewController.swift in Sources */,
 				3E82307B256644AD007F3C2E /* SearchCategoriesCell.swift in Sources */,
 				3E91FDA12524170C0086DA0A /* Window.swift in Sources */,
 				3E9F3A8F2532D8CA0086DA90 /* InformationView.swift in Sources */,
 				3E4424C6258B9932009B2D7D /* GetLessons.swift in Sources */,
+				3EECB13025977075001B2532 /* Stripe.swift in Sources */,
 				3E20759A25962EB5003FB93C /* CategoryNameVC.swift in Sources */,
 				3E07EB132522E9B0002EBE7B /* Button.swift in Sources */,
 				3E00912D25943AF300C0ADCA /* DocumentsVC.swift in Sources */,
@@ -1709,7 +1727,9 @@
 			files = (
 				3E4694E8259586E400AC7F66 /* CreateLessonVC.swift in Sources */,
 				3E73FC9D258B7A0500317ACD /* LessonViewController.swift in Sources */,
+				3EECB13125977075001B2532 /* Stripe.swift in Sources */,
 				3E7FDC502584683A0070CCE9 /* ResetPassword.swift in Sources */,
+				3EECB12A25977009001B2532 /* getTokenObject.swift in Sources */,
 				3E4424D4258B9B9E009B2D7D /* GetLesson.swift in Sources */,
 				3E4694DF259583FC00AC7F66 /* CreateLesson.swift in Sources */,
 				3E4694D82595824F00AC7F66 /* DeleteLessonResponse.swift in Sources */,
@@ -1723,6 +1743,7 @@
 				3E8A7F772595EC3800395C0F /* Document.swift in Sources */,
 				3EC04D6825959AE70060FF6C /* AvatarViewController.swift in Sources */,
 				3E00913225943AF800C0ADCA /* DocumentsVC.swift in Sources */,
+				3E311581259763DF00C35F38 /* PayCourseRequest.swift in Sources */,
 				3E20759B25962EB5003FB93C /* CategoryNameVC.swift in Sources */,
 				3E53DC6B25845F0F009F3F97 /* GetTokenResetPassVC.swift in Sources */,
 				3EAD5D662521C8390093944F /* UdemyTests.swift in Sources */,
@@ -1742,7 +1763,9 @@
 			files = (
 				3E4694E9259586E400AC7F66 /* CreateLessonVC.swift in Sources */,
 				3E73FC9E258B7A0500317ACD /* LessonViewController.swift in Sources */,
+				3EECB13225977075001B2532 /* Stripe.swift in Sources */,
 				3E7FDC512584683A0070CCE9 /* ResetPassword.swift in Sources */,
+				3EECB12B25977009001B2532 /* getTokenObject.swift in Sources */,
 				3E4424D5258B9B9E009B2D7D /* GetLesson.swift in Sources */,
 				3E4694E0259583FC00AC7F66 /* CreateLesson.swift in Sources */,
 				3E4694D92595824F00AC7F66 /* DeleteLessonResponse.swift in Sources */,
@@ -1756,6 +1779,7 @@
 				3E8A7F782595EC3800395C0F /* Document.swift in Sources */,
 				3EC04D6C25959AE70060FF6C /* AvatarViewController.swift in Sources */,
 				3E00913625943AF900C0ADCA /* DocumentsVC.swift in Sources */,
+				3E311582259763DF00C35F38 /* PayCourseRequest.swift in Sources */,
 				3E20759C25962EB5003FB93C /* CategoryNameVC.swift in Sources */,
 				3E53DC6C25845F0F009F3F97 /* GetTokenResetPassVC.swift in Sources */,
 				3EAD5D712521C8390093944F /* UdemyUITests.swift in Sources */,
