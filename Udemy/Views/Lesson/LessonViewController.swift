@@ -20,7 +20,7 @@ class LessonViewController: UIViewController {
     
     var idCourse: String?
     var lessons: [Lesson] = []
-    var searchString: String?
+    var displayLessons: [Lesson] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +31,8 @@ class LessonViewController: UIViewController {
     }
     
     private func setupUI() {
+        
+        self.enableTapToDismiss()
         
         //-- Navigation
         title = "Lessons"
@@ -79,6 +81,8 @@ class LessonViewController: UIViewController {
         RequestAPI.shared.fetchLessons(idCourse: idCourse) { (lessons) in
             self.lessons = lessons
             
+            self.displayLessons = lessons
+            
             self.handleEmptyData()
             
             self.tableView.reloadData()
@@ -109,14 +113,7 @@ extension LessonViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let searchString = searchString {
-            if searchString.isEmptyOrSpacing() == false {
-                return lessons.filter { (lesson) -> Bool in
-                    return (lesson.title?.contains(searchString) ?? false)
-                }.count
-            }
-        }
-        return lessons.count
+        return displayLessons.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -125,7 +122,7 @@ extension LessonViewController: UITableViewDataSource {
         }
         
         cell.backgroundColor = .clear
-        cell.setData(lesson: lessons[indexPath.row])
+        cell.setData(lesson: displayLessons[indexPath.row])
         cell.indexPath = indexPath
         cell.delegate = self
         
@@ -224,7 +221,14 @@ extension LessonViewController: CreateLessonVCDelegate {
 // MARK: Search Delegate
 extension LessonViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchString = searchText
+        if searchText.isEmptyOrSpacing() {
+            displayLessons = lessons
+        }
+        else {
+            displayLessons = lessons.filter({ (lesson) -> Bool in
+                return lesson.title?.lowercased().contains(searchText.lowercased()) ?? false
+            })
+        }
         
         UIView.animate(withDuration: 0.5) {
             self.tableView.reloadData()

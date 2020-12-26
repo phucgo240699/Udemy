@@ -21,10 +21,13 @@ class CourseViewController: UIViewController {
     
     // Data
     var courses: [JoinedCourse] = []
-    var searchString: String?
+    var displayCourses: [JoinedCourse] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.enableTapToDismiss()
         
         addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(CourseViewController.addCourseBarBtnPressed(_:)))
         navigationController?.navigationItem.title = "Courses"
@@ -62,6 +65,7 @@ class CourseViewController: UIViewController {
     func adaptData() {
         RequestAPI.shared.fetchJoinedCourses(by: (UIApplication.shared.delegate as? AppDelegate)?.account._id) { (joinedCourses) in
             self.courses = joinedCourses
+            self.displayCourses = joinedCourses
 
             self.handleEmptyData()
             
@@ -99,14 +103,7 @@ extension CourseViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let searchString = searchString {
-            if searchString.isEmptyOrSpacing() == false {
-                return courses.filter { (course) -> Bool in
-                    return (course.idCourse?.name?.contains(searchString) ?? false)
-                }.count
-            }
-        }
-        return courses.count
+        return displayCourses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -115,7 +112,7 @@ extension CourseViewController: UITableViewDataSource {
         }
         
         cell.backgroundColor = .clear
-        cell.setData(course: courses[indexPath.row])
+        cell.setData(course: displayCourses[indexPath.row])
         cell.accessoryType = .none
         
         return cell
@@ -151,7 +148,15 @@ extension CourseViewController: CreateCourseVCDelegate {
 // MARK: - Search Delegate
 extension CourseViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchString = searchText
+        
+        if searchText.isEmptyOrSpacing() {
+            displayCourses = courses
+        }
+        else {
+            displayCourses = courses.filter({ (course) -> Bool in
+                return course.idCourse?.name?.lowercased().contains(searchText.lowercased()) ?? false
+            })
+        }
         
         UIView.animate(withDuration: 0.5) {
             self.tableView.reloadData()
