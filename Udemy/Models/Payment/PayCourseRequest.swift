@@ -26,6 +26,12 @@ struct PayCourseTokenRequest: Encodable {
     
 }
 
+struct PayCourseCartRequest: Codable {
+    var _id: String?
+}
+
 struct PayCourseRequest: Encodable {
     var token: PayCourseTokenRequest?
+    var cart: [PayCourseCartRequest]?
+    var idUser: String?
 }

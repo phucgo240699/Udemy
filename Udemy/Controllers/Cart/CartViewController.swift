@@ -87,7 +87,13 @@ extension CartViewController: UITableViewDataSource {
         }
         
         cell.onTapPaymentBtn = {
+            
+            SVProgressHUD.show()
+            
             RequestAPI.shared.getPaymentKey { (key) in
+                
+                SVProgressHUD.dismiss()
+                
                 let paymentVC = PaymentViewController()
                 paymentVC.name = appDelegate.account.name
                 paymentVC.email = appDelegate.account.email
@@ -96,6 +102,10 @@ extension CartViewController: UITableViewDataSource {
                 paymentVC.stripeToken = key
                 paymentVC.onTapPayCourseSuccess = {
                     self.notificate(UIImage(named: Common.imageName.done), "Paid successfully", "")
+                    appDelegate.cart.courses.remove(at: indexPath.row)
+                    UIView.animate(withDuration: 0.5) {
+                        self.tableView.reloadData()
+                    }
                 }
                 self.navigationController?.pushViewController(paymentVC, animated: true)
             }

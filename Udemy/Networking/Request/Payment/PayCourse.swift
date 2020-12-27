@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import SVProgressHUD
 
 extension RequestAPI {
     func payCourse(params: PayCourseRequest, onSuccess: @escaping () -> Void) {
@@ -38,6 +39,14 @@ extension RequestAPI {
         // Call API
         AF.request(url, method: .post, parameters: params, encoder: JSONParameterEncoder.default, headers: headers).response { (response) in
             
+            SVProgressHUD.dismiss()
+            guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
+                return
+            }
+            guard let window = appDelegate.window else {
+                return
+            }
+            
             if let error = response.error?.errorDescription {
                 window.showError("Error", String(error.description.split(separator: ":")[1]) )
                 return
@@ -48,11 +57,12 @@ extension RequestAPI {
                 return
             }
             if statusCode == 200 {
-                onSuccess()
-                return
+                self.parsePayCourseJSON(data, onSuccess: onSuccess)
+            }
+            else {
+                window.showError("Paid fail", "")
             }
             
-            self.parsePayCourseJSON(data, onSuccess: onSuccess)
         }
     }
     

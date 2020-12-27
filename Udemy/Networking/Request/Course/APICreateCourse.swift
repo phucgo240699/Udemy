@@ -10,7 +10,7 @@ import Alamofire
 import SVProgressHUD
 
 extension RequestAPI {
-    func createCourse(name: String, goal: String, description: String, categoryId: String, price: Int, discount: Int, onSuccess: @escaping () -> Void) {
+    func createCourse(name: String, goal: String, description: String, categoryId: String, price: Int, discount: Int, image: UIImage?, onSuccess: @escaping () -> Void) {
         
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
@@ -24,28 +24,60 @@ extension RequestAPI {
             return
         }
         
-        // Params
-        let params: [String: Any] = [
-            "name": name,
-            "goal": goal,
-            "description": description,
-            "categoryId": categoryId,
-            "price": price,
-            "discount": discount
+        // Access token
+        guard let accessToken = TokenManager.getAccessToken() else {
+            return
+        }
+        
+        // Headers
+        let headers: HTTPHeaders = [
+            "auth-token": accessToken,
+            "Content-Type": "multipart/form-data"
         ]
+        
+//        // Params
+//        let params: [String: Any] = [
+//            "name": name,
+//            "goal": goal,
+//            "description": description,
+//            "categoryId": categoryId,
+//            "price": price,
+//            "discount": discount
+//        ]
         
         // show waiting progress
         SVProgressHUD.show()
         
         // Call API
-        AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).response{
-            response in
+        AF.upload(multipartFormData: { (multipartFormData) in
+            if let nameData = "\(name)".data(using: String.Encoding.utf8) {
+                multipartFormData.append(nameData, withName: "name")
+            }
+            if let goalData = "\(goal)".data(using: String.Encoding.utf8) {
+                multipartFormData.append(goalData, withName: "goal")
+            }
+            if let descriptionData = "\(description)".data(using: String.Encoding.utf8) {
+                multipartFormData.append(descriptionData, withName: "description")
+            }
+            if let categoryIdData = "\(categoryId)".data(using: String.Encoding.utf8) {
+                multipartFormData.append(categoryIdData, withName: "category")
+            }
+            if let priceData = "\(price)".data(using: String.Encoding.utf8) {
+                multipartFormData.append(priceData, withName: "price")
+            }
+            if let discountData = "\(discount)".data(using: String.Encoding.utf8) {
+                multipartFormData.append(discountData, withName: "discount")
+            }
+            if let imageData = image?.jpegData(compressionQuality: 1.0) {
+                let now = Int64(Date().timeIntervalSince1970 * 1000)
+                multipartFormData.append(imageData, withName: "image", fileName: "courseThumbnail\(now).jpg", mimeType: "image/jpg")
+            }
+        }, to: url, method: .post, headers: headers).responseData { (response) in
             
-            // off waiting progress
             SVProgressHUD.dismiss()
             
             if let error = response.error?.errorDescription {
-                window.showError("Create course failed", String(error.description.split(separator: ":")[1]))
+                window.showError("Error", String(error.description.split(separator: ":")[1]) )
                 return
             }
             
@@ -72,7 +104,7 @@ extension RequestAPI {
                 onSuccess()
             }
             else {
-                window.showError("Create course failed", "")
+                window.showError("Create course failed", result.err.debugDescription)
             }
             
         } catch {

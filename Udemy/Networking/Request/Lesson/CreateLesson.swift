@@ -32,14 +32,6 @@ extension RequestAPI {
             return
         }
         
-//        let params: [String: Any] = [
-//            "videos": video,
-//            "docs": document,
-//            "idCourse": idCourse,
-//            "title": title,
-//            "order": order
-//        ]
-        
         // Access token
         guard let accessToken = TokenManager.getAccessToken() else {
             return

@@ -39,19 +39,33 @@ class PaymentViewController: UIViewController {
               let cvc = tfCvv.text else {
             return
         }
-        let paramsStripe = CardStripeRequest(number: Int(number), exp_month: Int(exp_month), exp_year: Int(exp_year), cvc: Int(cvc))
+        let paramsStripe = CardStripeRequest(card: CardStripRequestDetail(number: number, exp_month: Int(exp_month), exp_year: Int(exp_year), cvc: cvc))
         
-        SVProgressHUD.show()
         
         RequestAPI.shared.getStripeTokenObject(params: paramsStripe) { (stripeToken) in
             
-            let cardPayment: PayCourseCardRequest = PayCourseCardRequest(id: stripeToken.card?.id, object: stripeToken.card?.object)
-            let tokenPayment: PayCourseTokenRequest = PayCourseTokenRequest(name: stripeToken.card?.name, email: self.email, id: stripeToken.card?.id, object: stripeToken.object, created: stripeToken.created, type: stripeToken.type, livemode: stripeToken.livemode, used: stripeToken.used, card: cardPayment)
-            let paramsPayment: PayCourseRequest = PayCourseRequest(token: tokenPayment)
+            let cardPayment: PayCourseCardRequest = PayCourseCardRequest(
+                id: stripeToken.card?.id,
+                object: stripeToken.card?.object)
+            let tokenPayment: PayCourseTokenRequest = PayCourseTokenRequest(
+                name: self.name,
+                email: self.email,
+                id: stripeToken.id,
+                object: stripeToken.object,
+                created: stripeToken.created,
+                type: stripeToken.type,
+                livemode: stripeToken.livemode,
+                used: stripeToken.used,
+                card: cardPayment)
+            let cartPayment: [PayCourseCartRequest] = [PayCourseCartRequest(_id: self.idCourse)]
+            
+            let paramsPayment: PayCourseRequest = PayCourseRequest(token: tokenPayment, cart: cartPayment, idUser: self.idUser)
             
             RequestAPI.shared.payCourse(params: paramsPayment, onSuccess: {
-                self.notificate(UIImage(named: Common.imageName.done), "Paid Successfully", "")
                 self.navigationController?.popViewController(animated: true)
+                if let onTapPayCourseSuccess = self.onTapPayCourseSuccess {
+                    onTapPayCourseSuccess()
+                }
             })
         }
     }

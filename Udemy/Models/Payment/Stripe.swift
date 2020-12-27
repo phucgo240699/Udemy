@@ -8,11 +8,15 @@
 
 import Foundation
 
-struct CardStripeRequest: Codable {
-    var number: Int?
+struct CardStripRequestDetail: Codable {
+    var number: String?
     var exp_month: Int?
     var exp_year: Int?
-    var cvc: Int?
+    var cvc: String?
+}
+
+struct CardStripeRequest: Codable {
+    var card: CardStripRequestDetail?
 }
 
 struct CardStripeResponse: Codable {
