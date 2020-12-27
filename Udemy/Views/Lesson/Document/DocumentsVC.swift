@@ -9,11 +9,12 @@
 import UIKit
 import Alamofire
 import SVProgressHUD
+import WebKit
 
 fileprivate let cellID: String = "documentCell"
 
 class DocumentsVC: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var lbEmpty: UILabel!
     
@@ -30,11 +31,11 @@ class DocumentsVC: UIViewController {
         
         handleEmptyData()
     }
-
+    
     private func setupUI() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "SimpleTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
+        tableView.register(UINib(nibName: "DocumentCell", bundle: nil), forCellReuseIdentifier: cellID)
     }
     
     func handleEmptyData() {
@@ -49,58 +50,53 @@ class DocumentsVC: UIViewController {
     }
 }
 
+
+// MARK: - UITableViewDataSource
 extension DocumentsVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60.0
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return documents.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? SimpleTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? DocumentCell else {
             return UITableViewCell()
         }
         
-        cell.imgView?.image = UIImage(named: Common.imageName.document)
-        cell.label?.text = documents[indexPath.row]
+        cell.setData(title: documents[indexPath.row])
+        cell.onTapShare = {
+            let activityVC = UIActivityViewController(activityItems: ["\(Common.link.getLessonSource)/\(self.documents[indexPath.row])"], applicationActivities: nil)
+            self.present(activityVC, animated: true, completion: nil)
+        }
         
         return cell
     }
 }
 
+
+// MARK: - UITableViewDelegate
 extension DocumentsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let url = URL(string: "\(Common.link.getLessonSource)/\(documents[indexPath.row])") else {
-            return
+        if let url = URL(string: "\(Common.link.getLessonSource)/\(self.documents[indexPath.row])") {
+            let urlRequest = URLRequest(url: url)
+            
+            let webview = WKWebView(frame: UIScreen.main.bounds)
+            view.addSubview(webview)
+            webview.navigationDelegate = self
+            webview.load(urlRequest)
         }
-        
-        SVProgressHUD.show()
-        
-        let task = URLSession.shared.downloadTask(with: url) { (urlResponse, response, error) in
-            
-            SVProgressHUD.dismiss()
-            
-            guard let originalUrl = urlResponse else {
-                return
-            }
-            
-            do {
-                // get path to file
-                let path = try FileManager.default.url(for: .downloadsDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-                
-                // give name to file
-                let newUrl = path.appendingPathComponent(self.documents[indexPath.row])
-                
-                print("newURL: \(newUrl)")
-                
-                // move file to newUrl
-                try FileManager.default.moveItem(at: originalUrl, to: newUrl)
-                
-                
-            }
-            catch {
-                print(error)
-            }
-        }
-        
-        task.resume()
     }
+}
+
+
+// MARK: - WKNavigationDelegate
+extension DocumentsVC: WKNavigationDelegate {
+    
 }

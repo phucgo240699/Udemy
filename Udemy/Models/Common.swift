@@ -34,6 +34,10 @@ struct ImageName {
     let document = "document"
     let more = "more"
     let xRedMark = "x_red_mark"
+    let wordFile = "word-file"
+    let xlsFile = "xls-file"
+    let pptFile = "ppt-file"
+    let pdfFile = "pdf-file"
 }
 
 struct CustomColor {

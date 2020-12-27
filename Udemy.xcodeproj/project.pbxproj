@@ -122,6 +122,12 @@
 		3E63281F2566518400AE1967 /* APIPayCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63281E2566518400AE1967 /* APIPayCourse.swift */; };
 		3E632828256651BC00AE1967 /* APISearchCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E632827256651BC00AE1967 /* APISearchCourses.swift */; };
 		3E6371E1256647A20015F7FE /* APIFetchCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6371E0256647A20015F7FE /* APIFetchCategories.swift */; };
+		3E64341D25989E520070B364 /* DocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64341B25989E520070B364 /* DocumentCell.swift */; };
+		3E64341E25989E520070B364 /* DocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64341B25989E520070B364 /* DocumentCell.swift */; };
+		3E64341F25989E520070B364 /* DocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64341B25989E520070B364 /* DocumentCell.swift */; };
+		3E64342025989E520070B364 /* DocumentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E64341C25989E520070B364 /* DocumentCell.xib */; };
+		3E64342125989E520070B364 /* DocumentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E64341C25989E520070B364 /* DocumentCell.xib */; };
+		3E64342225989E520070B364 /* DocumentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E64341C25989E520070B364 /* DocumentCell.xib */; };
 		3E6910AF25694AC9006615B9 /* CourseRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6910AE25694AC9006615B9 /* CourseRating.swift */; };
 		3E6910B825694BB3006615B9 /* CourseDetailRatingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6910B625694BB3006615B9 /* CourseDetailRatingCell.swift */; };
 		3E6910B925694BB3006615B9 /* CourseDetailRatingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E6910B725694BB3006615B9 /* CourseDetailRatingCell.xib */; };
@@ -156,9 +162,6 @@
 		3E8A7F6C2595E35E00395C0F /* CreateCourseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8A7F682595E35E00395C0F /* CreateCourseVC.xib */; };
 		3E8A7F6D2595E35E00395C0F /* CreateCourseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8A7F682595E35E00395C0F /* CreateCourseVC.xib */; };
 		3E8A7F6E2595E35E00395C0F /* CreateCourseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8A7F682595E35E00395C0F /* CreateCourseVC.xib */; };
-		3E8A7F762595EC3800395C0F /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8A7F752595EC3700395C0F /* Document.swift */; };
-		3E8A7F772595EC3800395C0F /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8A7F752595EC3700395C0F /* Document.swift */; };
-		3E8A7F782595EC3800395C0F /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8A7F752595EC3700395C0F /* Document.swift */; };
 		3E8D0ED32562E03500F1295C /* JoinedCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8D0ED22562E03500F1295C /* JoinedCourse.swift */; };
 		3E8D0ED82562E81000F1295C /* IsJoinedCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8D0ED72562E81000F1295C /* IsJoinedCourse.swift */; };
 		3E8D2C6225634E6900691511 /* OrderedCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8D2C6025634E6900691511 /* OrderedCourseTableViewCell.swift */; };
@@ -348,6 +351,8 @@
 		3E63281E2566518400AE1967 /* APIPayCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPayCourse.swift; sourceTree = "<group>"; };
 		3E632827256651BC00AE1967 /* APISearchCourses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISearchCourses.swift; sourceTree = "<group>"; };
 		3E6371E0256647A20015F7FE /* APIFetchCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFetchCategories.swift; sourceTree = "<group>"; };
+		3E64341B25989E520070B364 /* DocumentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCell.swift; sourceTree = "<group>"; };
+		3E64341C25989E520070B364 /* DocumentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentCell.xib; sourceTree = "<group>"; };
 		3E6910AE25694AC9006615B9 /* CourseRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseRating.swift; sourceTree = "<group>"; };
 		3E6910B625694BB3006615B9 /* CourseDetailRatingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailRatingCell.swift; sourceTree = "<group>"; };
 		3E6910B725694BB3006615B9 /* CourseDetailRatingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseDetailRatingCell.xib; sourceTree = "<group>"; };
@@ -368,7 +373,6 @@
 		3E8742C025333479001E9D5E /* UserFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFunc.swift; sourceTree = "<group>"; };
 		3E8A7F672595E35E00395C0F /* CreateCourseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCourseVC.swift; sourceTree = "<group>"; };
 		3E8A7F682595E35E00395C0F /* CreateCourseVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateCourseVC.xib; sourceTree = "<group>"; };
-		3E8A7F752595EC3700395C0F /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		3E8D0ED22562E03500F1295C /* JoinedCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinedCourse.swift; sourceTree = "<group>"; };
 		3E8D0ED72562E81000F1295C /* IsJoinedCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsJoinedCourse.swift; sourceTree = "<group>"; };
 		3E8D2C6025634E6900691511 /* OrderedCourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedCourseTableViewCell.swift; sourceTree = "<group>"; };
@@ -484,9 +488,9 @@
 		3E00912A25943AD700C0ADCA /* Document */ = {
 			isa = PBXGroup;
 			children = (
+				3E64341A25989E350070B364 /* Cell */,
 				3E00912B25943AF300C0ADCA /* DocumentsVC.swift */,
 				3E00912C25943AF300C0ADCA /* DocumentsVC.xib */,
-				3E8A7F752595EC3700395C0F /* Document.swift */,
 			);
 			path = Document;
 			sourceTree = "<group>";
@@ -860,6 +864,15 @@
 				3E6327D32566486100AE1967 /* Define.swift */,
 			);
 			path = Request;
+			sourceTree = "<group>";
+		};
+		3E64341A25989E350070B364 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3E64341B25989E520070B364 /* DocumentCell.swift */,
+				3E64341C25989E520070B364 /* DocumentCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		3E6910AD25694AAC006615B9 /* Rating */ = {
@@ -1432,6 +1445,7 @@
 				3E9F3A852532CFEE0086DA90 /* SimpleTableViewCell.xib in Resources */,
 				3E82307C256644AD007F3C2E /* SearchCategoriesCell.xib in Resources */,
 				3E00912E25943AF300C0ADCA /* DocumentsVC.xib in Resources */,
+				3E64342025989E520070B364 /* DocumentCell.xib in Resources */,
 				3E3AEC62256A1D88005BACF7 /* RatingsViewController.xib in Resources */,
 				3EFD070D25694D6B00B0DE75 /* RatingTableViewCell.xib in Resources */,
 				3E8F12022562D9A6000A7BF8 /* MyCourseTableViewCell.xib in Resources */,
@@ -1454,6 +1468,7 @@
 				3E73FCA0258B7A0500317ACD /* LessonViewController.xib in Resources */,
 				3E1098B6258456A700F7396E /* ForgotPasswordViewController.xib in Resources */,
 				3EC377CA2594093C00744129 /* ImageCell.xib in Resources */,
+				3E64342125989E520070B364 /* DocumentCell.xib in Resources */,
 				3E20759E25962EB5003FB93C /* CategoryNameVC.xib in Resources */,
 				3E53DC6E25845F0F009F3F97 /* GetTokenResetPassVC.xib in Resources */,
 				3E4424BC258B7C88009B2D7D /* LessonCell.xib in Resources */,
@@ -1473,6 +1488,7 @@
 				3E73FCA1258B7A0500317ACD /* LessonViewController.xib in Resources */,
 				3E1098B7258456A700F7396E /* ForgotPasswordViewController.xib in Resources */,
 				3EC377CB2594093C00744129 /* ImageCell.xib in Resources */,
+				3E64342225989E520070B364 /* DocumentCell.xib in Resources */,
 				3E20759F25962EB5003FB93C /* CategoryNameVC.xib in Resources */,
 				3E53DC6F25845F0F009F3F97 /* GetTokenResetPassVC.xib in Resources */,
 				3E4424BD258B7C88009B2D7D /* LessonCell.xib in Resources */,
@@ -1664,6 +1680,7 @@
 				3E07EAFE2522E72C002EBE7B /* RegisterViewController.swift in Sources */,
 				3E4694E7259586E400AC7F66 /* CreateLessonVC.swift in Sources */,
 				3E1098B2258456A700F7396E /* ForgotPasswordViewController.swift in Sources */,
+				3E64341D25989E520070B364 /* DocumentCell.swift in Sources */,
 				3EECB12925977009001B2532 /* getTokenObject.swift in Sources */,
 				3E9F3A8A2532D7A80086DA90 /* InformationViewController.swift in Sources */,
 				3E82307B256644AD007F3C2E /* SearchCategoriesCell.swift in Sources */,
@@ -1711,7 +1728,6 @@
 				3EEF6D79252C9E6F00FFD443 /* ActivationViewController.swift in Sources */,
 				3EB9E926253EEB4F0043BB9A /* FeatureView.swift in Sources */,
 				3E6910B825694BB3006615B9 /* CourseDetailRatingCell.swift in Sources */,
-				3E8A7F762595EC3800395C0F /* Document.swift in Sources */,
 				3EFD071B2569573C00B0DE75 /* APIFetchCourseRatings.swift in Sources */,
 				3E0EF955252ADFD800AFD584 /* Noti.swift in Sources */,
 				3EA60144257A69DE003DF25F /* getPaymentKey.swift in Sources */,
@@ -1740,7 +1756,7 @@
 				3EC377C72594093C00744129 /* ImageCell.swift in Sources */,
 				3E4424C7258B9932009B2D7D /* GetLessons.swift in Sources */,
 				3E8A7F6A2595E35E00395C0F /* CreateCourseVC.swift in Sources */,
-				3E8A7F772595EC3800395C0F /* Document.swift in Sources */,
+				3E64341E25989E520070B364 /* DocumentCell.swift in Sources */,
 				3EC04D6825959AE70060FF6C /* AvatarViewController.swift in Sources */,
 				3E00913225943AF800C0ADCA /* DocumentsVC.swift in Sources */,
 				3E311581259763DF00C35F38 /* PayCourseRequest.swift in Sources */,
@@ -1776,7 +1792,7 @@
 				3EC377C82594093C00744129 /* ImageCell.swift in Sources */,
 				3E4424C8258B9932009B2D7D /* GetLessons.swift in Sources */,
 				3E8A7F6B2595E35E00395C0F /* CreateCourseVC.swift in Sources */,
-				3E8A7F782595EC3800395C0F /* Document.swift in Sources */,
+				3E64341F25989E520070B364 /* DocumentCell.swift in Sources */,
 				3EC04D6C25959AE70060FF6C /* AvatarViewController.swift in Sources */,
 				3E00913625943AF900C0ADCA /* DocumentsVC.swift in Sources */,
 				3E311582259763DF00C35F38 /* PayCourseRequest.swift in Sources */,
