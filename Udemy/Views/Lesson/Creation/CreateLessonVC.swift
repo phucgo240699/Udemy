@@ -12,6 +12,7 @@ import UniformTypeIdentifiers
 
 protocol CreateLessonVCDelegate: class {
     func didCreateLessonSuccess(lesson: Lesson)
+    func didUpdateLessonSuccess(lesson: Lesson, indexPath: IndexPath)
 }
 
 class CreateLessonVC: UIViewController {
@@ -20,15 +21,20 @@ class CreateLessonVC: UIViewController {
     var addBarBtn: UIBarButtonItem?
     @IBOutlet weak var tfTitle: UITextField!
     
+    @IBOutlet weak var addDocumentBtn: UIButton!
+    @IBOutlet weak var addVideoBtn: UIButton!
     @IBOutlet weak var imgViewVideoFile: UIImageView!
     @IBOutlet weak var imgViewDocFile: UIImageView!
     
-    
+    var id: String?
+    var titleCourse: String?
     var video: Data?
     var document: Data?
     var idCourse: String?
     var order: Int?
     
+    var isEditForm: Bool?
+    var indexPath: IndexPath?
     
     // Delegate
     weak var delegate: CreateLessonVCDelegate?
@@ -36,6 +42,14 @@ class CreateLessonVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if isEditForm == true {
+            addDocumentBtn.isEnabled = false
+            addDocumentBtn.isHidden = true
+            addVideoBtn.isEnabled = false
+            addVideoBtn.isHidden = true
+            tfTitle.text = titleCourse
+        }
         
         // Navigation Bar
         addBarBtn = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(CreateLessonVC.addBarBtnPressed(_:)))
@@ -56,8 +70,16 @@ class CreateLessonVC: UIViewController {
     }
     
     @objc func addBarBtnPressed(_ sender: UIBarButtonItem) {
-        RequestAPI.shared.createLesson(title: tfTitle.text, idCourse: idCourse, order: order, video: video, document: document) { (lesson) in
-            self.delegate?.didCreateLessonSuccess(lesson: lesson)
+        if isEditForm == true, let indexPath = self.indexPath {
+            RequestAPI.shared.updateLesson(by: id, idCourse: idCourse, order: order, title: tfTitle.text) { (lesson) in
+                self.delegate?.didUpdateLessonSuccess(lesson: lesson, indexPath: indexPath)
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        else {
+            RequestAPI.shared.createLesson(title: tfTitle.text, idCourse: idCourse, order: order, video: video, document: document) { (lesson) in
+                self.delegate?.didCreateLessonSuccess(lesson: lesson)
+            }
         }
     }
     
@@ -74,6 +96,11 @@ class CreateLessonVC: UIViewController {
         if idCourse == nil {
             return false
         }
+        
+        if isEditForm == true {
+            return true
+        }
+        
         if video == nil {
             return false
         }
@@ -155,7 +182,7 @@ extension  CreateLessonVC: UIDocumentPickerDelegate {
             return
         }
         do {
-            document = try Data(contentsOf: documentUrl, options: .mappedIfSafe)
+            document = try Data(contentsOf: documentUrl, options: Data.ReadingOptions.alwaysMapped)
             imgViewDocFile.isHidden = false
         } catch {
             print(error)

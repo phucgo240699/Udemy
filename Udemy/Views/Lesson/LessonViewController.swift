@@ -185,7 +185,15 @@ extension LessonViewController: LessonCellProtocol {
         
         //-- Edit
         alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { (action) in
-            self.showAlert("Under development", "")
+            let createLessonVC = CreateLessonVC()
+            createLessonVC.delegate = self
+            createLessonVC.isEditForm = true
+            createLessonVC.id = self.lessons[indexPath.row]._id
+            createLessonVC.titleCourse = self.lessons[indexPath.row].title
+            createLessonVC.idCourse = self.idCourse
+            createLessonVC.order = 1
+            createLessonVC.indexPath = indexPath
+            self.navigationController?.pushViewController(createLessonVC, animated: true)
         }))
         
         //-- Delete
@@ -214,6 +222,11 @@ extension LessonViewController: CreateLessonVCDelegate {
         self.tableView.beginUpdates()
         self.tableView.endUpdates()
         self.tableView.insertRows(at: [IndexPath(row: self.lessons.count - 2, section: 0)], with: .automatic)
+    }
+    
+    func didUpdateLessonSuccess(lesson: Lesson, indexPath: IndexPath) {
+        self.lessons[indexPath.row].title = lesson.title
+        (self.tableView.cellForRow(at: indexPath) as? LessonCell)?.lbTitle.text = lesson.title
     }
 }
 

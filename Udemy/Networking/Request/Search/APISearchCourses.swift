@@ -68,7 +68,7 @@ extension RequestAPI {
             onSuccess(result)
             
         } catch {
-            window.showError("Searcg courses failed", error.localizedDescription)
+            window.showError("Search courses failed", error.localizedDescription)
         }
     }
 }

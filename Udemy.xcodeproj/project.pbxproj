@@ -141,6 +141,9 @@
 		3E73FCA0258B7A0500317ACD /* LessonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E73FC9B258B7A0500317ACD /* LessonViewController.xib */; };
 		3E73FCA1258B7A0500317ACD /* LessonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E73FC9B258B7A0500317ACD /* LessonViewController.xib */; };
 		3E77E79D252DFD32004F0340 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E77E79C252DFD32004F0340 /* Account.swift */; };
+		3E7980F02598B45200CEBB39 /* UpdateLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7980EF2598B45200CEBB39 /* UpdateLesson.swift */; };
+		3E7980F12598B45200CEBB39 /* UpdateLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7980EF2598B45200CEBB39 /* UpdateLesson.swift */; };
+		3E7980F22598B45200CEBB39 /* UpdateLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7980EF2598B45200CEBB39 /* UpdateLesson.swift */; };
 		3E7DD38525624356002AEBE6 /* CourseDetailRelatedCoursesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7DD38325624356002AEBE6 /* CourseDetailRelatedCoursesCell.swift */; };
 		3E7DD38625624356002AEBE6 /* CourseDetailRelatedCoursesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7DD38425624356002AEBE6 /* CourseDetailRelatedCoursesCell.xib */; };
 		3E7DE41225406F2E002DC3DE /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7DE41125406F2E002DC3DE /* Vote.swift */; };
@@ -362,6 +365,7 @@
 		3E73FC9A258B7A0500317ACD /* LessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViewController.swift; sourceTree = "<group>"; };
 		3E73FC9B258B7A0500317ACD /* LessonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LessonViewController.xib; sourceTree = "<group>"; };
 		3E77E79C252DFD32004F0340 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		3E7980EF2598B45200CEBB39 /* UpdateLesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateLesson.swift; sourceTree = "<group>"; };
 		3E7DD38325624356002AEBE6 /* CourseDetailRelatedCoursesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailRelatedCoursesCell.swift; sourceTree = "<group>"; };
 		3E7DD38425624356002AEBE6 /* CourseDetailRelatedCoursesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseDetailRelatedCoursesCell.xib; sourceTree = "<group>"; };
 		3E7DE41125406F2E002DC3DE /* Vote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
@@ -662,6 +666,7 @@
 				3E4694DD259583FC00AC7F66 /* CreateLesson.swift */,
 				3E4424D2258B9B9E009B2D7D /* GetLesson.swift */,
 				3E4694CF259580AA00AC7F66 /* DeleteLesson.swift */,
+				3E7980EF2598B45200CEBB39 /* UpdateLesson.swift */,
 			);
 			path = Lesson;
 			sourceTree = "<group>";
@@ -1675,6 +1680,7 @@
 				3E1221362535A1DF005D954A /* AvatarViewController.swift in Sources */,
 				3E8F12012562D9A6000A7BF8 /* MyCourseTableViewCell.swift in Sources */,
 				3EF18075253BA3A7004432E8 /* StatusResponse.swift in Sources */,
+				3E7980F02598B45200CEBB39 /* UpdateLesson.swift in Sources */,
 				3E0EF96C252AE2B800AFD584 /* UIView+Message.swift in Sources */,
 				3E7FDC56258469360070CCE9 /* ResetPassRes.swift in Sources */,
 				3E07EAFE2522E72C002EBE7B /* RegisterViewController.swift in Sources */,
@@ -1767,6 +1773,7 @@
 				3E7FDC57258469360070CCE9 /* ResetPassRes.swift in Sources */,
 				3ED662D125924CFE00991680 /* RatingPopupVC.swift in Sources */,
 				3E465E4E257A43A000AFE5B2 /* PaymentViewController.swift in Sources */,
+				3E7980F12598B45200CEBB39 /* UpdateLesson.swift in Sources */,
 				3EC377D6259409C900744129 /* QuestionVC.swift in Sources */,
 				3E1098B3258456A700F7396E /* ForgotPasswordViewController.swift in Sources */,
 				3E8F50EB2596E91F00FD7CE9 /* APICreateCourse.swift in Sources */,
@@ -1803,6 +1810,7 @@
 				3E7FDC58258469360070CCE9 /* ResetPassRes.swift in Sources */,
 				3ED662D225924CFE00991680 /* RatingPopupVC.swift in Sources */,
 				3E465E4F257A43A000AFE5B2 /* PaymentViewController.swift in Sources */,
+				3E7980F22598B45200CEBB39 /* UpdateLesson.swift in Sources */,
 				3EC377D7259409C900744129 /* QuestionVC.swift in Sources */,
 				3E1098B4258456A700F7396E /* ForgotPasswordViewController.swift in Sources */,
 				3E8F50EC2596E91F00FD7CE9 /* APICreateCourse.swift in Sources */,

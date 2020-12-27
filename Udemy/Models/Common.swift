@@ -113,7 +113,7 @@ struct Link {
     let getLessonById: String = "\(baseUrl)/lesson/get-lesson-by-id"
     let createLesson: String = "\(baseUrl)/lesson/create-lesson"
     let deleteLesson: String = "\(baseUrl)/lesson/delete-lesson"
-    
+    let updateLesson: String = "\(baseUrl)/lesson/update-lesson"
     
     //-- stripe
     let getStripeTokenObject: String = "https://api.stripe.com/v1/tokens"
