@@ -116,7 +116,7 @@ extension CreateLessonVC: UIImagePickerControllerDelegate, UINavigationControlle
             let imagePickerController = UIImagePickerController()
             imagePickerController.delegate = self
             imagePickerController.allowsEditing = true
-            imagePickerController.mediaTypes = ["public.movie"]
+            imagePickerController.mediaTypes = [kUTTypeMovie as String]
             imagePickerController.sourceType = sourceType
             self.present(imagePickerController, animated: true, completion: nil)
         }
