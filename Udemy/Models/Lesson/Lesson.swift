@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct LessonChoice: Codable {
+struct LessonQuestion: Codable {
     var _id: String?
     var question: String?
     var A: String?
@@ -16,13 +16,28 @@ struct LessonChoice: Codable {
     var C: String?
     var D: String?
     var image: String?
+    var timeShow: Int?
+    var answer: String?
+    
+    func getAnswerIndex() -> Int {
+        switch self.answer {
+        case "A":
+            return 0
+        case "B":
+            return 1
+        case "C":
+            return 2
+        default:
+            return 3
+        }
+    }
 }
 
 struct Lesson: Codable {
     var _id: String?
     var doc: [String]?
-    var multipleChoices: [LessonChoice]?
-    var popupQuestion: [LessonChoice]?
+    var multipleChoices: [LessonQuestion]?
+    var popupQuestion: [LessonQuestion]?
     var video: String?
     var idCourse: String?
     var title: String?

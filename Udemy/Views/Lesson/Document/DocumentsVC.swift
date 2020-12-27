@@ -68,7 +68,7 @@ extension DocumentsVC: UITableViewDataSource {
 
 extension DocumentsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let url = URL(string: "\(Common.link.getDocument)/\(documents[indexPath.row])") else {
+        guard let url = URL(string: "\(Common.link.getLessonSource)/\(documents[indexPath.row])") else {
             return
         }
         

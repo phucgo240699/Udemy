@@ -15,10 +15,19 @@ class QuestionVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var lbEmpty: UILabel!
+    var submitBarBtn: UIBarButtonItem?
     
-    var currentSelectedIndex: IndexPath?
     
-    var questions: [LessonChoice] = []
+    var answers: [Int] = []
+    var questions: [LessonQuestion] = [] {
+        didSet {
+            answers = []
+            for _ in questions {
+                answers.append(-1)
+            }
+        }
+    }
+    var isSubmit: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +42,22 @@ class QuestionVC: UIViewController {
     }
 
     private func setupUI() {
+        
+        submitBarBtn = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(QuestionVC.submitBarBtnPressed(_:)))
+        submitBarBtn?.isEnabled = false
+        navigationItem.title = "Questions"
+        navigationItem.rightBarButtonItem = submitBarBtn
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: answerCellID)
         tableView.register(UINib(nibName: "ImageCell", bundle: nil), forCellReuseIdentifier: imageCellID)
+    }
+    
+    @objc func submitBarBtnPressed(_ sender: UIBarButtonItem) {
+        isSubmit = true
+        
+        self.tableView.reloadData()
     }
     
     func handleEmptyData() {
@@ -54,7 +75,11 @@ class QuestionVC: UIViewController {
 // MARK: - UITableViewDataSource
 extension QuestionVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 25.0
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 20.0
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -69,7 +94,7 @@ extension QuestionVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 20.0
+        return 200.0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -85,7 +110,21 @@ extension QuestionVC: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: imageCellID, for: indexPath) as? ImageCell, let imageQuestion = questions[indexPath.section].image else {
                 return UITableViewCell()
             }
-            cell.imgView.sd_setImage(with: URL(string: "\(Common.link.getImage)/\(imageQuestion)"), completed: nil)
+            
+            if isSubmit {
+                cell.imgCheck.isHidden = false
+                if answers[indexPath.section] == 1 {
+                    cell.imgCheck.image = UIImage(named: Common.imageName.done)
+                }
+                else {
+                    cell.imgCheck.image = UIImage(named: Common.imageName.xRedMark)
+                }
+            }
+            else {
+                cell.imgCheck.isHidden = true
+            }
+            
+            cell.imgView.sd_setImage(with: URL(string: "\(Common.link.getLessonSource)/\(imageQuestion)"), completed: nil)
             
             return cell
         }
@@ -119,12 +158,27 @@ extension QuestionVC: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension QuestionVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let currentSelectedIndex = currentSelectedIndex {
-            tableView.cellForRow(at: currentSelectedIndex)?.accessoryType = .none
+        
+        var currentIndexAnswer = indexPath.row
+        if currentIndexAnswer == 0 { // image cell
+            return
+        }
+        else {
+            currentIndexAnswer -= 1
         }
         
-        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        submitBarBtn?.isEnabled = true
         
-        currentSelectedIndex = indexPath
+        if questions[indexPath.section].getAnswerIndex() == currentIndexAnswer {
+            answers[indexPath.section] = 1
+        }
+        else {
+            answers[indexPath.section] = -1
+        }
+        
+        for i in 0..<4 {
+            self.tableView.cellForRow(at: IndexPath(row: i, section: indexPath.section))?.accessoryType = .none
+        }
+        self.tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
     }
 }

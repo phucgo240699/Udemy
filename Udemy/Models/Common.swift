@@ -33,6 +33,7 @@ struct ImageName {
     let lesson = "lesson"
     let document = "document"
     let more = "more"
+    let xRedMark = "x_red_mark"
 }
 
 struct CustomColor {
@@ -49,7 +50,6 @@ struct CustomColor {
 }
 
 struct Link {
-    let getImage: String = "\(baseUrl)/upload"
     
     // Auth
     let register: String = "\(baseUrl)/register"
@@ -103,7 +103,7 @@ struct Link {
     
     //-- Lesson
     let streamingVideo: String = "\(baseUrl)/lesson/stream-video"
-    let getDocument: String = "\(baseUrl)/upload/lesson"
+    let getLessonSource: String = "\(baseUrl)/upload/lesson"
     
     let getLessonsByIdCourse: String = "\(baseUrl)/lesson/get-lesson-by-id-course"
     let getLessonById: String = "\(baseUrl)/lesson/get-lesson-by-id"
