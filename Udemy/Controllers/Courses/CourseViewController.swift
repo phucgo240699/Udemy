@@ -129,9 +129,11 @@ extension CourseViewController: UITableViewDataSource {
 extension CourseViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let lessonVC = LessonViewController()
-        lessonVC.idCourse = self.courses[indexPath.row].idCourse?._id
-        self.navigationController?.pushViewController(lessonVC, animated: true)
+        if let idCourse = self.courses[indexPath.row].idCourse?._id {
+            let lessonVC = LessonViewController()
+            lessonVC.idCourse = idCourse
+            self.navigationController?.pushViewController(lessonVC, animated: true)
+        }
         
     }
 }

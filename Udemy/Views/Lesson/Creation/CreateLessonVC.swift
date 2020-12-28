@@ -171,7 +171,7 @@ extension CreateLessonVC: UIImagePickerControllerDelegate, UINavigationControlle
 // MARK: Pick Document
 extension  CreateLessonVC: UIDocumentPickerDelegate {
     func showPickerDocument() {
-        let picker = UIDocumentPickerViewController(documentTypes: [String(kUTTypePDF), String(kUTTypeText)], in: .import  )
+        let picker = UIDocumentPickerViewController(documentTypes: [String(kUTTypePDF)], in: .import  )
         picker.delegate = self
         picker.modalPresentationStyle = .formSheet
         present(picker, animated: true, completion: nil)
@@ -185,17 +185,22 @@ extension  CreateLessonVC: UIDocumentPickerDelegate {
         guard let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
             return
         }
-        
+
         let sandBoxFileUrl = dir.appendingPathComponent(selectedFileUrl.lastPathComponent)
-        
+
         if FileManager.default.fileExists(atPath: sandBoxFileUrl.absoluteString) {
             print("Already exist. Do nothing")
         }
         else {
             do {
                 try FileManager.default.copyItem(at: selectedFileUrl, to: sandBoxFileUrl)
+
+                document = try Data(contentsOf: sandBoxFileUrl)
                 
-                print("Coppied")
+                addDocumentBtn.isHidden = false
+                
+                // Update add bar button
+                addBarBtn?.isEnabled = isValidCreateLesson()
             } catch {
                 print(error)
             }

@@ -44,6 +44,13 @@
                         <action selector="addDocumentBtnPressed:" destination="-1" eventType="touchUpInside" id="BDp-WB-GuN"/>
                     </connections>
                 </button>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="word-file" translatesAutoresizingMaskIntoConstraints="NO" id="Rqy-a0-zqg">
+                    <rect key="frame" x="256" y="270" width="128" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="128" id="9dL-Fx-ubG"/>
+                        <constraint firstAttribute="height" constant="128" id="MBh-b8-Fbp"/>
+                    </constraints>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxk-dj-Lnz" userLabel="Video">
                     <rect key="frame" x="300" y="138" width="32" height="32"/>
                     <constraints>
@@ -55,34 +62,28 @@
                         <action selector="addVideoBtnPressed:" destination="-1" eventType="touchUpInside" id="XC7-wg-Zlr"/>
                     </connections>
                 </button>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="zeb-3n-7L2">
-                    <rect key="frame" x="44" y="220" width="326" height="128"/>
-                    <subviews>
-                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video-file" translatesAutoresizingMaskIntoConstraints="NO" id="LyL-p5-sAA">
-                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="128"/>
-                        </imageView>
-                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="document-file" translatesAutoresizingMaskIntoConstraints="NO" id="Rqy-a0-zqg">
-                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="128"/>
-                        </imageView>
-                    </subviews>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video-file" translatesAutoresizingMaskIntoConstraints="NO" id="LyL-p5-sAA">
+                    <rect key="frame" x="98" y="270" width="128" height="128"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="326" id="H2L-M0-kDb"/>
-                        <constraint firstAttribute="height" constant="128" id="fTb-Lz-aVa"/>
+                        <constraint firstAttribute="width" constant="128" id="gyT-zb-vL7"/>
+                        <constraint firstAttribute="height" constant="128" id="wgq-k2-aft"/>
                     </constraints>
-                </stackView>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="LyL-p5-sAA" firstAttribute="top" secondItem="SpE-xw-m6X" secondAttribute="bottom" constant="152" id="1gW-yi-bjQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SpE-xw-m6X" secondAttribute="trailing" constant="10" id="5oz-zx-B6D"/>
                 <constraint firstItem="3lG-ND-HQa" firstAttribute="top" secondItem="SpE-xw-m6X" secondAttribute="bottom" constant="20" id="JgN-zP-e81"/>
+                <constraint firstItem="Rqy-a0-zqg" firstAttribute="leading" secondItem="LyL-p5-sAA" secondAttribute="trailing" constant="30" id="K1L-jt-ZxM"/>
                 <constraint firstItem="3lG-ND-HQa" firstAttribute="leading" secondItem="yxk-dj-Lnz" secondAttribute="trailing" constant="30" id="Msw-uP-9bq"/>
-                <constraint firstItem="zeb-3n-7L2" firstAttribute="top" secondItem="yxk-dj-Lnz" secondAttribute="bottom" constant="50" id="NTP-uN-949"/>
                 <constraint firstItem="SpE-xw-m6X" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="U0J-fK-K3P"/>
+                <constraint firstItem="Rqy-a0-zqg" firstAttribute="top" secondItem="yxk-dj-Lnz" secondAttribute="bottom" constant="100" id="V6Z-gZ-Kpu"/>
                 <constraint firstItem="yxk-dj-Lnz" firstAttribute="top" secondItem="SpE-xw-m6X" secondAttribute="bottom" constant="20" id="icy-u4-1ZR"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3lG-ND-HQa" secondAttribute="trailing" constant="20" id="jE5-AL-h5s"/>
-                <constraint firstItem="zeb-3n-7L2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="k76-bn-FAC"/>
                 <constraint firstItem="SpE-xw-m6X" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="kOP-gu-wBq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Rqy-a0-zqg" secondAttribute="trailing" constant="30" id="myp-jo-hoo"/>
             </constraints>
             <point key="canvasLocation" x="19" y="134"/>
         </view>
@@ -90,8 +91,8 @@
     <resources>
         <image name="add-document" width="32" height="32"/>
         <image name="add-video" width="32" height="32"/>
-        <image name="document-file" width="128" height="128"/>
         <image name="video-file" width="128" height="128"/>
+        <image name="word-file" width="128" height="128"/>
         <namedColor name="silverBackground">
             <color red="0.9570000171661377" green="0.9570000171661377" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
