@@ -142,13 +142,13 @@ class FeatureViewController: UIViewController {
                 self.freeCoursesCollectionView?.reloadData()
             }
         }
-//        RequestAPI.shared.fetchTopCourses { (courses) in
-//            self.topCourses = courses
-//
-//            DispatchQueue.main.async {
-//                self.topCoursesCollectionView?.reloadData()
-//            }
-//        }
+        RequestAPI.shared.fetchTopCourses { (courses) in
+            self.topCourses = courses
+
+            DispatchQueue.main.async {
+                self.topCoursesCollectionView?.reloadData()
+            }
+        }
     }
 }
 
