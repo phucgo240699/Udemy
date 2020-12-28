@@ -46,6 +46,8 @@ class CourseDetailVC: UIViewController {
     }
     
     
+    var courseRatings: [CourseRating] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,24 +62,31 @@ class CourseDetailVC: UIViewController {
                 self.isJoinedCourse = false
             }
         }
-        
+
         // Fetch courses
-        RequestAPI.shared.fetchCourses(by: course?.category?._id) { (courses) in
-            self.relatedCourses = courses
-            
-            for index in 0 ..< self.cellTypes.count {
-                if self.cellTypes[index] == .RelatedCourses {
-                    DispatchQueue.main.async {
-                        self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-                    }
-                }
+//        RequestAPI.shared.fetchCourses(by: course?.category?._id) { (courses) in
+//            self.relatedCourses = courses
+//
+//            for index in 0 ..< self.cellTypes.count {
+//                if self.cellTypes[index] == .RelatedCourses {
+//                    DispatchQueue.main.async {
+//                        self.tableView.reloadRows(at: [IndexPath(row: index, section: CourseDetailCellType.RelatedCourses.rawValue)], with: .automatic)
+//                    }
+//                }
+//            }
+//        }
+
+        // Fetch courseRatings
+        RequestAPI.shared.fetchRatings(by: course?._id) { (ratings) in
+            if ratings.count < 3 {
+                self.courseRatings = ratings
             }
+            else {
+                self.courseRatings = [ ratings[0], ratings[1] ]
+            }
+
+            self.tableView.reloadData()
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
         
     }
     
@@ -85,8 +94,64 @@ class CourseDetailVC: UIViewController {
 
 // MARK: - UITableViewDatasource
 extension CourseDetailVC: UITableViewDataSource {
+    
+    // Row & Section
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return cellTypes.count
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if cellTypes[section] == .Rating {
+            return courseRatings.count
+        }
+        
+        return 1
+    }
+    
+    
+    // -- Header
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if cellTypes[section] == .Rating {
+            return 44.0
+        }
+        return 0.0
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if cellTypes[section] == .Rating {
+            let label = UILabel()
+            label.font = UIFont(name: Common.fontName, size: 25.0)
+            label.textColor = Common.color.textColor
+            label.backgroundColor = .clear
+            label.text = "Reviews"
+            return label
+        }
+        return nil
+    }
+    
+    
+    // -- Footer
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if cellTypes[section] == .Rating {
+            return 44.0
+        }
+        return 0.0
+    }
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if cellTypes[section] == .Rating {
+            let btn = UIButton()
+            btn.setTitle("Show all", for: .normal)
+            btn.setTitleColor(Common.color.blue, for: .normal)
+            btn.backgroundColor = .clear
+            btn.addTarget(self, action: #selector(CourseDetailVC.footerRatingBtnPressed(_:)), for: .touchUpInside)
+            return btn
+        }
+        return nil
+    }
+    
+    
+    
+    // -- Row
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch cellTypes[indexPath.row] {
+        switch cellTypes[indexPath.section] {
         case .BannerInfo:
             return UITableView.automaticDimension
         case .Operation:
@@ -94,14 +159,14 @@ extension CourseDetailVC: UITableViewDataSource {
         case .Description:
             return UITableView.automaticDimension
         case .Rating:
-            return 225
+            return UITableView.automaticDimension
         case .RelatedCourses:
             return 368.0
         }
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellTypes.count
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -109,7 +174,7 @@ extension CourseDetailVC: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        switch cellTypes[indexPath.row] {
+        switch cellTypes[indexPath.section] {
         case .BannerInfo:
             guard let cell = self.tableView.dequeueReusableCell(withIdentifier: bannerInfoCellID, for: indexPath) as? CourseDetailBannerInfoCell else {
                 return UITableViewCell()
@@ -157,25 +222,12 @@ extension CourseDetailVC: UITableViewDataSource {
             return cell
             
         case .Rating:
-            guard let cell = self.tableView.dequeueReusableCell(withIdentifier: ratingsCellID, for: indexPath) as? CourseDetailRatingCell else {
+            guard let cell = self.tableView.dequeueReusableCell(withIdentifier: ratingsCellID, for: indexPath) as? RatingTableViewCell else {
                 return UITableViewCell()
             }
-            cell.onTapShowMore = { ratings in
-                let ratingsVC = RatingsViewController()
-                ratingsVC.ratings = ratings
-                self.navigationController?.pushViewController(ratingsVC, animated: true)
-            }
+            cell.selectionStyle = .none
+            cell.setData(courseRating: courseRatings[indexPath.row])
             
-            fetchRatings(by: course?._id) { (courseRatings) in
-                cell.ratings = courseRatings
-                let numberOfRatings = courseRatings.count
-                if numberOfRatings < 2 {
-                    cell.showMoreButton.setTitle("", for: .normal)
-                }
-                DispatchQueue.main.async {
-                    cell.tableView.reloadData()
-                }
-            }
             return cell
             
         case .RelatedCourses:
@@ -207,12 +259,19 @@ extension CourseDetailVC: UITableViewDelegate {
 extension CourseDetailVC {
     func setupUI() {
         //-- TableView
+        tableView.backgroundColor = .clear
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CourseDetailBannerInfoCell", bundle: nil), forCellReuseIdentifier: bannerInfoCellID)
         tableView.register(UINib(nibName: "CourseDetailOperationCell", bundle: nil), forCellReuseIdentifier: operationCellID)
         tableView.register(UINib(nibName: "CourseDetailDescriptionCell", bundle: nil), forCellReuseIdentifier: descriptionCellID)
-        tableView.register(UINib(nibName: "CourseDetailRatingCell", bundle: nil), forCellReuseIdentifier: ratingsCellID)
+        tableView.register(UINib(nibName: "RatingTableViewCell", bundle: nil), forCellReuseIdentifier: ratingsCellID)
         tableView.register(UINib(nibName: "CourseDetailRelatedCoursesCell", bundle: nil), forCellReuseIdentifier: relatedCoursesCellID)
+    }
+    
+    @objc func footerRatingBtnPressed(_ sender: UIButton) {
+        let ratingVC = RatingsViewController()
+        ratingVC.idCourse = course?._id
+        navigationController?.pushViewController(ratingVC, animated: true)
     }
 }

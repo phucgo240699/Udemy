@@ -8,7 +8,7 @@
 
 import Alamofire
 
-extension CourseDetailVC {
+extension RequestAPI {
     func fetchRatings(by idCourse: String?, onSuccess: @escaping (([CourseRating]) -> Void)) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return

@@ -13,8 +13,10 @@ fileprivate let cellID = "ratingsViewControllerCell"
 class RatingsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    var refreshControl: UIRefreshControl = UIRefreshControl()
     
-    var ratings: [CourseRating] = []
+    var idCourse: String?
+    var courseRatings: [CourseRating] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,7 @@ class RatingsViewController: UIViewController {
         navigationController?.navigationItem.title = "Ratings"
         
         setupUI()
+        adaptData()
     }
 
     func setupUI() {
@@ -29,13 +32,29 @@ class RatingsViewController: UIViewController {
         tableView.dataSource = self
         tableView.allowsSelection = false
         tableView.register(UINib(nibName: "RatingTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
+        
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    @objc func refresh(_ sender: UIRefreshControl) {
+        refreshControl.endRefreshing()
+        adaptData()
+    }
+    
+    func adaptData() {
+        RequestAPI.shared.fetchRatings(by: idCourse) { (ratings) in
+            self.courseRatings = ratings
+            
+            self.tableView.reloadData()
+        }
     }
 }
 
 // MARK: - UITableViewDataSource
 extension RatingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ratings.count
+        return courseRatings.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -43,7 +62,7 @@ extension RatingsViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.setData(courseRating: ratings[indexPath.row])
+        cell.setData(courseRating: courseRatings[indexPath.row])
         
         return cell
     }
