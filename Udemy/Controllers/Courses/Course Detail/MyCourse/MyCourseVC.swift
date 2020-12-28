@@ -34,7 +34,7 @@ class MyCourseVC: UIViewController {
         self.enableTapToDismiss()
         
         // Title
-        navigationController?.navigationItem.title = "My Courses"
+        navigationItem.title = "My Courses"
         
         // Right
         addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(MyCourseVC.addCourseBarBtnPressed(_:)))

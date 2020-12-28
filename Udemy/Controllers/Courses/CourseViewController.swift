@@ -31,7 +31,7 @@ class CourseViewController: UIViewController {
         self.enableTapToDismiss()
         
         // Title
-        navigationController?.navigationItem.title = "Joined Courses"
+        navigationItem.title = "Joined Courses"
         
         // Left
         rightBarBtn = UIBarButtonItem(title: "My Course", style: .plain, target: self, action: #selector(CourseViewController.rightBarBtnPressed(_:)))
