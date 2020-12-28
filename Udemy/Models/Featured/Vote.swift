@@ -10,5 +10,5 @@ import Foundation
 
 struct Vote: Codable {
     var totalVote: Int?
-    var EVGVote: Int?
+    var EVGVote: Double?
 }
