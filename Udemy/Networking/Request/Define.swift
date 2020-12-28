@@ -37,9 +37,9 @@ class RequestAPI {
         
         do {
             let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: data)
-            window.showError("Register failed", errorResponse.errors[0].msg ?? "There is an error")
+            window.showError("Request failed", errorResponse.errors[0].msg ?? "There is an error")
         } catch {
-            window.showError("Register failed", error.localizedDescription)
+            window.showError("Request failed", error.localizedDescription)
         }
     }
 }
