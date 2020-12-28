@@ -15,7 +15,8 @@ extension RequestAPI {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
-        guard let window = appDelegate.window else {
+        guard let window = appDelegate.window,
+              let id = appDelegate.account._id else {
             return
         }
         
@@ -70,7 +71,7 @@ extension RequestAPI {
             }
             if let imageData = image?.jpegData(compressionQuality: 1.0) {
                 let now = Int64(Date().timeIntervalSince1970 * 1000)
-                multipartFormData.append(imageData, withName: "image", fileName: "courseThumbnail\(now).jpg", mimeType: "image/jpg")
+                multipartFormData.append(imageData, withName: "image", fileName: "\(id)courseThumbnail\(categoryId)\(now).jpg", mimeType: "image/jpg")
             }
         }, to: url, method: .post, headers: headers).responseData { (response) in
             

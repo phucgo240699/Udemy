@@ -18,8 +18,11 @@ class LessonViewController: UIViewController {
     var addBarButton: UIBarButtonItem?
     var refreshControl: UIRefreshControl = UIRefreshControl()
     
+    var playerViewController: AVPlayerViewController?
+    
     var idCourse: String?
     var lessons: [Lesson] = []
+    var currentLesson: Lesson?
     var displayLessons: [Lesson] = []
     
     override func viewDidLoad() {
@@ -88,6 +91,12 @@ class LessonViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
+    
+    @objc func playerDidFinishPlaying(note: NSNotification) {
+        RequestAPI.shared.updateProgressLesson(idCourse: idCourse, idLesson: currentLesson?._id) {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
 }
 
 
@@ -148,10 +157,18 @@ extension LessonViewController: UITableViewDelegate {
         let player = AVPlayer(playerItem: playerItem)
         
         
-        let playerViewController = AVPlayerViewController()
+        playerViewController = AVPlayerViewController()
+        
+        guard let playerViewController = playerViewController else {
+            return
+        }
+        
         playerViewController.player = player
         
+        NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: .AVPlayerItemDidPlayToEndTime, object: nil)
+        
         present(playerViewController, animated: true) {
+            self.currentLesson = self.lessons[indexPath.row]
             player.play()
         }
     }
