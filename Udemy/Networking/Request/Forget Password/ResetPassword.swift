@@ -57,7 +57,7 @@ extension RequestAPI {
         }
         
         do {
-            let result = try JSONDecoder().decode(ResetPassRess.self, from: data)
+            _ = try JSONDecoder().decode(ResetPassRess.self, from: data)
             
             onSuccess()
         } catch {

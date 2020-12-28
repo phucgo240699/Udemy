@@ -8,8 +8,9 @@
 
 import UIKit
 import Cosmos
+import SwipeCellKit
 
-class MyCourseTBVCell: UITableViewCell {
+class MyCourseTBVCell: SwipeTableViewCell {
     
     @IBOutlet weak var container: UIView!
     

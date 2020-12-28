@@ -38,19 +38,21 @@ struct ImageName {
     let xlsFile = "xls-file"
     let pptFile = "ppt-file"
     let pdfFile = "pdf-file"
+    let delete = "delete"
+    let edit = "edit"
 }
 
 struct CustomColor {
-    var snow: UIColor = UIColor(red: 252/255, green: 247/255, blue: 248/255, alpha: 1.0)
-    var lightGray: UIColor = UIColor(red: 206/255, green: 211/255, blue: 220/255, alpha: 1.0)
-    var wildBlueYonder: UIColor = UIColor(red: 171/255, green: 169/255, blue: 195/255, alpha: 1.0)
-    var lightRed: UIColor = UIColor(red: 234/255, green: 55/255, blue: 45/255, alpha: 0.7)
-    var blue: UIColor = UIColor(red: 39/255, green: 93/255, blue: 173/255, alpha: 1.0)
-    var purple: UIColor = UIColor(red: 106/255, green: 15/255, blue: 161/255, alpha: 1.0)
-    var silverBackground: UIColor = UIColor(named: "silverBackground") ?? .lightGray
-    var backgroundColor: UIColor = UIColor(named: "backgroundColor") ?? .white
-    var placeholderColor: UIColor = UIColor(named: "placeholderColor") ?? .lightGray
-    var textColor: UIColor = UIColor(named: "textColor") ?? .black
+    let snow: UIColor = UIColor(red: 252/255, green: 247/255, blue: 248/255, alpha: 1.0)
+    let lightGray: UIColor = UIColor(red: 206/255, green: 211/255, blue: 220/255, alpha: 1.0)
+    let wildBlueYonder: UIColor = UIColor(red: 171/255, green: 169/255, blue: 195/255, alpha: 1.0)
+    let lightRed: UIColor = UIColor(red: 234/255, green: 55/255, blue: 45/255, alpha: 0.7)
+    let blue: UIColor = UIColor(red: 39/255, green: 93/255, blue: 173/255, alpha: 1.0)
+    let purple: UIColor = UIColor(red: 106/255, green: 15/255, blue: 161/255, alpha: 1.0)
+    let silverBackground: UIColor = UIColor(named: "silverBackground") ?? .lightGray
+    let backgroundColor: UIColor = UIColor(named: "backgroundColor") ?? .white
+    let placeholderColor: UIColor = UIColor(named: "placeholderColor") ?? .lightGray
+    let textColor: UIColor = UIColor(named: "textColor") ?? .black
 }
 
 struct Link {
@@ -84,9 +86,13 @@ struct Link {
     let checkJoinedCourse: String = "\(baseUrl)/join/check-is-join-course"
     
     let getJoinedCoursesByUser: String = "\(baseUrl)/join/get-courses-joined-by-user"
+    
+    
+    //-- MyCourses
     let createCourse: String = "\(baseUrl)/course/create"
     let getMyCourses: String = "\(baseUrl)/course/getby-iduser"
-    
+    let updateCourse: String = "\(baseUrl)/course/update"
+    let deleteCourse: String = "\(baseUrl)/course/delete"
     
     //-- Rating
     let getRatingsByCourse: String = "\(baseUrl)/rate/get-rate-by-course"

@@ -1,8 +1,8 @@
 //
-//  APICreateCourse.swift
+//  APIUpdateCourse.swift
 //  Udemy
 //
-//  Created by Phúc Lý on 26/12/2020.
+//  Created by Phúc Lý on 28/12/2020.
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
@@ -10,8 +10,7 @@ import Alamofire
 import SVProgressHUD
 
 extension RequestAPI {
-    func createCourse(name: String, goal: String, description: String, categoryId: String, price: Int, discount: Int, image: UIImage?, onSuccess: @escaping () -> Void) {
-        
+    func updateCourse(by id: String, name: String, goal: String, description: String, categoryId: String, price: Int, discount: Int, image: UIImage?, onSuccess: @escaping () -> Void ) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
@@ -21,7 +20,7 @@ extension RequestAPI {
         }
         
         // URL
-        guard let url = URL(string: "\(Common.link.createCourse)") else {
+        guard let url = URL(string: "\(Common.link.updateCourse)/\(id)") else {
             return
         }
         
@@ -63,7 +62,7 @@ extension RequestAPI {
                 let now = Int64(Date().timeIntervalSince1970 * 1000)
                 multipartFormData.append(imageData, withName: "image", fileName: "\(id)courseThumbnail\(categoryId)\(now).jpg", mimeType: "image/jpg")
             }
-        }, to: url, method: .post, headers: headers).responseData { (response) in
+        }, to: url, method: .put, headers: headers).responseData { (response) in
             
             SVProgressHUD.dismiss()
             
@@ -76,12 +75,12 @@ extension RequestAPI {
                 return
             }
             
-            self.parseCreateCourse(data, onSuccess: onSuccess)
+            self.parseUpdateCourse(data, onSuccess: onSuccess)
         }
-        
     }
     
-    func parseCreateCourse(_ data: Data, onSuccess: @escaping () -> Void) {
+    
+    func parseUpdateCourse(_ data: Data, onSuccess: @escaping () -> Void) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
@@ -90,16 +89,16 @@ extension RequestAPI {
         }
         
         do {
-            let result = try JSONDecoder().decode(CreateCourseResponse.self, from: data)
+            let result = try JSONDecoder().decode(UpdateCourseResponse.self, from: data)
             if result.status == "success" {
                 onSuccess()
             }
             else {
-                window.showError("Create course failed", result.err.debugDescription)
+                window.showError("Update course failed", "")
             }
             
         } catch {
-            window.showError("Create course failed", error.localizedDescription)
+            window.showError("Update course failed", error.localizedDescription)
         }
     }
 }

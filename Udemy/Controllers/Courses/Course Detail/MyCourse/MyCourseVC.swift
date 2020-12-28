@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwipeCellKit
 
 fileprivate let cellID = "myCourseTBVCell"
 
@@ -113,6 +114,7 @@ extension MyCourseVC: UITableViewDataSource {
             return UITableViewCell()
         }
         
+        cell.delegate = self
         cell.setData(course: displayCourses[indexPath.row])
         
         return cell
@@ -121,6 +123,38 @@ extension MyCourseVC: UITableViewDataSource {
     
 }
 
+
+// MARK: - SwipeTableViewCellDelegate
+extension MyCourseVC: SwipeTableViewCellDelegate {
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            RequestAPI.shared.deleteCourse(by: self.courses[indexPath.row]._id) {
+                self.courses.remove(at: indexPath.row)
+                
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        }
+        let editAction = SwipeAction(style: .default, title: "Edit") { (action, indexPath) in
+            let updateCourseVC = CreateCourseVC()
+            let course = self.courses[indexPath.row]
+            updateCourseVC.navigationItem.title = "Update"
+            updateCourseVC.isEditForm = true
+            updateCourseVC.updateCourse = course
+            self.navigationController?.pushViewController(updateCourseVC, animated: true)
+        }
+        
+        // customize the action appearance
+        deleteAction.image = UIImage(named: Common.imageName.delete)
+        editAction.image = UIImage(named: Common.imageName.edit)
+        
+        return [deleteAction, editAction]
+    }
+    
+    
+}
 
 
 // MARK: - UITableViewDelegate
@@ -137,6 +171,10 @@ extension MyCourseVC: UITableViewDelegate {
 
 // MARK: - CreateCourseVCDelegate
 extension MyCourseVC: CreateCourseVCDelegate {
+    func didUpdateSuccessfully() {
+        adaptData()
+    }
+    
     func didCreateSuccessfully() {
         
         // Notify

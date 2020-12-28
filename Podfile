@@ -25,4 +25,5 @@ pod 'DropDown'
 pod 'SVProgressHUD'
 pod 'ReachabilitySwift'
 pod 'SDWebImage'
+pod 'SwipeCellKit'
 end

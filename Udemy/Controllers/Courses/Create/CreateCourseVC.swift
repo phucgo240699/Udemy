@@ -11,6 +11,7 @@ import DropDown
 
 protocol CreateCourseVCDelegate: class {
     func didCreateSuccessfully()
+    func didUpdateSuccessfully()
 }
 
 class CreateCourseVC: UIViewController {
@@ -32,6 +33,9 @@ class CreateCourseVC: UIViewController {
     // Data
     var choseCategory: Category?
     
+    // Edit
+    var isEditForm: Bool = false
+    var updateCourse: Course?
     
     // Delegate
     weak var delegate: CreateCourseVCDelegate?
@@ -43,6 +47,24 @@ class CreateCourseVC: UIViewController {
     }
     
     func setupUI() {
+        
+        if isEditForm {
+            tfName.text = updateCourse?.name
+            tfGoal.text = updateCourse?.goal
+            tvDescription.text = updateCourse?.description
+            
+            chooseCategoryBtn.setTitle(updateCourse?.category?.name, for: .normal)
+            if let price = updateCourse?.price {
+                tfPrice.text = "\(price)"
+            }
+            if let discount = updateCourse?.discount {
+                tfDiscount.text = "\(discount)"
+            }
+            if let image = updateCourse?.image {
+                imgView.sd_setImage(with: URL(string: "\(Common.link.getCourseThumbnail)/\(image)"), completed: nil)
+            }
+            choseCategory = updateCourse?.category
+        }
         
         //-- Navigation
         addBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(CreateCourseVC.addCourseBarBtnPressed(_:)))
@@ -74,28 +96,45 @@ class CreateCourseVC: UIViewController {
     
     
     @objc func addCourseBarBtnPressed(_ sender: UIBarButtonItem) {
-        guard let name = tfName.text,
+        guard let idCourse = updateCourse?._id,
+              let name = tfName.text,
               let goal = tfGoal.text,
               let description = tvDescription.text,
               let categoryId = choseCategory?._id,
               let priceString = tfPrice.text,
-              let discountString = tfDiscount.text,
-              let image = imgView.image else {
+              let discountString = tfDiscount.text else {
             return
         }
+        
         guard let discount = Int(discountString),
               let price = Int(priceString) else {
             return
         }
         
-        RequestAPI.shared.createCourse(name: name, goal: goal, description: description, categoryId: categoryId, price: price, discount: discount, image: image) {
-            self.navigationController?.popViewController(animated: true)
-            self.delegate?.didCreateSuccessfully()
+        if isEditForm {
+            RequestAPI.shared.updateCourse(by: idCourse, name: name, goal: goal, description: description, categoryId: categoryId, price: price, discount: discount, image: imgView.image) {
+                self.navigationController?.popViewController(animated: true)
+                self.delegate?.didUpdateSuccessfully()
+            }
         }
-
+        else {
+            guard let image = imgView.image else {
+                return
+            }
+            
+            RequestAPI.shared.createCourse(name: name, goal: goal, description: description, categoryId: categoryId, price: price, discount: discount, image: image) {
+                self.navigationController?.popViewController(animated: true)
+                self.delegate?.didCreateSuccessfully()
+            }
+        }
     }
     
     func isValidForm() -> Bool {
+        
+        if isEditForm {
+            return true
+        }
+        
         if tfName.text?.isEmptyOrSpacing() == true {
             return false
         }

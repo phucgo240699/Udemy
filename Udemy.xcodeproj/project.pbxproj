@@ -168,6 +168,15 @@
 		3E8A7F6C2595E35E00395C0F /* CreateCourseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8A7F682595E35E00395C0F /* CreateCourseVC.xib */; };
 		3E8A7F6D2595E35E00395C0F /* CreateCourseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8A7F682595E35E00395C0F /* CreateCourseVC.xib */; };
 		3E8A7F6E2595E35E00395C0F /* CreateCourseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8A7F682595E35E00395C0F /* CreateCourseVC.xib */; };
+		3E8ACF0F2599F3190040F38A /* UpdateCourseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8ACF0E2599F3190040F38A /* UpdateCourseResponse.swift */; };
+		3E8ACF102599F3190040F38A /* UpdateCourseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8ACF0E2599F3190040F38A /* UpdateCourseResponse.swift */; };
+		3E8ACF112599F3190040F38A /* UpdateCourseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8ACF0E2599F3190040F38A /* UpdateCourseResponse.swift */; };
+		3E8ACF162599F3D20040F38A /* APIUpdateCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8ACF152599F3D20040F38A /* APIUpdateCourse.swift */; };
+		3E8ACF172599F3D20040F38A /* APIUpdateCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8ACF152599F3D20040F38A /* APIUpdateCourse.swift */; };
+		3E8ACF182599F3D20040F38A /* APIUpdateCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8ACF152599F3D20040F38A /* APIUpdateCourse.swift */; };
+		3E8ACF1D2599F56A0040F38A /* APIDeleteCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8ACF1C2599F56A0040F38A /* APIDeleteCourse.swift */; };
+		3E8ACF1E2599F56A0040F38A /* APIDeleteCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8ACF1C2599F56A0040F38A /* APIDeleteCourse.swift */; };
+		3E8ACF1F2599F56A0040F38A /* APIDeleteCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8ACF1C2599F56A0040F38A /* APIDeleteCourse.swift */; };
 		3E8D0ED32562E03500F1295C /* JoinedCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8D0ED22562E03500F1295C /* JoinedCourse.swift */; };
 		3E8D0ED82562E81000F1295C /* IsJoinedCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8D0ED72562E81000F1295C /* IsJoinedCourse.swift */; };
 		3E8D2C6225634E6900691511 /* OrderedCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8D2C6025634E6900691511 /* OrderedCourseTableViewCell.swift */; };
@@ -401,6 +410,9 @@
 		3E8742C025333479001E9D5E /* UserFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFunc.swift; sourceTree = "<group>"; };
 		3E8A7F672595E35E00395C0F /* CreateCourseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCourseVC.swift; sourceTree = "<group>"; };
 		3E8A7F682595E35E00395C0F /* CreateCourseVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateCourseVC.xib; sourceTree = "<group>"; };
+		3E8ACF0E2599F3190040F38A /* UpdateCourseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCourseResponse.swift; sourceTree = "<group>"; };
+		3E8ACF152599F3D20040F38A /* APIUpdateCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUpdateCourse.swift; sourceTree = "<group>"; };
+		3E8ACF1C2599F56A0040F38A /* APIDeleteCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDeleteCourse.swift; sourceTree = "<group>"; };
 		3E8D0ED22562E03500F1295C /* JoinedCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinedCourse.swift; sourceTree = "<group>"; };
 		3E8D0ED72562E81000F1295C /* IsJoinedCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsJoinedCourse.swift; sourceTree = "<group>"; };
 		3E8D2C6025634E6900691511 /* OrderedCourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedCourseTableViewCell.swift; sourceTree = "<group>"; };
@@ -856,6 +868,8 @@
 				3E6328152566507500AE1967 /* APIFetchJoinedCourses.swift */,
 				3E8F50E92596E91F00FD7CE9 /* APICreateCourse.swift */,
 				3EBB6A7F2599B6CA00182A39 /* APIFetchMyCourses.swift */,
+				3E8ACF152599F3D20040F38A /* APIUpdateCourse.swift */,
+				3E8ACF1C2599F56A0040F38A /* APIDeleteCourse.swift */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -1278,6 +1292,7 @@
 				3E8D0ED72562E81000F1295C /* IsJoinedCourse.swift */,
 				3E50DB4F25657C7C00EBF567 /* RegularCourse.swift */,
 				3E8F50F02596EC1D00FD7CE9 /* CreateCourseResponse.swift */,
+				3E8ACF0E2599F3190040F38A /* UpdateCourseResponse.swift */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -1699,6 +1714,7 @@
 				3E07EB032522E7CC002EBE7B /* Common.swift in Sources */,
 				3EA6015D257A70AE003DF25F /* PayCourseResponse.swift in Sources */,
 				3EAD5D502521C8380093944F /* LoginViewController.swift in Sources */,
+				3E8ACF0F2599F3190040F38A /* UpdateCourseResponse.swift in Sources */,
 				3E8D0ED32562E03500F1295C /* JoinedCourse.swift in Sources */,
 				3E6327F025664B8900AE1967 /* APIFetchCoursesByCategory.swift in Sources */,
 				3E77E79D252DFD32004F0340 /* Account.swift in Sources */,
@@ -1780,6 +1796,7 @@
 				3ED662D025924CFE00991680 /* RatingPopupVC.swift in Sources */,
 				3E6E3FED25230452004DF50E /* YAnchor.swift in Sources */,
 				3E6371E1256647A20015F7FE /* APIFetchCategories.swift in Sources */,
+				3E8ACF162599F3D20040F38A /* APIUpdateCourse.swift in Sources */,
 				3E6E3FF125230901004DF50E /* View.swift in Sources */,
 				3E51760325261ECF0001D2AD /* MainTabBarController.swift in Sources */,
 				3E8742C125333479001E9D5E /* UserFunc.swift in Sources */,
@@ -1805,6 +1822,7 @@
 				3E50DB5025657C7C00EBF567 /* RegularCourse.swift in Sources */,
 				3EAD5D562521C8380093944F /* Udemy.xcdatamodeld in Sources */,
 				3EC377C62594093C00744129 /* ImageCell.swift in Sources */,
+				3E8ACF1D2599F56A0040F38A /* APIDeleteCourse.swift in Sources */,
 				3EEF6D79252C9E6F00FFD443 /* ActivationViewController.swift in Sources */,
 				3EB9E926253EEB4F0043BB9A /* FeatureView.swift in Sources */,
 				3E6910B825694BB3006615B9 /* CourseDetailRatingCell.swift in Sources */,
@@ -1829,6 +1847,8 @@
 				3E7FDC502584683A0070CCE9 /* ResetPassword.swift in Sources */,
 				3EECB12A25977009001B2532 /* getTokenObject.swift in Sources */,
 				3E4424D4258B9B9E009B2D7D /* GetLesson.swift in Sources */,
+				3E8ACF172599F3D20040F38A /* APIUpdateCourse.swift in Sources */,
+				3E8ACF102599F3190040F38A /* UpdateCourseResponse.swift in Sources */,
 				3E4694DF259583FC00AC7F66 /* CreateLesson.swift in Sources */,
 				3EAF5C36259991F70045CB6B /* UpdateProgress.swift in Sources */,
 				3E4694D82595824F00AC7F66 /* DeleteLessonResponse.swift in Sources */,
@@ -1847,6 +1867,7 @@
 				3E311581259763DF00C35F38 /* PayCourseRequest.swift in Sources */,
 				3E20759B25962EB5003FB93C /* CategoryNameVC.swift in Sources */,
 				3E53DC6B25845F0F009F3F97 /* GetTokenResetPassVC.swift in Sources */,
+				3E8ACF1E2599F56A0040F38A /* APIDeleteCourse.swift in Sources */,
 				3EAD5D662521C8390093944F /* UdemyTests.swift in Sources */,
 				3E7FDC49258464B80070CCE9 /* GetTokenResetPass.swift in Sources */,
 				3E7FDC57258469360070CCE9 /* ResetPassRes.swift in Sources */,
@@ -1871,6 +1892,8 @@
 				3E7FDC512584683A0070CCE9 /* ResetPassword.swift in Sources */,
 				3EECB12B25977009001B2532 /* getTokenObject.swift in Sources */,
 				3E4424D5258B9B9E009B2D7D /* GetLesson.swift in Sources */,
+				3E8ACF182599F3D20040F38A /* APIUpdateCourse.swift in Sources */,
+				3E8ACF112599F3190040F38A /* UpdateCourseResponse.swift in Sources */,
 				3E4694E0259583FC00AC7F66 /* CreateLesson.swift in Sources */,
 				3EAF5C37259991F70045CB6B /* UpdateProgress.swift in Sources */,
 				3E4694D92595824F00AC7F66 /* DeleteLessonResponse.swift in Sources */,
@@ -1889,6 +1912,7 @@
 				3E311582259763DF00C35F38 /* PayCourseRequest.swift in Sources */,
 				3E20759C25962EB5003FB93C /* CategoryNameVC.swift in Sources */,
 				3E53DC6C25845F0F009F3F97 /* GetTokenResetPassVC.swift in Sources */,
+				3E8ACF1F2599F56A0040F38A /* APIDeleteCourse.swift in Sources */,
 				3EAD5D712521C8390093944F /* UdemyUITests.swift in Sources */,
 				3E7FDC4A258464B80070CCE9 /* GetTokenResetPass.swift in Sources */,
 				3E7FDC58258469360070CCE9 /* ResetPassRes.swift in Sources */,
