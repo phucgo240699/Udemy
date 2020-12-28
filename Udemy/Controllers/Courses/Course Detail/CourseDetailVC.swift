@@ -64,17 +64,17 @@ class CourseDetailVC: UIViewController {
         }
 
         // Fetch courses
-//        RequestAPI.shared.fetchCourses(by: course?.category?._id) { (courses) in
-//            self.relatedCourses = courses
-//
-//            for index in 0 ..< self.cellTypes.count {
-//                if self.cellTypes[index] == .RelatedCourses {
-//                    DispatchQueue.main.async {
-//                        self.tableView.reloadRows(at: [IndexPath(row: index, section: CourseDetailCellType.RelatedCourses.rawValue)], with: .automatic)
-//                    }
-//                }
-//            }
-//        }
+        RequestAPI.shared.fetchCourses(by: course?.category?._id) { (courses) in
+            self.relatedCourses = courses
+
+            for index in 0 ..< self.cellTypes.count {
+                if self.cellTypes[index] == .RelatedCourses {
+                    DispatchQueue.main.async {
+                        self.tableView.reloadSections(IndexSet(integer: CourseDetailCellType.RelatedCourses.rawValue), with: .automatic)
+                    }
+                }
+            }
+        }
 
         // Fetch courseRatings
         RequestAPI.shared.fetchRatings(by: course?._id) { (ratings) in
@@ -130,13 +130,13 @@ extension CourseDetailVC: UITableViewDataSource {
     
     // -- Footer
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if cellTypes[section] == .Rating {
+        if cellTypes[section] == .Rating && self.courseRatings.count > 2 {
             return 44.0
         }
         return 0.0
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        if cellTypes[section] == .Rating {
+        if cellTypes[section] == .Rating && self.courseRatings.count > 2 {
             let btn = UIButton()
             btn.setTitle("Show all", for: .normal)
             btn.setTitleColor(Common.color.blue, for: .normal)
