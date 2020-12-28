@@ -64,7 +64,7 @@ extension RequestAPI {
             onSuccess(result)
             
         } catch {
-            window.showError("Log out failed", error.localizedDescription)
+            window.showError("Fetch category failed", error.localizedDescription)
         }
     }
 }

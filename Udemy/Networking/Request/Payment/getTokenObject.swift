@@ -71,7 +71,7 @@ extension RequestAPI {
             
         } catch {
             SVProgressHUD.dismiss()
-            window.showError("Log out failed", error.localizedDescription)
+            window.showError("Get token object failed", error.localizedDescription)
         }
     }
 }

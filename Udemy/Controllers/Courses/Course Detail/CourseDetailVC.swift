@@ -47,6 +47,7 @@ class CourseDetailVC: UIViewController {
     
     
     var courseRatings: [CourseRating] = []
+    var isShowAll: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +84,7 @@ class CourseDetailVC: UIViewController {
             }
             else {
                 self.courseRatings = [ ratings[0], ratings[1] ]
+                self.isShowAll = true
             }
 
             self.tableView.reloadData()
@@ -110,15 +112,21 @@ extension CourseDetailVC: UITableViewDataSource {
     
     // -- Header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if cellTypes[section] == .Rating {
+        if cellTypes[section] == .Rating && courseRatings.count != 0 {
+            return UITableView.automaticDimension
+        }
+        return 0.0
+    }
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        if cellTypes[section] == .Rating && courseRatings.count != 0 {
             return 44.0
         }
         return 0.0
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if cellTypes[section] == .Rating {
+        if cellTypes[section] == .Rating && courseRatings.count != 0 {
             let label = UILabel()
-            label.font = UIFont(name: Common.fontName, size: 25.0)
+            label.font = UIFont(name: Common.fontName, size: 20.0)
             label.textColor = Common.color.textColor
             label.backgroundColor = .clear
             label.text = "Reviews"
@@ -130,13 +138,19 @@ extension CourseDetailVC: UITableViewDataSource {
     
     // -- Footer
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if cellTypes[section] == .Rating && self.courseRatings.count > 2 {
+        if cellTypes[section] == .Rating && self.isShowAll {
+            return UITableView.automaticDimension
+        }
+        return 0.0
+    }
+    func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+        if cellTypes[section] == .Rating && courseRatings.count != 0 {
             return 44.0
         }
         return 0.0
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        if cellTypes[section] == .Rating && self.courseRatings.count > 2 {
+        if cellTypes[section] == .Rating && self.isShowAll {
             let btn = UIButton()
             btn.setTitle("Show all", for: .normal)
             btn.setTitleColor(Common.color.blue, for: .normal)

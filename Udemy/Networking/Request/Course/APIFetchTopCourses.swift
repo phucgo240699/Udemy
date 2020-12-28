@@ -63,7 +63,7 @@ extension RequestAPI {
             onSuccess(result)
             
         } catch {
-            window.showError("Log out failed", error.localizedDescription)
+            window.showError("Fetch top courses failed", error.localizedDescription)
         }
     }
 }

@@ -52,12 +52,12 @@ extension AccountViewController {
                 return
             }
             
-            self.parseJSON(data)
+            self.parseLogoutJSON(data)
         }
     }
     
     
-    func parseJSON(_ data: Data) {
+    func parseLogoutJSON(_ data: Data) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
