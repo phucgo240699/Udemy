@@ -58,7 +58,7 @@ extension RequestAPI {
             }
             
             if statusCode == 200 {
-                self.parseDeleteCourseJSON(data, onSuccess: onSuccess)
+                onSuccess()
             }
             else {
                 self.parseMessageErrorJSON(from: data)

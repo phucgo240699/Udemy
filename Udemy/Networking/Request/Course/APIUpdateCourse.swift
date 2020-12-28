@@ -10,17 +10,18 @@ import Alamofire
 import SVProgressHUD
 
 extension RequestAPI {
-    func updateCourse(by id: String, name: String, goal: String, description: String, categoryId: String, price: Int, discount: Int, image: UIImage?, onSuccess: @escaping () -> Void ) {
+    func updateCourse(by idCourse: String?, name: String?, goal: String?, description: String?, categoryId: String?, price: Int?, discount: Int?, image: UIImage?, imageName: String?, onSuccess: @escaping () -> Void ) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
         guard let window = appDelegate.window,
-              let id = appDelegate.account._id else {
+              let idUser = appDelegate.account._id,
+              let idCourse = idCourse else {
             return
         }
         
         // URL
-        guard let url = URL(string: "\(Common.link.updateCourse)/\(id)") else {
+        guard let url = URL(string: "\(Common.link.updateCourse)/\(idCourse)") else {
             return
         }
         
@@ -40,27 +41,41 @@ extension RequestAPI {
         
         // Call API
         AF.upload(multipartFormData: { (multipartFormData) in
-            if let nameData = "\(name)".data(using: String.Encoding.utf8) {
-                multipartFormData.append(nameData, withName: "name")
+            if let name = name {
+                if let nameData = "\(name)".data(using: String.Encoding.utf8) {
+                    multipartFormData.append(nameData, withName: "name")
+                }
             }
-            if let goalData = "\(goal)".data(using: String.Encoding.utf8) {
-                multipartFormData.append(goalData, withName: "goal")
+            if let goal = goal {
+                if let goalData = "\(goal)".data(using: String.Encoding.utf8) {
+                    multipartFormData.append(goalData, withName: "goal")
+                }
             }
-            if let descriptionData = "\(description)".data(using: String.Encoding.utf8) {
-                multipartFormData.append(descriptionData, withName: "description")
+            if let description = description {
+                if let descriptionData = "\(description)".data(using: String.Encoding.utf8) {
+                    multipartFormData.append(descriptionData, withName: "description")
+                }
             }
-            if let categoryIdData = "\(categoryId)".data(using: String.Encoding.utf8) {
-                multipartFormData.append(categoryIdData, withName: "category")
+            if let categoryId = categoryId {
+                if let categoryIdData = "\(categoryId)".data(using: String.Encoding.utf8) {
+                    multipartFormData.append(categoryIdData, withName: "category")
+                }
             }
-            if let priceData = "\(price)".data(using: String.Encoding.utf8) {
-                multipartFormData.append(priceData, withName: "price")
+            if let price = price {
+                if let priceData = "\(price)".data(using: String.Encoding.utf8) {
+                    multipartFormData.append(priceData, withName: "price")
+                }
             }
-            if let discountData = "\(discount)".data(using: String.Encoding.utf8) {
-                multipartFormData.append(discountData, withName: "discount")
+            if let discount = discount {
+                if let discountData = "\(discount)".data(using: String.Encoding.utf8) {
+                    multipartFormData.append(discountData, withName: "discount")
+                }
             }
-            if let imageData = image?.jpegData(compressionQuality: 1.0) {
-                let now = Int64(Date().timeIntervalSince1970 * 1000)
-                multipartFormData.append(imageData, withName: "image", fileName: "\(id)courseThumbnail\(categoryId)\(now).jpg", mimeType: "image/jpg")
+            if let image = image, let imageName = imageName {
+                if let imageData = image.jpegData(compressionQuality: 1.0) {
+                    let now = Int64(Date().timeIntervalSince1970 * 1000)
+                    multipartFormData.append(imageData, withName: "image", fileName: "\(imageName).jpg", mimeType: "image/jpg")
+                }
             }
         }, to: url, method: .put, headers: headers).responseData { (response) in
             

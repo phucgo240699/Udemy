@@ -66,6 +66,8 @@ class CreateCourseVC: UIViewController {
             choseCategory = updateCourse?.category
         }
         
+        self.enableTapToDismiss()
+        
         //-- Navigation
         addBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(CreateCourseVC.addCourseBarBtnPressed(_:)))
         addBarButton?.isEnabled = false
@@ -96,13 +98,21 @@ class CreateCourseVC: UIViewController {
     
     
     @objc func addCourseBarBtnPressed(_ sender: UIBarButtonItem) {
-        guard let idCourse = updateCourse?._id,
-              let name = tfName.text,
+        if isEditForm {
+            RequestAPI.shared.updateCourse(by: updateCourse?._id, name: tfName.text, goal: tfGoal.text, description: tvDescription.text, categoryId: choseCategory?._id, price: Int(tfPrice.text ?? ""), discount: Int(tfDiscount.text ?? ""), image: imgView.image, imageName: updateCourse?.image ) {
+                self.navigationController?.popViewController(animated: true)
+                self.delegate?.didUpdateSuccessfully()
+            }
+            return
+        }
+        
+        guard let name = tfName.text,
               let goal = tfGoal.text,
               let description = tvDescription.text,
               let categoryId = choseCategory?._id,
               let priceString = tfPrice.text,
-              let discountString = tfDiscount.text else {
+              let discountString = tfDiscount.text,
+              let image = imgView.image else {
             return
         }
         
@@ -111,27 +121,24 @@ class CreateCourseVC: UIViewController {
             return
         }
         
-        if isEditForm {
-            RequestAPI.shared.updateCourse(by: idCourse, name: name, goal: goal, description: description, categoryId: categoryId, price: price, discount: discount, image: imgView.image) {
-                self.navigationController?.popViewController(animated: true)
-                self.delegate?.didUpdateSuccessfully()
-            }
+        RequestAPI.shared.createCourse(name: name, goal: goal, description: description, categoryId: categoryId, price: price, discount: discount, image: image) {
+            self.navigationController?.popViewController(animated: true)
+            self.delegate?.didCreateSuccessfully()
         }
-        else {
-            guard let image = imgView.image else {
-                return
-            }
-            
-            RequestAPI.shared.createCourse(name: name, goal: goal, description: description, categoryId: categoryId, price: price, discount: discount, image: image) {
-                self.navigationController?.popViewController(animated: true)
-                self.delegate?.didCreateSuccessfully()
-            }
-        }
+        
     }
     
     func isValidForm() -> Bool {
         
         if isEditForm {
+            if let discountString = tfDiscount.text {
+                if let discount = Int(discountString) {
+                    if discount < 0 || discount > 100 {
+                        return false
+                    }
+                }
+            }
+            
             return true
         }
         
