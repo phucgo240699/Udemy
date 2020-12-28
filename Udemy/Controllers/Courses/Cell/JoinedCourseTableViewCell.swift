@@ -9,12 +9,14 @@
 import UIKit
 import SDWebImage
 
-class MyCourseTableViewCell: UITableViewCell {
-
+class JoinedCourseTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var imgViewThumbnail: UIImageView!
     @IBOutlet weak var lbName: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

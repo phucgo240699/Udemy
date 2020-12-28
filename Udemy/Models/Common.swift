@@ -85,7 +85,7 @@ struct Link {
     
     let getJoinedCoursesByUser: String = "\(baseUrl)/join/get-courses-joined-by-user"
     let createCourse: String = "\(baseUrl)/course/create"
-    
+    let getMyCourses: String = "\(baseUrl)/course/getby-iduser"
     
     
     //-- Rating

@@ -1,79 +1,67 @@
 //
-//  CourseViewController.swift
+//  MyCourseVC.swift
 //  Udemy
 //
-//  Created by Phúc Lý on 16/11/2020.
+//  Created by Phúc Lý on 28/12/2020.
 //  Copyright © 2020 Phúc Lý. All rights reserved.
 //
 
 import UIKit
 
-fileprivate let cellID: String = "courseTBVCell"
+fileprivate let cellID = "myCourseTBVCell"
 
-class CourseViewController: UIViewController {
-
-    // Components UI
+class MyCourseVC: UIViewController {
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var lbEmpty: UILabel!
-    var rightBarBtn: UIBarButtonItem?
+    var addBarButton: UIBarButtonItem?
     
     var refreshControl: UIRefreshControl = UIRefreshControl()
     
-    
-    // Data
-    var courses: [JoinedCourse] = []
-    var displayCourses: [JoinedCourse] = []
-    
+    var courses: [Course] = []
+    var displayCourses: [Course] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.enableTapToDismiss()
-        
-        // Title
-        navigationController?.navigationItem.title = "Joined Courses"
-        
-        // Left
-        rightBarBtn = UIBarButtonItem(title: "My Course", style: .plain, target: self, action: #selector(CourseViewController.rightBarBtnPressed(_:)))
-        navigationItem.rightBarButtonItem = rightBarBtn
-        
         
         setupUI()
         
         adaptData()
     }
     
-    func setupUI() {
+    private func setupUI() {
+        
+        self.enableTapToDismiss()
+        
+        // Title
+        navigationController?.navigationItem.title = "My Courses"
+        
+        // Right
+        addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(MyCourseVC.addCourseBarBtnPressed(_:)))
+        navigationItem.rightBarButtonItem = addBarButton
+        
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "JoinedCourseTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
+        tableView.register(UINib(nibName: "MyCourseTBVCell", bundle: nil), forCellReuseIdentifier: cellID)
+        
         
         // refresh control
         refreshControl.addTarget(self, action: #selector(CourseViewController.refresh(_:)), for: .valueChanged)
         tableView.addSubview(refreshControl)
     }
     
-    @objc func rightBarBtnPressed(_ sender: UIBarButtonItem) {
-        let myCoursesVC = MyCourseVC()
-        navigationController?.pushViewController(myCoursesVC, animated: true)
+    @objc func addCourseBarBtnPressed(_ sender: UIBarButtonItem) {
+        let createCourseVC = CreateCourseVC()
+        createCourseVC.delegate = self
+        navigationController?.pushViewController(createCourseVC, animated: true)
     }
+    
     
     @objc func refresh(_ sender: UIRefreshControl) {
         refreshControl.endRefreshing()
         
         adaptData()
-    }
-    
-    func adaptData() {
-        RequestAPI.shared.fetchJoinedCourses(by: (UIApplication.shared.delegate as? AppDelegate)?.account._id) { (joinedCourses) in
-            self.courses = joinedCourses
-            self.displayCourses = joinedCourses
-
-            self.handleEmptyData()
-            
-            self.tableView.reloadData()
-        }
     }
     
     func handleEmptyData() {
@@ -86,10 +74,23 @@ class CourseViewController: UIViewController {
             self.lbEmpty.isHidden = true
         }
     }
+    
+    func adaptData() {
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
+            return
+        }
+        RequestAPI.shared.fetchMyCourses(by: appDelegate.account._id) { (courses) in
+            self.courses = courses
+            self.displayCourses = courses
+            self.handleEmptyData()
+            self.tableView.reloadData()
+        }
+    }
 }
 
-// MARK: - UITableViewDatasource
-extension CourseViewController: UITableViewDataSource {
+
+// MARK: - UITableViewDataSource
+extension MyCourseVC: UITableViewDataSource {
     
     // -- Header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -102,43 +103,52 @@ extension CourseViewController: UITableViewDataSource {
         return searchBar
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120.0//UITableView.automaticDimension
-    }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return displayCourses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? JoinedCourseTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? MyCourseTBVCell else {
             return UITableViewCell()
         }
         
-        cell.backgroundColor = .clear
         cell.setData(course: displayCourses[indexPath.row])
-        cell.accessoryType = .none
         
         return cell
-        
     }
+    
+    
 }
 
+
+
 // MARK: - UITableViewDelegate
-extension CourseViewController: UITableViewDelegate {
+extension MyCourseVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let lessonVC = LessonViewController()
-        lessonVC.idCourse = self.courses[indexPath.row].idCourse?._id
+        lessonVC.idCourse = self.courses[indexPath.row]._id
         self.navigationController?.pushViewController(lessonVC, animated: true)
         
     }
 }
 
 
+// MARK: - CreateCourseVCDelegate
+extension MyCourseVC: CreateCourseVCDelegate {
+    func didCreateSuccessfully() {
+        
+        // Notify
+        self.notificate(UIImage(named: Common.imageName.done), "Created Successfully", "")
+        
+        adaptData()
+        
+    }
+}
+
 // MARK: - Search Delegate
-extension CourseViewController: UISearchBarDelegate {
+extension MyCourseVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchText.isEmptyOrSpacing() {
@@ -146,7 +156,7 @@ extension CourseViewController: UISearchBarDelegate {
         }
         else {
             displayCourses = courses.filter({ (course) -> Bool in
-                return course.idCourse?.name?.lowercased().contains(searchText.lowercased()) ?? false
+                return course.name?.lowercased().contains(searchText.lowercased()) ?? false
             })
         }
         

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyCourseTableViewCell" customModule="Udemy" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JoinedCourseTableViewCell" customModule="Udemy" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="MyCourseTableViewCell" customModule="Udemy" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="JoinedCourseTableViewCell" customModule="Udemy" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -68,10 +68,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="container" destination="m41-Mp-dgB" id="dHk-B3-nsR"/>
-                <outlet property="imgViewThumbnail" destination="QcI-j3-Y7w" id="icW-RK-8kW"/>
-                <outlet property="lbName" destination="EHW-7t-fsY" id="9i9-GU-OsM"/>
-                <outlet property="progressView" destination="7fG-MZ-lzy" id="OO2-6s-4cx"/>
+                <outlet property="container" destination="m41-Mp-dgB" id="nW6-yT-YG9"/>
+                <outlet property="imgViewThumbnail" destination="QcI-j3-Y7w" id="I9k-io-QgO"/>
+                <outlet property="lbName" destination="EHW-7t-fsY" id="WT8-SP-WRo"/>
+                <outlet property="progressView" destination="7fG-MZ-lzy" id="dm0-df-ioe"/>
             </connections>
             <point key="canvasLocation" x="36.956521739130437" y="97.767857142857139"/>
         </tableViewCell>
