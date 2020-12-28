@@ -22,6 +22,7 @@ class PaymentViewController: UIViewController {
 
     @IBOutlet weak var tfCode: UITextField!
     @IBOutlet weak var tfDate: UITextField!
+    @IBOutlet weak var tfYear: UITextField!
     @IBOutlet weak var tfCvv: UITextField!
     @IBOutlet weak var paymentBtn: UIButton!
     
@@ -34,8 +35,8 @@ class PaymentViewController: UIViewController {
     }
     @IBAction func payBtnPressed(_ sender: UIButton) {
         guard let number = tfCode.text,
-              let exp_month = tfDate.text?.split(separator: "/")[0],
-              let exp_year = tfDate.text?.split(separator: "/")[1],
+              let exp_month = tfDate.text,
+              let exp_year = tfDate.text,
               let cvc = tfCvv.text else {
             return
         }

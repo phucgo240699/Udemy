@@ -33,7 +33,7 @@ class CourseViewController: UIViewController {
         // Title
         navigationItem.title = "Joined Courses"
         
-        // Left
+        // Right
         rightBarBtn = UIBarButtonItem(title: "My Course", style: .plain, target: self, action: #selector(CourseViewController.rightBarBtnPressed(_:)))
         navigationItem.rightBarButtonItem = rightBarBtn
         
