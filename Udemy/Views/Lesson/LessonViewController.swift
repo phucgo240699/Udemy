@@ -18,6 +18,8 @@ class LessonViewController: UIViewController {
     var addBarButton: UIBarButtonItem?
     var refreshControl: UIRefreshControl = UIRefreshControl()
     
+    var isUseAddBtn: Bool?
+    
     var playerViewController: AVPlayerViewController?
     
     var idCourse: String?
@@ -39,8 +41,10 @@ class LessonViewController: UIViewController {
         
         //-- Navigation
         title = "Lessons"
-        addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(LessonViewController.addLessonBarBtnPressed(_:)))
-        navigationItem.rightBarButtonItem = addBarButton
+        if isUseAddBtn == true {
+            addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(LessonViewController.addLessonBarBtnPressed(_:)))
+            navigationItem.rightBarButtonItem = addBarButton
+        }
         
         
         //-- TableView

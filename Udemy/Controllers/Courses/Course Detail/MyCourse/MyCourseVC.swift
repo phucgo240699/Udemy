@@ -164,6 +164,7 @@ extension MyCourseVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let idCourse = self.courses[indexPath.row]._id {
             let lessonVC = LessonViewController()
+            lessonVC.isUseAddBtn = true
             lessonVC.idCourse = idCourse
             self.navigationController?.pushViewController(lessonVC, animated: true)
         }

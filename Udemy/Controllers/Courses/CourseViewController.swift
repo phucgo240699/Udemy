@@ -131,6 +131,7 @@ extension CourseViewController: UITableViewDelegate {
         
         if let idCourse = self.courses[indexPath.row].idCourse?._id {
             let lessonVC = LessonViewController()
+            lessonVC.isUseAddBtn = false
             lessonVC.idCourse = idCourse
             self.navigationController?.pushViewController(lessonVC, animated: true)
         }
