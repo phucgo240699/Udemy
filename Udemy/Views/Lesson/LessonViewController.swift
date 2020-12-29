@@ -148,7 +148,7 @@ extension LessonViewController: UITableViewDelegate {
         guard let videoName = self.lessons[indexPath.row].video else {
             return
         }
-        guard let videoUrl = URL(string: "\(Common.link.streamingVideo)/\(videoName)"), let token = TokenManager.getAccessToken() else {
+        guard let videoUrl = URL(string: "\(Common.link.streamingVideo)/\(videoName.split(separator: " ").joined(separator: "%20"))"), let token = TokenManager.getAccessToken() else {
             return
         }
         let header: [String: String] = ["auth-token": token]
