@@ -132,7 +132,10 @@ extension MyCourseVC: SwipeTableViewCellDelegate {
         
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
             RequestAPI.shared.deleteCourse(by: self.courses[indexPath.row]._id) {
-                self.adaptData()
+                self.courses.remove(at: indexPath.row)
+                self.displayCourses.remove(at: indexPath.row)
+                
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
             }
         }
         let editAction = SwipeAction(style: .default, title: "Edit") { (action, indexPath) in

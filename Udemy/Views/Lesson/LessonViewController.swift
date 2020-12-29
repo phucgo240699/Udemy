@@ -200,6 +200,13 @@ extension LessonViewController: LessonCellProtocol {
         }))
         
         
+        //-- Mark as Complete
+        alert.addAction(UIAlertAction(title: "Mark as Complete", style: .default, handler: { (action) in
+            RequestAPI.shared.updateProgressLesson(idCourse: self.idCourse, idLesson: self.lessons[indexPath.row]._id) {
+                self.notificate(UIImage(named: Common.imageName.done), "Congratulate", "You completed this lesson")
+            }
+        }))
+        
         //-- Edit
         alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { (action) in
             let createLessonVC = CreateLessonVC()
@@ -217,8 +224,9 @@ extension LessonViewController: LessonCellProtocol {
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
             RequestAPI.shared.deleteLesson(by: self.lessons[indexPath.row]._id) {
                 self.lessons.remove(at: indexPath.row)
+                self.displayLessons.remove(at: indexPath.row)
                 
-                self.tableView.reloadData()
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
             }
         }))
         
