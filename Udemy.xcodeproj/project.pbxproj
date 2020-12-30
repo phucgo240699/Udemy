@@ -271,9 +271,9 @@
 		3EE02CDD25611E4900F3BA45 /* BaseXibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE02CDC25611E4900F3BA45 /* BaseXibView.swift */; };
 		3EE02CE525611E9000F3BA45 /* CourseDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE02CE325611E9000F3BA45 /* CourseDetailVC.swift */; };
 		3EE02CE625611E9000F3BA45 /* CourseDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EE02CE425611E9000F3BA45 /* CourseDetailVC.xib */; };
-		3EECB12925977009001B2532 /* getTokenObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EECB12825977009001B2532 /* getTokenObject.swift */; };
-		3EECB12A25977009001B2532 /* getTokenObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EECB12825977009001B2532 /* getTokenObject.swift */; };
-		3EECB12B25977009001B2532 /* getTokenObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EECB12825977009001B2532 /* getTokenObject.swift */; };
+		3EECB12925977009001B2532 /* getStripeTokenObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EECB12825977009001B2532 /* getStripeTokenObject.swift */; };
+		3EECB12A25977009001B2532 /* getStripeTokenObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EECB12825977009001B2532 /* getStripeTokenObject.swift */; };
+		3EECB12B25977009001B2532 /* getStripeTokenObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EECB12825977009001B2532 /* getStripeTokenObject.swift */; };
 		3EECB13025977075001B2532 /* Stripe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EECB12F25977075001B2532 /* Stripe.swift */; };
 		3EECB13125977075001B2532 /* Stripe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EECB12F25977075001B2532 /* Stripe.swift */; };
 		3EECB13225977075001B2532 /* Stripe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EECB12F25977075001B2532 /* Stripe.swift */; };
@@ -481,7 +481,7 @@
 		3EE02CDC25611E4900F3BA45 /* BaseXibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseXibView.swift; sourceTree = "<group>"; };
 		3EE02CE325611E9000F3BA45 /* CourseDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailVC.swift; sourceTree = "<group>"; };
 		3EE02CE425611E9000F3BA45 /* CourseDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseDetailVC.xib; sourceTree = "<group>"; };
-		3EECB12825977009001B2532 /* getTokenObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getTokenObject.swift; sourceTree = "<group>"; };
+		3EECB12825977009001B2532 /* getStripeTokenObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getStripeTokenObject.swift; sourceTree = "<group>"; };
 		3EECB12F25977075001B2532 /* Stripe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stripe.swift; sourceTree = "<group>"; };
 		3EEF6D6D252C98A800FFD443 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		3EEF6D78252C9E6F00FFD443 /* ActivationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationViewController.swift; sourceTree = "<group>"; };
@@ -1116,7 +1116,7 @@
 			children = (
 				3EA60143257A69DE003DF25F /* getPaymentKey.swift */,
 				3EA60157257A6E73003DF25F /* PayCourse.swift */,
-				3EECB12825977009001B2532 /* getTokenObject.swift */,
+				3EECB12825977009001B2532 /* getStripeTokenObject.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -1776,7 +1776,7 @@
 				3E4694E7259586E400AC7F66 /* CreateLessonVC.swift in Sources */,
 				3E1098B2258456A700F7396E /* ForgotPasswordViewController.swift in Sources */,
 				3E64341D25989E520070B364 /* DocumentCell.swift in Sources */,
-				3EECB12925977009001B2532 /* getTokenObject.swift in Sources */,
+				3EECB12925977009001B2532 /* getStripeTokenObject.swift in Sources */,
 				3E9F3A8A2532D7A80086DA90 /* InformationViewController.swift in Sources */,
 				3E82307B256644AD007F3C2E /* SearchCategoriesCell.swift in Sources */,
 				3E91FDA12524170C0086DA0A /* Window.swift in Sources */,
@@ -1845,7 +1845,7 @@
 				3EECB13125977075001B2532 /* Stripe.swift in Sources */,
 				3EBB6A572599B0FA00182A39 /* MyCourseVC.swift in Sources */,
 				3E7FDC502584683A0070CCE9 /* ResetPassword.swift in Sources */,
-				3EECB12A25977009001B2532 /* getTokenObject.swift in Sources */,
+				3EECB12A25977009001B2532 /* getStripeTokenObject.swift in Sources */,
 				3E4424D4258B9B9E009B2D7D /* GetLesson.swift in Sources */,
 				3E8ACF172599F3D20040F38A /* APIUpdateCourse.swift in Sources */,
 				3E8ACF102599F3190040F38A /* UpdateCourseResponse.swift in Sources */,
@@ -1890,7 +1890,7 @@
 				3EECB13225977075001B2532 /* Stripe.swift in Sources */,
 				3EBB6A582599B0FA00182A39 /* MyCourseVC.swift in Sources */,
 				3E7FDC512584683A0070CCE9 /* ResetPassword.swift in Sources */,
-				3EECB12B25977009001B2532 /* getTokenObject.swift in Sources */,
+				3EECB12B25977009001B2532 /* getStripeTokenObject.swift in Sources */,
 				3E4424D5258B9B9E009B2D7D /* GetLesson.swift in Sources */,
 				3E8ACF182599F3D20040F38A /* APIUpdateCourse.swift in Sources */,
 				3E8ACF112599F3190040F38A /* UpdateCourseResponse.swift in Sources */,

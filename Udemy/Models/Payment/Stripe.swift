@@ -9,10 +9,10 @@
 import Foundation
 
 struct CardStripRequestDetail: Codable {
-    var number: String?
+    var number: Int?
     var exp_month: Int?
     var exp_year: Int?
-    var cvc: String?
+    var cvc: Int?
 }
 
 struct CardStripeRequest: Codable {

@@ -36,31 +36,42 @@ class PaymentViewController: UIViewController {
     @IBAction func payBtnPressed(_ sender: UIButton) {
         guard let number = tfCode.text,
               let exp_month = tfDate.text,
-              let exp_year = tfDate.text,
+              let exp_year = tfYear.text,
               let cvc = tfCvv.text else {
             return
         }
-        let paramsStripe = CardStripeRequest(card: CardStripRequestDetail(number: number, exp_month: Int(exp_month), exp_year: Int(exp_year), cvc: cvc))
+        let paramsStripe = CardStripeRequest(card: CardStripRequestDetail(number: Int(number), exp_month: Int(exp_month), exp_year: Int(exp_year), cvc: Int(cvc)))
         
         
-        RequestAPI.shared.getStripeTokenObject(params: paramsStripe) { (stripeToken) in
-            
+        RequestAPI.shared.getStripeTokenObject(stripeToken: stripeToken, params: paramsStripe) { (stripeTokenObject) in
+            guard let cardId = stripeTokenObject.card?.id,
+                  let cardObject = stripeTokenObject.card?.object,
+                  let tokenId = stripeTokenObject.id,
+                  let tokenObject = stripeTokenObject.object,
+                  let created = stripeTokenObject.created,
+                  let type = stripeTokenObject.type,
+                  let liveMode = stripeTokenObject.livemode,
+                  let used = stripeTokenObject.used else {
+                (UIApplication.shared.delegate as? AppDelegate)?.window?.showError("Paid fail", "Missing property in stripe token")
+                return
+            }
+                  
             let cardPayment: PayCourseCardRequest = PayCourseCardRequest(
-                id: stripeToken.card?.id,
-                object: stripeToken.card?.object)
+                id: cardId,
+                object: cardObject)
             let tokenPayment: PayCourseTokenRequest = PayCourseTokenRequest(
                 name: self.name,
                 email: self.email,
-                id: stripeToken.id,
-                object: stripeToken.object,
-                created: stripeToken.created,
-                type: stripeToken.type,
-                livemode: stripeToken.livemode,
-                used: stripeToken.used,
+                id: tokenId,
+                object: tokenObject,
+                created: created,
+                type: type,
+                livemode: liveMode,
+                used: used,
                 card: cardPayment)
-            let cartPayment: [PayCourseCartRequest] = [PayCourseCartRequest(_id: self.idCourse)]
+            let cartPayment: PayCourseCartRequest = PayCourseCartRequest(_id: self.idCourse)
             
-            let paramsPayment: PayCourseRequest = PayCourseRequest(token: tokenPayment, cart: cartPayment, idUser: self.idUser)
+            let paramsPayment: PayCourseRequest = PayCourseRequest(token: tokenPayment, cart: [cartPayment], idUser: self.idUser)
             
             RequestAPI.shared.payCourse(params: paramsPayment, onSuccess: {
                 self.navigationController?.popViewController(animated: true)

@@ -11,9 +11,6 @@ import SVProgressHUD
 
 extension RequestAPI {
     func payCourse(params: PayCourseRequest, onSuccess: @escaping () -> Void) {
-        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
-            return
-        }
         
         // URL
         let rawUrl = URL(string: Common.link.payCourse)
