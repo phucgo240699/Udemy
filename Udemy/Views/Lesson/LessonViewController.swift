@@ -251,7 +251,7 @@ extension LessonViewController: CreateLessonVCDelegate {
         self.lessons.append(lesson)
         self.displayLessons.append(lesson)
         
-        self.tableView.insertRows(at: [IndexPath(row: self.lessons.count - 2, section: 0)], with: .automatic)
+        self.tableView.insertRows(at: [IndexPath(row: self.lessons.count - 1, section: 0)], with: .automatic)
     }
     
     func didUpdateLessonSuccess(lesson: Lesson, indexPath: IndexPath) {
