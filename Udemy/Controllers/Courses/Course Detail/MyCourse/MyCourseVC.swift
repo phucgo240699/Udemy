@@ -136,6 +136,8 @@ extension MyCourseVC: SwipeTableViewCellDelegate {
                 self.displayCourses.remove(at: indexPath.row)
                 
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                
+                self.handleEmptyData()
             }
         }
         let editAction = SwipeAction(style: .default, title: "Edit") { (action, indexPath) in

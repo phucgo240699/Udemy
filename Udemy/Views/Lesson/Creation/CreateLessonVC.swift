@@ -30,6 +30,7 @@ class CreateLessonVC: UIViewController {
     var titleCourse: String?
     var video: Data?
     var document: Data?
+    var documentName: String?
     var idCourse: String?
     var order: Int?
     
@@ -77,8 +78,10 @@ class CreateLessonVC: UIViewController {
             }
         }
         else {
-            RequestAPI.shared.createLesson(title: tfTitle.text, idCourse: idCourse, order: order, video: video, document: document) { (lesson) in
-                self.delegate?.didCreateLessonSuccess(lesson: lesson)
+            if let documentName = documentName {
+                RequestAPI.shared.createLesson(title: tfTitle.text, idCourse: idCourse, order: order, video: video, document: document, documentName: documentName) { (lesson) in
+                    self.delegate?.didCreateLessonSuccess(lesson: lesson)
+                }
             }
         }
     }
@@ -182,28 +185,16 @@ extension  CreateLessonVC: UIDocumentPickerDelegate {
             return
         }
         
-        guard let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-            return
-        }
-
-        let sandBoxFileUrl = dir.appendingPathComponent(selectedFileUrl.lastPathComponent)
-
-        if FileManager.default.fileExists(atPath: sandBoxFileUrl.absoluteString) {
-            print("Already exist. Do nothing")
-        }
-        else {
-            do {
-                try FileManager.default.copyItem(at: selectedFileUrl, to: sandBoxFileUrl)
-
-                document = try Data(contentsOf: sandBoxFileUrl)
-                
-                addDocumentBtn.isHidden = false
-                
-                // Update add bar button
-                addBarBtn?.isEnabled = isValidCreateLesson()
-            } catch {
-                print(error)
-            }
+        do {
+            document = try Data(contentsOf: selectedFileUrl)
+            documentName = selectedFileUrl.lastPathComponent.split(separator: " ").joined(separator: "%20")
+            imgViewDocFile.isHidden = false
+            
+            // Update add bar button
+            addBarBtn?.isEnabled = isValidCreateLesson()
+            
+        } catch {
+            print(error)
         }
     }
 }

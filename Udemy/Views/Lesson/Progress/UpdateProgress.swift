@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import SVProgressHUD
 
 extension RequestAPI {
     func updateProgressLesson(idCourse: String?, idLesson: String?, onSuccess: @escaping () -> Void) {
@@ -27,7 +28,12 @@ extension RequestAPI {
             return
         }
         
+        SVProgressHUD.show()
+        
         AF.request(url, method: .put, parameters: nil, encoding: JSONEncoding.default, headers: nil).response { (response) in
+            
+            SVProgressHUD.dismiss()
+            
             if let error = response.error?.errorDescription {
                 window.showError("Error", String(error.description.split(separator: ":")[1]) )
                 return

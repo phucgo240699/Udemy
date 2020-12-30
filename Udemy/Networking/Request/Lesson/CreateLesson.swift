@@ -10,7 +10,7 @@ import Alamofire
 import SVProgressHUD
 
 extension RequestAPI {
-    func createLesson(title: String?, idCourse: String?, order: Int?, video: Data?, document: Data?, onSuccess: @escaping (Lesson) -> Void) {
+    func createLesson(title: String?, idCourse: String?, order: Int?, video: Data?, document: Data?, documentName: String, onSuccess: @escaping (Lesson) -> Void) {
         guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
             return
         }
@@ -40,7 +40,7 @@ extension RequestAPI {
         // Headers
         let headers: HTTPHeaders = [
             "auth-token": accessToken,
-            "Accept": "application/json"
+            "Content-Type": "multipart/form-data; boundary=Boundary-\(UUID().uuidString)"
         ]
         
         SVProgressHUD.show()
@@ -49,7 +49,7 @@ extension RequestAPI {
         AF.upload(multipartFormData: { (multipartFormData) in
             let timestamp = NSDate().timeIntervalSince1970
             multipartFormData.append(video, withName: "videos", fileName: "\(timestamp).mp4", mimeType: "\(timestamp)/mp4")
-            multipartFormData.append(document, withName: "docs", fileName: "\(timestamp).pdf", mimeType: "application/pdf")
+            multipartFormData.append(document, withName: "docs", fileName: documentName, mimeType: "application/pdf")
             multipartFormData.append(title, withName: "title")
             multipartFormData.append(idCourse, withName: "idCourse")
             multipartFormData.append(Data(bytes: &order, count: MemoryLayout.size(ofValue: order)), withName: "order")

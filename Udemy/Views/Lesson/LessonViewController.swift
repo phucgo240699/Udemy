@@ -231,6 +231,8 @@ extension LessonViewController: LessonCellProtocol {
                 self.displayLessons.remove(at: indexPath.row)
                 
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                
+                self.handleEmptyData()
             }
         }))
         
