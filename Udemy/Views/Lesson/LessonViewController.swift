@@ -249,9 +249,8 @@ extension LessonViewController: LessonCellProtocol {
 extension LessonViewController: CreateLessonVCDelegate {
     func didCreateLessonSuccess(lesson: Lesson) {
         self.lessons.append(lesson)
+        self.displayLessons.append(lesson)
         
-        self.tableView.beginUpdates()
-        self.tableView.endUpdates()
         self.tableView.insertRows(at: [IndexPath(row: self.lessons.count - 2, section: 0)], with: .automatic)
     }
     

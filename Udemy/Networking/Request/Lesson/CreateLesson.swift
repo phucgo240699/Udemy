@@ -26,7 +26,7 @@ extension RequestAPI {
         // Params
         guard let title = title?.data(using: String.Encoding.utf8),
               let idCourse = idCourse?.data(using: String.Encoding.utf8),
-              var order = order,
+              let order = order,
               let document = document,
               let video = video else {
             return
@@ -52,7 +52,9 @@ extension RequestAPI {
             multipartFormData.append(document, withName: "docs", fileName: documentName, mimeType: "application/pdf")
             multipartFormData.append(title, withName: "title")
             multipartFormData.append(idCourse, withName: "idCourse")
-            multipartFormData.append(Data(bytes: &order, count: MemoryLayout.size(ofValue: order)), withName: "order")
+            if let orderData = "\(order)".data(using: .utf8) {
+                multipartFormData.append(orderData, withName: "order")
+            }
             
         }, to: url, method: .post, headers: headers).response { (response) in
             // off waiting progress
@@ -78,35 +80,6 @@ extension RequestAPI {
                 self.parseMessageErrorJSON(from: data)
             }
         }
-//        AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).response{
-//            response in
-//
-//            // off waiting progress
-//            SVProgressHUD.dismiss()
-//
-//            if let error = response.error?.errorDescription {
-//                window.showError("Error", String(error.description.split(separator: ":")[1]) )
-//                return
-//            }
-//
-//            guard let data = response.data,
-//                  let statusCode = response.response?.statusCode else {
-//                return
-//            }
-//
-//            if statusCode == 200 {
-//                self.parseCreateLessonJSON(data, onSuccess: onSuccess)
-//            }
-//            else if statusCode == 422 {
-//                self.parseErrorJSON(from: data)
-//            }
-//            else {
-//                self.parseMessageErrorJSON(from: data)
-//            }
-//
-//        }
-        
-        
     }
     
     func parseCreateLessonJSON(_ data: Data, onSuccess: @escaping (Lesson) -> Void) {

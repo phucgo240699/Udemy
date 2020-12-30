@@ -81,6 +81,7 @@ class CreateLessonVC: UIViewController {
             if let documentName = documentName {
                 RequestAPI.shared.createLesson(title: tfTitle.text, idCourse: idCourse, order: order, video: video, document: document, documentName: documentName) { (lesson) in
                     self.delegate?.didCreateLessonSuccess(lesson: lesson)
+                    self.navigationController?.popViewController(animated: true)
                 }
             }
         }
@@ -196,6 +197,10 @@ extension  CreateLessonVC: UIDocumentPickerDelegate {
         } catch {
             print(error)
         }
+    }
+    
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }
 

@@ -208,8 +208,17 @@ extension CourseDetailVC: UITableViewDataSource {
             }
             cell.onTapAddToCartBtn = {
                 if let course = self.course {
-                    (UIApplication.shared.delegate as? AppDelegate)?.cart.courses.append(course)
-                    (UIApplication.shared.delegate as? AppDelegate)?.window?.notificate(UIImage(named: Common.imageName.done), "Add to cart successfully", "")
+                    var isAdd: Bool = true
+                    for e in appDelegate.cart.courses {
+                        if e._id == course._id {
+                            appDelegate.window?.showError("You have added this course to cart", "")
+                            isAdd = false
+                        }
+                    }
+                    if isAdd {
+                        appDelegate.cart.courses.append(course)
+                        appDelegate.window?.notificate(UIImage(named: Common.imageName.done), "Add to cart successfully", "")
+                    }
                 }
             }
             cell.onTapWriteReviewBtn = {
