@@ -43,6 +43,8 @@ class PaymentViewController: UIViewController {
         let paramsStripe = CardStripeRequest(card: CardStripRequestDetail(number: Int(number), exp_month: Int(exp_month), exp_year: Int(exp_year), cvc: Int(cvc)))
         
         
+        SVProgressHUD.show()
+        
         RequestAPI.shared.getStripeTokenObject(stripeToken: stripeToken, params: paramsStripe) { (stripeTokenObject) in
             guard let cardId = stripeTokenObject.card?.id,
                   let cardObject = stripeTokenObject.card?.object,
@@ -52,6 +54,7 @@ class PaymentViewController: UIViewController {
                   let type = stripeTokenObject.type,
                   let liveMode = stripeTokenObject.livemode,
                   let used = stripeTokenObject.used else {
+                SVProgressHUD.dismiss()
                 (UIApplication.shared.delegate as? AppDelegate)?.window?.showError("Paid fail", "Missing property in stripe token")
                 return
             }
