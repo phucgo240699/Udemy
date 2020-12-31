@@ -251,6 +251,8 @@ extension LessonViewController: CreateLessonVCDelegate {
         self.lessons.append(lesson)
         self.displayLessons.append(lesson)
         
+        self.handleEmptyData()
+        
         self.tableView.insertRows(at: [IndexPath(row: self.lessons.count - 1, section: 0)], with: .automatic)
     }
     
