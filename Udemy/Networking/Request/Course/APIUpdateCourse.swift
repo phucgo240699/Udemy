@@ -15,7 +15,7 @@ extension RequestAPI {
             return
         }
         guard let window = appDelegate.window,
-              let idUser = appDelegate.account._id,
+//              let idUser = appDelegate.account._id,
               let idCourse = idCourse else {
             return
         }
@@ -73,7 +73,7 @@ extension RequestAPI {
             }
             if let image = image, let imageName = imageName {
                 if let imageData = image.jpegData(compressionQuality: 1.0) {
-                    let now = Int64(Date().timeIntervalSince1970 * 1000)
+//                    let now = Int64(Date().timeIntervalSince1970 * 1000)
                     multipartFormData.append(imageData, withName: "image", fileName: "\(imageName).jpg", mimeType: "image/jpg")
                 }
             }

@@ -46,12 +46,12 @@ extension RequestAPI {
                 return
             }
             
-            guard let data = response.data,
+            guard /*let data = response.data,*/
                   let statusCode = response.response?.statusCode else {
                 return
             }
             if statusCode == 200 {
-                self.parsePayCourseJSON(data, onSuccess: onSuccess)
+                onSuccess()
             }
             else {
                 window.showError("Paid fail", "")
@@ -60,20 +60,20 @@ extension RequestAPI {
         }
     }
     
-    func parsePayCourseJSON(_ data: Data, onSuccess: @escaping () -> Void) {
-        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
-            return
-        }
-        guard let window = appDelegate.window else {
-            return
-        }
-        
-        do {
-            let result = try JSONDecoder().decode(PayCourseResponse.self, from: data)
-            onSuccess()
-            
-        } catch {
-            window.showError("Pay course failed", error.localizedDescription)
-        }
-    }
+//    func parsePayCourseJSON(_ data: Data, onSuccess: @escaping () -> Void) {
+//        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
+//            return
+//        }
+//        guard let window = appDelegate.window else {
+//            return
+//        }
+//        
+//        do {
+//            let result = try JSONDecoder().decode(PayCourseResponse.self, from: data)
+//            onSuccess()
+//            
+//        } catch {
+//            window.showError("Pay course failed", error.localizedDescription)
+//        }
+//    }
 }
